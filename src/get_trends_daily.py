@@ -12,9 +12,13 @@ from glob import glob
 # global parameters (used for multiprocessing)
 REFWORD = "google"
 TARGET = politics
-SLEEPTIME = 3
+SLEEPTIME = 10
 INIT_DATE = "2010-01-01"
-N_CORES = 4
+FINAL_DATE = "2020-07-28"
+
+# To add current time
+# today = date.today()
+# FINAL_DATE = today.strftime("%Y-%m-%d")
 
 
 def get_time_intervals(init_date, timedelta="180d"):
@@ -32,8 +36,7 @@ def get_time_intervals(init_date, timedelta="180d"):
     :rtype: pd.DataFrame
     """
     intervals = []
-    today = date.today()
-    final_date = today.strftime("%Y-%m-%d")
+    final_date = FINAL_DATE
     var_date = init_date
 
     while pd.Timestamp(var_date) < pd.Timestamp(final_date):
@@ -104,7 +107,8 @@ if __name__ == '__main__':
     # https://stackoverflow.com/questions/50571317/pytrends-the-request-failed-google-returned-a-response-with-code-429
 
     # possible solution
-    # pip3 install --upgrade --user git+https://github.com/GeneralMills/pytrends
+    # pip3 install --upgrade --user
+    # git+https://github.com/GeneralMills/pytrends
 
     # Run code in different computers in different times to get all words
 
