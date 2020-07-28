@@ -1,20 +1,25 @@
 from pytrends.request import TrendReq
 import pandas as pd
-from word_list.basic import politics, toy
+from word_list.basic import base
 from multiprocessing import Pool
 import numpy as np
 import time
 from datetime import date
 from copy import copy
 from glob import glob
+from tqdm import tqdm
+import os
 
 
 # global parameters (used for multiprocessing)
 REFWORD = "google"
-TARGET = politics
+TARGET = base
 SLEEPTIME = 10
 INIT_DATE = "2010-01-01"
 FINAL_DATE = "2020-07-28"
+TIMEZONE_OFFSET = 360
+HOST_LANGUAGE = 'en-US'
+COUNTRY_ABBREVIATION = 'US'
 
 # To add current time
 # today = date.today()
@@ -65,6 +70,7 @@ def get_daily_trend_from_word_list(kw_list,
     information among the different daily data frames we take the mean -
     this is done to circunvent the time limit in the google trends API.
 
+    Each moment a time series is completed, it is saved in "data/daily"
 
     :param kw_list: word list
     :type kw_list: [str]
@@ -72,18 +78,19 @@ def get_daily_trend_from_word_list(kw_list,
     :type reference_word: str
     """
     dfList = []
-    for kw in kw_list:
+    for kw in tqdm(kw_list, desc='word'):
         daily_dfs = []
-        for timeframe in INTERVALS:
-            print(kw, timeframe)
+        for timeframe in tqdm(INTERVALS, desc='time intervals'):
             time.sleep(SLEEPTIME)
-            trends = TrendReq(hl='en-US', tz=360)
+            trends = TrendReq(hl=HOST_LANGUAGE, tz=TIMEZONE_OFFSET)
             trends.build_payload(kw_list=[kw, REFWORD],
-                                 geo='US', timeframe=timeframe)
+                                 geo=COUNTRY_ABBREVIATION,
+                                 timeframe=timeframe)
             df = trends.interest_over_time()
             daily_dfs.append(df)
         daily_ts = pd.concat(daily_dfs).reset_index().groupby("date").mean()
-        daily_ts.to_csv("data/daily/{}.csv".format(kw))
+        ts_path = os.path.join("data", "daily", "{}.csv".format(kw))
+        daily_ts.to_csv(ts_path)
 
 
 def get_df_from_word_list_parallel(kw_list, n_cores):
@@ -107,12 +114,11 @@ if __name__ == '__main__':
     # https://stackoverflow.com/questions/50571317/pytrends-the-request-failed-google-returned-a-response-with-code-429
 
     # possible solution
-    # pip3 install --upgrade --user
-    # git+https://github.com/GeneralMills/pytrends
+    # pip3 install --upgrade --user git+https://github.com/GeneralMills/pytrends
 
     # Run code in different computers in different times to get all words
 
-    already_collected = glob("data/daily/*.csv")
+    already_collected = glob(os.path.join("data", "daily", "*.csv"))
     already_collected = [i.split("/")[2] for i in already_collected]
     already_collected = [i.split(".")[0] for i in already_collected]
     NEW_TARGET = [i for i in TARGET if i not in already_collected]
