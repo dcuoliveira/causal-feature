@@ -6,16 +6,14 @@ import numpy as np
 import time
 from datetime import date
 from copy import copy
+from glob import glob
 
 
 # global parameters (used for multiprocessing)
 REFWORD = "google"
 TARGET = politics
-# TARGET = toy
-# TARGET = ["republican", "democrat"]
 SLEEPTIME = 3
 INIT_DATE = "2010-01-01"
-# INIT_DATE = "2018-01-01"
 N_CORES = 4
 
 
@@ -69,8 +67,6 @@ def get_daily_trend_from_word_list(kw_list,
     :type kw_list: [str]
     :param reference_word: reference_word
     :type reference_word: str
-    :return: word frequency dataframe
-    :rtype: pd.DataFrame
     """
     dfList = []
     for kw in kw_list:
@@ -85,8 +81,6 @@ def get_daily_trend_from_word_list(kw_list,
             daily_dfs.append(df)
         daily_ts = pd.concat(daily_dfs).reset_index().groupby("date").mean()
         daily_ts.to_csv("data/daily/{}.csv".format(kw))
-        dfList.append(daily_ts[kw])
-    return pd.concat(dfList, axis=1)
 
 
 def get_df_from_word_list_parallel(kw_list, n_cores):
@@ -99,27 +93,29 @@ def get_df_from_word_list_parallel(kw_list, n_cores):
     """
     kw_list_split = np.array_split(kw_list, n_cores)
     pool = Pool(n_cores)
-    result = pool.map(get_daily_trend_from_word_list,
-                      kw_list_split)
-    # print(len(result))
-    result = pd.concat(result, 1)
+    _ = pool.map(get_daily_trend_from_word_list,
+                 kw_list_split)
     pool.close()
     pool.join()
-    return result[kw_list]
 
 
 if __name__ == '__main__':
+    # main problem of this script
+    # https://stackoverflow.com/questions/50571317/pytrends-the-request-failed-google-returned-a-response-with-code-429
+
+    # possible solution
+    # pip3 install --upgrade --user git+https://github.com/GeneralMills/pytrends
+
+    # Run code in different computers in different times to get all words
+
+    already_collected = glob("data/daily/*.csv")
+    already_collected = [i.split("/")[2] for i in already_collected]
+    already_collected = [i.split(".")[0] for i in already_collected]
+    NEW_TARGET = [i for i in TARGET if i not in already_collected]
     init = time.time()
-    TARGET = list(set(TARGET))
-    size = len(TARGET)
-    print(
-        "Collecting {} words with {} cores (reference word = '{}')....".format(
-            size,
-            N_CORES,
-            REFWORD,))
-    # df = get_df_from_word_list_parallel(TARGET, n_cores=N_CORES)
-    df = get_daily_trend_from_word_list(TARGET)
-    df.to_csv("data/temp_daily_politics_{}.csv".format(REFWORD))
+    NEW_TARGET = sorted(set(NEW_TARGET))
+    size = len(NEW_TARGET)
+    df = get_daily_trend_from_word_list(NEW_TARGET)
     final = time.time() - init
     final = final / 60
     print("process duration = {:.2f} minutes".format(final))
