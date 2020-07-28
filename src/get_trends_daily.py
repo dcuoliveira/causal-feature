@@ -1,6 +1,6 @@
 from pytrends.request import TrendReq
 import pandas as pd
-from word_list.basic import politics
+from word_list.basic import politics, toy
 from multiprocessing import Pool
 import numpy as np
 import time
@@ -11,8 +11,11 @@ from copy import copy
 # global parameters (used for multiprocessing)
 REFWORD = "google"
 TARGET = politics
-SLEEPTIME = 1
+# TARGET = toy
+# TARGET = ["republican", "democrat"]
+SLEEPTIME = 3
 INIT_DATE = "2010-01-01"
+# INIT_DATE = "2018-01-01"
 N_CORES = 4
 
 
@@ -73,6 +76,7 @@ def get_daily_trend_from_word_list(kw_list,
     for kw in kw_list:
         daily_dfs = []
         for timeframe in INTERVALS:
+            print(kw, timeframe)
             time.sleep(SLEEPTIME)
             trends = TrendReq(hl='en-US', tz=360)
             trends.build_payload(kw_list=[kw, REFWORD],
@@ -80,6 +84,7 @@ def get_daily_trend_from_word_list(kw_list,
             df = trends.interest_over_time()
             daily_dfs.append(df)
         daily_ts = pd.concat(daily_dfs).reset_index().groupby("date").mean()
+        daily_ts.to_csv("data/daily/{}.csv".format(kw))
         dfList.append(daily_ts[kw])
     return pd.concat(dfList, axis=1)
 
@@ -96,8 +101,7 @@ def get_df_from_word_list_parallel(kw_list, n_cores):
     pool = Pool(n_cores)
     result = pool.map(get_daily_trend_from_word_list,
                       kw_list_split)
-    print(len(result))
-    # exit()
+    # print(len(result))
     result = pd.concat(result, 1)
     pool.close()
     pool.join()
@@ -113,8 +117,9 @@ if __name__ == '__main__':
             size,
             N_CORES,
             REFWORD,))
-    df = get_df_from_word_list_parallel(TARGET, n_cores=N_CORES)
-    df.to_csv("data/daily_politics_{}.csv".format(REFWORD))
+    # df = get_df_from_word_list_parallel(TARGET, n_cores=N_CORES)
+    df = get_daily_trend_from_word_list(TARGET)
+    df.to_csv("data/temp_daily_politics_{}.csv".format(REFWORD))
     final = time.time() - init
     final = final / 60
     print("process duration = {:.2f} minutes".format(final))
