@@ -80,7 +80,7 @@ def get_daily_trend_from_word_list(kw_list,
     dfList = []
     for kw in tqdm(kw_list, desc='word'):
         daily_dfs = []
-        for timeframe in tqdm(INTERVALS, desc='time intervals'):
+        for timeframe in tqdm(INTERVALS, desc="'{}': time intervals".format(kw)):
             time.sleep(SLEEPTIME)
             trends = TrendReq(hl=HOST_LANGUAGE, tz=TIMEZONE_OFFSET)
             trends.build_payload(kw_list=[kw, REFWORD],
