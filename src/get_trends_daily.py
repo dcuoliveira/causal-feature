@@ -14,7 +14,7 @@ import os
 # global parameters (used for multiprocessing)
 REFWORD = "google"
 TARGET = base
-SLEEPTIME = 10
+SLEEPTIME = 30
 INIT_DATE = "2010-01-01"
 FINAL_DATE = "2020-07-28"
 TIMEZONE_OFFSET = 360
