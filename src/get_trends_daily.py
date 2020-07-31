@@ -1,17 +1,15 @@
-from pytrends.request import TrendReq
-import pandas as pd
-from word_list.basic import base
-from multiprocessing import Pool
-import numpy as np
+import os
 import time
-from datetime import date
+import pandas as pd
 from copy import copy
 from glob import glob
 from tqdm import tqdm
-import os
+from datetime import date
+from pytrends.request import TrendReq
+from word_list.basic import base
 
 
-# global parameters (used for multiprocessing)
+# global parameters
 REFWORD = "google"
 TARGET = base
 SLEEPTIME = 30
@@ -80,7 +78,8 @@ def get_daily_trend_from_word_list(kw_list,
     dfList = []
     for kw in tqdm(kw_list, desc='word'):
         daily_dfs = []
-        for timeframe in tqdm(INTERVALS, desc="'{}': time intervals".format(kw)):
+        for timeframe in tqdm(
+                INTERVALS, desc="'{}': time intervals".format(kw)):
             time.sleep(SLEEPTIME)
             trends = TrendReq(hl=HOST_LANGUAGE, tz=TIMEZONE_OFFSET)
             trends.build_payload(kw_list=[kw, REFWORD],
@@ -89,24 +88,8 @@ def get_daily_trend_from_word_list(kw_list,
             df = trends.interest_over_time()
             daily_dfs.append(df)
         daily_ts = pd.concat(daily_dfs).reset_index().groupby("date").mean()
-        ts_path = os.path.join("data", "daily", "{}.csv".format(kw))
+        ts_path = os.path.join("data", "daily_trend", "{}.csv".format(kw))
         daily_ts.to_csv(ts_path)
-
-
-def get_df_from_word_list_parallel(kw_list, n_cores):
-    """
-    parallelized version of get_df_from_word_list
-    :param n_cores: number of cores to use
-    :type n_cores: int
-    :return: word frequency dataframe
-    :rtype: pd.DataFrame
-    """
-    kw_list_split = np.array_split(kw_list, n_cores)
-    pool = Pool(n_cores)
-    _ = pool.map(get_daily_trend_from_word_list,
-                 kw_list_split)
-    pool.close()
-    pool.join()
 
 
 if __name__ == '__main__':
@@ -114,11 +97,12 @@ if __name__ == '__main__':
     # https://stackoverflow.com/questions/50571317/pytrends-the-request-failed-google-returned-a-response-with-code-429
 
     # possible solution
-    # pip3 install --upgrade --user git+https://github.com/GeneralMills/pytrends
+    # pip3 install --upgrade --user
+    # git+https://github.com/GeneralMills/pytrends
 
     # Run code in different computers in different times to get all words
 
-    already_collected = glob(os.path.join("data", "daily", "*.csv"))
+    already_collected = glob(os.path.join("data", "daily_trend", "*.csv"))
     already_collected = [i.split("/")[2] for i in already_collected]
     already_collected = [i.split(".")[0] for i in already_collected]
     NEW_TARGET = [i for i in TARGET if i not in already_collected]
