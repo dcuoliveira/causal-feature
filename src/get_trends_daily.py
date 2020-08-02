@@ -8,15 +8,12 @@ from datetime import date
 from pytrends.request import TrendReq
 from word_list.basic import base
 
-
 # global parameters
 REFWORD = "google"
 TARGET = base
 SLEEPTIME = 20
-# INIT_DATE = "2010-01-01"
-# FINAL_DATE = "2020-07-28"
 INIT_DATE = "2004-01-01"
-FINAL_DATE = "2010-01-01"
+FINAL_DATE = "2020-07-28"
 TIMEZONE_OFFSET = 360
 HOST_LANGUAGE = 'en-US'
 COUNTRY_ABBREVIATION = 'US'
