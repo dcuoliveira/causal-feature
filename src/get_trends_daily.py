@@ -12,7 +12,7 @@ from word_list.basic import base
 # global parameters
 REFWORD = "google"
 TARGET = base
-SLEEPTIME = 10
+SLEEPTIME = 20
 # INIT_DATE = "2010-01-01"
 # FINAL_DATE = "2020-07-28"
 INIT_DATE = "2004-01-01"
