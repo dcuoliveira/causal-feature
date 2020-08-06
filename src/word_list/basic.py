@@ -1,5 +1,24 @@
 toy = ["republican", 'economy', "president", "politics"]
 
+
+politics1 = ["republican", "wisconsin", "york", "county", "served", "senate", "president",
+             "district", "ohio", "virginia", "carolina", "massachusetts", "pennsylvania",
+             "democratic", "illinois", "representatives", "washington", "texas",
+             "governor", "election", "elected", "law", "vermont", "missouri", "kentucky",
+             "william", "judge", "tennessee", "college", "georgia"]
+
+
+politics2 = ["notability", "party", "law", "government", "court", "minister", "political",
+             "act", "president", "votes", "police", "council", "election", "rights", "elections",
+             "committee", "democratic", "security", "union", "case", "members", "justice",
+             "voters", "legal", "seats", "movement", "secretary", "federal", "stats", "ministry"]
+
+business = ["blacklist", "business", "management", "services", "companies",
+            "development", "bank", "founded", "million", "financial", "industry",
+            "products", "global", "market", "marketing", "ceo", "technology",
+            "investment", "inc", "social", "media", "project", "firm", "service", "energy",
+            "economic", "community", "corporation", "government", "ltd"]
+
 base = ['BUY AND HOLD',
         'DOW JONES',
         'act',
@@ -157,4 +176,33 @@ base = ['BUY AND HOLD',
         'william',
         'winsconsin',
         'world',
-        'york']
+        'york',
+        'wisconsin',
+        'county',
+        'vermont',
+        'voters',
+        'blacklist',
+        'business',
+        'management',
+        'services',
+        'companies',
+        'development',
+        'bank',
+        'founded',
+        'million',
+        'industry',
+        'products',
+        'global',
+        'marketing',
+        'ceo',
+        'technology',
+        'inc',
+        'social',
+        'media',
+        'project',
+        'firm',
+        'service',
+        'economic',
+        'community',
+        'corporation',
+        'ltd']
