@@ -13,8 +13,8 @@ def simple_lr_plot(df,target_column, feature_column, figsize=(14,5)):
     resid = resid.reset_index()
     beta0, beta1 = lr.params
 
-    title = "{} ~ {}\n($R^2$ = {:.5f})".format(
-            target_column, feature_column, r_2)
+    title = "{} ~ {}\n($R^2$ = {:.5f} | $beta_1$ = {:.5f})".format(
+            target_column, feature_column, r_2,  beta1)
 
     X, y = df[feature_column].values, df[target_column].values
 
