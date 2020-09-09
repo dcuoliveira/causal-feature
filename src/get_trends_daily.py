@@ -4,9 +4,10 @@ import pandas as pd
 from copy import copy
 from glob import glob
 from tqdm import tqdm
-from datetime import date
+from datetime import date, datetime, timedelta
 from pytrends.request import TrendReq
 from word_list.basic import base
+from sklearn import preprocessing
 
 # global parameters
 REFWORD = "google"
@@ -17,6 +18,8 @@ FINAL_DATE = "2020-07-28"
 TIMEZONE_OFFSET = 360
 HOST_LANGUAGE = 'en-US'
 COUNTRY_ABBREVIATION = 'US'
+FREQ_TO_DOWNLOAD = 'daily'
+
 
 # To add current time
 # today = date.today()
@@ -91,6 +94,102 @@ def get_daily_trend_from_word_list(kw_list,
         daily_ts.to_csv(ts_path)
 
 
+def get_scaled_gtrends(kw_list, dt):
+    target_path = os.path.join('data', 'daily_trend_normalized')
+    if os.path.exists(target_path) == False:
+        os.makedirs(target_path)
+
+    gtrends_df = []
+    timeframe_df = {}
+    scaling_df = {}
+    min_max_scaler = preprocessing.MinMaxScaler()
+    for kw in kw_list:
+        print(kw)
+        scaling_series = []
+        timeframe_series = []
+
+        kw = [kw, REFWORD]
+
+        pytrend = TrendReq()
+
+        today = pd.to_datetime(FINAL_DATE)
+        old_date = today
+
+        new_date = today - dt
+
+        timeframe = new_date.strftime(time_fmt) + ' ' + old_date.strftime(time_fmt)
+        timeframe_series.append(timeframe)
+        print(timeframe)
+        pytrend.build_payload(kw_list=kw, timeframe=timeframe)
+        interest_over_time_df = pytrend.interest_over_time()
+
+        while new_date > pd.to_datetime(INIT_DATE):
+
+            ### Save the new date from the previous iteration.
+            # Overlap == 1 would mean that we start where we
+            # stopped on the iteration before, which gives us
+            # indeed overlap == 1.
+            if daily == True:
+                old_date = new_date + timedelta(days=overlap - 1)
+            else:
+                old_date = new_date + timedelta(hours=overlap - 1)
+
+            ### Update the new date to take a step into the past
+            # Since the timeframe that we can apply for daily data
+            # is limited, we use step = maxstep - overlap instead of
+            # maxstep.
+            new_date = new_date - dt  # timedelta(hours=step)
+            # If we went past our start_date, use it instead
+            if new_date < pd.to_datetime(INIT_DATE):
+                new_date = pd.to_datetime(INIT_DATE)
+
+            # New timeframe
+            timeframe = new_date.strftime(time_fmt) + ' ' + old_date.strftime(time_fmt)
+            timeframe_series.append(timeframe)
+            print(timeframe)
+
+            # Download data
+            pytrend.build_payload(kw_list=kw, timeframe=timeframe)
+            temp_df = pytrend.interest_over_time()
+            if (temp_df.empty):
+                raise ValueError(
+                    'Google sent back an empty dataframe. Possibly there were no searches at all during the this period! Set start_date to a later date.')
+            # Renormalize the dataset and drop last line
+            beg = new_date
+            if daily == True:
+                end = old_date - timedelta(days=1)
+            else:
+                end = old_date - timedelta(hours=1)
+
+            # Since we might encounter zeros, we loop over the
+            # overlap until we find a non-zero element
+            for t in range(1, overlap + 1):
+                if temp_df[kw[0]].iloc[-t] != 0:
+                    scaling = float(interest_over_time_df[kw[0]].iloc[t - 1]) / temp_df[kw[0]].iloc[-t]
+                    print(scaling)
+                    break
+                elif t == overlap:
+                    print('Did not find non-zero overlap, set scaling to zero! Increase Overlap!')
+                    scaling = 0
+            # Apply scaling
+            scaling_series.append(scaling)
+            temp_df.loc[beg:end, kw[0]] = temp_df.loc[beg:end, kw[0]] * scaling
+            interest_over_time_df = pd.concat([temp_df[:-overlap], interest_over_time_df])
+            time.sleep(SLEEPTIME)
+        x_scaled = min_max_scaler.fit_transform(interest_over_time_df[[kw[0]]])
+        scaled_df = pd.DataFrame(x_scaled)
+        scaled_df.index = interest_over_time_df.index
+        scaled_df.columns = [kw[0]]
+        ts_path = os.path.join("data", "daily_trend_normalized", "{}.csv".format(kw[0]))
+        scaled_df.to_csv(ts_path)
+
+        gtrends_df.append(scaled_df)
+        scaling_df[kw[0]] = scaling_series
+        timeframe_df[kw[0]] = timeframe_series
+
+    return gtrends_df, pd.concat([pd.DataFrame.from_dict(scaling_df), pd.DataFrame.from_dict(timeframe_df)], axis=1)
+
+
 if __name__ == '__main__':
     # main problem of this script
     # https://stackoverflow.com/questions/50571317/pytrends-the-request-failed-google-returned-a-response-with-code-429
@@ -100,15 +199,57 @@ if __name__ == '__main__':
     # git+https://github.com/GeneralMills/pytrends
 
     # Run code in different computers in different times to get all words
+    type_coleta = 'normalized'
 
-    already_collected = glob(os.path.join("data", "daily_trend", "*.csv"))
-    already_collected = [i.split("/")[2] for i in already_collected]
-    already_collected = [i.split(".")[0] for i in already_collected]
-    NEW_TARGET = [i for i in TARGET if i not in already_collected]
-    init = time.time()
-    NEW_TARGET = sorted(set(NEW_TARGET))
-    size = len(NEW_TARGET)
-    df = get_daily_trend_from_word_list(NEW_TARGET)
-    final = time.time() - init
-    final = final / 60
-    print("process duration = {:.2f} minutes".format(final))
+    if type_coleta != 'normalized':
+        already_collected = glob(os.path.join("data", "daily_trend", "*.csv"))
+        try:
+            already_collected = [i.split("/")[2] for i in already_collected]
+        except:
+            already_collected = [i.split("\\")[2] for i in already_collected]
+        already_collected = [i.split(".")[0] for i in already_collected]
+        NEW_TARGET = [i for i in TARGET if i not in already_collected]
+        init = time.time()
+        NEW_TARGET = sorted(set(NEW_TARGET))
+
+        size = len(NEW_TARGET)
+        df = get_daily_trend_from_word_list(NEW_TARGET)
+        final = time.time() - init
+        final = final / 60
+        print("process duration = {:.2f} minutes".format(final))
+
+    else:
+        already_collected = glob(os.path.join("data", "daily_trend_normalized", "*.csv"))
+        try:
+            already_collected = [i.split("/")[2] for i in already_collected]
+        except:
+            already_collected = [i.split("\\")[2] for i in already_collected]
+        already_collected = [i.split(".")[0] for i in already_collected]
+        NEW_TARGET = [i for i in TARGET if i not in already_collected]
+        init = time.time()
+        NEW_TARGET = sorted(set(NEW_TARGET))
+
+        kw_list = NEW_TARGET
+        daily = False
+        hourly = False
+
+        if FREQ_TO_DOWNLOAD == 'hourly':
+            hourly = True
+        elif FREQ_TO_DOWNLOAD == 'daily':
+            daily = True
+        else:
+            print("Frequency not registered")
+            exit(-1)
+
+        if daily:
+            maxstep = 269
+            overlap = 100
+            step = maxstep - overlap + 1
+            dt = timedelta(days=step)
+            time_fmt = '%Y-%m-%d'
+        elif hourly:
+            overlap = 50
+            step = 168
+            dt = timedelta(hours=step)
+            time_fmt = '%Y-%m-%dT%H'
+        gtrends_df, scaling_df = get_scaled_gtrends(kw_list, dt)
