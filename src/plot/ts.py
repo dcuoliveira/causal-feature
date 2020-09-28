@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from statsmodels.tsa.stattools import acovf
 from statsmodels.tsa.stattools import acf, ccf
-
+from matplotlib.ticker import MaxNLocator
 
 
 def plot_acf(x, lag_range, reverse=True, figsize=(12, 5),
