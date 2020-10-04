@@ -1,4 +1,4 @@
-word,lag,k,score
+word,k,lag,score
 dow_jones,12,7,0.10620247272666748
 DOW_JONES,12,7,0.10388774195936691
 dow_jones,11,8,0.10204604097023247
