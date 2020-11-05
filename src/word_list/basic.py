@@ -238,4 +238,10 @@ base = ['BUY AND HOLD',
         'economic',
         'community',
         'corporation',
-        'ltd']
+        'ltd',
+        "stock market",
+        "short sell",
+        "financial markets",
+        "short selling",
+        "rare earths"]
+
