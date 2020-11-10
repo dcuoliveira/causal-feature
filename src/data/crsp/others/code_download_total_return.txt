@@ -1,0 +1,30 @@
+import pandas as pd
+import os
+import pdblp
+
+con = pdblp.BCon(debug=False, timeout=5000)
+con.start()
+
+nyse_tickers = pd.read_excel('nasdaq_tickers.xlsx')
+mypath = 'G:/Public/daniel/nasdaq/'
+
+onlyfiles = [f for f in os.listdir(mypath) if os.path.isfile(os.path.join(mypath, f))]
+
+error_ticker = []
+for ticker in nyse_tickers['Ticker'].unique():
+    if ticker + '.csv' not in onlyfiles:
+        try:
+            df = con.bdh(ticker, 'DAY_TO_DAY_TOT_RETURN_GROSS_DVDS', '20000101', '20200801', )
+            df.to_csv(mypath + ticker + '.csv')
+        except:
+            error_ticker.append(ticker)
+        del df
+
+['BRK/A US Equity',
+ 'BF/B US Equity',
+ 'NMG/A US Equity',
+ 'JW/A US Equity',
+ 'FCE/A US Equity',
+ 'CRD/A US Equity',
+ 'SQA/A US Equity',
+ 'PNN/A US Equity']

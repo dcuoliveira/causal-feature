@@ -1,0 +1,98 @@
+09:34:03 BLOOMBERG HELP DESK : Ok, so , for the securities, I would just use EQS <GO>. There, you can input new York as exchange. Make sure that you don't have the default settings "trading status" > active, because the delisted companies are not going to be there. So add delisted companies too.
+
+
+You can specify the date on the top right.
+
+If you then go to results page, you can export them into excel. Again, be aware that this is going to pull a lot of data.
+
+
+When it comes to total return formula, you can just use something like this:
+=BDH("AAPL US Equity","DAY_TO_DAY_TOT_RETURN_GROSS_DVDS","20000101","", "per=m")
+
+you can cell reference the tickers like this =BDH(A1,"DAY_TO_DAY_TOT_RETURN_GROSS_DVDS","20000101","", "per=m")
+
+
+
+For future reference, you can use the following two resources for formula construction  1- HELP DAPI <GO> --> Here you can find information regarding Bloomberg formulas syntax and the optional parameters that can be used with them   2- FLDS <GO> --> A great resource to find all data fields that can be used with Bloomberg formulas
+09:36:35 GENOA EQUITIES : What's the equivalent of this
+09:36:36 GENOA EQUITIES : =BDH("AAPL US Equity","DAY_TO_DAY_TOT_RETURN_GROSS_DVDS","20000101","", "per=m")
+09:36:40 GENOA EQUITIES : In python:
+09:37:55 BLOOMBERG HELP DESK : So we don't really provide help with python queries. Are you by any chance looking at this in bquant ?
+09:38:13 GENOA EQUITIES : yes
+09:38:23 BLOOMBERG HELP DESK : Ok, one moment . I am checking it out
+09:38:29 GENOA EQUITIES : What's the correct defautl on the fiedl "trading status"
+09:38:35 GENOA EQUITIES : For my case
+09:38:42 BLOOMBERG HELP DESK : On EQS you mean ?
+09:38:47 GENOA EQUITIES : correct
+09:39:02 BLOOMBERG HELP DESK : You will see this on the first line
+09:39:08 BLOOMBERG HELP DESK : Feel free to send me a screenshot
+09:39:51 GENOA EQUITIES : You shared: aaa.pdf[254KB]
+09:40:35 BLOOMBERG HELP DESK : You see the first line, the number 51. It is written "trading status" > active
+09:40:36 GENOA EQUITIES : I see it as "active"
+09:40:43 BLOOMBERG HELP DESK : Hence the delisted ones are not going to be there
+09:40:45 GENOA EQUITIES : What should it be
+09:40:49 BLOOMBERG HELP DESK : Click on it and add delisted as well
+09:40:51 GENOA EQUITIES : perfect
+09:42:05 BLOOMBERG HELP DESK : Working on that bquant formula for you
+09:42:55 GENOA EQUITIES : You shared: nyse.pdf[279KB]
+09:43:06 GENOA EQUITIES : What's the correct nyse:
+09:44:01 BLOOMBERG HELP DESK : New York would be the one
+09:44:11 BLOOMBERG HELP DESK : If you are thinking of the normal new your stock exchange
+09:47:13 GENOA EQUITIES : exctly
+09:47:53 GENOA EQUITIES : What about for amex and nasdaq:
+09:48:05 GENOA EQUITIES : I find nothing under "amex"
+09:49:14 BLOOMBERG HELP DESK : #import bql
+#bq = bql.Service()
+
+bql_item = bq.data.day_to_day_tot_return_gross_dvds(dates=bq.func.range('2000-01-01', 'today'), frq='m') * 100
+
+bql_universe = ['AAPL US Equity']
+
+#bql_request = bql.Request(bql_universe, bql_item)
+#bql_response = bq.execute(bql_request)
+09:49:17 BLOOMBERG HELP DESK : Try out this one
+09:49:38 BLOOMBERG HELP DESK : You are thinking NYSE American, right ?
+09:51:24 BLOOMBERG HELP DESK : I searched for it on eprx <GO>
+10:00:26 BLOOMBERG HELP DESK : Are you still with me
+10:02:33 BLOOMBERG HELP DESK : It appears you may be busy at the moment, so I will have to close the chat on my side for now. If you need any more help on this, please feel free to revert back to this chat whenever you are available by clicking the "continue chat" button. The reference number for this conversation is H#1210682183. I wish you a really good day!
+
+
+#################################
+
+13:00:27 BLOOMBERG HELP DESK : Hi, this is Hannah Cho with the Bloomberg Help Desk.
+13:02:11 *** GENOA EQUITIES (GENOA CAPITAL GEST D) acknowledged the chat request
+13:02:17 GENOA EQUITIES : Hello]
+13:07:55 BLOOMBERG HELP DESK : The best option here is to go to EQS <GO> > 31) exchanges: select the exchange > update > in the "Add criteria" box, search and select the balance sheet items you want and set them as "no condition display only" > hit enter to update > see results
+13:08:42 BLOOMBERG HELP DESK : ***Please note though, there is a limit of 5000 results for eqs, so you will not see all securities in the results if you only set the exchange criteria. I'd recommend filtering down your universe a bit more to view all the securities (e.g. By market cap)
+13:10:04 GENOA EQUITIES : I see
+13:10:13 GENOA EQUITIES : Is there a wya to the the same using bquant:
+13:11:15 BLOOMBERG HELP DESK : Yep, but it would be the same issue with 5000 security limit
+13:20:05 GENOA EQUITIES : I seew
+13:20:32 GENOA EQUITIES : Could you help me with the code to do that using bquant:
+13:23:19 BLOOMBERG HELP DESK : Sure, can send you an example
+13:25:14 GENOA EQUITIES : perfect
+13:25:19 GENOA EQUITIES : Waiting for it
+13:33:31 BLOOMBERG HELP DESK : Here is an example of how to pull total assets for securities trading in BZ with market cap < 1B:
+
+import bql
+bq = bql.Service()
+
+bql_item1 = bq.data.bs_tot_asset()
+
+bql_universe = bq.univ.filter(bq.univ.equitiesuniv(['active', 'primary']), bq.func.and_(bq.data.exch_code() == 'BZ', bq.data.cur_mkt_cap() < '1B'))
+
+bql_request = bql.Request(bql_universe, bql_item)
+bql_response = bq.execute(bql_request)
+
+bql_response[0].df()
+13:41:56 GENOA EQUITIES : Got it
+13:42:30 GENOA EQUITIES : Do you have a list of the available options and quick description of the "bq.data.cur_mkt_cap()" command:
+13:43:01 BLOOMBERG HELP DESK : So that is all based on bql fields. If you use the bql editor in bqnt, you can search in the get() portion for fields you would want to pull
+13:43:04 GENOA EQUITIES : What other attributes does the class "bql.Service" has
+13:43:19 GENOA EQUITIES : amazing
+13:43:41 BLOOMBERG HELP DESK : Everything you'll need to know about this will be in the bql basics notebook under "Getting started" in the example projects on bqnt. Really helpful guides there
+13:44:05 GENOA EQUITIES : Perfect
+13:44:08 GENOA EQUITIES : Will take a look
+13:44:09 GENOA EQUITIES : tks
+
+
