@@ -4,7 +4,6 @@ import pandas as pd
 from tqdm import tqdm
 from glob import glob
 from time import time
-# from word_list.analysis import words
 import statsmodels.formula.api as smf
 from sklearn.model_selection import TimeSeriesSplit
 
@@ -25,10 +24,10 @@ def single_feature_importance_cv(df,
     Learning"
 
     :param df: data
-    :type df: np.DataFrame
-    :param feature_name: name of the feature column 'df'
+    :type df: pd.DataFrame
+    :param feature_name: name of the feature column in 'df'
     :type feature_name: str
-    :param target_name: name of the target column 'df'
+    :param target_name: name of the target column in 'df'
     :type target_name: str
     :param n_splits: number of cross-validation splits
     :type n_splits: int
@@ -52,25 +51,31 @@ def single_feature_importance_cv(df,
     return np.array(r2_OOS)
 
 
-# ## Naive Merging | esperar daniel
-
-def merge_market_gtrends(market, gtrends):
-    merged = pd.merge_asof(market, gtrends, left_index=True, right_index=True)
-    return merged.dropna()
-
-
 def get_sfi_scores(merged_df, target_name, words,
                    max_lag, n_splits=5, verbose=True):
     """
-    fsfsffs
+    Get sfi_score for all words in 'words' using lags from 1 to
+    max_lag. 
 
+    :param merged_df: market and google trends data
+    :type merged_df: pd.DataFrame
+    :param target_name: name of the target column in 'merged_df'
+    :type target_name: str
+    :param words: list of words to create features
+    :type words: [str]
+    :param n_splits: number of cross-validation splits
+    :type n_splits: int
+    :param verbose: param to print iteration status
+    :type verbose: bool
+    :return: sorted dataframe with R2 OOS values for each feature
+    :rtype: pd.DataFrame
     """
 
     # add shift for all words
 
     feature_dict = {}
 
-    for word in tqdm(words, disable=not verbose, desc="shift"):
+    for word in tqdm(words, disable=not verbose, desc="add shift"):
         new_features = []
         for shift in range(1, max_lag + 1):
             new_feature = word.replace(" ", "_") + "_{}".format(shift)
@@ -90,12 +95,12 @@ def get_sfi_scores(merged_df, target_name, words,
 
         for new_feature in new_features:
 
-            r2 = single_feature_importance_cv(df=new_merged,
-                                              feature_name=new_feature,
-                                              target_name=target_name,
-                                              n_splits=n_splits)
+            r2_arr = single_feature_importance_cv(df=new_merged,
+                                                  feature_name=new_feature,
+                                                  target_name=target_name,
+                                                  n_splits=n_splits)
 
-            results.append((new_feature, np.mean(r2)))
+            results.append((new_feature, np.mean(r2_arr)))
 
         results = pd.DataFrame(results,
                                columns=["feature", "mean_r2"])
@@ -105,37 +110,3 @@ def get_sfi_scores(merged_df, target_name, words,
                                                       ascending=False)
     all_words_results = all_words_results.reset_index(drop=True)
     return all_words_results
-
-
-# if __name__ == '__main__':
-
-#    # ## Loading trends
-#     gtrends = pd.read_csv("data/gtrends.csv")
-#     gtrends.loc[:, "date"] = pd.to_datetime(gtrends.date)
-#     gtrends = gtrends.set_index("date")
-
-#     # ## Loading and preprossesing market data
-
-#     path = "data/crsp/nyse/CYN US Equity.csv"
-#     name = path.split("/")[-1].split(".")[0]
-#     target_name = name.replace(" ", "_") + "_return"
-#     market = pd.read_csv(path)
-#     market = market.drop([0, 1], 0)
-#     market = market.rename(columns={"ticker": "date",
-#                                     name: target_name})
-#     market.loc[:, "date"] = pd.to_datetime(market.date)
-#     market.loc[:, target_name] = market[target_name].astype("float") / 100
-#     market = market.set_index("date")
-
-#     # using only the training sample
-#     market = market["2000":"2010"]
-
-#     merged = merge_market_gtrends(market, gtrends)
-
-#     a = get_sfi_scores(merged_df=merged,
-#                        target_name=target_name,
-#                        words=words[:3],
-#                        max_lag=3,
-#                        verbose=False)
-
-#     print(a.head(4))
