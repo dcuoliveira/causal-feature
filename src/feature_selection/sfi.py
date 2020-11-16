@@ -55,7 +55,7 @@ def get_sfi_scores(merged_df, target_name, words,
                    max_lag, n_splits=5, verbose=True):
     """
     Get sfi_score for all words in 'words' using lags from 1 to
-    max_lag. 
+    max_lag.
 
     :param merged_df: market and google trends data
     :type merged_df: pd.DataFrame
