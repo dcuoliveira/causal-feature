@@ -8,6 +8,8 @@ from multiprocessing import Pool
 from word_list.analysis import words
 from feature_selection.sfi import get_sfi_scores
 
+words = words[:3]
+
 
 
 def merge_market_gtrends(market, gtrends):
@@ -44,10 +46,6 @@ def read_and_merge(path, init_train="2000", final_train="2010"):
     return merge_market_gtrends(market, gtrends), name
 
 
-# ## 1 version
-
-# In[4]:
-
 def filter_(paths):
     new_paths = []
     for p in tqdm(paths, desc="filter"):
@@ -56,57 +54,19 @@ def filter_(paths):
             new_paths.append(p)
     return new_paths
 
-SPLIT = 5
-paths = sorted(glob("data/crsp/nyse/*.csv"))
-paths = paths[0:30]
-paths = filter_(paths)
-print("\nnumber of paths = {}\n".format(len(paths)))
 
-#path1 = "data/crsp/nyse/CYN US Equity.csv"
-#path2 = "data/crsp/nyse/C US Equity.csv"
-#path3 = "data/crsp/nyse/CA US Equity.csv"
-#path4 = "data/crsp/nyse/DRE US Equity.csv"
-#paths = [path1, path2, path3, path4]
-
-
-
-init = time()
-for p in paths:
-
-    m, name = read_and_merge(p)
-
-    result = get_sfi_scores(merged_df=m,
-                            target_name="target_return",
-                            words=words,
-                            max_lag=30,
-                            verbose=True,
-                            n_splits=SPLIT)
-    #name = t.replace("_return", "")
-    #name = name.replace("_", " ")
-    out_path = os.path.join("results", "sfi", name + ".csv")
-    result.to_csv(out_path, index=False)
-
-tot_time = time() - init
-tot_time = tot_time / 60
-print("\nNAIVE : total time = {:.3f} (minutes)".format(tot_time))
-
-
-# ## Parallel
-
-def sfi_vec(paths):
+def sfi_vec(paths, out_folder="nasdaq", n_splits=5, words=words, max_lag=max_lag):
     m_ts = [read_and_merge(p) for p in paths]
     results = []
     for m, name in m_ts:
         result = get_sfi_scores(merged_df=m,
                                 target_name="target_return",
                                 words=words,
-                                max_lag=30,
+                                max_lag=max_lag,
                                 verbose=False,
-                                n_splits=SPLIT)
+                                n_splits=n_splits)
 
-        #name = t.replace("_return", "")
-        #name = name.replace("_", " ")
-        out_path = os.path.join("results","sfi","nyse", name + ".csv")
+        out_path = os.path.join("results","sfi",out_folder, name + ".csv")
         result.to_csv(out_path, index=False)
 
 
@@ -122,8 +82,16 @@ def sfi_par(paths, n_cores):
     return result
 
 
+# SPLIT = 5
+N_CORES = 4
+paths = sorted(glob("data/crsp/nasdaq/*.csv"))
+paths = paths[0:30]
+paths = filter_(paths)
+print("\nnumber of paths = {}\n".format(len(paths)))
+
+
 init = time()
-sfi_par(paths, n_cores=8)
+sfi_par(paths, n_cores=N_CORES)
 tot_time = time() - init
 tot_time = tot_time / 60
 print("\nPARALLEL: total time = {:.3f} (minutes)".format(tot_time))
