@@ -49,13 +49,15 @@ def read_and_merge(path, init_train="2000", final_train="2010"):
 def filter_(paths):
     new_paths = []
     for p in tqdm(paths, desc="filter"):
-        df,_ = read_and_merge(p)
-        if df.shape[0] >= 252*2 :
-            new_paths.append(p)
+        df = pd.read_csv(p)
+        if df.shape[1] > 1:
+            df,_ = read_and_merge(p)
+            if df.shape[0] >= 252*2 :
+                new_paths.append(p)
     return new_paths
 
 
-def sfi_vec(paths, out_folder="nasdaq", n_splits=5, words=words, max_lag=max_lag):
+def sfi_vec(paths, out_folder="nasdaq", n_splits=5, words=words, max_lag=30):
     m_ts = [read_and_merge(p) for p in paths]
     results = []
     for m, name in m_ts:
