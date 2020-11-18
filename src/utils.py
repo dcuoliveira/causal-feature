@@ -33,7 +33,7 @@ def make_df_from_path(path, threshold_to_exclude=365, file_format='.csv'):
                 try:
                     df_loop.columns = names_in_col
                 except:
-                    df_loop = df_loop[[names_in_col]]
+                    df_loop = df_loop[names_in_col]
 
                 df_loop[names_in_col[0]] = pd.to_datetime(df_loop[names_in_col[0]])
                 df_loop[names_in_col[1]] = df_loop[names_in_col[1]].astype(float)
