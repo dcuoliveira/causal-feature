@@ -1,7 +1,3 @@
-import pandas as pd
-import os
-
-
 def adj_find_target_str_bbg_data(df, target_str='date'):
     if df.columns[0] != target_str:
         df.columns = df.iloc[0]
@@ -13,7 +9,7 @@ def adj_find_target_str_bbg_data(df, target_str='date'):
     return df
 
 
-def merge_bbg_data(df_list, freq='D'):
+def merge_data(df_list, freq='D'):
     list_out = []
     for i, df in enumerate(df_list):
         # print(i)
@@ -41,6 +37,5 @@ def make_df_from_path(path, threshold_to_exclude=365):
             list_out.append(df_loop)
         else:
             excluded_list.append(file)
-    df_out = merge_bbg_data(list_out)
+    df_out = merge_data(list_out)
     return df_out, excluded_list
-
