@@ -13,11 +13,12 @@ from data_mani.utils import get_ticker_name
 
 # Variables
 N_SPLITS = 5
-N_CORES = 2
+N_CORES = 7
 MAX_LAG = 30
 OUT_FOLDER = "nyse"
-DEBUG = True
+DEBUG = False
 PATHS = sorted(glob("data/crsp/{}/*.csv".format(OUT_FOLDER)))
+PATHS = PATHS[0:800]
 
 # debug condition
 if DEBUG:
