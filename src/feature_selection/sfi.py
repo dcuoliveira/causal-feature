@@ -63,6 +63,8 @@ def get_sfi_scores(merged_df, target_name, words,
     :type target_name: str
     :param words: list of words to create features
     :type words: [str]
+    :param max_lag: number maximun lags to apply to word features
+    :type max_lag: int
     :param n_splits: number of cross-validation splits
     :type n_splits: int
     :param verbose: param to print iteration status

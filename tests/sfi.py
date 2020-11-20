@@ -50,7 +50,6 @@ class SFI_Tester(unittest.TestCase):
         cls.target_name = target_name
 
 
-
     def test_sfi_basic_run(self):
         words = ["short selling", "texas", "return"]
         max_lag=6
