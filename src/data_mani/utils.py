@@ -1,3 +1,4 @@
+from sklearn.model_selection import train_test_split
 import pandas as pd
 from tqdm import tqdm
 import os
@@ -71,50 +72,52 @@ def merge_data(df_list, freq='D'):
 
 
 def merge_market_and_gtrends(path,
-                             init_train="2004-01-01",
-                             final_train="2010-01-01"):
+                             test_size,
+                             path_gt_list=["data", "gtrends.csv"]):
     """
     Merge market and google trends data.
     Market data is sliced using the
-    training interval
-
-    [init_train: final_train]
-
+    parameter "test_size"
 
     :param path: path to market dataframe
     :type path: str
-    :param init_train: initial timestamp for training
-    :type init_train: str
-    :param final_train: final timestamp for training
-    :type final_train: str
-    :return: merged dataframe
-    :rtype: pd.DataFrame
+    :param test_size: value to split the data
+                      into training and testing
+    :type test_size: float in [0,1] or int
+    :param path_gt_list: list of str to create gt path
+    :type path_gt_list: [str]
+    :return: merged dataframe train and tes
+    :rtype: (pd.DataFrame,pd.DataFrame)
     """
 
     # loading google trends data
-    path_gt = os.path.join("data", "gtrends.csv")
+    path_gt = os.path.join(*path_gt_list)
     gtrends = pd.read_csv(path_gt)
     gtrends.loc[:, "date"] = pd.to_datetime(gtrends.date)
-    gtrends = gtrends.set_index("date")
+    gtrends = gtrends.set_index("date").sort_index()
 
     # loading market data
     market = get_market_df(path)
     name = get_ticker_name(path)
     market = market.rename(columns={"ticker": "date",
                                     name: "target_return"})
-
-    # using only the training sample
-    market = market.set_index("date")
-    market = market[init_train:final_train]
+    market = market.set_index("date").sort_index()
 
     # merging
     merged = merge_data([market, gtrends])
     merged = merged.dropna()
 
-    return merged
+    # using only the training sample
+    train, test = train_test_split(merged,
+                                   test_size=test_size,
+                                   shuffle=False)
+    last_day_train = train.sort_index().index[-1]
+    first_day_test = test.sort_index().index[0]
+    assert last_day_train < first_day_test, "temporal ordering error"
+    return train, test
 
 
-def path_filter(paths, threshold=365):
+def path_filter(paths, threshold=252):
     """
     filter each market data path by
     assessing the size of the associated
@@ -126,6 +129,7 @@ def path_filter(paths, threshold=365):
     :param threshold: minimun number of days in
                       the merged dataframe
                       to not exclude a path
+                      (252 = business days in a year)
     :type threshold: int
     :return: list of filtered paths
     :rtype: [str]
@@ -134,7 +138,9 @@ def path_filter(paths, threshold=365):
     for p in tqdm(paths, desc="filter"):
         df = pd.read_csv(p)
         if len(df.columns) > 1:
-            df = merge_market_and_gtrends(p)
+            train, test = merge_market_and_gtrends(p,
+                                                   test_size=1)
+            df = pd.concat([train, test])
             if df.shape[0] >= threshold:
                 new_paths.append(p)
     return new_paths
