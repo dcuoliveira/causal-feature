@@ -108,16 +108,21 @@ def merge_market_and_gtrends(path,
     merged = merged.dropna()
 
     # using only the training sample
-    train, test = train_test_split(merged,
-                                   test_size=test_size,
-                                   shuffle=False)
-    last_day_train = train.sort_index().index[-1]
-    first_day_test = test.sort_index().index[0]
-    assert last_day_train < first_day_test, "temporal ordering error"
+    # if the merged data is null
+    # then both train and test
+    if merged.shape[0] > 0:
+        train, test = train_test_split(merged,
+                                       test_size=test_size,
+                                       shuffle=False)
+        last_day_train = train.sort_index().index[-1]
+        first_day_test = test.sort_index().index[0]
+        assert last_day_train < first_day_test, "temporal ordering error"
+    else:
+        train, test = pd.DataFrame(), pd.DataFrame()
     return train, test
 
 
-def path_filter(paths, threshold=252):
+def path_filter(paths, threshold=252, verbose=True):
     """
     filter each market data path by
     assessing the size of the associated
@@ -131,11 +136,13 @@ def path_filter(paths, threshold=252):
                       to not exclude a path
                       (252 = business days in a year)
     :type threshold: int
+    :param verbose: param to print iteration status
+    :type verbose: bool
     :return: list of filtered paths
     :rtype: [str]
     """
     new_paths = []
-    for p in tqdm(paths, desc="filter"):
+    for p in tqdm(paths, disable=not verbose,  desc="filter"):
         df = pd.read_csv(p)
         if len(df.columns) > 1:
             train, test = merge_market_and_gtrends(p,

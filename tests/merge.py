@@ -22,24 +22,25 @@ class Test_merger(unittest.TestCase):
                               "src", "data",
                               "crsp", "nyse",
                               "0062761Q US Equity.csv")
-        train, test = merge_market_and_gtrends(path_m,
-                                               path_gt_list=[parentdir,
-                                                             "src",
-                                                             "data",
-                                                             "gtrends.csv"],
-                                               test_size=0.9)
+        for size in [0.1, 0.25, 0.5, 0.75, 0.9]:
+            train, test = merge_market_and_gtrends(path_m,
+                                                   path_gt_list=[parentdir,
+                                                                 "src",
+                                                                 "data",
+                                                                 "gtrends.csv"],
+                                                   test_size=size)
 
-        train_shape = train.shape
-        test_shape = test.shape
-        last_day_train = train.sort_index().index[-1]
-        first_day_test = test.sort_index().index[0]
+            train_shape = train.shape
+            test_shape = test.shape
+            last_day_train = train.sort_index().index[-1]
+            first_day_test = test.sort_index().index[0]
 
-        self.assertTrue(train_shape[0] > 0)
-        self.assertTrue(train_shape[1] == 183)
-        self.assertTrue(test_shape[0] > 0)
-        self.assertTrue(test_shape[1] == 183)
-        self.assertTrue(train.index[0] > pd.Timestamp("2003-12-01"))
-        self.assertTrue(last_day_train < first_day_test)
+            self.assertTrue(train_shape[0] > 0)
+            self.assertTrue(train_shape[1] == 183)
+            self.assertTrue(test_shape[0] > 0)
+            self.assertTrue(test_shape[1] == 183)
+            self.assertTrue(train.index[0] > pd.Timestamp("2003-12-01"))
+            self.assertTrue(last_day_train < first_day_test)
 
 
 if __name__ == '__main__':

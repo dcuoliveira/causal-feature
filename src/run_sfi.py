@@ -14,20 +14,27 @@ from data_mani.utils import path_filter
 
 # Variables
 N_SPLITS = 5
-N_CORES = 2
+N_CORES = 1
 MAX_LAG = 30
 OUT_FOLDER = "nyse"
 DEBUG = True
+TEST_SIZE = 0.5
 PATHS = sorted(glob("data/crsp/{}/*.csv".format(OUT_FOLDER)))
+PATHS = ["data/crsp/nyse/0820077D US Equity.csv"]
 # PATHS = PATHS[0:800]
 
 # debug condition
 if DEBUG:
     words = words[:3]
-    PATHS = PATHS[0:4]
+    # PATHS = PATHS[10:20]
+
+# data/crsp/nyse/0820077D US Equity.csv
+
+
 
 
 def sfi_vec(paths,
+            test_size=TEST_SIZE,
             out_folder=OUT_FOLDER,
             n_splits=N_SPLITS,
             words=words,
@@ -54,10 +61,14 @@ def sfi_vec(paths,
                     features
     :type max_lag: int
     """
-    merged_dfs = [merge_market_and_gtrends(p) for p in paths]
-    names = [get_ticker_name(p).replace("_", " ") for p in paths]
-    results = []
-    for merged, name in zip(merged_dfs, names):
+    for path in paths:
+        merged, _ = merge_market_and_gtrends(path, test_size=test_size)
+        # print(merged.head())
+        # print(merged.shape)
+        # print(merged["BUY AND HOLD"])
+        # exit()
+
+        name = get_ticker_name(path).replace("_", " ")
         result = get_sfi_scores(merged_df=merged,
                                 target_name="target_return",
                                 words=words,

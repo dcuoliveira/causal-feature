@@ -36,10 +36,12 @@ def single_feature_importance_cv(df,
     """
     r2_OOS = []
     tscv = TimeSeriesSplit(n_splits=n_splits)
-    for train_index, test_index in tscv.split(df):
+    for i, iss in enumerate(tscv.split(df)):
+        train_index, test_index = iss[0], iss[1]
         formula = "{} ~ {}".format(target_name, feature_name)
         df_train = df.iloc[train_index]
         df_test = df.iloc[test_index]
+        print(i,feature_name, df_train.shape, df_train.dropna().shape)
         lr = smf.ols(formula=formula, data=df_train).fit()
         y_pred = lr.predict(df_test).values
         y_true = df_test[target_name].values
@@ -93,7 +95,9 @@ def get_sfi_scores(merged_df, target_name, words,
         new_features = feature_dict[word]
         new_merged = merged_df[[target_name] + new_features]
 
+
         results = []
+        # print(new_merged.shape, new_merged.dropna().shape)
 
         for new_feature in new_features:
 
