@@ -23,6 +23,10 @@ def single_feature_importance_cv(df,
     "Empirical Asset Pricing via Machine
     Learning"
 
+    In the case where there is only np.nan's
+    in the dataframe, the funtion will also
+    return np.nan
+
     :param df: data
     :type df: pd.DataFrame
     :param feature_name: name of the feature column in 'df'
@@ -36,20 +40,25 @@ def single_feature_importance_cv(df,
     """
     r2_OOS = []
     tscv = TimeSeriesSplit(n_splits=n_splits)
-    for i, iss in enumerate(tscv.split(df)):
-        train_index, test_index = iss[0], iss[1]
+    for train_index, test_index in tscv.split(df):
         formula = "{} ~ {}".format(target_name, feature_name)
         df_train = df.iloc[train_index]
         df_test = df.iloc[test_index]
-        print(i,feature_name, df_train.shape, df_train.dropna().shape)
-        lr = smf.ols(formula=formula, data=df_train).fit()
-        y_pred = lr.predict(df_test).values
-        y_true = df_test[target_name].values
-        erros = y_true - y_pred
-        num = (erros).dot(erros)
-        dem = (y_true).dot(y_true)
-        r2 = 1 - (num / dem)
-        r2_OOS.append(r2)
+        try:
+            lr = smf.ols(formula=formula, data=df_train).fit()
+            y_pred = lr.predict(df_test).values
+            y_true = df_test[target_name].values
+            erros = y_true - y_pred
+            num = (erros).dot(erros)
+            dem = (y_true).dot(y_true)
+            r2 = 1 - (num / dem)
+            r2_OOS.append(r2)
+        except ValueError:
+            v_train = df_train[feature_name].max()
+            v_test = df_test[feature_name].max()
+            print("Only np.nan's on dataframe\ntrain = {} | test = {}".format(v_train, v_test))
+            r2_OOS.append(np.nan)
+
     return np.array(r2_OOS)
 
 

@@ -122,11 +122,14 @@ def merge_market_and_gtrends(path,
     return train, test
 
 
-def path_filter(paths, threshold=252, verbose=True):
+def path_filter(paths, threshold, verbose=True):
     """
     filter each market data path by
     assessing the size of the associated
     merged dataframe.
+
+    Remember, 
+    252 = business days in a year
 
 
     :param paths: list of paths to market data
@@ -134,7 +137,6 @@ def path_filter(paths, threshold=252, verbose=True):
     :param threshold: minimun number of days in
                       the merged dataframe
                       to not exclude a path
-                      (252 = business days in a year)
     :type threshold: int
     :param verbose: param to print iteration status
     :type verbose: bool

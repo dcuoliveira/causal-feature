@@ -11,26 +11,20 @@ from data_mani.utils import merge_market_and_gtrends
 from data_mani.utils import get_ticker_name
 from data_mani.utils import path_filter
 
-
 # Variables
 N_SPLITS = 5
-N_CORES = 1
+N_CORES = 2
 MAX_LAG = 30
 OUT_FOLDER = "nyse"
 DEBUG = True
 TEST_SIZE = 0.5
+THRESHOLD = 252*2
 PATHS = sorted(glob("data/crsp/{}/*.csv".format(OUT_FOLDER)))
-PATHS = ["data/crsp/nyse/0820077D US Equity.csv"]
-# PATHS = PATHS[0:800]
 
 # debug condition
 if DEBUG:
     words = words[:3]
-    # PATHS = PATHS[10:20]
-
-# data/crsp/nyse/0820077D US Equity.csv
-
-
+    PATHS = PATHS[10:15]
 
 
 def sfi_vec(paths,
@@ -63,10 +57,6 @@ def sfi_vec(paths,
     """
     for path in paths:
         merged, _ = merge_market_and_gtrends(path, test_size=test_size)
-        # print(merged.head())
-        # print(merged.shape)
-        # print(merged["BUY AND HOLD"])
-        # exit()
 
         name = get_ticker_name(path).replace("_", " ")
         result = get_sfi_scores(merged_df=merged,
@@ -98,8 +88,13 @@ def sfi_par(paths, n_cores=N_CORES):
 
 
 if __name__ == '__main__':
-    paths = path_filter(PATHS)
+    paths = path_filter(paths=PATHS,
+                        threshold=THRESHOLD)
+    pct = len(paths)/len(PATHS)
+
     print("\nnumber of paths = {}".format(len(paths)))
+    print("({:.1%} of paths)".format(pct))
+
     init = time()
     sfi_par(paths)
     tot_time = time() - init
