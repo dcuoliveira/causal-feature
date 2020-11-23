@@ -18,13 +18,13 @@ MAX_LAG = 30
 OUT_FOLDER = "nyse"
 DEBUG = True
 TEST_SIZE = 0.5
-THRESHOLD = 252*2
+THRESHOLD = 252 * 2
 PATHS = sorted(glob("data/crsp/{}/*.csv".format(OUT_FOLDER)))
 
 # debug condition
 if DEBUG:
     words = words[:3]
-    PATHS = PATHS[10:15]
+    PATHS = PATHS[10:20]
 
 
 def sfi_vec(paths,
@@ -90,7 +90,7 @@ def sfi_par(paths, n_cores=N_CORES):
 if __name__ == '__main__':
     paths = path_filter(paths=PATHS,
                         threshold=THRESHOLD)
-    pct = len(paths)/len(PATHS)
+    pct = len(paths) / len(PATHS)
 
     print("\nnumber of paths = {}".format(len(paths)))
     print("({:.1%} of paths)".format(pct))
@@ -103,3 +103,11 @@ if __name__ == '__main__':
         "total time = {:.3f} (minutes)\nusing {} cores".format(
             tot_time,
             N_CORES))
+
+    # Cleaning debug
+    if DEBUG:
+        for p in paths:
+            name = get_ticker_name(p).replace("_", " ")
+            out_path = os.path.join(
+                "results", "sfi", OUT_FOLDER, name + ".csv")
+            os.remove(out_path)
