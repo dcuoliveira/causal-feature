@@ -12,7 +12,6 @@ currentdir = os.path.dirname(
 parentdir = os.path.dirname(currentdir)
 sys.path.insert(0, parentdir)
 
-from src.feature_selection.sfi import get_sfi_scores  # noqa
 from src.data_mani.utils import merge_market_and_gtrends  # noqa
 
 

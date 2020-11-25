@@ -11,7 +11,7 @@ def mdi_feature_importance(df,
                            n_estimators=100):
     """
     Using a random forest regression model
-    we calculate the  how much of the
+    we calculate how much of the
     "impurity" of the sample is eliminated
     by including the feature in the model.
 
