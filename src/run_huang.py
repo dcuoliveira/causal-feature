@@ -12,6 +12,7 @@ from feature_selection.huang import run_huang_methods
 
 
 # variables
+WINDOW_SIZE = 110
 SIG_LEVEL = 0.05
 MAX_LAG = 30 # maximum number of lags to create
 N_CORES = 2 # number of cores to use
@@ -31,7 +32,9 @@ def huang_fs_vec(paths,
             test_size=TEST_SIZE,
             out_folder=OUT_FOLDER,
             words=words,
-            max_lag=MAX_LAG):
+            max_lag=MAX_LAG,
+            sig_level=SIG_LEVEL,
+            window_size=WINDOW_SIZE):
     """
     vectorized version of the Huang et al. (2019) feature selection techniques.
     for each path in 'paths' we:
@@ -57,7 +60,7 @@ def huang_fs_vec(paths,
         name = get_ticker_name(path).replace("_", " ")
         result = run_huang_methods(merged_df=merged, target_name="target_return",
                                    words=words, max_lag=max_lag, verbose=False,
-                                   sig_level=SIG_LEVEL)
+                                   sig_level=sig_level, window_size=window_size)
 
         out_path = os.path.join("results", "sfi", out_folder, name + ".csv")
         result.to_csv(out_path, index=False)
