@@ -6,7 +6,7 @@ from glob import glob
 from time import time
 import statsmodels.formula.api as smf
 from sklearn.model_selection import TimeSeriesSplit
-
+from data_mani.utils import make_shifted_df
 
 def single_feature_importance_cv(df,
                                  feature_name,
@@ -86,15 +86,8 @@ def get_sfi_scores(merged_df, target_name, words,
 
     # add shift for all words
 
-    feature_dict = {}
-
-    for word in tqdm(words, disable=not verbose, desc="add shift"):
-        new_features = []
-        for shift in range(1, max_lag + 1):
-            new_feature = word.replace(" ", "_") + "_{}".format(shift)
-            merged_df.loc[:, new_feature] = merged_df[word].shift(shift)
-            new_features.append(new_feature)
-        feature_dict[word] = new_features
+    merged_df, feature_dict = make_shifted_df(df=merged_df, verbose=verbose,
+                                              words=words, max_lag=max_lag)
 
     # calculate R2 OOS for all words
 
