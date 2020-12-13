@@ -1,7 +1,8 @@
 import statsmodels.api as sm
+from statsmodels.discrete.discrete_model import Logit
 from tqdm import tqdm
-import numpy as np
-
+from data_mani.utils import make_shifted_df
+import pandas as pd
 
 def target_ret_to_directional_movements(x, y_name):
     x[y_name] = [1 if r > 0 else 0 for r in x[y_name]]
@@ -24,20 +25,32 @@ def univariate_granger_causality_test(x, y_name, x_name,
     return accept_tag, pval_dict
 
 
-
 def run_huang_methods(merged_df, target_name, words,
-                      max_lag, verbose, sig_level,
-                      window_size, min_sample_size):
+                      max_lag, verbose, sig_level):
 
     merged_df = target_ret_to_directional_movements(x=merged_df, y_name=target_name)
 
-    selected_words_list = []
     univariate_granger_causality_list = []
-    moving_window_granger_causality_dict = {}
+    words_to_shift = []
     for w in tqdm(merged_df.columns, desc="run huang feature selection"):
         if w in words and w != target_name:
-            accept_tag, _ = univariate_granger_causality_test(x=merged_df, y_name=target_name, x_name=w,
+            accept_tag, pvals = univariate_granger_causality_test(x=merged_df, y_name=target_name, x_name=w,
                                                            max_lag=max_lag, verbose=verbose, sig_level=sig_level)
             univariate_granger_causality_list += accept_tag
+            if len(accept_tag) > 1:
+                words_to_shift.append(w)
 
-    selected_words_list = [w for w in selected_words_list if w is not None]
+    selected_words_list = [w for w in univariate_granger_causality_list if w is not None]
+
+    merged_df, _ = make_shifted_df(df=merged_df, verbose=verbose,
+                                              words=words_to_shift, max_lag=max_lag)
+
+    logit_var_df = merged_df[[target_name] + selected_words_list].dropna()
+    logit_model = Logit(endog=logit_var_df[[target_name]], exog=logit_var_df[selected_words_list]).fit()
+    logit_granger_result = pd.DataFrame(logit_model.pvalues[logit_model.pvalues <= sig_level])
+    logit_granger_result.columns = ['logit_granger_pval']
+    logit_granger_result['tag'] = 'logit_granger'
+
+    # TODO - Acrescentar selecao pelo metodo de Mallows C_p
+
+    return logit_granger_result
