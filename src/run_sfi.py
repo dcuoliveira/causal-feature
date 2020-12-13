@@ -14,7 +14,7 @@ from data_mani.utils import path_filter
 # Variables
 N_SPLITS = 5 # number of CV splits
 N_CORES = 2 # number of cores to use
-MAX_LAG = 30 # maximum number of lags to create
+MAX_LAG = 20 # maximum number of lags to create
              # google trends features
 OUT_FOLDER = "nyse" # name of the marked data folder
 DEBUG = True # param to debug the script
