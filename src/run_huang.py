@@ -12,9 +12,8 @@ from feature_selection.huang import run_huang_methods
 
 
 # variables
-WINDOW_SIZE = 110
 SIG_LEVEL = 0.05
-MAX_LAG = 30 # maximum number of lags to create
+MAX_LAG = 20 # maximum number of lags to create
 N_CORES = 2 # number of cores to use
 OUT_FOLDER = "nyse" # name of the marked data folder
 DEBUG = True # param to debug the script
@@ -25,7 +24,7 @@ PATHS = sorted(glob("data/crsp/{}/*.csv".format(OUT_FOLDER)))
 
 # debug condition
 if DEBUG:
-    words = words[:100]
+    words = words[:len(words)]
     PATHS = PATHS[10:20]
 
 def huang_fs_vec(paths,
@@ -33,8 +32,7 @@ def huang_fs_vec(paths,
             out_folder=OUT_FOLDER,
             words=words,
             max_lag=MAX_LAG,
-            sig_level=SIG_LEVEL,
-            window_size=WINDOW_SIZE):
+            sig_level=SIG_LEVEL):
     """
     vectorized version of the Huang et al. (2019) feature selection techniques.
     for each path in 'paths' we:
@@ -53,16 +51,19 @@ def huang_fs_vec(paths,
     :param max_lag: maximun number of lags to apply on gtrends
                     features
     :type max_lag: int
+    :param sig_level: significance level to use as threshold
+    :type sig_level: int
     """
+
     for path in paths:
         merged, _ = merge_market_and_gtrends(path, test_size=test_size)
 
         name = get_ticker_name(path).replace("_", " ")
         result = run_huang_methods(merged_df=merged, target_name="target_return",
                                    words=words, max_lag=max_lag, verbose=False,
-                                   sig_level=sig_level, window_size=window_size)
+                                   sig_level=sig_level)
 
-        out_path = os.path.join("results", "sfi", out_folder, name + ".csv")
+        out_path = os.path.join("results", "huang", out_folder, name + ".csv")
         result.to_csv(out_path, index=False)
 
 
