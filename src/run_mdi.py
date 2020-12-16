@@ -6,13 +6,12 @@ from glob import glob
 from time import time
 from multiprocessing import Pool
 from word_list.analysis import words
-from feature_selection.sfi import get_sfi_scores
+from feature_selection.mdi import get_mdi_scores
 from data_mani.utils import merge_market_and_gtrends
 from data_mani.utils import get_ticker_name
 from data_mani.utils import path_filter
 
 # Variables
-N_SPLITS = 5 # number of CV splits
 N_CORES = 2 # number of cores to use
 MAX_LAG = 20 # maximum number of lags to create
              # google trends features
@@ -29,52 +28,56 @@ if DEBUG:
     PATHS = PATHS[10:20]
 
 
-def sfi_vec(paths,
+def mdi_vec(paths,
             test_size=TEST_SIZE,
             out_folder=OUT_FOLDER,
-            n_splits=N_SPLITS,
             words=words,
             max_lag=MAX_LAG):
     """
-    vectorized version of the sfi function.
+    vectorized version of the mdi function.
     for each path in 'paths' we:
         - merge with the gtrends data
-        - run the sfi_scores functions
-          using the parameters 'n_splits',
+        - run the mdi_scores functions
           'words' and 'max_lag'
         - save the results in the folder
-          'results/sfi'
+          'results/mdi'
 
     :param paths: list of paths to market data
     :type paths: [str]
-    :param out_folder: path to sabe the sfi results
+    :param out_folder: path to sabe the mdi results
     :type out_folder: str
-    :param n_splits: number of cross-validation splits
-    :type n_splits: int
     :param words: list of words to use in the gtrends data
     :type words: [str]
     :param max_lag: maximun number of lags to apply on gtrends
                     features
     :type max_lag: int
     """
-    for path in paths:
-        merged, _ = merge_market_and_gtrends(path, test_size=test_size)
+    n = len(paths)
+    rds = np.random.randint(1000000, size=n)
+    names = [get_ticker_name(path) for path in paths]
+    log = pd.DataFrame({"ticker": names, 
+                        "random_state":rds})
+    first, last = names[0], names[-1]
+    log_path = os.path.join("logs", "mdi", out_folder, "{}_to_{}.csv".format(first, last))
+    log.to_csv(log_path, index=False)
 
+    for path, random_state in zip(paths,rds):
+        merged, _ = merge_market_and_gtrends(path, test_size=test_size)
         name = get_ticker_name(path).replace("_", " ")
-        result = get_sfi_scores(merged_df=merged,
+        result = get_mdi_scores(merged_df=merged,
                                 target_name="target_return",
                                 words=words,
                                 max_lag=max_lag,
                                 verbose=False,
-                                n_splits=n_splits)
+                                random_state=random_state)
 
-        out_path = os.path.join("results", "sfi", out_folder, name + ".csv")
+        out_path = os.path.join("results", "mdi", out_folder, name + ".csv")
         result.to_csv(out_path, index=False)
 
 
-def sfi_par(paths, n_cores=N_CORES):
+def mdi_par(paths, n_cores=N_CORES):
     """
-    parallelized version of the sfi_vec function
+    parallelized version of the mdi_vec function
 
     :param paths: list of paths to market data
     :type paths: [str]
@@ -83,7 +86,7 @@ def sfi_par(paths, n_cores=N_CORES):
     """
     path_split = np.array_split(paths, n_cores)
     pool = Pool(n_cores)
-    result = pool.map(sfi_vec, path_split)
+    result = pool.map(mdi_vec, path_split)
     pool.close()
     pool.join()
     return result
@@ -98,7 +101,7 @@ if __name__ == '__main__':
     print("({:.1%} of paths)".format(pct))
 
     init = time()
-    sfi_par(paths)
+    mdi_par(paths)
     tot_time = time() - init
     tot_time = tot_time / 60
     print(
@@ -106,10 +109,27 @@ if __name__ == '__main__':
             tot_time,
             N_CORES))
 
+    # Cleaning logs:
+    log_paths = glob("logs/mdi/{}/*.csv".format(OUT_FOLDER))
+    log_paths = [lpath for lpath in log_paths if lpath.find("random_states") ==-1]
+
+    if DEBUG:
+        for lpath in log_paths: 
+                os.remove(lpath)
+    else:
+        final_log_path =  os.path.join("logs", "mdi", OUT_FOLDER, "random_states.csv")
+        logs = [pd.read_csv(lpath) for lpath in log_paths]
+        log = pd.concat(logs)
+        log.to_csv(final_log_path, index=False)
+        for lpath in log_paths:
+                os.remove(lpath)
+    
+
     # Cleaning debug
     if DEBUG:
         for p in paths:
             name = get_ticker_name(p).replace("_", " ")
             out_path = os.path.join(
-                "results", "sfi", OUT_FOLDER, name + ".csv")
+                "results", "mdi", OUT_FOLDER, name + ".csv")
             os.remove(out_path)
+
