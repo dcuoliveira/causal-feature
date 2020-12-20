@@ -4,6 +4,20 @@ from tqdm import tqdm
 import os
 
 
+def make_shifted_df(df, words, verbose, max_lag):
+    feature_dict = {}
+
+    for word in tqdm(words, disable=not verbose, desc="add shift"):
+        new_features = []
+        for shift in range(1, max_lag + 1):
+            new_feature = word.replace(" ", "_") + "_{}".format(shift)
+            df.loc[:, new_feature] = df[word].shift(shift)
+            new_features.append(new_feature)
+        feature_dict[word] = new_features
+
+    return df, feature_dict
+
+
 def get_ticker_name(path):
     """
     get ticker name from path
