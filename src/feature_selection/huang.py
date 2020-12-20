@@ -3,6 +3,7 @@ from statsmodels.discrete.discrete_model import Logit
 from tqdm import tqdm
 from data_mani.utils import make_shifted_df
 import pandas as pd
+import numpy as np
 
 def target_ret_to_directional_movements(x, y_name):
     x[y_name] = [1 if r > 0 else 0 for r in x[y_name]]
@@ -42,18 +43,20 @@ def run_huang_methods(merged_df, target_name, words,
 
     selected_words_list = [w for w in univariate_granger_causality_list if w is not None]
 
-    if len(selected_words_list) != 0:
-        merged_df, _ = make_shifted_df(df=merged_df, verbose=verbose,
-                                                  words=words_to_shift, max_lag=max_lag)
+    merged_df, _ = make_shifted_df(df=merged_df, verbose=verbose,
+                                              words=words_to_shift, max_lag=max_lag)
 
-        logit_var_df = merged_df[[target_name] + selected_words_list].dropna()
-        logit_model = Logit(endog=logit_var_df[[target_name]], exog=logit_var_df[selected_words_list]).fit()
-        logit_granger_result = pd.DataFrame(logit_model.pvalues[logit_model.pvalues <= sig_level])
-        logit_granger_result = logit_granger_result.reset_index()
-        logit_granger_result.columns = ['feature', 'feature_score']
-    else:
-        logit_granger_result = pd.DataFrame()
+    logit_var_df = merged_df[[target_name] + selected_words_list].dropna()
+    logit_model = Logit(endog=logit_var_df[[target_name]], exog=logit_var_df[selected_words_list]).fit()
+    final_selected_words = list(logit_model.pvalues[logit_model.pvalues <= sig_level].index)
+    words_not_selected_to_add = pd.DataFrame(list(set(merged_df) - set(final_selected_words)))
+    words_not_selected_to_add.columns = ['feature']
+    words_not_selected_to_add['feature_score'] = np.nan
+    logit_granger_result = pd.DataFrame(logit_model.pvalues[logit_model.pvalues <= sig_level])
+    logit_granger_result = logit_granger_result.reset_index()
+    logit_granger_result.columns = ['feature', 'feature_score']
 
+    logit_granger_result = pd.concat([logit_granger_result, words_not_selected_to_add], axis=0)
     # TODO - Acrescentar selecao pelo metodo de Mallows C_p
 
     return logit_granger_result
