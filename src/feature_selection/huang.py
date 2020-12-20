@@ -1,97 +1,59 @@
-from glob import glob
-from time import time
-import numpy as np
-from multiprocessing import Pool
-import os
+import statsmodels.api as sm
+from statsmodels.discrete.discrete_model import Logit
+from tqdm import tqdm
+from data_mani.utils import make_shifted_df
+import pandas as pd
 
-from word_list.analysis import words
-from data_mani.utils import path_filter
-from data_mani.utils import merge_market_and_gtrends
-from data_mani.utils import get_ticker_name
-from feature_selection.huang import run_huang_methods
+def target_ret_to_directional_movements(x, y_name):
+    x[y_name] = [1 if r > 0 else 0 for r in x[y_name]]
+    return x
 
 
-# variables
-SIG_LEVEL = 0.05
-MAX_LAG = 20 # maximum number of lags to create
-N_CORES = 2 # number of cores to use
-OUT_FOLDER = "nyse" # name of the marked data folder
-DEBUG = True # param to debug the script
-TEST_SIZE = 0.5 # pct of the train/test split
-THRESHOLD = 252 * 2 # treshold to filted merged datframes
-                    # 252 = business days in a year
-PATHS = sorted(glob("data/crsp/{}/*.csv".format(OUT_FOLDER)))
+def univariate_granger_causality_test(x, y_name, x_name,
+                                      max_lag, verbose, sig_level):
+    accept_tag = [None]
+    pval_dict = {}
 
-# debug condition
-if DEBUG:
-    words = words[:3]
-    PATHS = PATHS[10:20]
+    # H0: second column does not granger causes the first column
+    test_result = sm.tsa.stattools.grangercausalitytests(x=x[[y_name] + [x_name]], maxlag=max_lag, verbose=verbose)
+    for lag in test_result.keys():
+        pval = test_result[lag][0]['ssr_ftest'][1]
+        pval_dict[str(lag)] = pval
+        if pval <= sig_level:
+            accept_tag.append(x_name.replace(" ", "_") + '_' + str(lag))
 
-def huang_fs_vec(paths,
-            test_size=TEST_SIZE,
-            out_folder=OUT_FOLDER,
-            words=words,
-            max_lag=MAX_LAG,
-            sig_level=SIG_LEVEL):
-    """
-    vectorized version of the Huang et al. (2019) feature selection techniques.
-    for each path in 'paths' we:
-        - merge with the gtrends data
-        - run the huang_fs functions using
-          using 'test_size', 'words' and 'max_lag'
-        - save the results in the folder
-          'results/huang_fs'
-
-    :param paths: list of paths to market data
-    :type paths: [str]
-    :param out_folder: path to sabe the sfi results
-    :type out_folder: str
-    :param words: list of words to use in the gtrends data
-    :type words: [str]
-    :param max_lag: maximun number of lags to apply on gtrends
-                    features
-    :type max_lag: int
-    :param sig_level: significance level to use as threshold
-    :type sig_level: int
-    """
-
-    for path in paths:
-        merged, _ = merge_market_and_gtrends(path, test_size=test_size)
-
-        name = get_ticker_name(path).replace("_", " ")
-        result = run_huang_methods(merged_df=merged, target_name="target_return",
-                                   words=words, max_lag=max_lag, verbose=False,
-                                   sig_level=sig_level)
-
-        out_path = os.path.join("results", "huang", out_folder, name + ".csv")
-        result.to_csv(out_path, index=False)
+    return accept_tag, pval_dict
 
 
-def huang_fs_par(paths, n_cores=N_CORES):
-    """
-    parallelized version of the Huang et al. (2019) feature selection techniques.
+def run_huang_methods(merged_df, target_name, words,
+                      max_lag, verbose, sig_level):
 
-    :param paths: list of paths to market data
-    :type paths: [str]
-    :param n_cores: number of cores to use
-    :type n_cores: int
-    """
-    path_split = np.array_split(paths, n_cores)
-    pool = Pool(n_cores)
-    result = pool.map(huang_fs_vec, path_split)
-    pool.close()
-    pool.join()
-    return result
+    merged_df = target_ret_to_directional_movements(x=merged_df, y_name=target_name)
 
-if __name__ == '__main__':
-    paths = path_filter(paths=PATHS,
-                        threshold=THRESHOLD)
+    univariate_granger_causality_list = []
+    words_to_shift = []
+    for w in tqdm(merged_df.columns, desc="run huang feature selection"):
+        if w in words and w != target_name:
+            accept_tag, pvals = univariate_granger_causality_test(x=merged_df, y_name=target_name, x_name=w,
+                                                           max_lag=max_lag, verbose=verbose, sig_level=sig_level)
+            univariate_granger_causality_list += accept_tag
+            if len(accept_tag) > 1:
+                words_to_shift.append(w)
 
-    init = time()
-    huang_fs_par(paths)
-    tot_time = time() - init
-    tot_time = tot_time / 60
-    print(
-        "total time = {:.3f} (minutes)\nusing {} cores".format(
-            tot_time,
-            N_CORES))
+    selected_words_list = [w for w in univariate_granger_causality_list if w is not None]
+
+    if len(selected_words_list) != 0:
+        merged_df, _ = make_shifted_df(df=merged_df, verbose=verbose,
+                                                  words=words_to_shift, max_lag=max_lag)
+
+        logit_var_df = merged_df[[target_name] + selected_words_list].dropna()
+        logit_model = Logit(endog=logit_var_df[[target_name]], exog=logit_var_df[selected_words_list]).fit()
+        logit_granger_result = pd.DataFrame(logit_model.pvalues[logit_model.pvalues <= sig_level])
+        logit_granger_result = logit_granger_result.reset_index()
+        logit_granger_result.columns = ['feature', 'feature_score']
+    else:
+        logit_granger_result = pd.DataFrame()
+
+    # TODO - Acrescentar selecao pelo metodo de Mallows C_p
+
+    return logit_granger_result
