@@ -42,14 +42,17 @@ def run_huang_methods(merged_df, target_name, words,
 
     selected_words_list = [w for w in univariate_granger_causality_list if w is not None]
 
-    merged_df, _ = make_shifted_df(df=merged_df, verbose=verbose,
-                                              words=words_to_shift, max_lag=max_lag)
+    if len(selected_words_list) != 0:
+        merged_df, _ = make_shifted_df(df=merged_df, verbose=verbose,
+                                                  words=words_to_shift, max_lag=max_lag)
 
-    logit_var_df = merged_df[[target_name] + selected_words_list].dropna()
-    logit_model = Logit(endog=logit_var_df[[target_name]], exog=logit_var_df[selected_words_list]).fit()
-    logit_granger_result = pd.DataFrame(logit_model.pvalues[logit_model.pvalues <= sig_level])
-    logit_granger_result.columns = ['logit_granger_pval']
-    logit_granger_result['tag'] = 'logit_granger'
+        logit_var_df = merged_df[[target_name] + selected_words_list].dropna()
+        logit_model = Logit(endog=logit_var_df[[target_name]], exog=logit_var_df[selected_words_list]).fit()
+        logit_granger_result = pd.DataFrame(logit_model.pvalues[logit_model.pvalues <= sig_level])
+        logit_granger_result = logit_granger_result.reset_index()
+        logit_granger_result.columns = ['word', 'logit_granger_pval']
+    else:
+        logit_granger_result = pd.DataFrame()
 
     # TODO - Acrescentar selecao pelo metodo de Mallows C_p
 
