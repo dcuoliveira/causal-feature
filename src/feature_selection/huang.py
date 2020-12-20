@@ -50,7 +50,7 @@ def run_huang_methods(merged_df, target_name, words,
         logit_model = Logit(endog=logit_var_df[[target_name]], exog=logit_var_df[selected_words_list]).fit()
         logit_granger_result = pd.DataFrame(logit_model.pvalues[logit_model.pvalues <= sig_level])
         logit_granger_result = logit_granger_result.reset_index()
-        logit_granger_result.columns = ['word', 'logit_granger_pval']
+        logit_granger_result.columns = ['feature', 'feature_score']
     else:
         logit_granger_result = pd.DataFrame()
 
