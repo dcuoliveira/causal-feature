@@ -116,7 +116,7 @@ def get_sfi_scores(merged_df, target_name, words,
                                                   n_splits=n_splits)
 
             results.append((new_feature, np.mean(r2_arr)))
-        # feature_score = mean_r2
+        # feature_score = mean_r2 (mais eh melhor)
         results = pd.DataFrame(results,
                                columns=["feature", "feature_score"])
         all_words_results.append(results)
