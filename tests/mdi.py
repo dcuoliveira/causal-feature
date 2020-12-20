@@ -35,7 +35,7 @@ class Test_MDI(unittest.TestCase):
                                 random_state=2927,
                                 verbose=False)
 
-        self.assertAlmostEqual(result.iloc[0, 1], 0.01656738359641016)
+        self.assertAlmostEqual(result.iloc[0, 1], 0.01656738359641016, places=3)
 
 
 if __name__ == '__main__':
