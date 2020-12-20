@@ -33,7 +33,7 @@ def run_huang_methods(merged_df, target_name, words,
 
     univariate_granger_causality_list = []
     words_to_shift = []
-    for w in tqdm(merged_df.columns, desc="run huang feature selection"):
+    for w in tqdm(merged_df.columns, disable=not verbose, desc="run huang feature selection", ):
         if w in words and w != target_name:
             accept_tag, pvals = univariate_granger_causality_test(x=merged_df, y_name=target_name, x_name=w,
                                                            max_lag=max_lag, verbose=verbose, sig_level=sig_level)
