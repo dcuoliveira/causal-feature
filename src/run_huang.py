@@ -24,7 +24,7 @@ PATHS = sorted(glob("data/crsp/{}/*.csv".format(OUT_FOLDER)))
 
 # debug condition
 if DEBUG:
-    words = words[:len(words)]
+    words = words[:3]
     PATHS = PATHS[10:20]
 
 def huang_fs_vec(paths,
