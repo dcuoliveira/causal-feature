@@ -50,7 +50,7 @@ def run_huang_methods(merged_df, target_name, words,
         logit_var_df = merged_df[[target_name] + selected_words_list].dropna()
         logit_model = Logit(endog=logit_var_df[[target_name]], exog=logit_var_df[selected_words_list]).fit()
         final_selected_words = list(logit_model.pvalues[logit_model.pvalues <= sig_level].index)
-        words_not_selected_to_add = pd.DataFrame(list(set(merged_df) - set(final_selected_words)))
+        words_not_selected_to_add = pd.DataFrame(list(set(merged_df.columns) - set(final_selected_words)))
         words_not_selected_to_add.columns = ['feature']
         words_not_selected_to_add['feature_score'] = np.nan
         logit_granger_result = pd.DataFrame(logit_model.pvalues[logit_model.pvalues <= sig_level])
