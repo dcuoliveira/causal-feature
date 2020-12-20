@@ -1,9 +1,13 @@
 import statsmodels.api as sm
 from statsmodels.discrete.discrete_model import Logit
 from tqdm import tqdm
-from data_mani.utils import make_shifted_df
 import pandas as pd
 import numpy as np
+
+try:
+    from data_mani.utils import make_shifted_df
+except ModuleNotFoundError:
+    from src.data_mani.utils import make_shifted_df
 
 def target_ret_to_directional_movements(x, y_name):
     x[y_name] = [1 if r > 0 else 0 for r in x[y_name]]
