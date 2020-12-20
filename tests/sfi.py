@@ -79,7 +79,7 @@ class SFI_Tester(unittest.TestCase):
             r2_OOS.append(r2)
 
         calulated = np.mean(r2_OOS)
-        function = result["mean_r2"][0]
+        function = result["feature_score"][0]
         self.assertTrue(np.isclose(calulated,function), "problem in calculating r2")
 
 if __name__ == '__main__':
