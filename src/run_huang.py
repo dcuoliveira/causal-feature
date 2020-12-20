@@ -95,3 +95,11 @@ if __name__ == '__main__':
         "total time = {:.3f} (minutes)\nusing {} cores".format(
             tot_time,
             N_CORES))
+
+    # Cleaning debug
+    if DEBUG:
+        for p in paths:
+            name = get_ticker_name(p).replace("_", " ")
+            out_path = os.path.join(
+                "results", "huang", OUT_FOLDER, name + ".csv")
+            os.remove(out_path)
