@@ -123,7 +123,7 @@ def merge_market_and_gtrends(path,
 
     # using only the training sample
     # if the merged data is null
-    # then both train and test
+    # then both train and test are null
     if merged.shape[0] > 0:
         train, test = train_test_split(merged,
                                        test_size=test_size,

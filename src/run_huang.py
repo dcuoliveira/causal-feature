@@ -21,7 +21,6 @@ DEBUG = True # param to debug the script
 TEST_SIZE = 0.5 # pct of the train/test split
 THRESHOLD = 252 * 2 # treshold to filted merged datframes
                     # 252 = business days in a year
-random.seed(2294)
 
 # ajuste pra path do windows
 PATHS = [path.replace('\\', '/')for path in sorted(glob("data/crsp/{}/*.csv".format(OUT_FOLDER)))]
@@ -101,9 +100,9 @@ if __name__ == '__main__':
             N_CORES))
 
     # Cleaning debug
-    # if DEBUG:
-    #     for p in paths:
-    #         name = get_ticker_name(p).replace("_", " ")
-    #         out_path = os.path.join(
-    #             "results", "huang", OUT_FOLDER, name + ".csv")
-    #         os.remove(out_path)
+    if DEBUG:
+        for p in paths:
+            name = get_ticker_name(p).replace("_", " ")
+            out_path = os.path.join(
+                "results", "huang", OUT_FOLDER, name + ".csv")
+            os.remove(out_path)
