@@ -49,6 +49,37 @@ class Test_huang(unittest.TestCase):
         self.assertTrue('bonds_1' in result)
         self.assertTrue(len(result) == 2)
 
+    def test_huang_reproducibility(self):
+        path_m = os.path.join(parentdir,
+                              "src", "data",
+                              "crsp", "nyse",
+                              "0544801D US Equity.csv")
+        merged, _ = merge_market_and_gtrends(path_m,
+                                             test_size=0.5,
+                                             path_gt_list=[parentdir,
+                                                           "src",
+                                                           "data",
+                                                           "gtrends.csv"])
+        result = run_huang_methods(merged_df=merged, target_name="target_return",
+                                   words=["DOW JONES", "act", "arts", "bank", "business"], max_lag=20, verbose=False,
+                                   sig_level=0.05)
+
+        self.assertAlmostEqual(result.loc[result['feature']=='DOW_JONES_11']['feature_score'].iloc[0],
+                               0.004244, places=3)
+        self.assertAlmostEqual(result.loc[result['feature']=='DOW_JONES_12']['feature_score'].iloc[0],
+                               0.021856, places=3)
+        self.assertAlmostEqual(result.loc[result['feature']=='act_20']['feature_score'].iloc[0],
+                               0.023372, places=3)
+        self.assertAlmostEqual(result.loc[result['feature']=='arts_2']['feature_score'].iloc[0],
+                               0.036307, places=3)
+        self.assertAlmostEqual(result.loc[result['feature']=='arts_3']['feature_score'].iloc[0],
+                               0.005621, places=3)
+        self.assertAlmostEqual(result.loc[result['feature']=='business_3']['feature_score'].iloc[0],
+                               0.023255, places=3)
+        self.assertAlmostEqual(result.loc[result['feature']=='business_5']['feature_score'].iloc[0],
+                               0.024829, places=3)
+        self.assertAlmostEqual(result.loc[result['feature']=='business_6']['feature_score'].iloc[0],
+                               0.014894, places=3)
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
