@@ -20,11 +20,13 @@ DEBUG = True # param to debug the script
 TEST_SIZE = 0.5 # pct of the train/test split
 THRESHOLD = 252 * 2 # treshold to filted merged datframes
                     # 252 = business days in a year
-PATHS = sorted(glob("data/crsp/{}/*.csv".format(OUT_FOLDER)))
+
+# ajuste pra path do windows
+PATHS = [path.replace('\\', '/')for path in sorted(glob("data/crsp/{}/*.csv".format(OUT_FOLDER)))]
 
 # debug condition
 if DEBUG:
-    words = words[:3]
+    words = words[:10]
     PATHS = PATHS[10:20]
 
 def huang_fs_vec(paths,
