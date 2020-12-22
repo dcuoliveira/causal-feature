@@ -121,10 +121,9 @@ def merge_market_and_gtrends(path,
     merged = merge_data([market, gtrends])
     merged = merged.dropna()
 
-    # using only the training sample
-    # if the merged data is null
+    # if the merged data is null or has only one element
     # then both train and test are null
-    if merged.shape[0] > 0:
+    if merged.shape[0] > 1:
         train, test = train_test_split(merged,
                                        test_size=test_size,
                                        shuffle=False)
@@ -136,13 +135,16 @@ def merge_market_and_gtrends(path,
     return train, test
 
 
-def path_filter(paths, threshold, verbose=True):
+def path_filter(paths,
+                threshold,
+                verbose=True,
+                path_gt_list=["data", "gtrends.csv"]):
     """
     filter each market data path by
     assessing the size of the associated
     merged dataframe.
 
-    Remember, 
+    Remember,
     252 = business days in a year
 
 
@@ -154,15 +156,18 @@ def path_filter(paths, threshold, verbose=True):
     :type threshold: int
     :param verbose: param to print iteration status
     :type verbose: bool
+    :param path_gt_list: list of str to create gt path
+    :type path_gt_list: [str]
     :return: list of filtered paths
     :rtype: [str]
     """
     new_paths = []
-    for p in tqdm(paths, disable=not verbose,  desc="filter"):
+    for p in tqdm(paths, disable=not verbose, desc="filter"):
         df = pd.read_csv(p)
         if len(df.columns) > 1:
             train, test = merge_market_and_gtrends(p,
-                                                   test_size=1)
+                                                   test_size=1,
+                                                   path_gt_list=path_gt_list)
             df = pd.concat([train, test])
             if df.shape[0] >= threshold:
                 new_paths.append(p)
