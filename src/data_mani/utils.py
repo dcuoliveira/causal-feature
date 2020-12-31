@@ -5,6 +5,18 @@ import os
 
 
 def make_shifted_df(df, words, verbose, max_lag):
+    """
+    make shift to specified words in the df
+
+    :param df: data
+    :type df: dataframe
+    :param words: selected words to make shift
+    :type words: list
+    :param verbose:
+    :type verbose: boolean
+    :return: shifted dataframe and dicionary of words used to shift
+    :rtype: dataframe and dict
+    """
     feature_dict = {}
 
     for word in tqdm(words, disable=not verbose, desc="add shift"):
