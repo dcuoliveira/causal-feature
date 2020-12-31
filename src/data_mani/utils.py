@@ -4,6 +4,29 @@ from tqdm import tqdm
 import os
 
 
+def correlation_filter(data, threshold):
+    """
+    filter columns that has correlation higher than the threshold
+
+    :param data: data to filter
+    :type data: dataframe
+    :param threshold: correlation threshold to apply the filter
+    :type threshold: float
+    :return: filtered data
+    """
+    col_corr = set()
+    corr_matrix = data.corr()
+    for i in range(len(corr_matrix.columns)):
+        for j in range(i):
+            if (corr_matrix.iloc[i, j] >= threshold) and (corr_matrix.columns[j] not in col_corr):
+                colname = corr_matrix.columns[i]
+                col_corr.add(colname)
+                if colname in data.columns:
+                    del data[colname]
+
+    return data
+
+
 def make_shifted_df(df, words, verbose, max_lag):
     """
     make shift to specified words in the df
