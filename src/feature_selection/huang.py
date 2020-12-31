@@ -5,9 +5,9 @@ import pandas as pd
 import numpy as np
 
 try:
-    from data_mani.utils import make_shifted_df
+    from data_mani.utils import make_shifted_df, correlation_filter
 except ModuleNotFoundError:
-    from src.data_mani.utils import make_shifted_df
+    from src.data_mani.utils import make_shifted_df, correlation_filter
 
 def target_ret_to_directional_movements(x, y_name):
     """
@@ -61,7 +61,8 @@ def univariate_granger_causality_test(x, y_name, x_name,
 
 
 def run_huang_methods(merged_df, target_name, words,
-                      max_lag, verbose, sig_level):
+                      max_lag, verbose, sig_level,
+                      correl_threshold):
     """
     perform huang feature selection procedure, that is, univariate granger
     causality and logistic regression
@@ -78,6 +79,9 @@ def run_huang_methods(merged_df, target_name, words,
     :type verbose: boolean
     :param sig_level: significance level to use as threshold of the test
     :type sig_level: float
+    :param correl_threshold: correlation threshold to apply the filter (excluded
+    high correlated series)
+    :type correl_threshold: float
     :return: dataframe with the words selectect using huangs method and the
     respective pvalues
     :rtype: dataframe
@@ -101,7 +105,9 @@ def run_huang_methods(merged_df, target_name, words,
 
     if len(selected_words_list) != 0:
         logit_var_df = merged_df[[target_name] + selected_words_list].dropna()
-        logit_model = Logit(endog=logit_var_df[[target_name]], exog=logit_var_df[selected_words_list]).fit()
+        filtered_data = correlation_filter(data=logit_var_df[selected_words_list],
+                                           threshold=correl_threshold)
+        logit_model = Logit(endog=logit_var_df[[target_name]], exog=filtered_data).fit()
         final_selected_words = list(logit_model.pvalues[logit_model.pvalues <= sig_level].index)
         words_not_selected_to_add = pd.DataFrame(list(set(merged_df.columns) - set(final_selected_words)))
         words_not_selected_to_add.columns = ['feature']
