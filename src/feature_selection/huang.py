@@ -10,12 +10,42 @@ except ModuleNotFoundError:
     from src.data_mani.utils import make_shifted_df
 
 def target_ret_to_directional_movements(x, y_name):
+    """
+    discretize a series of returns into up (1) and down (0) movements
+
+    :param x: target data
+    :type x: data.frame
+    :param y_name: target return to discretize
+    :type words: str
+    :return: full dataframe with the y_name variable discretized
+    :rtype: dataframe
+    """
     x[y_name] = [1 if r > 0 else 0 for r in x[y_name]]
     return x
 
 
 def univariate_granger_causality_test(x, y_name, x_name,
                                       max_lag, verbose, sig_level):
+    """
+    test univariate granger causality for each series in x_name
+    and for each lag in 1:max_lag
+
+    :param x: data
+    :type x: dataframe
+    :param y_name: name of the dependent variable to use in the test
+    :type y_name: str
+    :param x_name: list of independent variables to test
+    :type x_name: list
+    :param max_lag: number of max lags to test
+    :type max_lag: int
+    :param verbose:
+    :type verbose: boolean
+    :param sig_level: significance level to use as threshold of the test
+    :type sig_level: float
+    :return: exogenous variable names that passed the test of granger causality
+    and a dictionary of each of the variables pvalues
+    :rtype: list and dict
+    """
     accept_tag = [None]
     pval_dict = {}
 
@@ -32,7 +62,26 @@ def univariate_granger_causality_test(x, y_name, x_name,
 
 def run_huang_methods(merged_df, target_name, words,
                       max_lag, verbose, sig_level):
+    """
+    perform huang feature selection procedure, that is, univariate granger
+    causality and logistic regression
 
+    :param merged_df: data
+    :type merged_df: dataframe
+    :param target_name: name of the dependent variable
+    :type target_name: str
+    :param words: list of words to test as exogenous variables
+    :type words: list
+    :param max_lag: number of max lags to test granger
+    :type max_lag: int
+    :param verbose:
+    :type verbose: boolean
+    :param sig_level: significance level to use as threshold of the test
+    :type sig_level: float
+    :return: dataframe with the words selectect using huangs method and the
+    respective pvalues
+    :rtype: dataframe
+    """
     merged_df = target_ret_to_directional_movements(x=merged_df, y_name=target_name)
 
     univariate_granger_causality_list = []
