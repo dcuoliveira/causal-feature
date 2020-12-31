@@ -21,6 +21,7 @@ DEBUG = True # param to debug the script
 TEST_SIZE = 0.5 # pct of the train/test split
 THRESHOLD = 252 * 2 # treshold to filted merged datframes
                     # 252 = business days in a year
+CORREL_THRESHOLD = 0.8
 
 # ajuste pra path do windows
 PATHS = [path.replace('\\', '/')for path in sorted(glob("data/crsp/{}/*.csv".format(OUT_FOLDER)))]
@@ -31,11 +32,12 @@ if DEBUG:
     PATHS = PATHS[10:20]
 
 def huang_fs_vec(paths,
-            test_size=TEST_SIZE,
-            out_folder=OUT_FOLDER,
-            words=words,
-            max_lag=MAX_LAG,
-            sig_level=SIG_LEVEL):
+                 test_size=TEST_SIZE,
+                 out_folder=OUT_FOLDER,
+                 words=words,
+                 max_lag=MAX_LAG,
+                 sig_level=SIG_LEVEL,
+                 correl_threshold=CORREL_THRESHOLD):
     """
     vectorized version of the Huang et al. (2019) feature selection techniques.
     for each path in 'paths' we:
@@ -56,6 +58,9 @@ def huang_fs_vec(paths,
     :type max_lag: int
     :param sig_level: significance level to use as threshold
     :type sig_level: int
+    :param correl_threshold: correl_threshold: correlation threshold to apply the filter (excluded
+    high correlated series)
+    :type correl_threshold: float
     """
 
     for path in paths:
@@ -64,7 +69,7 @@ def huang_fs_vec(paths,
         name = get_ticker_name(path).replace("_", " ")
         result = run_huang_methods(merged_df=merged, target_name="target_return",
                                    words=words, max_lag=max_lag, verbose=False,
-                                   sig_level=sig_level)
+                                   sig_level=sig_level, correl_threshold=correl_threshold)
 
         out_path = os.path.join("results", "huang", out_folder, name + ".csv")
         result.to_csv(out_path, index=False)
