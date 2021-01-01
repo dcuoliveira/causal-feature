@@ -94,7 +94,10 @@ def huang_fs_par(paths, n_cores=N_CORES):
 if __name__ == '__main__':
     paths = path_filter(paths=PATHS,
                         threshold=THRESHOLD)
+    pct = len(paths) / len(PATHS)
 
+    print("\nnumber of paths = {}".format(len(paths)))
+    print("({:.1%} of paths)".format(pct))
     init = time()
     huang_fs_par(paths)
     tot_time = time() - init
