@@ -244,7 +244,7 @@ class Test_huang(unittest.TestCase):
                                                            "gtrends.csv"])
         result = run_huang_methods(merged_df=merged, target_name="target_return",
                                    words=["DOW JONES", "act", "arts", "bank", "business"], max_lag=20, verbose=False,
-                                   sig_level=0.05, correl_threshold=0.8)
+                                   sig_level=0.05, correl_threshold=1.0)
 
         self.assertAlmostEqual(result.loc[result['feature']=='DOW_JONES_11']['feature_score'].iloc[0],
                                0.004244, places=3)
