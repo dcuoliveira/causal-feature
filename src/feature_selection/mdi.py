@@ -117,5 +117,5 @@ def get_mdi_scores(merged_df,
     imp = imp.sort_values("mean", ascending=False)["mean"]
     imp = imp.reset_index()
     # feature_score = mdi (mais eh melhor)
-    imp.columns = ["features", "feature_score"]
+    imp.columns = ["feature", "feature_score"]
     return imp
