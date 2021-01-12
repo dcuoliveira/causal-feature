@@ -2,7 +2,7 @@ from sklearn.model_selection import train_test_split
 import pandas as pd
 from tqdm import tqdm
 import os
-
+import numpy as np
 
 def correlation_filter(data, threshold):
     """
@@ -18,7 +18,7 @@ def correlation_filter(data, threshold):
     corr_matrix = data.corr()
     for i in range(len(corr_matrix.columns)):
         for j in range(i):
-            if (corr_matrix.iloc[i, j] >= threshold) and (corr_matrix.columns[j] not in col_corr):
+            if (corr_matrix.iloc[i, j] >= threshold) or (corr_matrix.iloc[i, j] <= -threshold) and (corr_matrix.columns[j] not in col_corr):
                 colname = corr_matrix.columns[i]
                 col_corr.add(colname)
                 if colname in data.columns:
@@ -207,3 +207,33 @@ def path_filter(paths,
             if df.shape[0] >= threshold:
                 new_paths.append(p)
     return new_paths
+
+
+def check_constant_series(df,
+                          target,
+                          threshold):
+    """
+    Return a tag (True/False) if the target series is constant
+    for more than the threshold
+
+    :param df: data
+    :type df: dataframe
+    :param target: name of the column to check
+    :type df: [str]
+    :param threshold: percentual to check
+    :type threshold: float
+    :return: True/False boolean
+    :rtype: boolean
+    """
+    target_df = df[[target]].pct_change(1)
+    tot_point =df.shape[0]
+    constant_points = np.sum(pd.isna(target_df)).iloc[0]
+    perc = constant_points / tot_point
+
+    if perc >= threshold:
+        tag = True
+    else:
+        tag = False
+
+    return tag
+
