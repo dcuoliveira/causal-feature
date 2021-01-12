@@ -5,9 +5,9 @@ import pandas as pd
 import numpy as np
 
 try:
-    from data_mani.utils import make_shifted_df, correlation_filter
+    from data_mani.utils import make_shifted_df, correlation_filter, check_constant_series
 except ModuleNotFoundError:
-    from src.data_mani.utils import make_shifted_df, correlation_filter
+    from src.data_mani.utils import make_shifted_df, correlation_filter, check_constant_series
 
 def target_ret_to_directional_movements(x, y_name):
     """
@@ -62,7 +62,8 @@ def univariate_granger_causality_test(x, y_name, x_name,
 
 def run_huang_methods(merged_df, target_name, words,
                       max_lag, verbose, sig_level,
-                      correl_threshold):
+                      correl_threshold, constant_threshold,
+                      asset_name=None):
     """
     perform huang feature selection procedure, that is, univariate granger
     causality and logistic regression
@@ -92,11 +93,17 @@ def run_huang_methods(merged_df, target_name, words,
     words_to_shift = []
     for w in tqdm(merged_df.columns, disable=not verbose, desc="run huang feature selection", ):
         if w in words and w != target_name:
-            accept_tag, pvals = univariate_granger_causality_test(x=merged_df, y_name=target_name, x_name=w,
-                                                           max_lag=max_lag, verbose=verbose, sig_level=sig_level)
-            univariate_granger_causality_list += accept_tag
-            if len(accept_tag) > 1:
-                words_to_shift.append(w)
+            tag = check_constant_series(df=merged_df,
+                                        target = w,
+                                        threshold=constant_threshold)
+            if not tag:
+                accept_tag, pvals = univariate_granger_causality_test(x=merged_df, y_name=target_name, x_name=w,
+                                                               max_lag=max_lag, verbose=verbose, sig_level=sig_level)
+                univariate_granger_causality_list += accept_tag
+                if len(accept_tag) > 1:
+                    words_to_shift.append(w)
+            else:
+                continue
 
     selected_words_list = [w for w in univariate_granger_causality_list if w is not None]
 
@@ -107,6 +114,7 @@ def run_huang_methods(merged_df, target_name, words,
         logit_var_df = merged_df[[target_name] + selected_words_list].dropna()
         filtered_data = correlation_filter(data=logit_var_df[selected_words_list],
                                            threshold=correl_threshold)
+        print(asset_name)
         logit_model = Logit(endog=logit_var_df[[target_name]], exog=filtered_data).fit()
         final_selected_words = list(logit_model.pvalues[logit_model.pvalues <= sig_level].index)
         words_not_selected_to_add = pd.DataFrame(list(set(merged_df.columns) - set(final_selected_words)))
