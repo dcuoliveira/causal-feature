@@ -15,7 +15,7 @@ import random
 # variables
 SIG_LEVEL = 0.05
 MAX_LAG = 20 # maximum number of lags to create
-N_CORES = 5 # number of cores to use
+N_CORES = 30 # number of cores to use
 OUT_FOLDER = "nyse" # name of the marked data folder
 DEBUG = False # param to debug the script
 TEST_SIZE = 0.5 # pct of the train/test split
@@ -26,12 +26,12 @@ CORREL_THRESHOLD = 0.5 # correlation threshold to apply filter
 CONSTANT_THRESHOLD = 0.9 # constant threshold to apply filter
 
 # ajuste pra path do windows
-PATHS = [path.replace('\\', '/')for path in sorted(glob("data/crsp/{}/*.csv".format(OUT_FOLDER)))]
+PATHS = sorted(glob("data/crsp/{}/*.csv".format(OUT_FOLDER)))
 
 # debug condition
 if DEBUG:
-    words = words # words[:100]
-    PATHS = ['data/crsp/nyse/AAT US Equity.csv'] # PATHS[1:20]
+    words = words
+    PATHS = PATHS[1:5]
 
 def huang_fs_vec(paths,
                  test_size=TEST_SIZE,
@@ -99,7 +99,7 @@ def huang_fs_par(paths, n_cores=N_CORES, par=False):
         for path in path_split:
             huang_fs_vec(path)
 
-    return result
+    return None
 
 if __name__ == '__main__':
     paths = path_filter(paths=PATHS,
@@ -118,10 +118,10 @@ if __name__ == '__main__':
             tot_time,
             N_CORES))
 
-    # Cleaning debug
+   #  Cleaning debug
     if DEBUG:
         for p in paths:
             name = get_ticker_name(p).replace("_", " ")
             out_path = os.path.join(
-                "results", "huang", OUT_FOLDER, name + ".csv")
+               "results", "huang", OUT_FOLDER, name + ".csv")
             os.remove(out_path)
