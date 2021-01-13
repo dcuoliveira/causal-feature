@@ -21,9 +21,9 @@ DEBUG = False # param to debug the script
 TEST_SIZE = 0.5 # pct of the train/test split
 THRESHOLD = 252 * 2 # treshold to filted merged datframes
                     # 252 = business days in a year
-PAR = False # enable run in paralell
+PAR = True # enable run in paralell
 CORREL_THRESHOLD = 0.5 # correlation threshold to apply filter
-CONSTANT_THRESHOLD = 0.1 # constant threshold to apply filter
+CONSTANT_THRESHOLD = 0.9 # constant threshold to apply filter
 
 # ajuste pra path do windows
 PATHS = [path.replace('\\', '/')for path in sorted(glob("data/crsp/{}/*.csv".format(OUT_FOLDER)))]
