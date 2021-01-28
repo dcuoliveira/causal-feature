@@ -5,23 +5,15 @@ import pandas as pd
 import numpy as np
 
 try:
-    from data_mani.utils import make_shifted_df, correlation_filter, check_constant_series
+    from data_mani.utils import make_shifted_df
+    from data_mani.utils import correlation_filter
+    from data_mani.utils import check_constant_series
+    from data_mani.utils import target_ret_to_directional_movements
 except ModuleNotFoundError:
-    from src.data_mani.utils import make_shifted_df, correlation_filter, check_constant_series
-
-def target_ret_to_directional_movements(x, y_name):
-    """
-    discretize a series of returns into up (1) and down (0) movements
-
-    :param x: target data
-    :type x: data.frame
-    :param y_name: target return to discretize
-    :type words: str
-    :return: full dataframe with the y_name variable discretized
-    :rtype: dataframe
-    """
-    x[y_name] = [1 if r > 0 else 0 for r in x[y_name]]
-    return x
+    from src.data_mani.utils import make_shifted_df
+    from src.data_mani.utils import correlation_filter
+    from src.data_mani.utils import check_constant_series
+    from src.data_mani.utils import target_ret_to_directional_movements
 
 
 def univariate_granger_causality_test(x, y_name, x_name,

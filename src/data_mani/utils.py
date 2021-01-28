@@ -4,6 +4,22 @@ from tqdm import tqdm
 import os
 import numpy as np
 
+
+def target_ret_to_directional_movements(x, y_name):
+    """
+    discretize a series of returns into up (1) and down (0) movements
+
+    :param x: target data
+    :type x: data.frame
+    :param y_name: target return to discretize
+    :type words: str
+    :return: full dataframe with the y_name variable discretized
+    :rtype: dataframe
+    """
+    x[y_name] = [1 if r > 0 else 0 for r in x[y_name]]
+    return x
+
+
 def correlation_filter(data, threshold):
     """
     filter columns that has correlation higher than the threshold
