@@ -8,7 +8,7 @@ from word_list.analysis import words
 from data_mani.utils import path_filter
 from data_mani.utils import merge_market_and_gtrends
 from data_mani.utils import get_ticker_name
-from feature_selection.huang import run_huang_methods
+from feature_selection.huang import run_granger_causality
 import random
 
 
