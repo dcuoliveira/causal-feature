@@ -108,7 +108,7 @@ def run_granger_causality(merged_df, target_name, words,
 
     selected_words_list = [w for w in univariate_granger_causality_list if w is not None]
 
-    out_df = pd.DataFrame({'feature': accept_tag,
+    out_df = pd.DataFrame({'feature': selected_words_list,
                            'feature_score': pvals})
     
     return out_df
@@ -152,7 +152,7 @@ def run_huang_methods(merged_df, target_name, words,
                                         target = w,
                                         threshold=constant_threshold)
             if not tag:
-                accept_tag, pvals = univariate_granger_causality_test(x=merged_df, y_name=target_name, x_name=w,
+                accept_tag, _ = univariate_granger_causality_test(x=merged_df, y_name=target_name, x_name=w,
                                                                max_lag=max_lag, verbose=verbose, sig_level=sig_level)
                 univariate_granger_causality_list += accept_tag
                 if len(accept_tag) > 1:
