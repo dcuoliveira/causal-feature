@@ -100,8 +100,9 @@ def granger_fs_par(paths, n_cores=N_CORES, par=False):
     else:
         for path in path_split:
             granger_fs_vec(path)
+        result = None
 
-    return None
+    return result
 
 if __name__ == '__main__':
     paths = path_filter(paths=PATHS,
