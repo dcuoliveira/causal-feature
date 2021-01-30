@@ -77,7 +77,6 @@ def mean_decrease_accuracy(df,
                 miss_pct = ((miss_rate - miss_rate_0) / miss_rate_0)
             scores[feature].append(miss_pct)
             del new_test
-
     result = pd.DataFrame(scores).transpose().mean(1).reset_index()
     result.columns = ["feature", "feature_score"]
     result = result.sort_values(
@@ -85,3 +84,56 @@ def mean_decrease_accuracy(df,
         ascending=False).reset_index(
         drop=True)
     return result
+
+
+def get_mda_scores(merged_df,
+                   target_name,
+                   words,
+                   max_lag,
+                   random_state,
+                   n_splits,
+                   n_estimators=100,
+                   verbose=True):
+    """
+    Get mda_score for all words in 'words' using lags from 1 to
+    max_lag.
+
+    :param merged_df: market and google trends data
+    :type merged_df: pd.DataFrame
+    :param target_name: name of the target column in 'merged_df'
+    :type target_name: str
+    :param words: list of words to create features
+    :type words: [str]
+    :param n_estimators: number of decision trees
+                         used in the random forest model
+    :type n_estimators: int
+    :param random_state: controls both the randomness of the
+                         colum permutation and the model training
+    :type random_state: int or RandomState
+    :param n_splits: number of cross-validation splits
+    :type n_splits: int
+    :param verbose: param to print iteration status
+    :type verbose: bool
+    :return: sorted dataframe with mean decrease impurity
+            (greater is better)
+    :rtype: pd.DataFrame
+    """
+
+    # add shift for all words
+
+    feature_names = []
+
+    for word in tqdm(words, disable=not verbose, desc="add shift"):
+        for shift in range(1, max_lag + 1):
+            new_feature = word.replace(" ", "_") + "_{}".format(shift)
+            merged_df.loc[:, new_feature] = merged_df[word].shift(shift)
+            feature_names.append(new_feature)
+
+    # calculate mda for all words
+    results = mean_decrease_accuracy(df=merged_df.dropna(),
+                                     feature_names=feature_names,
+                                     target_name=target_name,
+                                     n_splits=n_splits,
+                                     random_state=random_state,
+                                     ModelClass=RandomForestClassifier(n_estimators=n_estimators))
+    return results

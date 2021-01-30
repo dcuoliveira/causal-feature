@@ -36,7 +36,8 @@ class Sanity_check_test_feature_selection(unittest.TestCase):
         y = y.reshape(-1, 1)
         df = pd.DataFrame(np.hstack([X, y]), columns=columns)
         true_imp = pd.DataFrame({"feature": feature_names,
-                                 "feature_score": coef}).sort_values("feature_score", ascending=False).reset_index(drop=True)
+                                 "feature_score": coef}).sort_values("feature_score",
+                                                                     ascending=False).reset_index(drop=True)
 
         # SFI test
         sfi_results = []
