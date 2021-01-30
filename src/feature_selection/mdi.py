@@ -94,6 +94,7 @@ def get_mdi_scores(merged_df,
     :param verbose: param to print iteration status
     :type verbose: bool
     :return: sorted dataframe with mean decrease impurity
+            (greater is better)
     :rtype: pd.DataFrame
     """
 
@@ -116,6 +117,6 @@ def get_mdi_scores(merged_df,
                                  n_estimators=n_estimators)
     imp = imp.sort_values("mean", ascending=False)["mean"]
     imp = imp.reset_index()
-    # feature_score = mdi (mais eh melhor)
+    # feature_score = mdi (greater is better)
     imp.columns = ["feature", "feature_score"]
     return imp

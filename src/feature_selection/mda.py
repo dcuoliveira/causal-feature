@@ -14,14 +14,24 @@ def mean_decrease_accuracy(df,
                            target_name,
                            n_splits,
                            random_state,
-                           ModelClass=RandomForestClassifier(n_estimators=10)):
+                           ModelClass=RandomForestClassifier(n_estimators=100)):
     """
     Using the classification model 'ModelClass'
-    and the cross-validation object 'TimeSeriesSplit',
-    we calculate the accuracy for
-    "n_splits" test sets.
+    we calculate the misclassification error (1- accuracy)
+    on the test set (with all variables intact),
+    then, for each feature we calculate the misclassification
+    error for the new version of the test set after we permutate
+    the feature column. The importace of each feature is understood
+    as the increase in error rate.
 
-    EXPLAIN EXPLAIN EXPLAIN
+    The training and test splitting is done using
+    the cross-validation object 'TimeSeriesSplit'.
+
+    The final result is the mean increasing in error rate
+    for each feature (mean over all splits).
+
+    reference:
+    Breiman Leo. 2001. Random Forests, Machine Learning, 45, 5-32.
 
 
     :param df: data
@@ -37,7 +47,8 @@ def mean_decrease_accuracy(df,
     :type random_state: int or RandomState
     :param ModelClass: any sklearn classification model
     :type ModelClass: RandomForestClassifier, LogisticRegression, etc
-    :return: dfsfs
+    :return: sorted dataframe with scores for each feature
+             (greater is better)
     :rtype: pd.DataFrame
     """
     np.random.seed(random_state)
@@ -51,19 +62,26 @@ def mean_decrease_accuracy(df,
         X_test, y_test = df_test[feature_names].values, df_test[target_name].values
         model = ModelClass.fit(X_train, y_train)
         pred = model.predict(X_test)
-        acc0 = accuracy_score(y_test, pred)
+        miss_rate_0 = (1 - accuracy_score(y_test, pred))
         for feature in feature_names:
-            new_test = df_test[feature_names].copy()
-            np.random.shuffle(new_test.loc[:, feature])
+            new_test = df_test.loc[:, feature_names].copy()
+            permutation = new_test[feature].sample(
+                frac=1).reset_index(drop=True).values
+            new_test.loc[:, feature] = permutation
             new_X_test = new_test.values
             new_pred = model.predict(new_X_test)
-            acc = accuracy_score(y_test, new_pred)
-            acc_diff =  acc0 - acc
-            imp = 1/(1.0 - acc_diff)
-            scores[feature].append(imp)
+            miss_rate = (1 - accuracy_score(y_test, new_pred))
+            if miss_rate_0 == 0:
+                miss_pct = np.nan
+            else:
+                miss_pct = ((miss_rate - miss_rate_0) / miss_rate_0)
+            scores[feature].append(miss_pct)
             del new_test
 
     result = pd.DataFrame(scores).transpose().mean(1).reset_index()
     result.columns = ["feature", "feature_score"]
-    result = result.sort_values("feature_score", ascending=False).reset_index(drop=True)
+    result = result.sort_values(
+        "feature_score",
+        ascending=False).reset_index(
+        drop=True)
     return result

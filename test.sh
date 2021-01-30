@@ -1,3 +1,4 @@
+python3 tests/sanity_check.py
 python3 tests/merge.py
 python3 tests/filter.py
 python3 tests/sfi.py
