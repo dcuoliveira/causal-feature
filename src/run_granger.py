@@ -8,7 +8,7 @@ from word_list.analysis import words
 from data_mani.utils import path_filter
 from data_mani.utils import merge_market_and_gtrends
 from data_mani.utils import get_ticker_name
-from feature_selection.huang import run_huang_methods
+from feature_selection.huang import run_granger_causality
 import random
 
 
@@ -17,7 +17,7 @@ SIG_LEVEL = 0.05
 MAX_LAG = 20 # maximum number of lags to create
 N_CORES = 30 # number of cores to use
 OUT_FOLDER = "nyse" # name of the marked data folder
-DEBUG = False # param to debug the script
+DEBUG = True # param to debug the script
 TEST_SIZE = 0.5 # pct of the train/test split
 THRESHOLD = 252 * 2 # treshold to filted merged datframes
                     # 252 = business days in a year
@@ -33,7 +33,7 @@ if DEBUG:
     words = words
     PATHS = PATHS[1:5]
 
-def huang_fs_vec(paths,
+def granger_fs_vec(paths,
                  test_size=TEST_SIZE,
                  out_folder=OUT_FOLDER,
                  words=words,
@@ -42,13 +42,14 @@ def huang_fs_vec(paths,
                  correl_threshold=CORREL_THRESHOLD,
                  constant_threshold=CONSTANT_THRESHOLD):
     """
-    vectorized version of the Huang et al. (2019) feature selection techniques.
+    vectorized and simplified version of the Huang et al. (2019)
+    feature selection technique.
     for each path in 'paths' we:
         - merge with the gtrends data
-        - run the huang_fs functions using
+        - run the grenger_fs functions using
           using 'test_size', 'words' and 'max_lag'
         - save the results in the folder
-          'results/huang_fs'
+          'results/granger_fs'
 
     :param paths: list of paths to market data
     :type paths: [str]
@@ -70,18 +71,19 @@ def huang_fs_vec(paths,
         merged, _ = merge_market_and_gtrends(path, test_size=test_size)
 
         name = get_ticker_name(path).replace("_", " ")
-        result = run_huang_methods(merged_df=merged, target_name="target_return",
-                                   words=words, max_lag=max_lag, verbose=False,
-                                   sig_level=sig_level, correl_threshold=correl_threshold,
-                                   asset_name=name, constant_threshold=constant_threshold)
-        if result is not None:
-            out_path = os.path.join("results", "huang", out_folder, name + ".csv")
-            result.to_csv(out_path, index=False)
+        result = run_granger_causality(merged_df=merged, target_name="target_return",
+                                       words=words, max_lag=max_lag, verbose=False,
+                                       sig_level=sig_level, correl_threshold=correl_threshold,
+                                       constant_threshold=constant_threshold)
+
+        out_path = os.path.join("results", "granger", out_folder, name + ".csv")
+        result.to_csv(out_path, index=False)
 
 
-def huang_fs_par(paths, n_cores=N_CORES, par=False):
+def granger_fs_par(paths, n_cores=N_CORES, par=False):
     """
-    parallelized version of the Huang et al. (2019) feature selection techniques.
+    parallelized version of the Granger Causality feature selection implemented
+    in Huang et al.(2019) as a first step in his procedure
 
     :param paths: list of paths to market data
     :type paths: [str]
@@ -92,14 +94,15 @@ def huang_fs_par(paths, n_cores=N_CORES, par=False):
     path_split = np.array_split(paths, n_cores)
     if par:
         pool = Pool(n_cores)
-        result = pool.map(huang_fs_vec, path_split)
+        result = pool.map(granger_fs_vec, path_split)
         pool.close()
         pool.join()
     else:
         for path in path_split:
-            huang_fs_vec(path)
+            granger_fs_vec(path)
+        result = None
 
-    return None
+    return result
 
 if __name__ == '__main__':
     paths = path_filter(paths=PATHS,
@@ -109,8 +112,8 @@ if __name__ == '__main__':
     print("\nnumber of paths = {}".format(len(paths)))
     print("({:.1%} of paths)".format(pct))
     init = time()
-    huang_fs_par(paths=paths,
-                 par=PAR)
+    granger_fs_par(paths=paths,
+                   par=PAR)
     tot_time = time() - init
     tot_time = tot_time / 60
     print(
@@ -123,5 +126,5 @@ if __name__ == '__main__':
         for p in paths:
             name = get_ticker_name(p).replace("_", " ")
             out_path = os.path.join(
-               "results", "huang", OUT_FOLDER, name + ".csv")
+               "results", "granger", OUT_FOLDER, name + ".csv")
             os.remove(out_path)
