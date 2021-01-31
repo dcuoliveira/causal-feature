@@ -34,8 +34,7 @@ class SFI_Tester(unittest.TestCase):
         gtrends = gtrends.set_index("date")
         path_m = os.path.join(parentdir,
                                "src", "data",
-                               "crsp", "nyse",
-                               "CYN US Equity.csv")
+                               "toy","ticker1.csv")
         name = path_m.split("/")[-1].split(".")[0]
         target_name = name.replace(" ", "_") + "_return"
         market = pd.read_csv(path_m)

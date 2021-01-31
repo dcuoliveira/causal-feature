@@ -19,8 +19,7 @@ class Test_merger(unittest.TestCase):
     def test_market_gtrend_merge(self):
         path_m = os.path.join(parentdir,
                               "src", "data",
-                              "crsp", "nyse",
-                              "0062761Q US Equity.csv")
+                              "toy","ticker4.csv")
         for size in [0.1, 0.25, 0.5, 0.75, 0.9]:
             train, test = merge_market_and_gtrends(path_m,
                                                    path_gt_list=[parentdir,
