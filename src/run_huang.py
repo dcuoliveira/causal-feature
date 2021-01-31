@@ -74,9 +74,9 @@ def huang_fs_vec(paths,
                                    words=words, max_lag=max_lag, verbose=False,
                                    sig_level=sig_level, correl_threshold=correl_threshold,
                                    asset_name=name, constant_threshold=constant_threshold)
-
-        out_path = os.path.join("results", "huang", out_folder, name + ".csv")
-        result.to_csv(out_path, index=False)
+        if result is not None:
+            out_path = os.path.join("results", "huang", out_folder, name + ".csv")
+            result.to_csv(out_path, index=False)
 
 
 def huang_fs_par(paths, n_cores=N_CORES, par=False):
