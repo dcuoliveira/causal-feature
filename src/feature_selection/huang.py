@@ -46,7 +46,8 @@ def univariate_granger_causality_test(x, y_name, x_name,
     and a dictionary of each of the variables pvalues
     :rtype: list and dict
     """
-    accept_tag = [None]
+    accept_tag = []
+    pval_tag = []
     pval_dict = {}
 
     # H0: second column does not granger causes the first column
@@ -55,9 +56,10 @@ def univariate_granger_causality_test(x, y_name, x_name,
         pval = test_result[lag][0]['ssr_ftest'][1]
         pval_dict[str(lag)] = pval
         if pval <= sig_level:
-            accept_tag.append(x_name.replace(" ", "_") + '_' + str(lag))
+            accept_tag += [x_name.replace(" ", "_") + '_' + str(lag)]
+            pval_tag += [pval]
 
-    return accept_tag, pval_dict
+    return accept_tag, pval_tag
 
 def run_granger_causality(merged_df, target_name, words,
                           max_lag, sig_level, correl_threshold,
@@ -91,6 +93,7 @@ def run_granger_causality(merged_df, target_name, words,
     """
     
     univariate_granger_causality_list = []
+    pvals_list = []
     words_to_shift = []
     for w in tqdm(merged_df.columns, disable=not verbose, desc="run huang feature selection", ):
         if w in words and w != target_name:
@@ -99,17 +102,16 @@ def run_granger_causality(merged_df, target_name, words,
                                         threshold=constant_threshold)
             if not tag:
                 accept_tag, pvals = univariate_granger_causality_test(x=merged_df, y_name=target_name, x_name=w,
-                                                               max_lag=max_lag, verbose=verbose, sig_level=sig_level)
+                                                                max_lag=max_lag, verbose=verbose, sig_level=sig_level)
                 univariate_granger_causality_list += accept_tag
+                pvals_list += pvals
                 if len(accept_tag) > 1:
                     words_to_shift.append(w)
             else:
                 continue
 
     selected_words_list = [w for w in univariate_granger_causality_list if w is not None]
-
-    out_df = pd.DataFrame({'feature': selected_words_list,
-                           'feature_score': pvals})
+    out_df = pd.DataFrame(data={'feature': selected_words_list, 'feature_score': pvals_list})
     
     return out_df
 
