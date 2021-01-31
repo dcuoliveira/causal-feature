@@ -20,8 +20,7 @@ class Test_MDI(unittest.TestCase):
     def test_mdi_reproducibility(self):
         path_m = os.path.join(parentdir,
                               "src", "data",
-                              "crsp", "nyse",
-                              "0820077D US Equity.csv")
+                              "toy", "ticker2.csv")
         train, test = merge_market_and_gtrends(path_m,
                                                path_gt_list=[parentdir,
                                                              "src",

@@ -21,8 +21,7 @@ class Test_mda(unittest.TestCase):
     def test_mda_reproducibility(self):
         path_m = os.path.join(parentdir,
                               "src", "data",
-                              "crsp", "nasdaq",
-                              "AAPL US Equity.csv")
+                              "toy", "ticker3.csv")
         train, _ = merge_market_and_gtrends(path_m,
                                             path_gt_list=[parentdir,
                                                           "src",

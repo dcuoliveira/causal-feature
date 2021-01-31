@@ -19,12 +19,12 @@ class Test_filter(unittest.TestCase):
     def test_filter_nasdaq(self):
         path_1 = os.path.join(parentdir,
                               "src", "data",
-                              "crsp", "nasdaq",
-                              "CCBK US Equity.csv")
+                              "toy",
+                              "ticker5.csv")
         path_2 = os.path.join(parentdir,
                               "src", "data",
-                              "crsp", "nasdaq",
-                              "CCB US Equity.csv")
+                              "toy",
+                              "ticker6.csv")
         paths = path_filter(paths=[path_1, path_2],
                             threshold=252,
                             verbose=False,
