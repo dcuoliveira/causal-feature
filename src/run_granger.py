@@ -10,6 +10,7 @@ from data_mani.utils import merge_market_and_gtrends
 from data_mani.utils import get_ticker_name
 from feature_selection.huang import run_granger_causality
 import random
+from sys import platform
 
 
 # variables
@@ -25,8 +26,11 @@ PAR = True # enable run in paralell
 CORREL_THRESHOLD = 0.5 # correlation threshold to apply filter
 CONSTANT_THRESHOLD = 0.9 # constant threshold to apply filter
 
-# ajuste pra path do windows
-PATHS = sorted(glob("src/data/crsp/{}/*.csv".format(OUT_FOLDER)))
+# ajuste pra mac
+if platform == 'darwin':
+    PATHS = sorted(glob("src/data/crsp/{}/*.csv".format(OUT_FOLDER)))
+else:
+    PATHS = sorted(glob("data/crsp/{}/*.csv".format(OUT_FOLDER)))
 
 # debug condition
 if DEBUG:
