@@ -3,7 +3,7 @@ import pandas as pd
 from tqdm import tqdm
 import os
 import numpy as np
-
+from sys import platform
 
 def target_ret_to_directional_movements(x, y_name):
     """
@@ -138,7 +138,7 @@ def merge_data(df_list, freq='D'):
 
 def merge_market_and_gtrends(path,
                              test_size,
-                             path_gt_list=["src", "data", "gtrends.csv"]):
+                             path_gt_list=["data", "gtrends.csv"]):
     """
     Merge market and google trends data.
     Market data is sliced using the
@@ -154,6 +154,9 @@ def merge_market_and_gtrends(path,
     :return: merged dataframe train and tes
     :rtype: (pd.DataFrame,pd.DataFrame)
     """
+    
+    if platform == 'darwin':
+        path_gt_list = ['src'] + ["data", "gtrends.csv"]
 
     # loading google trends data
     path_gt = os.path.join(*path_gt_list)
@@ -189,7 +192,7 @@ def merge_market_and_gtrends(path,
 def path_filter(paths,
                 threshold,
                 verbose=True,
-                path_gt_list=["src", "data", "gtrends.csv"]):
+                path_gt_list=["data", "gtrends.csv"]):
     """
     filter each market data path by
     assessing the size of the associated
@@ -212,6 +215,10 @@ def path_filter(paths,
     :return: list of filtered paths
     :rtype: [str]
     """
+    
+    if platform == 'darwin':
+        path_gt_list = ['src'] + ["data", "gtrends.csv"]
+    
     new_paths = []
     for p in tqdm(paths, disable=not verbose, desc="filter"):
         df = pd.read_csv(p)
