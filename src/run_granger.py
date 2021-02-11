@@ -26,11 +26,7 @@ PAR = True # enable run in paralell
 CORREL_THRESHOLD = 0.5 # correlation threshold to apply filter
 CONSTANT_THRESHOLD = 0.9 # constant threshold to apply filter
 
-# ajuste pra mac
-if platform == 'darwin':
-    PATHS = sorted(glob("src/data/crsp/{}/*.csv".format(OUT_FOLDER)))
-else:
-    PATHS = sorted(glob("data/crsp/{}/*.csv".format(OUT_FOLDER)))
+PATHS = sorted(glob("data/crsp/{}/*.csv".format(OUT_FOLDER)))
 
 # debug condition
 if DEBUG:

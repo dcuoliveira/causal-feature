@@ -154,9 +154,6 @@ def merge_market_and_gtrends(path,
     :return: merged dataframe train and tes
     :rtype: (pd.DataFrame,pd.DataFrame)
     """
-    
-    if platform == 'darwin':
-        path_gt_list = ['src'] + ["data", "gtrends.csv"]
 
     # loading google trends data
     path_gt = os.path.join(*path_gt_list)
@@ -215,9 +212,6 @@ def path_filter(paths,
     :return: list of filtered paths
     :rtype: [str]
     """
-    
-    if platform == 'darwin':
-        path_gt_list = ['src'] + ["data", "gtrends.csv"]
     
     new_paths = []
     for p in tqdm(paths, disable=not verbose, desc="filter"):
