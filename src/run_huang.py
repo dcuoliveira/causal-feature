@@ -16,7 +16,7 @@ import random
 SIG_LEVEL = 0.05
 MAX_LAG = 20 # maximum number of lags to create
 N_CORES = 30 # number of cores to use
-OUT_FOLDER = "nyse" # name of the marked data folder
+OUT_FOLDER = "nasdaq" # name of the marked data folder
 DEBUG = False # param to debug the script
 TEST_SIZE = 0.5 # pct of the train/test split
 THRESHOLD = 252 * 2 # treshold to filted merged datframes
