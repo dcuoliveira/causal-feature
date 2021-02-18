@@ -71,7 +71,7 @@ def mdi_vec(paths,
                                 verbose=False,
                                 random_state=random_state)
 
-        out_path = os.path.join("results", "mdi", out_folder, name + ".csv")
+        out_path = os.path.join("results", "feature_selection",  "mdi", out_folder, name + ".csv")
         result.to_csv(out_path, index=False)
 
 
@@ -130,6 +130,6 @@ if __name__ == '__main__':
         for p in paths:
             name = get_ticker_name(p).replace("_", " ")
             out_path = os.path.join(
-                "results", "mdi", OUT_FOLDER, name + ".csv")
+                "results", "feature_selection",  "mdi", OUT_FOLDER, name + ".csv")
             os.remove(out_path)
 

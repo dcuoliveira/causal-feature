@@ -76,7 +76,7 @@ def granger_fs_vec(paths,
                                        sig_level=sig_level, correl_threshold=correl_threshold,
                                        constant_threshold=constant_threshold)
 
-        out_path = os.path.join("results", "granger", out_folder, name + ".csv")
+        out_path = os.path.join("results", "feature_selection", "granger", out_folder, name + ".csv")
         result.to_csv(out_path, index=False)
 
 
@@ -126,5 +126,5 @@ if __name__ == '__main__':
         for p in paths:
             name = get_ticker_name(p).replace("_", " ")
             out_path = os.path.join(
-               "results", "granger", OUT_FOLDER, name + ".csv")
+               "results", "feature_selection", "granger", OUT_FOLDER, name + ".csv")
             os.remove(out_path)

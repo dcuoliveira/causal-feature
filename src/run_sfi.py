@@ -68,7 +68,7 @@ def sfi_vec(paths,
                                 verbose=False,
                                 n_splits=n_splits)
 
-        out_path = os.path.join("results", "sfi", out_folder, name + ".csv")
+        out_path = os.path.join("results", "feature_selection",  "sfi", out_folder, name + ".csv")
         result.to_csv(out_path, index=False)
 
 
@@ -111,5 +111,5 @@ if __name__ == '__main__':
         for p in paths:
             name = get_ticker_name(p).replace("_", " ")
             out_path = os.path.join(
-                "results", "sfi", OUT_FOLDER, name + ".csv")
+                "results", "feature_selection", "sfi", OUT_FOLDER, name + ".csv")
             os.remove(out_path)

@@ -75,7 +75,7 @@ def huang_fs_vec(paths,
                                    sig_level=sig_level, correl_threshold=correl_threshold,
                                    asset_name=name, constant_threshold=constant_threshold)
         if result is not None:
-            out_path = os.path.join("results", "huang", out_folder, name + ".csv")
+            out_path = os.path.join("results", "feature_selection",  "huang", out_folder, name + ".csv")
             result.to_csv(out_path, index=False)
 
 
@@ -123,5 +123,5 @@ if __name__ == '__main__':
         for p in paths:
             name = get_ticker_name(p).replace("_", " ")
             out_path = os.path.join(
-               "results", "huang", OUT_FOLDER, name + ".csv")
+               "results", "feature_selection",  "huang", OUT_FOLDER, name + ".csv")
             os.remove(out_path)
