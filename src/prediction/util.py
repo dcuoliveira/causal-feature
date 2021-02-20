@@ -1,5 +1,36 @@
 import numpy as numpy
+import pandas as pd
 from tqdm import tqdm
+import os
+
+
+def get_selected_features(ticker_name, out_folder, fs_method):
+    """
+    Select a subset of features using a feature
+    selection method. As suggested in AFML,
+    we select the top k ranked features with importance scores
+    higher than the mean importance scores across all features.
+
+
+    :param ticker_name: ticker name (without extension)
+    :type ticker_name: str
+    :param out_folder: folder with market data
+    :type out_folder: str
+    :param fs_method: folder with feature selection
+                      results
+    :type fs_method: str
+
+    :return: list of feature names
+    :rtype: [str]
+    """
+    ticker_name = "{}.csv".format(ticker_name)
+    path = os.path.join(*["results", "feature_selection",
+                          fs_method, out_folder, ticker_name])
+    scores = pd.read_csv(path)
+    cut_point = scores.feature_score.mean()
+    scores = scores.loc[scores.feature_score >= cut_point]
+    scores = scores.feature.to_list()
+    return scores
 
 
 def new_r2(y_true, y_pred):
