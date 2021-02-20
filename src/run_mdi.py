@@ -15,12 +15,12 @@ from data_mani.utils import path_filter
 N_CORES = 30 # number of cores to use
 MAX_LAG = 20 # maximum number of lags to create
              # google trends features
-OUT_FOLDER = "nasdaq" # name of the marked data folder
+OUT_FOLDER = "spx" # name of the marked data folder
 DEBUG = False # param to debug the script
 TEST_SIZE = 0.5 # pct of the train/test split
 THRESHOLD = 252 * 2 # treshold to filted merged datframes
                     # 252 = business days in a year
-PATHS = sorted(glob("data/crsp/{}/*.csv".format(OUT_FOLDER)))
+PATHS = sorted(glob("data/index/{}/*.csv".format(OUT_FOLDER)))
 
 # debug condition
 if DEBUG:
@@ -71,7 +71,9 @@ def mdi_vec(paths,
                                 verbose=False,
                                 random_state=random_state)
 
-        out_path = os.path.join("results", "mdi", out_folder, name + ".csv")
+        out_path = os.path.join("results",
+                                "feature_selection",
+                                "mdi", out_folder, name + ".csv")
         result.to_csv(out_path, index=False)
 
 
@@ -130,6 +132,8 @@ if __name__ == '__main__':
         for p in paths:
             name = get_ticker_name(p).replace("_", " ")
             out_path = os.path.join(
-                "results", "mdi", OUT_FOLDER, name + ".csv")
+                "results",
+                "feature_selection",
+                "mdi", OUT_FOLDER, name + ".csv")
             os.remove(out_path)
 

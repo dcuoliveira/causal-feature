@@ -13,15 +13,15 @@ from data_mani.utils import path_filter
 
 # Variables
 N_SPLITS = 5 # number of CV splits
-N_CORES = 2 # number of cores to use
+N_CORES = 30 # number of cores to use
 MAX_LAG = 20 # maximum number of lags to create
              # google trends features
-OUT_FOLDER = "nyse" # name of the marked data folder
-DEBUG = True # param to debug the script
+OUT_FOLDER = "spx" # name of the marked data folder
+DEBUG = False # param to debug the script
 TEST_SIZE = 0.5 # pct of the train/test split
 THRESHOLD = 252 * 2 # treshold to filted merged datframes
                     # 252 = business days in a year
-PATHS = sorted(glob("data/crsp/{}/*.csv".format(OUT_FOLDER)))
+PATHS = sorted(glob("data/index/{}/*.csv".format(OUT_FOLDER)))
 
 # debug condition
 if DEBUG:
@@ -68,7 +68,7 @@ def sfi_vec(paths,
                                 verbose=False,
                                 n_splits=n_splits)
 
-        out_path = os.path.join("results", "sfi", out_folder, name + ".csv")
+        out_path = os.path.join("results", "feature_selection", "sfi", out_folder, name + ".csv")
         result.to_csv(out_path, index=False)
 
 
@@ -111,5 +111,5 @@ if __name__ == '__main__':
         for p in paths:
             name = get_ticker_name(p).replace("_", " ")
             out_path = os.path.join(
-                "results", "sfi", OUT_FOLDER, name + ".csv")
+                "results", "feature_selection",  "sfi", OUT_FOLDER, name + ".csv")
             os.remove(out_path)

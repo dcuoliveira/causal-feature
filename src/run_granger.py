@@ -16,8 +16,8 @@ import random
 SIG_LEVEL = 0.05
 MAX_LAG = 20 # maximum number of lags to create
 N_CORES = 30 # number of cores to use
-OUT_FOLDER = "nyse" # name of the marked data folder
-DEBUG = True # param to debug the script
+OUT_FOLDER = "spx" # name of the marked data folder
+DEBUG = False # param to debug the script
 TEST_SIZE = 0.5 # pct of the train/test split
 THRESHOLD = 252 * 2 # treshold to filted merged datframes
                     # 252 = business days in a year
@@ -26,11 +26,11 @@ CORREL_THRESHOLD = 0.5 # correlation threshold to apply filter
 CONSTANT_THRESHOLD = 0.9 # constant threshold to apply filter
 
 # ajuste pra path do windows
-PATHS = sorted(glob("data/crsp/{}/*.csv".format(OUT_FOLDER)))
+PATHS = sorted(glob("data/index/{}/*.csv".format(OUT_FOLDER)))
 
 # debug condition
 if DEBUG:
-    words = words
+    words = words[:3]
     PATHS = PATHS[1:5]
 
 def granger_fs_vec(paths,
@@ -76,7 +76,11 @@ def granger_fs_vec(paths,
                                        sig_level=sig_level, correl_threshold=correl_threshold,
                                        constant_threshold=constant_threshold)
 
-        out_path = os.path.join("results", "granger", out_folder, name + ".csv")
+        out_path = os.path.join("results",
+                                "feature_selection",
+                                "granger",
+                                out_folder,
+                                name + ".csv")
         result.to_csv(out_path, index=False)
 
 
@@ -125,6 +129,8 @@ if __name__ == '__main__':
     if DEBUG:
         for p in paths:
             name = get_ticker_name(p).replace("_", " ")
-            out_path = os.path.join(
-               "results", "granger", OUT_FOLDER, name + ".csv")
+            out_path = os.path.join("results",
+                                    "feature_selection", 
+                                    "granger",
+                                    OUT_FOLDER, name + ".csv")
             os.remove(out_path)
