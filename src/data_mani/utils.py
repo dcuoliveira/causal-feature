@@ -138,7 +138,7 @@ def merge_data(df_list, freq='D'):
 
 def merge_market_and_gtrends(path,
                              test_size,
-                             path_gt_list=["data", "gtrends.csv"]):
+                             path_gt_list=["src", "data", "gtrends.csv"]):
     """
     Merge market and google trends data.
     Market data is sliced using the
@@ -189,7 +189,7 @@ def merge_market_and_gtrends(path,
 def path_filter(paths,
                 threshold,
                 verbose=True,
-                path_gt_list=["data", "gtrends.csv"]):
+                path_gt_list=["src", "data", "gtrends.csv"]):
     """
     filter each market data path by
     assessing the size of the associated

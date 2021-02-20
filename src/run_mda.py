@@ -23,7 +23,7 @@ DEBUG = False  # param to debug the script
 TEST_SIZE = 0.5  # pct of the train/test split
 THRESHOLD = 252 * 2  # treshold to filted merged datframes
 # 252 = business days in a year
-PATHS = sorted(glob("data/crsp/{}/*.csv".format(OUT_FOLDER)))
+PATHS = sorted(glob("src/data/crsp/{}/*.csv".format(OUT_FOLDER)))
 
 # debug condition
 if DEBUG:

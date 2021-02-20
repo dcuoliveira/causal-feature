@@ -26,7 +26,7 @@ CORREL_THRESHOLD = 0.5 # correlation threshold to apply filter
 CONSTANT_THRESHOLD = 0.9 # constant threshold to apply filter
 
 # ajuste pra path do windows
-PATHS = sorted(glob("data/crsp/{}/*.csv".format(OUT_FOLDER)))
+PATHS = sorted(glob("src/data/crsp/{}/*.csv".format(OUT_FOLDER)))
 
 # debug condition
 if DEBUG:
