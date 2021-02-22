@@ -1,7 +1,10 @@
-import numpy as numpy
-import pandas as pd
-from tqdm import tqdm
 import os
+import pandas as pd
+import numpy as np
+from tqdm import tqdm
+from sklearn.model_selection import TimeSeriesSplit
+from sklearn.metrics import make_scorer
+from sklearn.model_selection import RandomizedSearchCV
 
 
 def get_selected_features(ticker_name, out_folder, fs_method):
@@ -71,3 +74,59 @@ def add_shift(merged_df, words, max_lag=20):
             new_feature = word.replace(" ", "_") + "_{}".format(shift)
             merged_df.loc[:, new_feature] = merged_df[word].shift(shift)
 
+
+def hyper_params_search(df,
+                        wrapper,
+                        n_iter,
+                        test_size,
+                        n_jobs,
+                        target_name="target_return"):
+    """
+    Use the dataframe 'df' to search for the best
+    params for the model 'wrapper'.
+
+    The CV split is performed using the TimeSeriesSplit
+    class.
+
+    We can define the size of the test set using the formula
+
+    ``n_samples//(n_splits + 1)``,
+
+    where ``n_samples`` is the number of samples.
+
+
+    :param df: train data
+    :type df: pd.DataFrame
+    :param wrapper: predictive model
+    :type wrapper: sklearn model wrapper
+    :param n_iter: number of hyperparameter searchs
+    :type n_iter: int
+    :param test_size: test size (in days) for the cross-validation splits
+    :type test_size: int
+    :param n_jobs: number of concurrent workers
+    :type n_jobs: int
+    :param target_name: name of the target column in 'df'
+    :type target_name: str
+    :return: R2 value
+    :rtype: float
+    """
+
+    X = df.drop(target_name, 1).values
+    y = df[target_name].values
+    n = X.shape[0]
+    n_splits = (n - test_size) // test_size
+
+    time_split = TimeSeriesSplit(n_splits=n_splits)
+    r2_scorer = make_scorer(new_r2)
+
+    model_search = RandomizedSearchCV(estimator=wrapper.ModelClass,
+                                      param_distributions=wrapper.param_grid,
+                                      n_iter=n_iter,
+                                      cv=time_split,
+                                      verbose=1,
+                                      n_jobs=n_jobs,
+                                      scoring=r2_scorer)
+
+    model_search = model_search.fit(X, y)
+
+    return model_search
