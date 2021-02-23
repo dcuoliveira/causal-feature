@@ -526,6 +526,10 @@ def run_markov_blanket(merged_df,
         MBs_df = pd.DataFrame(data={'feature': features,
                                     'feature_score': np.nan})
     else:
-        a=1
+        feature = []
+        for mb in MBs:
+            feature.append(merged_df.columns[mb])
+        MBs_df = pd.DataFrame(data={'feature': features,
+                                    'feature_score': np.nan})
     
     return MBs_df
