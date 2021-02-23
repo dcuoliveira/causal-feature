@@ -78,7 +78,7 @@ def add_shift(merged_df, words, max_lag=20):
 def hyper_params_search(df,
                         wrapper,
                         n_iter,
-                        test_size,
+                        n_splits,
                         n_jobs,
                         target_name="target_return"):
     """
@@ -92,7 +92,11 @@ def hyper_params_search(df,
 
     ``n_samples//(n_splits + 1)``,
 
-    where ``n_samples`` is the number of samples.
+
+    where ``n_samples`` is the number of samples. Hence,
+    we can define
+
+    n_splits = (n - test_size) // test_size
 
 
     :param df: train data
@@ -101,8 +105,8 @@ def hyper_params_search(df,
     :type wrapper: sklearn model wrapper
     :param n_iter: number of hyperparameter searchs
     :type n_iter: int
-    :param test_size: test size (in days) for the cross-validation splits
-    :type test_size: int
+    :param n_splits: number of splits for the cross-validation
+    :type n_splits: int
     :param n_jobs: number of concurrent workers
     :type n_jobs: int
     :param target_name: name of the target column in 'df'
@@ -113,8 +117,6 @@ def hyper_params_search(df,
 
     X = df.drop(target_name, 1).values
     y = df[target_name].values
-    n = X.shape[0]
-    n_splits = (n - test_size) // test_size
 
     time_split = TimeSeriesSplit(n_splits=n_splits)
     r2_scorer = make_scorer(new_r2)
@@ -130,3 +132,61 @@ def hyper_params_search(df,
     model_search = model_search.fit(X, y)
 
     return model_search
+
+
+def annualy_fit_and_predict(df,
+                            Wrapper,
+                            n_iter,
+                            n_splits,
+                            n_jobs,
+                            target_name="target_return"):
+    """
+     We recursively increase the training sample, periodically refitting
+     the entire model once per year, and making
+     out-of-sample predictions for the subsequent year.
+
+     On each fit, to perform hyperparameter search,
+     we perform cross-validation on a rolling basis.
+
+     :param df: train and test data combined
+     :type df: pd.DataFrame
+     :param Wrapper: predictive model class
+     :type Wrapper: sklearn model wrapper class
+     :param n_iter: number of hyperparameter searchs
+     :type n_iter: int
+     :param n_splits: number of splits for the cross-validation
+     :type n_splits: int
+     :param n_jobs: number of concurrent workers
+     :type n_jobs: int
+     :param target_name: name of the target column in 'df'
+     :type target_name: str
+     :return: dataframe with the date, true return
+              and predicted return.
+     :rtype: pd.DataFrame
+     """
+
+    all_preds = []
+
+    years = sorted(set(df.index.map(lambda x: x.year)))
+    years = years[:-1]
+
+    for y in tqdm(years, desc="anual training and prediction"):
+        train_ys = df[:str(y)]
+        test_ys = df[str(y + 1)]
+        model_wrapper = Wrapper()
+        model_search = hyper_params_search(df=train_ys,
+                                           wrapper=model_wrapper,
+                                           n_jobs=n_jobs,
+                                           n_splits=n_splits,
+                                           n_iter=n_iter)
+        X_test = test_ys.drop(target_name, 1).values
+        y_test = test_ys[target_name].values
+        test_pred = model_search.best_estimator_.predict(X_test)
+        dict_ = {"date": test_ys.index,
+                 "return": y_test,
+                 "prediction": test_pred}
+        result = pd.DataFrame(dict_)
+        all_preds.append(result)
+
+    pred_results = pd.concat(all_preds).reset_index()
+    return pred_results
