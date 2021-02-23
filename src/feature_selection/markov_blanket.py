@@ -316,3 +316,27 @@ def IAMB(data, target, alaph, is_discrete=True):
             CMB.remove(x)
 
     return list(set(CMB)), ci_number
+
+if __name__ == '__main__':
+    import numpy as np
+    import  pandas as pd
+    from feature_selection.markov_blanket import *
+    from word_list.analysis import words
+    from glob import glob
+    from data_mani.utils import path_filter
+    from data_mani.utils import merge_market_and_gtrends
+
+    TEST_SIZE = 0.5 # pct of the train/test split
+    THRESHOLD = 252 * 2 # treshold to filted merged datframes
+    OUT_FOLDER = "spx" # name of the marked data folder
+    PATHS = sorted(glob("data/index/{}/*.csv".format(OUT_FOLDER)))
+    
+    path = PATHS[1]
+    merged, _ = merge_market_and_gtrends(path, test_size=TEST_SIZE)
+    
+    target = 0
+    alaph = 0.01
+
+    MBs = IAMB(merged, target, alaph, is_discrete=False)
+    print("MBs is: " + str(MBs))
+    
