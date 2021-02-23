@@ -8,7 +8,7 @@ from word_list.analysis import words
 from data_mani.utils import path_filter
 from data_mani.utils import merge_market_and_gtrends
 from data_mani.utils import get_ticker_name
-from feature_selection.huang import run_granger_causality
+from feature_selection.markov_blanket import run_markov_blanket
 import random
 
 
@@ -21,16 +21,16 @@ DEBUG = True # param to debug the script
 TEST_SIZE = 0.5 # pct of the train/test split
 THRESHOLD = 252 * 2 # treshold to filted merged datframes
                     # 252 = business days in a year
-PAR = True # enable run in paralell
+PAR = False # enable run in paralell
 IS_DISCRETE = False
-MB_ALGO_NAME = 'IAMB'
+MB_ALGO_NAME = 'FIAMB'
 
 # ajuste pra path do windows
 PATHS = sorted(glob("data/index/{}/*.csv".format(OUT_FOLDER)))
 
 # debug condition
 if DEBUG:
-    words = words[:3]
+    words = words
     PATHS = PATHS[1:5]
 
 def markov_blanket_fs_vec(paths,

@@ -1,10 +1,26 @@
 import numpy as np
 from scipy.stats import chi2, norm
-import numpy as np
-
+import pandas as pd
 #from CBD.MBs.common.chi_square_test import chi_square_test
 #from CBD.MBs.common.chi_square_test import chi_square
+try:
+    from data_mani.utils import make_shifted_df
+except ModuleNotFoundError:
+    from src.data_mani.utils import make_shifted_df
+    
 
+def ns(data, MB):
+    qi = []
+    # if MBs == []:
+    #     qi.append(1)
+    for i in MB:
+        i = str(i)
+        try:
+            q_temp = len(np.unique(data[i]))
+        except:
+            a=1
+        qi.append(q_temp)
+    return qi
 
 def get_partial_matrix(S,
                        X,
@@ -342,7 +358,132 @@ def IAMB(data,
             # print("removed variables is: " + str(x))
             CMB.remove(x)
 
-    return list(set(CMB)), ci_number   
+    return list(set(CMB)), ci_number 
+
+
+def fast_IAMB(data, target, alaph, is_discrete=True):
+    number, kVar = np.shape(data)
+    ci_number = 0
+
+    #BT present B(T) and set null,according to pseudocode
+    MB = []
+
+    # set a dictionary to store variables and their pval,but it temporary memory
+    S_variables=[]
+    MBvariables = [i for i in range(kVar) if i != target ]
+    repeat_in_set = [0 for i in range(kVar)]
+    num_reapeat = 10
+    no_in_set = []
+    for x in MBvariables:
+        ci_number += 0
+        pval, dep = cond_indep_test(data, target, x, MB, is_discrete)
+        if(pval <= alaph):
+            S_variables.append([x,dep])
+    BT_temp = -1
+
+    # preset value
+    attributes_removed_Flag = False
+
+    while S_variables != []:
+        flag_repeat_set = [False for i in range(kVar)]
+        # S sorted according to pval
+        S_variables = sorted(S_variables, key=lambda x: x[1], reverse=True)
+        # print(S_variables)
+
+        """Growing phase"""
+        # print("growing phase begin!")
+        S_length=len(S_variables)
+        insufficient_data_Flag=False
+        attributes_removed_Flag = False
+        for y in range(S_length):
+            x = S_variables[y][0]
+            # number = number
+            # print("MBs is: " + str(MBs))
+            qi = ns(data, MB)
+            # print("qi is: " + str(qi))
+            tmp = [1]
+            temp1 = []
+            if len(qi) > 1:
+                temp1 = np.cumprod(qi[0:-1])
+            # print("temp1 is: " + str(temp1))
+            for i in temp1:
+                tmp.append(i)
+            # qs = 1 + ([i-1 for i in qi]) * tmp
+
+            # qs = np.array([i-1 for i in qi])* np.array(tmp).reshape(len(tmp),1) + 1
+            # print("qi is: " + str(qi) + " ,tmp is: " + str(tmp))
+            qs = 0
+            if qi == []:
+                qs = 0
+            else:
+                for i in range(len(qi)):
+                    qs += (qi[i]-1)*tmp[i]
+                qs += 1
+
+            # print("qs is: " + str(qs))
+            qxt = ns(data, [x, target])
+            # print("length of qs is:" + str(len(list(qs))))
+            # print("qxt is: " + str(qxt))
+            if qs == 0 :
+                df = np.prod(np.mat([i-1 for i in qxt])) * np.prod(np.mat(qi))
+                # print("1 = " + str(np.prod(np.array([i-1 for i in qxt]))) + " , 2 = " + str(np.prod(np.array(qi))))
+            else:
+                df = np.prod(np.mat([i-1 for i in qxt])) * qs
+                # print("1 = " + str(np.prod(np.array([i-1 for i in qxt])))+" , 22 = " + str(qs))
+            # print("df = " + str(df))
+            if number >= 5 * df:
+                # S_sort = [(key,value),....],and BT append is key
+                MB.append(S_variables[y][0])
+                flag_repeat_set[S_variables[y][0]] =True
+                # print("BT append is: " + str(S_variables[y][0]))
+            else:
+                # print('1')
+                insufficient_data_Flag=True
+                # due to insufficient data, then go to shrinking phase
+                break
+
+        """shrinking phase"""
+        # print("shrinking phase begin")
+        if BT_temp == MB:
+            break
+        BT_temp = MB.copy()
+        # print(BT)
+        for x in BT_temp:
+
+            subsets_BT = [i for i in MB if i != x]
+            ci_number += 1
+            pval_sp, dep_sp = cond_indep_test(data, target, x, subsets_BT, is_discrete)
+
+            if pval_sp > alaph:
+                MB.remove(x)
+                if flag_repeat_set[x] == True:
+                    repeat_in_set[x] += 1
+                    if repeat_in_set[x] > num_reapeat:
+                        no_in_set.append(x)
+                        # print("x not in again is: " + str(x))
+                # print("BT remove is: "+str(x))
+                attributes_removed_Flag = True
+
+        # if no variable will add to S_variables, circulate will be break,and output the result
+        if (insufficient_data_Flag == True) and (attributes_removed_Flag == False):
+            # print("circulate end!")
+            break
+        else:
+            # set a new S_variables ,and add variable which match the condition
+            S_variables = []
+            # print("circulate should continue,so S_variable readd variables")
+            BTT_variables =[i for i in range(kVar) if i != target and i not in MB and i not in no_in_set]
+            # print(BTT_variables)
+            for x in BTT_variables:
+                ci_number += 1
+                pval, dep = cond_indep_test(data, target, x, MB, is_discrete)
+                if pval <= alaph:
+                    # print([x,dep])
+                    S_variables.append([x,dep])
+                    # print("sv is: " + str(S_variables))
+
+    return list(set(MB)), ci_number  
+
 
 def run_markov_blanket(merged_df,
                        target_name,
@@ -362,10 +503,27 @@ def run_markov_blanket(merged_df,
                                    verbose=verbose,
                                    words=words,
                                    max_lag=max_lag)
+    
+    target_name_index = list(merged_df.columns).index(target_name)
     if MB_algo_type == 'IAMB':
-        MBs, ci_number = IAMB(data=merged_df,
-                              target=target_name,
+        MBs, ci_number = IAMB(data=merged_df.dropna(),
+                              target=target_name_index,
                               alaph=sig_level,
                               is_discrete=is_discrete) 
+    elif MB_algo_type == 'FIAMB':
+        MBs, ci_number = fast_IAMB(data=merged_df.dropna(),
+                                   target=target_name_index,
+                                   alaph=sig_level,
+                                   is_discrete=is_discrete) 
     else:
         raise Exception('MB algo nao cadastrado')
+    
+    if len(MBs) == 0:
+        features = list(merged_df.columns)
+        features.remove(target_name)
+        MBs_df = pd.DataFrame(data={'feature': features,
+                                    'feature_score': np.nan})
+    else:
+        a=1
+    
+    return MBs, ci_number
