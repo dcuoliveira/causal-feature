@@ -9,16 +9,18 @@ except ModuleNotFoundError:
     from src.data_mani.utils import make_shifted_df
     
 
-def ns(data, MB):
+def ns(data,
+       MB):
     qi = []
     # if MBs == []:
     #     qi.append(1)
     for i in MB:
-        i = str(i)
         try:
+            i = str(i)
             q_temp = len(np.unique(data[i]))
         except:
-            a=1
+            i = int(i)
+            q_temp = len(np.unique(data[data.columns[i]]))
         qi.append(q_temp)
     return qi
 
