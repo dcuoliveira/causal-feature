@@ -6,12 +6,17 @@ import numpy as np
 #from CBD.MBs.common.chi_square_test import chi_square
 
 
-def get_partial_matrix(S, X, Y):
+def get_partial_matrix(S,
+                       X,
+                       Y):
     S = S[X, :]
     S = S[:, Y]
     return S
 
-def partial_corr_coef(S, i, j, Y):
+def partial_corr_coef(S,
+                      i,
+                      j,
+                      Y):
     S = np.matrix(S)
     X = [i, j]
     inv_syy = np.linalg.inv(get_partial_matrix(S, Y, Y))
@@ -23,7 +28,11 @@ def partial_corr_coef(S, i, j, Y):
 
     return r
 
-def cond_indep_fisher_z(data, var1, var2, cond=[], alpha=0.05):
+def cond_indep_fisher_z(data,
+                        var1,
+                        var2,
+                        cond=[],
+                        alpha=0.05):
 
     """
     COND_INDEP_FISHER_Z Test if var1 indep var2 given cond using Fisher's Z test
@@ -85,7 +94,12 @@ def cond_indep_fisher_z(data, var1, var2, cond=[], alpha=0.05):
 
     return CI, r, p
 
-def g_square_dis(dm, x, y, s, alpha, levels):
+def g_square_dis(dm,
+                 x,
+                 y,
+                 s,
+                 alpha,
+                 levels):
     """G square test for discrete data.
 
     Args:
@@ -247,7 +261,12 @@ def g_square_dis(dm, x, y, s, alpha, levels):
     return p_val, dep
 
 
-def g2_test_dis(data_matrix, x, y, s, alpha, **kwargs):
+def g2_test_dis(data_matrix,
+                x,
+                y,
+                s,
+                alpha,
+                **kwargs):
     s1 = sorted([i for i in s])
     levels = []
     data_matrix = np.array(data_matrix, dtype=int)
@@ -260,7 +279,12 @@ def g2_test_dis(data_matrix, x, y, s, alpha, **kwargs):
     return g_square_dis(data_matrix, x, y, s1, alpha, levels)
 
 
-def cond_indep_test(data, target, var, cond_set=[], is_discrete=True, alpha=0.01):
+def cond_indep_test(data,
+                    target,
+                    var,
+                    cond_set=[],
+                    is_discrete=False,
+                    alpha=0.01):
     if is_discrete:
         pval, dep = g2_test_dis(data, target, var, cond_set,alpha)
         # if selected:
@@ -272,7 +296,10 @@ def cond_indep_test(data, target, var, cond_set=[], is_discrete=True, alpha=0.01
     return pval, dep
 
 
-def IAMB(data, target, alaph, is_discrete=True):
+def IAMB(data,
+         target,
+         alaph,
+         is_discrete=False):
     number, kVar = np.shape(data)
     CMB = []
     ci_number = 0
@@ -315,4 +342,30 @@ def IAMB(data, target, alaph, is_discrete=True):
             # print("removed variables is: " + str(x))
             CMB.remove(x)
 
-    return list(set(CMB)), ci_number    
+    return list(set(CMB)), ci_number   
+
+def run_markov_blanket(merged_df,
+                       target_name,
+                       words,
+                       max_lag,
+                       verbose,
+                       sig_level,
+                       is_discrete,
+                       MB_algo_type):
+    
+    list_df = []
+    for w in [target_name] + words:
+        list_df.append(merged_df[[w]])
+    merged_df = pd.concat(list_df, axis=1)
+    
+    merged_df, _ = make_shifted_df(df=merged_df,
+                                   verbose=verbose,
+                                   words=words,
+                                   max_lag=max_lag)
+    if MB_algo_type == 'IAMB':
+        MBs, ci_number = IAMB(data=merged_df,
+                              target=target_name,
+                              alaph=sig_level,
+                              is_discrete=is_discrete) 
+    else:
+        raise Exception('MB algo nao cadastrado')
