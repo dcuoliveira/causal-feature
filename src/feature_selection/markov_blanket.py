@@ -528,4 +528,4 @@ def run_markov_blanket(merged_df,
     else:
         a=1
     
-    return MBs, ci_number
+    return MBs_df
