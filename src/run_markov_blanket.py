@@ -73,8 +73,7 @@ def markov_blanket_fs_par(paths,
                           n_cores=N_CORES,
                           par=False):
     """
-    parallelized version of the Granger Causality feature selection implemented
-    in Huang et al.(2019) as a first step in his procedure
+    TODO
 
     :param paths: list of paths to market data
     :type paths: [str]
@@ -92,7 +91,7 @@ def markov_blanket_fs_par(paths,
         pool.join()
     else:
         for path in path_split:
-            granger_fs_vec(path)
+            markov_blanket_fs_vec(path)
         result = None
 
     return result
@@ -120,6 +119,6 @@ if __name__ == '__main__':
             name = get_ticker_name(p).replace("_", " ")
             out_path = os.path.join("results",
                                     "feature_selection", 
-                                    "granger",
+                                    "markov_blanket",
                                     OUT_FOLDER, name + ".csv")
             os.remove(out_path)
