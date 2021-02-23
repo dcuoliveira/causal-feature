@@ -17,11 +17,13 @@ SIG_LEVEL = 0.01
 MAX_LAG = 20 # maximum number of lags to create
 N_CORES = 30 # number of cores to use
 OUT_FOLDER = "spx" # name of the marked data folder
-DEBUG = False # param to debug the script
+DEBUG = True # param to debug the script
 TEST_SIZE = 0.5 # pct of the train/test split
 THRESHOLD = 252 * 2 # treshold to filted merged datframes
                     # 252 = business days in a year
 PAR = True # enable run in paralell
+IS_DISCRETE = False
+MB_ALGO_NAME = 'IAMB'
 
 # ajuste pra path do windows
 PATHS = sorted(glob("data/index/{}/*.csv".format(OUT_FOLDER)))
@@ -36,7 +38,9 @@ def markov_blanket_fs_vec(paths,
                           out_folder=OUT_FOLDER,
                           words=words,
                           max_lag=MAX_LAG,
-                          sig_level=SIG_LEVEL):
+                          sig_level=SIG_LEVEL,
+                          is_discrete=IS_DISCRETE,
+                          MB_algo_type=MB_ALGO_NAME):
     """
     TODO
 
@@ -57,9 +61,14 @@ def markov_blanket_fs_vec(paths,
         merged, _ = merge_market_and_gtrends(path, test_size=test_size)
 
         name = get_ticker_name(path).replace("_", " ")
-        result = run_markov_blanket(merged_df=merged, target_name="target_return",
-                                    words=words, max_lag=max_lag, verbose=False,
-                                    sig_level=sig_level)
+        result = run_markov_blanket(merged_df=merged,
+                                    target_name="target_return",
+                                    words=words,
+                                    max_lag=max_lag,
+                                    verbose=False,
+                                    sig_level=sig_level,
+                                    is_discrete=is_discrete,
+                                    MB_algo_type=MB_algo_type)
 
         out_path = os.path.join("results",
                                 "feature_selection",
