@@ -12,7 +12,7 @@ from data_mani.utils import get_ticker_name
 from data_mani.utils import path_filter
 
 # Variables
-N_CORES = 30 # number of cores to use
+N_CORES = 8 # number of cores to use
 MAX_LAG = 20 # maximum number of lags to create
              # google trends features
 OUT_FOLDER = "spx" # name of the marked data folder
