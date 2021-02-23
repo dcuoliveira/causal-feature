@@ -23,7 +23,7 @@ THRESHOLD = 252 * 2 # treshold to filted merged datframes
                     # 252 = business days in a year
 PAR = False # enable run in paralell
 IS_DISCRETE = False
-MB_ALGO_NAME = 'FIAMB'
+MB_ALGO_NAME = 'IAMB'
 
 # ajuste pra path do windows
 PATHS = sorted(glob("data/index/{}/*.csv".format(OUT_FOLDER)))
