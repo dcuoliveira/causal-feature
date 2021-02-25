@@ -188,5 +188,5 @@ def annualy_fit_and_predict(df,
         result = pd.DataFrame(dict_)
         all_preds.append(result)
 
-    pred_results = pd.concat(all_preds).reset_index()
+    pred_results = pd.concat(all_preds).reset_index(drop=True)
     return pred_results
