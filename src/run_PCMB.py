@@ -38,8 +38,7 @@ def PCMB_fs_vec(paths,
                 words=words,
                 max_lag=MAX_LAG,
                 sig_level=SIG_LEVEL,
-                is_discrete=IS_DISCRETE,
-                MB_algo_type=MB_ALGO_NAME):
+                is_discrete=IS_DISCRETE):
     """
     TODO
 
