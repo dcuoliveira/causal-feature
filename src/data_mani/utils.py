@@ -325,7 +325,7 @@ def getMinDep(data, target, x, CPC, alpha, is_discrete):
                 return 0, S, ci_number
             if dep_min > dep:
                 dep_min = dep
-    return dep_min, None, ci_number
+    return dep_min, tuple(), ci_number
 
 
 def cond_indep_fisher_z(data,

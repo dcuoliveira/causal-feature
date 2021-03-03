@@ -76,15 +76,15 @@ def MMPC(data,
 
 def MMMB(data,
          target,
-         alaph,
+         alpha,
          is_discrete=True):
     
     ci_number = 0
-    PC, sepset, ci_num2 = MMPC(data, target, alaph, is_discrete)
+    PC, sepset, ci_num2 = MMPC(data, target, alpha, is_discrete)
     ci_number += ci_num2
     MB = PC.copy()
     for x in PC:
-        PCofPC, _, ci_num3 = MMPC(data, x, alaph, is_discrete)
+        PCofPC, _, ci_num3 = MMPC(data, x, alpha, is_discrete)
         ci_number += ci_num3
         for y in PCofPC:
             if y != target and y not in PC:
@@ -94,7 +94,7 @@ def MMMB(data,
                 ci_number += 1
                 pval, dep = cond_indep_test(
                     data, target, y, conditions_Set, is_discrete)
-                if pval <= alaph:
+                if pval <= alpha:
                     MB.append(y)
                     break
     return list(set(MB)), ci_number
@@ -120,7 +120,7 @@ def run_MMMB(merged_df,
     target_name_index = list(merged_df.columns).index(target_name)
     MBs, ci_number = MMMB(data=merged_df.dropna(),
                           target=target_name_index,
-                          alaph=sig_level,
+                          alpha=sig_level,
                           is_discrete=is_discrete) 
     
     if len(MBs) == 0:

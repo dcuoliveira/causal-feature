@@ -5,7 +5,7 @@ except ModuleNotFoundError:
     from src.data_mani.utils import *
     
 
-def getPCD(data, target, alaph, is_discrete):
+def getPCD(data, target, alpha, is_discrete):
     number, kVar = np.shape(data)
     max_k = 3
     PCD = []
@@ -36,7 +36,7 @@ def getPCD(data, target, alaph, is_discrete):
                     ci_number += 1
                     pval_gp, dep_gp = cond_indep_test(data, target, vari, S, is_discrete)
 
-                    if pval_gp > alaph:
+                    if pval_gp > alpha:
                         vari_min = -1
                         CanPCD.remove(vari)
                         sepset[vari] = [i for i in S]
@@ -79,7 +79,7 @@ def getPCD(data, target, alaph, is_discrete):
                         ci_number += 1
                         pval_sp, dep_sp = cond_indep_test(data, target, x, S, is_discrete)
 
-                        if pval_sp > alaph:
+                        if pval_sp > alpha:
 
                             PCD.remove(x)
                             if x == y:
@@ -98,13 +98,13 @@ def getPCD(data, target, alaph, is_discrete):
     return list(set(PCD)), sepset, ci_number
 
 
-def getPC(data, target, alaph, is_discrete):
+def getPC(data, target, alpha, is_discrete):
     ci_number = 0
     PC = []
-    PCD, sepset, ci_num2 = getPCD(data, target, alaph, is_discrete)
+    PCD, sepset, ci_num2 = getPCD(data, target, alpha, is_discrete)
     ci_number += ci_num2
     for x in PCD:
-        variSet, _, ci_num3 = getPCD(data, x, alaph, is_discrete)
+        variSet, _, ci_num3 = getPCD(data, x, alpha, is_discrete)
         ci_number += ci_num3
         # PC of target ,whose PC also has the target, must be True PC
         if target in variSet:
@@ -114,17 +114,17 @@ def getPC(data, target, alaph, is_discrete):
 
 def PCMB(data,
          target,
-         alaph,
+         alpha,
          is_discrete=True):
     ci_number = 0
-    PC, sepset, ci_num2 = getPC(data, target, alaph, is_discrete)
+    PC, sepset, ci_num2 = getPC(data, target, alpha, is_discrete)
     ci_number += ci_num2
     # print(PC)
     # print(sepset)
     MB = PC.copy()
 
     for x in PC:
-        PCofPC_temp, _, ci_num3 = getPC(data, x, alaph, is_discrete)
+        PCofPC_temp, _, ci_num3 = getPC(data, x, alpha, is_discrete)
         ci_number += ci_num3
         # print(" pc of pc_temp is: " + str(PCofPC_temp))
         PCofPC = [i for i in PCofPC_temp if i != target and i not in MB]
@@ -136,7 +136,7 @@ def PCMB(data,
             ci_number += 1
             pval, dep = cond_indep_test(
                 data, target, y, conditionSet, is_discrete)
-            if pval <= alaph:
+            if pval <= alpha:
                 MB.append(y)
                 break
     return list(set(MB)), ci_number
@@ -148,7 +148,7 @@ def run_PCMB(merged_df,
              max_lag,
              verbose,
              sig_level,
-             is_discrete,):
+             is_discrete):
     
     list_df = []
     for w in [target_name] + words:
@@ -163,7 +163,7 @@ def run_PCMB(merged_df,
     target_name_index = list(merged_df.columns).index(target_name)
     MBs, ci_number = PCMB(data=merged_df.dropna(),
                           target=target_name_index,
-                          alaph=sig_level,
+                          alpha=sig_level,
                           is_discrete=is_discrete) 
     
     if len(MBs) == 0:
