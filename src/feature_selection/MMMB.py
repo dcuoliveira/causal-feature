@@ -4,7 +4,10 @@ try:
 except ModuleNotFoundError:
     from src.data_mani.utils import *
 
-def MMPC(data, target, alpha, is_discrete):
+def MMPC(data,
+         target,
+         alpha,
+         is_discrete):
     number, kVar = np.shape(data)
     ci_number = 0
     CPC = []
@@ -71,7 +74,10 @@ def MMPC(data, target, alpha, is_discrete):
     return list(set(CPC)), sepset, ci_number
 
 
-def MMMB(data, target, alaph, is_discrete=True):
+def MMMB(data,
+         target,
+         alaph,
+         is_discrete=True):
     
     ci_number = 0
     PC, sepset, ci_num2 = MMPC(data, target, alaph, is_discrete)
@@ -112,18 +118,10 @@ def run_MMMB(merged_df,
                                    max_lag=max_lag)
     
     target_name_index = list(merged_df.columns).index(target_name)
-    if MB_algo_type == 'IAMB':
-        MBs, ci_number = IAMB(data=merged_df.dropna(),
-                              target=target_name_index,
-                              alaph=sig_level,
-                              is_discrete=is_discrete) 
-    elif MB_algo_type == 'FIAMB':
-        MBs, ci_number = fast_IAMB(data=merged_df.dropna(),
-                                   target=target_name_index,
-                                   alaph=sig_level,
-                                   is_discrete=is_discrete) 
-    else:
-        raise Exception('MB algo nao cadastrado')
+    MBs, ci_number = MMMB(data=merged_df.dropna(),
+                          target=target_name_index,
+                          alaph=sig_level,
+                          is_discrete=is_discrete) 
     
     if len(MBs) == 0:
         features = list(merged_df.columns)
