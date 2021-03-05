@@ -105,7 +105,8 @@ def run_MMMB(merged_df,
              max_lag,
              verbose,
              sig_level,
-             is_discrete,):
+             is_discrete,
+             constant_threshold):
     
     list_df = []
     for w in [target_name] + words:
@@ -116,6 +117,16 @@ def run_MMMB(merged_df,
                                    verbose=verbose,
                                    words=words,
                                    max_lag=max_lag)
+    
+    not_constant_df = []
+    for col in merged_df.columns:
+        tag = check_constant_series(df=merged_df,
+                                    target=col,
+                                    threshold=constant_threshold)
+        if not tag or col == target_name:
+            not_constant_df.append(merged_df[[col]])
+    merged_df = pd.concat(not_constant_df, axis=1)
+    del not_constant_df
     
     target_name_index = list(merged_df.columns).index(target_name)
     MBs, ci_number = MMMB(data=merged_df.dropna(),
