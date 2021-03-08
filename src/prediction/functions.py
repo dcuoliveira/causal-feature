@@ -204,29 +204,34 @@ def annualy_fit_and_predict(df,
 
     all_preds = []
 
-    years = sorted(set(df.index.map(lambda x: x.year)))
-    years = years[:-1]
-
+    years = df.index.map(lambda x: x.year)
+    years = range(np.min(years), np.max(years))
     for y in tqdm(years, disable=not verbose,
                   desc="anual training and prediction"):
         train_ys = df[:str(y)]
         test_ys = df[str(y + 1)]
-        model_wrapper = Wrapper()
-        model_search = hyper_params_search(df=train_ys,
-                                           wrapper=model_wrapper,
-                                           n_jobs=n_jobs,
-                                           n_splits=n_splits,
-                                           n_iter=n_iter,
-                                           verbose=verbose)
-        X_test = test_ys.drop(target_name, 1).values
-        y_test = test_ys[target_name].values
-        print(y, y + 1, X_test.shape)
-        test_pred = model_search.best_estimator_.predict(X_test)
-        dict_ = {"date": test_ys.index,
-                 "return": y_test,
-                 "prediction": test_pred}
-        result = pd.DataFrame(dict_)
-        all_preds.append(result)
+
+        # we have some roles in the time interval
+        # for some tickers, for example,
+        # "SBUX UA Equity"
+        if test_ys.shape[0] > 0:
+            model_wrapper = Wrapper()
+            model_search = hyper_params_search(df=train_ys,
+                                               wrapper=model_wrapper,
+                                               n_jobs=n_jobs,
+                                               n_splits=n_splits,
+                                               n_iter=n_iter,
+                                               verbose=verbose)
+            X_test = test_ys.drop(target_name, 1).values
+            y_test = test_ys[target_name].values
+            test_pred = model_search.best_estimator_.predict(X_test)
+            dict_ = {"date": test_ys.index,
+                     "return": y_test,
+                     "prediction": test_pred}
+            result = pd.DataFrame(dict_)
+            all_preds.append(result)
+        else:
+            pass
 
     pred_results = pd.concat(all_preds).reset_index(drop=True)
     return pred_results
