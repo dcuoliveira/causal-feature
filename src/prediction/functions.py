@@ -5,12 +5,17 @@ from tqdm import tqdm
 from sklearn.model_selection import TimeSeriesSplit
 from sklearn.metrics import make_scorer
 from sklearn.model_selection import RandomizedSearchCV
-from data_mani.utils import merge_market_and_gtrends
+
+try:
+    from data_mani.utils import merge_market_and_gtrends
+except ModuleNotFoundError:
+    from src.data_mani.utils import merge_market_and_gtrends
 
 
 def get_features_granger(ticker_name,
                          out_folder,
-                         all_features):
+                         all_features,
+                         path_list):
     """
     Select a subset of features using
     the granger feature selection method.
@@ -24,12 +29,19 @@ def get_features_granger(ticker_name,
     :type out_folder: str
     :param all_features: list of all features
     :type all_features: [str]
+    :param path_list: list of str to create feature path
+    :type path_list: [str]
     :return: list of feature names
     :rtype: [str]
     """
     ticker_name = "{}.csv".format(ticker_name)
-    path = os.path.join(*["results", "feature_selection",
-                          "granger", out_folder, ticker_name])
+    if len(path_list) > 2:
+        path = os.path.join(*[path_list[0],
+                              "src", "results", "feature_selection",
+                              "granger", out_folder, ticker_name])
+    else:
+        path = os.path.join(*["results", "feature_selection",
+                              "granger", out_folder, ticker_name])
     scores = pd.read_csv(path)
     features = scores["feature"].to_list()
     if len(features) > 0:
@@ -38,7 +50,7 @@ def get_features_granger(ticker_name,
         return all_features
 
 
-def get_selected_features(ticker_name, out_folder, fs_method):
+def get_selected_features(ticker_name, out_folder, fs_method, path_list):
     """
     Select a subset of features using a feature
     selection method. As suggested in AFML,
@@ -53,13 +65,21 @@ def get_selected_features(ticker_name, out_folder, fs_method):
     :param fs_method: folder with feature selection
                       results
     :type fs_method: str
+    :param path_list: list of str to create feature path
+    :type path_list: [str]
 
     :return: list of feature names
     :rtype: [str]
     """
     ticker_name = "{}.csv".format(ticker_name)
-    path = os.path.join(*["results", "feature_selection",
-                          fs_method, out_folder, ticker_name])
+
+    if len(path_list) > 2:
+        path = os.path.join(*[path_list[0],
+                              "src", "results", "feature_selection",
+                              fs_method, out_folder, ticker_name])
+    else:
+        path = os.path.join(*["results", "feature_selection",
+                            fs_method, out_folder, ticker_name])
     scores = pd.read_csv(path)
     cut_point = scores.feature_score.mean()
     scores = scores.loc[scores.feature_score >= cut_point]
@@ -246,7 +266,8 @@ def forecast(ticker_name,
              verbose=1,
              target_name="target_return",
              market_folder="spx",
-             max_lag=20):
+             max_lag=20,
+             path_list=["data", "gtrends.csv"]):
     """
     Function to perform the predition using one ticker,
     one feature selection method, and one prediction model.
@@ -272,12 +293,21 @@ def forecast(ticker_name,
     :type market_folder: str
     :param max_lag: maximun number of lags
     :type max_lag: int
+    :param path_list: list of str to create gt path
+    :type path_list: [str]
     :return: dataframe with the date, true return
             and predicted return.
     :rtype: pd.DataFrame
     """
-    ticker_path = "data/index/{}/{}.csv".format(market_folder, ticker_name)
-    train, test = merge_market_and_gtrends(ticker_path, test_size=0.5)
+    if len(path_list) > 2:
+        path_t_list = [path_list[0],
+                       "src", "data", "index",
+                       market_folder, "{}.csv".format(ticker_name)]
+        ticker_path = os.path.join(*path_t_list)
+    else:
+        ticker_path = "data/index/{}/{}.csv".format(market_folder, ticker_name)
+    train, test = merge_market_and_gtrends(
+        ticker_path, test_size=0.5, path_gt_list=path_list)
     words = train.drop(target_name, 1).columns.to_list()
     complete = pd.concat([train, test])
 
@@ -294,7 +324,8 @@ def forecast(ticker_name,
 
         select = get_selected_features(ticker_name=ticker_name,
                                        out_folder=market_folder,
-                                       fs_method=fs_method)
+                                       fs_method=fs_method,
+                                       path_list=path_list)
 
         complete_selected = complete[[target_name] + select]
 
@@ -302,7 +333,8 @@ def forecast(ticker_name,
 
         select = get_features_granger(ticker_name=ticker_name,
                                       out_folder=market_folder,
-                                      all_features=all_features)
+                                      all_features=all_features,
+                                      path_list=path_list)
 
         complete_selected = complete[[target_name] + select]
 
