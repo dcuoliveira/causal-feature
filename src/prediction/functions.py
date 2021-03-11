@@ -188,6 +188,80 @@ def hyper_params_search(df,
     return model_search
 
 
+def periodic_fit_and_predict(df,
+                             step_size,
+                             Wrapper,
+                             n_iter,
+                             n_splits,
+                             n_jobs,
+                             verbose,
+                             target_name="target_return"):
+    """
+     We recursively increase the training sample, periodically refitting
+     the entire model once per year, and making
+     out-of-sample predictions for the subsequent year.
+
+     On each fit, to perform hyperparameter search,
+     we perform cross-validation on a rolling basis.
+
+     :param df: train and test data combined
+     :type df: pd.DataFrame
+     :param Wrapper: predictive model class
+     :type Wrapper: sklearn model wrapper class
+     :param n_iter: number of hyperparameter searchs
+     :type n_iter: int
+     :param n_splits: number of splits for the cross-validation
+     :type n_splits: int
+     :param n_jobs: number of concurrent workers
+     :type n_jobs: int
+     :param verbose: param to print iteration status
+     :type verbose: bool, int
+     :param target_name: name of the target column in 'df'
+     :type target_name: str
+     :return: dataframe with the date, true return
+              and predicted return.
+     :rtype: pd.DataFrame
+     """
+
+    all_preds = []
+
+    years = df.index.map(lambda x: x.year)
+    years = range(np.min(years), np.max(years), step_size)
+    for y in tqdm(years,
+                  disable=not verbose,
+                  desc="anual training and prediction"):
+        
+        train_ys = df[:str(y)]
+        print(y)
+        test_ys = df[str(y + 1):str(y + step_size)]
+        print(y+1, y + step_size)
+
+        # we have some roles in the time interval
+        # for some tickers, for example,
+        # "SBUX UA Equity"
+        if test_ys.shape[0] > 0:
+            model_wrapper = Wrapper()
+            model_search = hyper_params_search(df=train_ys,
+                                               wrapper=model_wrapper,
+                                               n_jobs=n_jobs,
+                                               n_splits=n_splits,
+                                               n_iter=n_iter,
+                                               verbose=verbose)
+            X_test = test_ys.drop(target_name, 1).values
+            y_test = test_ys[target_name].values
+            test_pred = model_search.best_estimator_.predict(X_test)
+            dict_ = {"date": test_ys.index,
+                     "return": y_test,
+                     "prediction": test_pred}
+            result = pd.DataFrame(dict_)
+            all_preds.append(result)
+        else:
+            pass
+
+    pred_results = pd.concat(all_preds).reset_index(drop=True)
+    return pred_results
+
+
 def annualy_fit_and_predict(df,
                             Wrapper,
                             n_iter,
@@ -226,7 +300,8 @@ def annualy_fit_and_predict(df,
 
     years = df.index.map(lambda x: x.year)
     years = range(np.min(years), np.max(years))
-    for y in tqdm(years, disable=not verbose,
+    for y in tqdm(years,
+                  disable=not verbose,
                   desc="anual training and prediction"):
         train_ys = df[:str(y)]
         test_ys = df[str(y + 1)]
@@ -351,5 +426,105 @@ def forecast(ticker_name,
                                            n_splits=n_splits,
                                            target_name=target_name,
                                            verbose=verbose)
+
+    return pred_results
+
+
+def new_forecast(ticker_name,
+                 fs_method,
+                 Wrapper,
+                 n_iter,
+                 n_splits,
+                 n_jobs,
+                 step_size=1,
+                 verbose=1,
+                 target_name="target_return",
+                 market_folder="spx",
+                 max_lag=20,
+                 path_list=["data", "gtrends.csv"]):
+    """
+    Function to perform the predition using one ticker,
+    one feature selection method, and one prediction model.
+
+    :param ticker_name: ticker name (without extension)
+    :type ticker_name: str
+    :param fs_method: folder with feature selection
+                      results
+    :type fs_method: str
+    :param Wrapper: predictive model class
+    :type Wrapper: sklearn model wrapper class
+    :param n_iter: number of hyperparameter searchs
+    :type n_iter: int
+    :param n_splits: number of splits for the cross-validation
+    :type n_splits: int
+    :param n_jobs: number of concurrent workers
+    :type n_jobs: int
+    :param verbose: param to print iteration status
+    :type verbose: bool, int
+    :param target_name: name of the target column in 'df'
+    :type target_name: str
+    :param market_folder: folder with market data
+    :type market_folder: str
+    :param max_lag: maximun number of lags
+    :type max_lag: int
+    :param path_list: list of str to create gt path
+    :type path_list: [str]
+    :return: dataframe with the date, true return
+            and predicted return.
+    :rtype: pd.DataFrame
+    """
+    if len(path_list) > 2:
+        path_t_list = [path_list[0],
+                       "src", "data", "index",
+                       market_folder, "{}.csv".format(ticker_name)]
+        ticker_path = os.path.join(*path_t_list)
+    else:
+        ticker_path = "data/index/{}/{}.csv".format(market_folder, ticker_name)
+    train, test = merge_market_and_gtrends(
+        ticker_path, test_size=0.5, path_gt_list=path_list)
+    words = train.drop(target_name, 1).columns.to_list()
+    complete = pd.concat([train, test])
+
+    del train, test
+
+    add_shift(merged_df=complete,
+              words=words,
+              max_lag=max_lag,
+              verbose=verbose)
+    complete = complete.fillna(0.0)
+    all_features = complete.drop(words + [target_name], 1).columns.to_list()
+
+    if fs_method in ["sfi", "mdi", "mda"]:
+
+        select = get_selected_features(ticker_name=ticker_name,
+                                       out_folder=market_folder,
+                                       fs_method=fs_method,
+                                       path_list=path_list)
+
+        complete_selected = complete[[target_name] + select]
+
+    elif fs_method == "granger":
+
+        select = get_features_granger(ticker_name=ticker_name,
+                                      out_folder=market_folder,
+                                      all_features=all_features,
+                                      path_list=path_list)
+
+        complete_selected = complete[[target_name] + select]
+
+    else:
+        assert fs_method == "all"
+        complete_selected = complete[[target_name] + all_features]
+
+    assert 2 < complete_selected.shape[0] < 3641  # max features is 3640
+
+    pred_results = periodic_fit_and_predict(df=complete_selected,
+                                            step_size=step_size,
+                                            Wrapper=Wrapper,
+                                            n_iter=n_iter,
+                                            n_jobs=n_jobs,
+                                            n_splits=n_splits,
+                                            target_name=target_name,
+                                            verbose=verbose)
 
     return pred_results
