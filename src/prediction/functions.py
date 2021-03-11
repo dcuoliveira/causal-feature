@@ -232,9 +232,7 @@ def periodic_fit_and_predict(df,
                   desc="anual training and prediction"):
         
         train_ys = df[:str(y)]
-        print(y)
         test_ys = df[str(y + 1):str(y + step_size)]
-        print(y+1, y + step_size)
 
         # we have some roles in the time interval
         # for some tickers, for example,
