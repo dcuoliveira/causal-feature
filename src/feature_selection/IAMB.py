@@ -60,7 +60,8 @@ def run_IAMB(merged_df,
              max_lag,
              verbose,
              sig_level,
-             is_discrete):
+             is_discrete,
+             constant_threshold):
     
     list_df = []
     for w in [target_name] + words:
