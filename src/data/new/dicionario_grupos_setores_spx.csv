@@ -1,0 +1,2207 @@
+ticker,field,value
+0111145D UN Equity,INDUSTRY_SECTOR,Utilities
+0111145D UN Equity,INDUSTRY_GROUP,Gas
+0202445Q UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+0202445Q UN Equity,INDUSTRY_GROUP,Biotechnology
+0203524D UN Equity,INDUSTRY_SECTOR,Technology
+0203524D UN Equity,INDUSTRY_GROUP,Semiconductors
+0226226D UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+0226226D UN Equity,INDUSTRY_GROUP,Home Builders
+0544749D UN Equity,INDUSTRY_SECTOR,Energy
+0544749D UN Equity,INDUSTRY_GROUP,Oil&Gas
+0574018D UN Equity,INDUSTRY_SECTOR,Financial
+0574018D UN Equity,INDUSTRY_GROUP,REITS
+0772031D UN Equity,INDUSTRY_SECTOR,Communications
+0772031D UN Equity,INDUSTRY_GROUP,Telecommunications
+0848680D UN Equity,INDUSTRY_SECTOR,Communications
+0848680D UN Equity,INDUSTRY_GROUP,Telecommunications
+0867887D UN Equity,INDUSTRY_SECTOR,Communications
+0867887D UN Equity,INDUSTRY_GROUP,Telecommunications
+0867887D US Equity,INDUSTRY_SECTOR,Communications
+0867887D US Equity,INDUSTRY_GROUP,Telecommunications
+0910150D US Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+0910150D US Equity,INDUSTRY_GROUP,Lodging
+0948669D UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+0948669D UN Equity,INDUSTRY_GROUP,Housewares
+0961514D UN Equity,INDUSTRY_SECTOR,Utilities
+0961514D UN Equity,INDUSTRY_GROUP,Electric
+0964591D UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+0964591D UQ Equity,INDUSTRY_GROUP,Healthcare-Products
+0964591D UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+0964591D UW Equity,INDUSTRY_GROUP,Healthcare-Products
+1028411Q UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+1028411Q UN Equity,INDUSTRY_GROUP,Cosmetics/Personal Care
+1086832D UN Equity,INDUSTRY_SECTOR,Energy
+1086832D UN Equity,INDUSTRY_GROUP,Oil&Gas
+1255173D UN Equity,INDUSTRY_SECTOR,Financial
+1255173D UN Equity,INDUSTRY_GROUP,Banks
+1255459D UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+1255459D UW Equity,INDUSTRY_GROUP,Healthcare-Products
+1280712D UQ Equity,INDUSTRY_SECTOR,Technology
+1280712D UQ Equity,INDUSTRY_GROUP,Semiconductors
+1280712D UW Equity,INDUSTRY_SECTOR,Technology
+1280712D UW Equity,INDUSTRY_GROUP,Semiconductors
+1281683D UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+1281683D UN Equity,INDUSTRY_GROUP,Cosmetics/Personal Care
+1284849D UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+1284849D UN Equity,INDUSTRY_GROUP,Pharmaceuticals
+1288453D UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+1288453D UW Equity,INDUSTRY_GROUP,Beverages
+1288652D US Equity,INDUSTRY_SECTOR,Financial
+1288652D US Equity,INDUSTRY_GROUP,Insurance
+1293405D UN Equity,INDUSTRY_SECTOR,Communications
+1293405D UN Equity,INDUSTRY_GROUP,Media
+1312089D UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+1312089D UN Equity,INDUSTRY_GROUP,Food
+1317355D UN Equity,INDUSTRY_SECTOR,Technology
+1317355D UN Equity,INDUSTRY_GROUP,Software
+1431816D UN Equity,INDUSTRY_SECTOR,Technology
+1431816D UN Equity,INDUSTRY_GROUP,Semiconductors
+1431816D UW Equity,INDUSTRY_SECTOR,Technology
+1431816D UW Equity,INDUSTRY_GROUP,Semiconductors
+1436513D UN Equity,INDUSTRY_SECTOR,Industrial
+1436513D UN Equity,INDUSTRY_GROUP,Building Materials
+1437355D US Equity,INDUSTRY_SECTOR,Technology
+1437355D US Equity,INDUSTRY_GROUP,Software
+1448062D UN Equity,INDUSTRY_SECTOR,Communications
+1448062D UN Equity,INDUSTRY_GROUP,Media
+1448062D UQ Equity,INDUSTRY_SECTOR,Communications
+1448062D UQ Equity,INDUSTRY_GROUP,Media
+1448062D UW Equity,INDUSTRY_SECTOR,Communications
+1448062D UW Equity,INDUSTRY_GROUP,Media
+1500785D UN Equity,INDUSTRY_SECTOR,Utilities
+1500785D UN Equity,INDUSTRY_GROUP,Electric
+1518855D US Equity,INDUSTRY_SECTOR,Communications
+1518855D US Equity,INDUSTRY_GROUP,Internet
+1519128D UA Equity,INDUSTRY_SECTOR,Technology
+1519128D UA Equity,INDUSTRY_GROUP,Software
+1519128D UQ Equity,INDUSTRY_SECTOR,Technology
+1519128D UQ Equity,INDUSTRY_GROUP,Software
+1519128D UW Equity,INDUSTRY_SECTOR,Technology
+1519128D UW Equity,INDUSTRY_GROUP,Software
+1520415D UN Equity,INDUSTRY_SECTOR,Financial
+1520415D UN Equity,INDUSTRY_GROUP,Banks
+1524867D UN Equity,INDUSTRY_SECTOR,Energy
+1524867D UN Equity,INDUSTRY_GROUP,Oil&Gas Services
+1528159D UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+1528159D UN Equity,INDUSTRY_GROUP,Leisure Time
+1539941D UN Equity,INDUSTRY_SECTOR,Energy
+1539941D UN Equity,INDUSTRY_GROUP,Pipelines
+1541931D UA Equity,INDUSTRY_SECTOR,Technology
+1541931D UA Equity,INDUSTRY_GROUP,Semiconductors
+1541931D UQ Equity,INDUSTRY_SECTOR,Technology
+1541931D UQ Equity,INDUSTRY_GROUP,Semiconductors
+1541931D UW Equity,INDUSTRY_SECTOR,Technology
+1541931D UW Equity,INDUSTRY_GROUP,Semiconductors
+1566019D UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+1566019D UN Equity,INDUSTRY_GROUP,Commercial Services
+1649858D UN Equity,INDUSTRY_SECTOR,Financial
+1649858D UN Equity,INDUSTRY_GROUP,Insurance
+1649858D UQ Equity,INDUSTRY_SECTOR,Financial
+1649858D UQ Equity,INDUSTRY_GROUP,Insurance
+1649858D UW Equity,INDUSTRY_SECTOR,Financial
+1649858D UW Equity,INDUSTRY_GROUP,Insurance
+1654539D UN Equity,INDUSTRY_SECTOR,Communications
+1654539D UN Equity,INDUSTRY_GROUP,Telecommunications
+1683351D UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+1683351D UQ Equity,INDUSTRY_GROUP,Biotechnology
+1683997D UQ Equity,INDUSTRY_SECTOR,Technology
+1683997D UQ Equity,INDUSTRY_GROUP,Computers
+1683997D UW Equity,INDUSTRY_SECTOR,Technology
+1683997D UW Equity,INDUSTRY_GROUP,Computers
+1684442D UN Equity,INDUSTRY_SECTOR,Industrial
+1684442D UN Equity,INDUSTRY_GROUP,Miscellaneous Manufactur
+1697067D UN Equity,INDUSTRY_SECTOR,Basic Materials
+1697067D UN Equity,INDUSTRY_GROUP,Chemicals
+1699947D US Equity,INDUSTRY_SECTOR,Industrial
+1699947D US Equity,INDUSTRY_GROUP,Machinery-Diversified
+1704453D UN Equity,INDUSTRY_SECTOR,Basic Materials
+1704453D UN Equity,INDUSTRY_GROUP,Mining
+1715651D UN Equity,INDUSTRY_SECTOR,Basic Materials
+1715651D UN Equity,INDUSTRY_GROUP,Chemicals
+1719868D UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+1719868D UN Equity,INDUSTRY_GROUP,Healthcare-Services
+1746513D UQ Equity,INDUSTRY_SECTOR,Communications
+1746513D UQ Equity,INDUSTRY_GROUP,Telecommunications
+1746513D UW Equity,INDUSTRY_SECTOR,Communications
+1746513D UW Equity,INDUSTRY_GROUP,Telecommunications
+1752754D UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+1752754D UN Equity,INDUSTRY_GROUP,Beverages
+1799685D UN Equity,INDUSTRY_SECTOR,Energy
+1799685D UN Equity,INDUSTRY_GROUP,Oil&Gas
+1806854D UN Equity,INDUSTRY_SECTOR,Technology
+1806854D UN Equity,INDUSTRY_GROUP,Software
+1810430D UN Equity,INDUSTRY_SECTOR,Energy
+1810430D UN Equity,INDUSTRY_GROUP,Oil&Gas Services
+1812212D UW Equity,INDUSTRY_SECTOR,Communications
+1812212D UW Equity,INDUSTRY_GROUP,Internet
+1822785D UN Equity,INDUSTRY_SECTOR,Financial
+1822785D UN Equity,INDUSTRY_GROUP,Banks
+1825471D UN Equity,INDUSTRY_SECTOR,Basic Materials
+1825471D UN Equity,INDUSTRY_GROUP,Forest Products&Paper
+1831877D UN Equity,INDUSTRY_SECTOR,Financial
+1831877D UN Equity,INDUSTRY_GROUP,Insurance
+1831877D US Equity,INDUSTRY_SECTOR,Financial
+1831877D US Equity,INDUSTRY_GROUP,Insurance
+1837572D UN Equity,INDUSTRY_SECTOR,Communications
+1837572D UN Equity,INDUSTRY_GROUP,Telecommunications
+1844053D US Equity,INDUSTRY_SECTOR,Financial
+1844053D US Equity,INDUSTRY_GROUP,REITS
+1856613D UN Equity,INDUSTRY_SECTOR,Basic Materials
+1856613D UN Equity,INDUSTRY_GROUP,Chemicals
+1858968D UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+1858968D UN Equity,INDUSTRY_GROUP,Pharmaceuticals
+2307532Q UQ Equity,INDUSTRY_SECTOR,Industrial
+2307532Q UQ Equity,INDUSTRY_GROUP,Electrical Compo&Equip
+2307532Q UW Equity,INDUSTRY_SECTOR,Industrial
+2307532Q UW Equity,INDUSTRY_GROUP,Electrical Compo&Equip
+2641504Q UN Equity,INDUSTRY_SECTOR,Industrial
+2641504Q UN Equity,INDUSTRY_GROUP,Electronics
+2676187Q UQ Equity,INDUSTRY_SECTOR,Financial
+2676187Q UQ Equity,INDUSTRY_GROUP,Banks
+2727195Q UN Equity,INDUSTRY_SECTOR,Financial
+2727195Q UN Equity,INDUSTRY_GROUP,Diversified Finan Serv
+2942331Q UN Equity,INDUSTRY_SECTOR,Financial
+2942331Q UN Equity,INDUSTRY_GROUP,Diversified Finan Serv
+2968900Q UN Equity,INDUSTRY_SECTOR,Communications
+2968900Q UN Equity,INDUSTRY_GROUP,Media
+297504Q UN Equity,INDUSTRY_SECTOR,Industrial
+297504Q UN Equity,INDUSTRY_GROUP,Aerospace/Defense
+2987536Q UN Equity,INDUSTRY_SECTOR,Industrial
+2987536Q UN Equity,INDUSTRY_GROUP,Electronics
+2999130Q UN Equity,INDUSTRY_SECTOR,Basic Materials
+2999130Q UN Equity,INDUSTRY_GROUP,Chemicals
+3022239Q UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+3022239Q UN Equity,INDUSTRY_GROUP,Retail
+3026360Q UN Equity,INDUSTRY_SECTOR,Communications
+3026360Q UN Equity,INDUSTRY_GROUP,Telecommunications
+3029830Q UQ Equity,INDUSTRY_SECTOR,Technology
+3029830Q UQ Equity,INDUSTRY_GROUP,Software
+3080867Q UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+3080867Q UN Equity,INDUSTRY_GROUP,Home Furnishings
+3133754Q UN Equity,INDUSTRY_SECTOR,Financial
+3133754Q UN Equity,INDUSTRY_GROUP,Banks
+3153670Q UQ Equity,INDUSTRY_SECTOR,Technology
+3153670Q UQ Equity,INDUSTRY_GROUP,Software
+3286728Q UN Equity,INDUSTRY_SECTOR,Industrial
+3286728Q UN Equity,INDUSTRY_GROUP,Electronics
+3362726Q UN Equity,INDUSTRY_SECTOR,Financial
+3362726Q UN Equity,INDUSTRY_GROUP,Real Estate
+3393199Q UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+3393199Q UN Equity,INDUSTRY_GROUP,Beverages
+3403545Q UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+3403545Q UN Equity,INDUSTRY_GROUP,Retail
+3414924Q US Equity,INDUSTRY_SECTOR,Communications
+3414924Q US Equity,INDUSTRY_GROUP,Telecommunications
+3423152Q UN Equity,INDUSTRY_SECTOR,Technology
+3423152Q UN Equity,INDUSTRY_GROUP,Computers
+3517233Q UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+3517233Q UN Equity,INDUSTRY_GROUP,Agriculture
+355488Q UN Equity,INDUSTRY_SECTOR,Financial
+355488Q UN Equity,INDUSTRY_GROUP,Banks
+3605818Q UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+3605818Q UN Equity,INDUSTRY_GROUP,Healthcare-Services
+3621240Q UN Equity,INDUSTRY_SECTOR,Financial
+3621240Q UN Equity,INDUSTRY_GROUP,Banks
+3692470Q UN Equity,INDUSTRY_SECTOR,Communications
+3692470Q UN Equity,INDUSTRY_GROUP,Telecommunications
+4621824Q UN Equity,INDUSTRY_SECTOR,Energy
+4621824Q UN Equity,INDUSTRY_GROUP,Pipelines
+502466Q US Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+502466Q US Equity,INDUSTRY_GROUP,Healthcare-Services
+519239Q UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+519239Q UN Equity,INDUSTRY_GROUP,Commercial Services
+519239Q UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+519239Q UQ Equity,INDUSTRY_GROUP,Commercial Services
+5656565D UN Equity,INDUSTRY_SECTOR,Industrial
+5656565D UN Equity,INDUSTRY_GROUP,Building Materials
+605018Q UN Equity,INDUSTRY_SECTOR,Financial
+605018Q UN Equity,INDUSTRY_GROUP,Banks
+605555Q UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+605555Q UN Equity,INDUSTRY_GROUP,Retail
+653707Q UN Equity,INDUSTRY_SECTOR,Communications
+653707Q UN Equity,INDUSTRY_GROUP,Telecommunications
+723588Q UN Equity,INDUSTRY_SECTOR,Basic Materials
+723588Q UN Equity,INDUSTRY_GROUP,Chemicals
+748957Q UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+748957Q UN Equity,INDUSTRY_GROUP,Pharmaceuticals
+764144Q UN Equity,INDUSTRY_SECTOR,Technology
+764144Q UN Equity,INDUSTRY_GROUP,Computers
+8206908Q UQ Equity,INDUSTRY_SECTOR,Financial
+8206908Q UQ Equity,INDUSTRY_GROUP,Banks
+8206908Q UW Equity,INDUSTRY_SECTOR,Financial
+8206908Q UW Equity,INDUSTRY_GROUP,Banks
+8277831Q UN Equity,INDUSTRY_SECTOR,Technology
+8277831Q UN Equity,INDUSTRY_GROUP,Computers
+8394653Q UN Equity,INDUSTRY_SECTOR,Financial
+8394653Q UN Equity,INDUSTRY_GROUP,REITS
+929530Q UN Equity,INDUSTRY_SECTOR,Energy
+929530Q UN Equity,INDUSTRY_GROUP,Oil&Gas
+945852Q UN Equity,INDUSTRY_SECTOR,Communications
+945852Q UN Equity,INDUSTRY_GROUP,Telecommunications
+987200Q UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+987200Q UN Equity,INDUSTRY_GROUP,Retail
+9876544D UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+9876544D UN Equity,INDUSTRY_GROUP,Entertainment
+9876549D UN Equity,INDUSTRY_SECTOR,Communications
+9876549D UN Equity,INDUSTRY_GROUP,Media
+9876566D UN Equity,INDUSTRY_SECTOR,Financial
+9876566D UN Equity,INDUSTRY_GROUP,Insurance
+9995522D UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+9995522D UN Equity,INDUSTRY_GROUP,Retail
+A UN Equity,INDUSTRY_SECTOR,Industrial
+A UN Equity,INDUSTRY_GROUP,Electronics
+AA UN Equity,INDUSTRY_SECTOR,Basic Materials
+AA UN Equity,INDUSTRY_GROUP,Mining
+AAL UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+AAL UW Equity,INDUSTRY_GROUP,Airlines
+AAMRQ UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+AAMRQ UN Equity,INDUSTRY_GROUP,Airlines
+AAP UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+AAP UN Equity,INDUSTRY_GROUP,Retail
+AAPL UQ Equity,INDUSTRY_SECTOR,Technology
+AAPL UQ Equity,INDUSTRY_GROUP,Computers
+AAPL UW Equity,INDUSTRY_SECTOR,Technology
+AAPL UW Equity,INDUSTRY_GROUP,Computers
+ABBV UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+ABBV UN Equity,INDUSTRY_GROUP,Pharmaceuticals
+ABC UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+ABC UN Equity,INDUSTRY_GROUP,Pharmaceuticals
+ABKFQ UN Equity,INDUSTRY_SECTOR,Financial
+ABKFQ UN Equity,INDUSTRY_GROUP,Insurance
+ABMD UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+ABMD UW Equity,INDUSTRY_GROUP,Healthcare-Products
+ABT UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+ABT UN Equity,INDUSTRY_GROUP,Healthcare-Products
+ACAS UW Equity,INDUSTRY_SECTOR,Financial
+ACAS UW Equity,INDUSTRY_GROUP,Investment Companies
+ACN UN Equity,INDUSTRY_SECTOR,Technology
+ACN UN Equity,INDUSTRY_GROUP,Computers
+ADBE UQ Equity,INDUSTRY_SECTOR,Technology
+ADBE UQ Equity,INDUSTRY_GROUP,Software
+ADBE UW Equity,INDUSTRY_SECTOR,Technology
+ADBE UW Equity,INDUSTRY_GROUP,Software
+ADI UN Equity,INDUSTRY_SECTOR,Technology
+ADI UN Equity,INDUSTRY_GROUP,Semiconductors
+ADI UW Equity,INDUSTRY_SECTOR,Technology
+ADI UW Equity,INDUSTRY_GROUP,Semiconductors
+ADM UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+ADM UN Equity,INDUSTRY_GROUP,Agriculture
+ADNT UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+ADNT UN Equity,INDUSTRY_GROUP,Auto Parts&Equipment
+ADP UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+ADP UN Equity,INDUSTRY_GROUP,Commercial Services
+ADP UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+ADP UW Equity,INDUSTRY_GROUP,Commercial Services
+ADS UN Equity,INDUSTRY_SECTOR,Financial
+ADS UN Equity,INDUSTRY_GROUP,Diversified Finan Serv
+ADSK UQ Equity,INDUSTRY_SECTOR,Technology
+ADSK UQ Equity,INDUSTRY_GROUP,Software
+ADSK UW Equity,INDUSTRY_SECTOR,Technology
+ADSK UW Equity,INDUSTRY_GROUP,Software
+AEE UN Equity,INDUSTRY_SECTOR,Utilities
+AEE UN Equity,INDUSTRY_GROUP,Electric
+AEP UN Equity,INDUSTRY_SECTOR,Utilities
+AEP UN Equity,INDUSTRY_GROUP,Electric
+AEP UW Equity,INDUSTRY_SECTOR,Utilities
+AEP UW Equity,INDUSTRY_GROUP,Electric
+AES UN Equity,INDUSTRY_SECTOR,Utilities
+AES UN Equity,INDUSTRY_GROUP,Electric
+AET UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+AET UN Equity,INDUSTRY_GROUP,Healthcare-Services
+AFL UN Equity,INDUSTRY_SECTOR,Financial
+AFL UN Equity,INDUSTRY_GROUP,Insurance
+AGN UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+AGN UN Equity,INDUSTRY_GROUP,Pharmaceuticals
+AIG UN Equity,INDUSTRY_SECTOR,Financial
+AIG UN Equity,INDUSTRY_GROUP,Insurance
+AIRC UN Equity,INDUSTRY_SECTOR,Financial
+AIRC UN Equity,INDUSTRY_GROUP,REITS
+AIV UN Equity,INDUSTRY_SECTOR,Financial
+AIV UN Equity,INDUSTRY_GROUP,REITS
+AIZ UN Equity,INDUSTRY_SECTOR,Financial
+AIZ UN Equity,INDUSTRY_GROUP,Insurance
+AJG UN Equity,INDUSTRY_SECTOR,Financial
+AJG UN Equity,INDUSTRY_GROUP,Insurance
+AKAM UW Equity,INDUSTRY_SECTOR,Technology
+AKAM UW Equity,INDUSTRY_GROUP,Software
+AKS UN Equity,INDUSTRY_SECTOR,Basic Materials
+AKS UN Equity,INDUSTRY_GROUP,Iron/Steel
+ALB UN Equity,INDUSTRY_SECTOR,Basic Materials
+ALB UN Equity,INDUSTRY_GROUP,Chemicals
+ALGN UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+ALGN UW Equity,INDUSTRY_GROUP,Healthcare-Products
+ALK UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+ALK UN Equity,INDUSTRY_GROUP,Airlines
+ALL UN Equity,INDUSTRY_SECTOR,Financial
+ALL UN Equity,INDUSTRY_GROUP,Insurance
+ALLE UN Equity,INDUSTRY_SECTOR,Industrial
+ALLE UN Equity,INDUSTRY_GROUP,Electronics
+ALXN UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+ALXN UW Equity,INDUSTRY_GROUP,Biotechnology
+AMAT UQ Equity,INDUSTRY_SECTOR,Technology
+AMAT UQ Equity,INDUSTRY_GROUP,Semiconductors
+AMAT UW Equity,INDUSTRY_SECTOR,Technology
+AMAT UW Equity,INDUSTRY_GROUP,Semiconductors
+AMCC UQ Equity,INDUSTRY_SECTOR,Technology
+AMCC UQ Equity,INDUSTRY_GROUP,Semiconductors
+AMCR UN Equity,INDUSTRY_SECTOR,Industrial
+AMCR UN Equity,INDUSTRY_GROUP,Packaging&Containers
+AMD UN Equity,INDUSTRY_SECTOR,Technology
+AMD UN Equity,INDUSTRY_GROUP,Semiconductors
+AMD UR Equity,INDUSTRY_SECTOR,Technology
+AMD UR Equity,INDUSTRY_GROUP,Semiconductors
+AMD UW Equity,INDUSTRY_SECTOR,Technology
+AMD UW Equity,INDUSTRY_GROUP,Semiconductors
+AME UN Equity,INDUSTRY_SECTOR,Industrial
+AME UN Equity,INDUSTRY_GROUP,Electrical Compo&Equip
+AMG UN Equity,INDUSTRY_SECTOR,Financial
+AMG UN Equity,INDUSTRY_GROUP,Diversified Finan Serv
+AMGN UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+AMGN UQ Equity,INDUSTRY_GROUP,Biotechnology
+AMGN UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+AMGN UW Equity,INDUSTRY_GROUP,Biotechnology
+AMP UN Equity,INDUSTRY_SECTOR,Financial
+AMP UN Equity,INDUSTRY_GROUP,Diversified Finan Serv
+AMT UN Equity,INDUSTRY_SECTOR,Financial
+AMT UN Equity,INDUSTRY_GROUP,REITS
+AMZN UQ Equity,INDUSTRY_SECTOR,Communications
+AMZN UQ Equity,INDUSTRY_GROUP,Internet
+AMZN UW Equity,INDUSTRY_SECTOR,Communications
+AMZN UW Equity,INDUSTRY_GROUP,Internet
+AN UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+AN UN Equity,INDUSTRY_GROUP,Retail
+ANDV UN Equity,INDUSTRY_SECTOR,Energy
+ANDV UN Equity,INDUSTRY_GROUP,Oil&Gas
+ANDV US Equity,INDUSTRY_SECTOR,Energy
+ANDV US Equity,INDUSTRY_GROUP,Oil&Gas
+ANDW UQ Equity,INDUSTRY_SECTOR,Communications
+ANDW UQ Equity,INDUSTRY_GROUP,Telecommunications
+ANDW UW Equity,INDUSTRY_SECTOR,Communications
+ANDW UW Equity,INDUSTRY_GROUP,Telecommunications
+ANET UN Equity,INDUSTRY_SECTOR,Communications
+ANET UN Equity,INDUSTRY_GROUP,Telecommunications
+ANF UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+ANF UN Equity,INDUSTRY_GROUP,Retail
+ANRZQ UN Equity,INDUSTRY_SECTOR,Energy
+ANRZQ UN Equity,INDUSTRY_GROUP,Coal
+ANSS UW Equity,INDUSTRY_SECTOR,Technology
+ANSS UW Equity,INDUSTRY_GROUP,Software
+ANTM UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+ANTM UN Equity,INDUSTRY_GROUP,Healthcare-Services
+AON UN Equity,INDUSTRY_SECTOR,Financial
+AON UN Equity,INDUSTRY_GROUP,Insurance
+AOS UN Equity,INDUSTRY_SECTOR,Industrial
+AOS UN Equity,INDUSTRY_GROUP,Miscellaneous Manufactur
+APA UN Equity,INDUSTRY_SECTOR,Energy
+APA UN Equity,INDUSTRY_GROUP,Oil&Gas
+APA UW Equity,INDUSTRY_SECTOR,Energy
+APA UW Equity,INDUSTRY_GROUP,Oil&Gas
+APC UN Equity,INDUSTRY_SECTOR,Energy
+APC UN Equity,INDUSTRY_GROUP,Oil&Gas
+APD UN Equity,INDUSTRY_SECTOR,Basic Materials
+APD UN Equity,INDUSTRY_GROUP,Chemicals
+APH UN Equity,INDUSTRY_SECTOR,Industrial
+APH UN Equity,INDUSTRY_GROUP,Electronics
+APOL UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+APOL UQ Equity,INDUSTRY_GROUP,Commercial Services
+APOL UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+APOL UW Equity,INDUSTRY_GROUP,Commercial Services
+APTV UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+APTV UN Equity,INDUSTRY_GROUP,Auto Parts&Equipment
+ARE UN Equity,INDUSTRY_SECTOR,Financial
+ARE UN Equity,INDUSTRY_GROUP,REITS
+ARG UN Equity,INDUSTRY_SECTOR,Basic Materials
+ARG UN Equity,INDUSTRY_GROUP,Chemicals
+ARNC UN Equity,INDUSTRY_SECTOR,Basic Materials
+ARNC UN Equity,INDUSTRY_GROUP,Mining
+ASH UN Equity,INDUSTRY_SECTOR,Basic Materials
+ASH UN Equity,INDUSTRY_GROUP,Chemicals
+ASIX UN Equity,INDUSTRY_SECTOR,Basic Materials
+ASIX UN Equity,INDUSTRY_GROUP,Chemicals
+ATGE UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+ATGE UN Equity,INDUSTRY_GROUP,Commercial Services
+ATI UN Equity,INDUSTRY_SECTOR,Basic Materials
+ATI UN Equity,INDUSTRY_GROUP,Iron/Steel
+ATO UN Equity,INDUSTRY_SECTOR,Utilities
+ATO UN Equity,INDUSTRY_GROUP,Gas
+ATVI UW Equity,INDUSTRY_SECTOR,Technology
+ATVI UW Equity,INDUSTRY_GROUP,Software
+AVB UN Equity,INDUSTRY_SECTOR,Financial
+AVB UN Equity,INDUSTRY_GROUP,REITS
+AVGO UW Equity,INDUSTRY_SECTOR,Technology
+AVGO UW Equity,INDUSTRY_GROUP,Semiconductors
+AVP UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+AVP UN Equity,INDUSTRY_GROUP,Cosmetics/Personal Care
+AVY UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+AVY UN Equity,INDUSTRY_GROUP,Household Products/Wares
+AW UN Equity,INDUSTRY_SECTOR,Industrial
+AW UN Equity,INDUSTRY_GROUP,Environmental Control
+AWE UN Equity,INDUSTRY_SECTOR,Communications
+AWE UN Equity,INDUSTRY_GROUP,Telecommunications
+AWK UN Equity,INDUSTRY_SECTOR,Utilities
+AWK UN Equity,INDUSTRY_GROUP,Water
+AXP UN Equity,INDUSTRY_SECTOR,Financial
+AXP UN Equity,INDUSTRY_GROUP,Diversified Finan Serv
+AYE UN Equity,INDUSTRY_SECTOR,Utilities
+AYE UN Equity,INDUSTRY_GROUP,Electric
+AYI UN Equity,INDUSTRY_SECTOR,Industrial
+AYI UN Equity,INDUSTRY_GROUP,Electrical Compo&Equip
+AZO UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+AZO UN Equity,INDUSTRY_GROUP,Retail
+BA UN Equity,INDUSTRY_SECTOR,Industrial
+BA UN Equity,INDUSTRY_GROUP,Aerospace/Defense
+BAC UN Equity,INDUSTRY_SECTOR,Financial
+BAC UN Equity,INDUSTRY_GROUP,Banks
+BAX UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+BAX UN Equity,INDUSTRY_GROUP,Healthcare-Products
+BBBY UQ Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+BBBY UQ Equity,INDUSTRY_GROUP,Retail
+BBBY UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+BBBY UW Equity,INDUSTRY_GROUP,Retail
+BBY UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+BBY UN Equity,INDUSTRY_GROUP,Retail
+BC UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+BC UN Equity,INDUSTRY_GROUP,Leisure Time
+BCR UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+BCR UN Equity,INDUSTRY_GROUP,Healthcare-Products
+BCR US Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+BCR US Equity,INDUSTRY_GROUP,Healthcare-Products
+BDK UN Equity,INDUSTRY_SECTOR,Industrial
+BDK UN Equity,INDUSTRY_GROUP,Hand/Machine Tools
+BDX UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+BDX UN Equity,INDUSTRY_GROUP,Pharmaceuticals
+BEN UN Equity,INDUSTRY_SECTOR,Financial
+BEN UN Equity,INDUSTRY_GROUP,Diversified Finan Serv
+BGEN UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+BGEN UQ Equity,INDUSTRY_GROUP,Biotechnology
+BHF UW Equity,INDUSTRY_SECTOR,Financial
+BHF UW Equity,INDUSTRY_GROUP,Insurance
+BHI UN Equity,INDUSTRY_SECTOR,Energy
+BHI UN Equity,INDUSTRY_GROUP,Oil&Gas Services
+BIG UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+BIG UN Equity,INDUSTRY_GROUP,Retail
+BIIB UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+BIIB UQ Equity,INDUSTRY_GROUP,Biotechnology
+BIIB UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+BIIB UW Equity,INDUSTRY_GROUP,Biotechnology
+BIO UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+BIO UN Equity,INDUSTRY_GROUP,Biotechnology
+BIVV UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+BIVV UW Equity,INDUSTRY_GROUP,Biotechnology
+BK UN Equity,INDUSTRY_SECTOR,Financial
+BK UN Equity,INDUSTRY_GROUP,Banks
+BKNG UW Equity,INDUSTRY_SECTOR,Communications
+BKNG UW Equity,INDUSTRY_GROUP,Internet
+BKR UN Equity,INDUSTRY_SECTOR,Energy
+BKR UN Equity,INDUSTRY_GROUP,Oil&Gas Services
+BLK UN Equity,INDUSTRY_SECTOR,Financial
+BLK UN Equity,INDUSTRY_GROUP,Diversified Finan Serv
+BLL UN Equity,INDUSTRY_SECTOR,Industrial
+BLL UN Equity,INDUSTRY_GROUP,Packaging&Containers
+BLS UN Equity,INDUSTRY_SECTOR,Communications
+BLS UN Equity,INDUSTRY_GROUP,Telecommunications
+BMC UN Equity,INDUSTRY_SECTOR,Technology
+BMC UN Equity,INDUSTRY_GROUP,Software
+BMC UW Equity,INDUSTRY_SECTOR,Technology
+BMC UW Equity,INDUSTRY_GROUP,Software
+BMS UN Equity,INDUSTRY_SECTOR,Industrial
+BMS UN Equity,INDUSTRY_GROUP,Packaging&Containers
+BMY UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+BMY UN Equity,INDUSTRY_GROUP,Pharmaceuticals
+BNI UN Equity,INDUSTRY_SECTOR,Industrial
+BNI UN Equity,INDUSTRY_GROUP,Transportation
+BOL UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+BOL UN Equity,INDUSTRY_GROUP,Healthcare-Products
+BR UN Equity,INDUSTRY_SECTOR,Technology
+BR UN Equity,INDUSTRY_GROUP,Software
+BRCM UQ Equity,INDUSTRY_SECTOR,Technology
+BRCM UQ Equity,INDUSTRY_GROUP,Semiconductors
+BRCM UW Equity,INDUSTRY_SECTOR,Technology
+BRCM UW Equity,INDUSTRY_GROUP,Semiconductors
+BRL UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+BRL UN Equity,INDUSTRY_GROUP,Pharmaceuticals
+BSX UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+BSX UN Equity,INDUSTRY_GROUP,Healthcare-Products
+BTUUQ UN Equity,INDUSTRY_SECTOR,Energy
+BTUUQ UN Equity,INDUSTRY_GROUP,Coal
+BWA UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+BWA UN Equity,INDUSTRY_GROUP,Auto Parts&Equipment
+BXLT UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+BXLT UN Equity,INDUSTRY_GROUP,Biotechnology
+BXP UN Equity,INDUSTRY_SECTOR,Financial
+BXP UN Equity,INDUSTRY_GROUP,REITS
+C UN Equity,INDUSTRY_SECTOR,Financial
+C UN Equity,INDUSTRY_GROUP,Banks
+CA UN Equity,INDUSTRY_SECTOR,Technology
+CA UN Equity,INDUSTRY_GROUP,Software
+CA UW Equity,INDUSTRY_SECTOR,Technology
+CA UW Equity,INDUSTRY_GROUP,Software
+CAG UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+CAG UN Equity,INDUSTRY_GROUP,Food
+CAH UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+CAH UN Equity,INDUSTRY_GROUP,Pharmaceuticals
+CAM UN Equity,INDUSTRY_SECTOR,Energy
+CAM UN Equity,INDUSTRY_GROUP,Oil&Gas Services
+CAR UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+CAR UN Equity,INDUSTRY_GROUP,Commercial Services
+CARR UN Equity,INDUSTRY_SECTOR,Industrial
+CARR UN Equity,INDUSTRY_GROUP,Building Materials
+CAT UN Equity,INDUSTRY_SECTOR,Industrial
+CAT UN Equity,INDUSTRY_GROUP,Machinery-Constr&Mining
+CB UN Equity,INDUSTRY_SECTOR,Financial
+CB UN Equity,INDUSTRY_GROUP,Insurance
+CBE UN Equity,INDUSTRY_SECTOR,Industrial
+CBE UN Equity,INDUSTRY_GROUP,Miscellaneous Manufactur
+CBOE UF Equity,INDUSTRY_SECTOR,Financial
+CBOE UF Equity,INDUSTRY_GROUP,Diversified Finan Serv
+CBOE UW Equity,INDUSTRY_SECTOR,Financial
+CBOE UW Equity,INDUSTRY_GROUP,Diversified Finan Serv
+CBRE UN Equity,INDUSTRY_SECTOR,Financial
+CBRE UN Equity,INDUSTRY_GROUP,Real Estate
+CCEP UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+CCEP UN Equity,INDUSTRY_GROUP,Beverages
+CCI UN Equity,INDUSTRY_SECTOR,Financial
+CCI UN Equity,INDUSTRY_GROUP,REITS
+CCL UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+CCL UN Equity,INDUSTRY_GROUP,Leisure Time
+CCTYQ UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+CCTYQ UN Equity,INDUSTRY_GROUP,Retail
+CDNS UW Equity,INDUSTRY_SECTOR,Technology
+CDNS UW Equity,INDUSTRY_GROUP,Software
+CDW UW Equity,INDUSTRY_SECTOR,Communications
+CDW UW Equity,INDUSTRY_GROUP,Internet
+CE UN Equity,INDUSTRY_SECTOR,Basic Materials
+CE UN Equity,INDUSTRY_GROUP,Chemicals
+CEG UN Equity,INDUSTRY_SECTOR,Utilities
+CEG UN Equity,INDUSTRY_GROUP,Electric
+CELG UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+CELG UW Equity,INDUSTRY_GROUP,Biotechnology
+CEPH UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+CEPH UW Equity,INDUSTRY_GROUP,Pharmaceuticals
+CERN UW Equity,INDUSTRY_SECTOR,Technology
+CERN UW Equity,INDUSTRY_GROUP,Software
+CF UN Equity,INDUSTRY_SECTOR,Basic Materials
+CF UN Equity,INDUSTRY_GROUP,Chemicals
+CFC UN Equity,INDUSTRY_SECTOR,Financial
+CFC UN Equity,INDUSTRY_GROUP,Diversified Finan Serv
+CFG UN Equity,INDUSTRY_SECTOR,Financial
+CFG UN Equity,INDUSTRY_GROUP,Banks
+CFN UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+CFN UN Equity,INDUSTRY_GROUP,Healthcare-Products
+CHD UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+CHD UN Equity,INDUSTRY_GROUP,Household Products/Wares
+CHKAQ UN Equity,INDUSTRY_SECTOR,Energy
+CHKAQ UN Equity,INDUSTRY_GROUP,Oil&Gas
+CHRW UW Equity,INDUSTRY_SECTOR,Industrial
+CHRW UW Equity,INDUSTRY_GROUP,Transportation
+CHTR UW Equity,INDUSTRY_SECTOR,Communications
+CHTR UW Equity,INDUSTRY_GROUP,Media
+CHX UN Equity,INDUSTRY_SECTOR,Energy
+CHX UN Equity,INDUSTRY_GROUP,Oil&Gas Services
+CI UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+CI UN Equity,INDUSTRY_GROUP,Pharmaceuticals
+CIEN UA Equity,INDUSTRY_SECTOR,Communications
+CIEN UA Equity,INDUSTRY_GROUP,Telecommunications
+CIEN UQ Equity,INDUSTRY_SECTOR,Communications
+CIEN UQ Equity,INDUSTRY_GROUP,Telecommunications
+CIEN UW Equity,INDUSTRY_SECTOR,Communications
+CIEN UW Equity,INDUSTRY_GROUP,Telecommunications
+CIN UN Equity,INDUSTRY_SECTOR,Utilities
+CIN UN Equity,INDUSTRY_GROUP,Electric
+CINF UQ Equity,INDUSTRY_SECTOR,Financial
+CINF UQ Equity,INDUSTRY_GROUP,Insurance
+CINF UW Equity,INDUSTRY_SECTOR,Financial
+CINF UW Equity,INDUSTRY_GROUP,Insurance
+CITGQ UN Equity,INDUSTRY_SECTOR,Financial
+CITGQ UN Equity,INDUSTRY_GROUP,Diversified Finan Serv
+CL UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+CL UN Equity,INDUSTRY_GROUP,Cosmetics/Personal Care
+CLF UN Equity,INDUSTRY_SECTOR,Basic Materials
+CLF UN Equity,INDUSTRY_GROUP,Iron/Steel
+CLX UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+CLX UN Equity,INDUSTRY_GROUP,Household Products/Wares
+CMA UN Equity,INDUSTRY_SECTOR,Financial
+CMA UN Equity,INDUSTRY_GROUP,Banks
+CMCSA UA Equity,INDUSTRY_SECTOR,Communications
+CMCSA UA Equity,INDUSTRY_GROUP,Media
+CMCSA UQ Equity,INDUSTRY_SECTOR,Communications
+CMCSA UQ Equity,INDUSTRY_GROUP,Media
+CMCSA UW Equity,INDUSTRY_SECTOR,Communications
+CMCSA UW Equity,INDUSTRY_GROUP,Media
+CMCSK UQ Equity,INDUSTRY_SECTOR,Communications
+CMCSK UQ Equity,INDUSTRY_GROUP,Media
+CMCSK UW Equity,INDUSTRY_SECTOR,Communications
+CMCSK UW Equity,INDUSTRY_GROUP,Media
+CME UN Equity,INDUSTRY_SECTOR,Financial
+CME UN Equity,INDUSTRY_GROUP,Diversified Finan Serv
+CME UW Equity,INDUSTRY_SECTOR,Financial
+CME UW Equity,INDUSTRY_GROUP,Diversified Finan Serv
+CMG UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+CMG UN Equity,INDUSTRY_GROUP,Retail
+CMI UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+CMI UN Equity,INDUSTRY_GROUP,Auto Manufacturers
+CMS UN Equity,INDUSTRY_SECTOR,Utilities
+CMS UN Equity,INDUSTRY_GROUP,Electric
+CMVT UQ Equity,INDUSTRY_SECTOR,Communications
+CMVT UQ Equity,INDUSTRY_GROUP,Telecommunications
+CMX UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+CMX UN Equity,INDUSTRY_GROUP,Pharmaceuticals
+CNC UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+CNC UN Equity,INDUSTRY_GROUP,Healthcare-Services
+CNP UN Equity,INDUSTRY_SECTOR,Utilities
+CNP UN Equity,INDUSTRY_GROUP,Electric
+CNX UN Equity,INDUSTRY_SECTOR,Energy
+CNX UN Equity,INDUSTRY_GROUP,Oil&Gas
+COF UN Equity,INDUSTRY_SECTOR,Financial
+COF UN Equity,INDUSTRY_GROUP,Diversified Finan Serv
+COG UN Equity,INDUSTRY_SECTOR,Energy
+COG UN Equity,INDUSTRY_GROUP,Oil&Gas
+COL UN Equity,INDUSTRY_SECTOR,Industrial
+COL UN Equity,INDUSTRY_GROUP,Aerospace/Defense
+COO UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+COO UN Equity,INDUSTRY_GROUP,Healthcare-Products
+COP UN Equity,INDUSTRY_SECTOR,Energy
+COP UN Equity,INDUSTRY_GROUP,Oil&Gas
+COST UA Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+COST UA Equity,INDUSTRY_GROUP,Retail
+COST UQ Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+COST UQ Equity,INDUSTRY_GROUP,Retail
+COST UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+COST UW Equity,INDUSTRY_GROUP,Retail
+COTY UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+COTY UN Equity,INDUSTRY_GROUP,Cosmetics/Personal Care
+COV UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+COV UN Equity,INDUSTRY_GROUP,Healthcare-Products
+CPB UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+CPB UN Equity,INDUSTRY_GROUP,Food
+CPGX UN Equity,INDUSTRY_SECTOR,Energy
+CPGX UN Equity,INDUSTRY_GROUP,Pipelines
+CPGX US Equity,INDUSTRY_SECTOR,Energy
+CPGX US Equity,INDUSTRY_GROUP,Pipelines
+CPNLQ UN Equity,INDUSTRY_SECTOR,Utilities
+CPNLQ UN Equity,INDUSTRY_GROUP,Electric
+CPPRQ UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+CPPRQ UN Equity,INDUSTRY_GROUP,Retail
+CPRI UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+CPRI UN Equity,INDUSTRY_GROUP,Apparel
+CPRT UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+CPRT UW Equity,INDUSTRY_GROUP,Distribution/Wholesale
+CR UN Equity,INDUSTRY_SECTOR,Industrial
+CR UN Equity,INDUSTRY_GROUP,Machinery-Diversified
+CRM UN Equity,INDUSTRY_SECTOR,Technology
+CRM UN Equity,INDUSTRY_GROUP,Software
+CSC UN Equity,INDUSTRY_SECTOR,Technology
+CSC UN Equity,INDUSTRY_GROUP,Computers
+CSCO UQ Equity,INDUSTRY_SECTOR,Communications
+CSCO UQ Equity,INDUSTRY_GROUP,Telecommunications
+CSCO UW Equity,INDUSTRY_SECTOR,Communications
+CSCO UW Equity,INDUSTRY_GROUP,Telecommunications
+CSRA UN Equity,INDUSTRY_SECTOR,Technology
+CSRA UN Equity,INDUSTRY_GROUP,Computers
+CSX UN Equity,INDUSTRY_SECTOR,Industrial
+CSX UN Equity,INDUSTRY_GROUP,Transportation
+CSX UW Equity,INDUSTRY_SECTOR,Industrial
+CSX UW Equity,INDUSTRY_GROUP,Transportation
+CTAS UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+CTAS UQ Equity,INDUSTRY_GROUP,Commercial Services
+CTAS UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+CTAS UW Equity,INDUSTRY_GROUP,Commercial Services
+CTB UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+CTB UN Equity,INDUSTRY_GROUP,Auto Parts&Equipment
+CTLT UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+CTLT UN Equity,INDUSTRY_GROUP,Healthcare-Services
+CTSH UW Equity,INDUSTRY_SECTOR,Technology
+CTSH UW Equity,INDUSTRY_GROUP,Computers
+CTVA UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+CTVA UN Equity,INDUSTRY_GROUP,Biotechnology
+CTXS UQ Equity,INDUSTRY_SECTOR,Technology
+CTXS UQ Equity,INDUSTRY_GROUP,Software
+CTXS UW Equity,INDUSTRY_SECTOR,Technology
+CTXS UW Equity,INDUSTRY_GROUP,Software
+CVC UN Equity,INDUSTRY_SECTOR,Communications
+CVC UN Equity,INDUSTRY_GROUP,Media
+CVET UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+CVET UW Equity,INDUSTRY_GROUP,Pharmaceuticals
+CVG UN Equity,INDUSTRY_SECTOR,Technology
+CVG UN Equity,INDUSTRY_GROUP,Computers
+CVH UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+CVH UN Equity,INDUSTRY_GROUP,Healthcare-Services
+CVH US Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+CVH US Equity,INDUSTRY_GROUP,Healthcare-Services
+CVS UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+CVS UN Equity,INDUSTRY_GROUP,Pharmaceuticals
+CVX UN Equity,INDUSTRY_SECTOR,Energy
+CVX UN Equity,INDUSTRY_GROUP,Oil&Gas
+CXO UN Equity,INDUSTRY_SECTOR,Energy
+CXO UN Equity,INDUSTRY_GROUP,Oil&Gas
+D UN Equity,INDUSTRY_SECTOR,Utilities
+D UN Equity,INDUSTRY_GROUP,Electric
+DAL UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+DAL UN Equity,INDUSTRY_GROUP,Airlines
+DALRQ UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+DALRQ UN Equity,INDUSTRY_GROUP,Airlines
+DCNAQ UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+DCNAQ UN Equity,INDUSTRY_GROUP,Auto Parts&Equipment
+DD UN Equity,INDUSTRY_SECTOR,Basic Materials
+DD UN Equity,INDUSTRY_GROUP,Chemicals
+DDS UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+DDS UN Equity,INDUSTRY_GROUP,Retail
+DE UN Equity,INDUSTRY_SECTOR,Industrial
+DE UN Equity,INDUSTRY_GROUP,Machinery-Diversified
+DFODQ UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+DFODQ UN Equity,INDUSTRY_GROUP,Food
+DFS UN Equity,INDUSTRY_SECTOR,Financial
+DFS UN Equity,INDUSTRY_GROUP,Diversified Finan Serv
+DG UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+DG UN Equity,INDUSTRY_GROUP,Retail
+DGX UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+DGX UN Equity,INDUSTRY_GROUP,Healthcare-Services
+DHI UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+DHI UN Equity,INDUSTRY_GROUP,Home Builders
+DHR UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+DHR UN Equity,INDUSTRY_GROUP,Healthcare-Products
+DIS UN Equity,INDUSTRY_SECTOR,Communications
+DIS UN Equity,INDUSTRY_GROUP,Media
+DISCA UW Equity,INDUSTRY_SECTOR,Communications
+DISCA UW Equity,INDUSTRY_GROUP,Media
+DISCK UW Equity,INDUSTRY_SECTOR,Communications
+DISCK UW Equity,INDUSTRY_GROUP,Media
+DISH UW Equity,INDUSTRY_SECTOR,Communications
+DISH UW Equity,INDUSTRY_GROUP,Media
+DJ UN Equity,INDUSTRY_SECTOR,Communications
+DJ UN Equity,INDUSTRY_GROUP,Media
+DLPH UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+DLPH UN Equity,INDUSTRY_GROUP,Auto Parts&Equipment
+DLR UN Equity,INDUSTRY_SECTOR,Financial
+DLR UN Equity,INDUSTRY_GROUP,REITS
+DLTR UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+DLTR UW Equity,INDUSTRY_GROUP,Retail
+DLX UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+DLX UN Equity,INDUSTRY_GROUP,Commercial Services
+DNRCQ UN Equity,INDUSTRY_SECTOR,Energy
+DNRCQ UN Equity,INDUSTRY_GROUP,Oil&Gas
+DOFSQ UN Equity,INDUSTRY_SECTOR,Energy
+DOFSQ UN Equity,INDUSTRY_GROUP,Oil&Gas
+DOV UN Equity,INDUSTRY_SECTOR,Industrial
+DOV UN Equity,INDUSTRY_GROUP,Machinery-Diversified
+DOW UN Equity,INDUSTRY_SECTOR,Basic Materials
+DOW UN Equity,INDUSTRY_GROUP,Chemicals
+DPHIQ UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+DPHIQ UN Equity,INDUSTRY_GROUP,Auto Parts&Equipment
+DPZ UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+DPZ UN Equity,INDUSTRY_GROUP,Retail
+DRE UN Equity,INDUSTRY_SECTOR,Financial
+DRE UN Equity,INDUSTRY_GROUP,REITS
+DRI UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+DRI UN Equity,INDUSTRY_GROUP,Retail
+DTE UN Equity,INDUSTRY_SECTOR,Utilities
+DTE UN Equity,INDUSTRY_GROUP,Electric
+DUK UN Equity,INDUSTRY_SECTOR,Utilities
+DUK UN Equity,INDUSTRY_GROUP,Electric
+DVA UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+DVA UN Equity,INDUSTRY_GROUP,Healthcare-Services
+DVMT UN Equity,INDUSTRY_SECTOR,Technology
+DVMT UN Equity,INDUSTRY_GROUP,Computers
+DVN UA Equity,INDUSTRY_SECTOR,Energy
+DVN UA Equity,INDUSTRY_GROUP,Oil&Gas
+DVN UN Equity,INDUSTRY_SECTOR,Energy
+DVN UN Equity,INDUSTRY_GROUP,Oil&Gas
+DXC UN Equity,INDUSTRY_SECTOR,Technology
+DXC UN Equity,INDUSTRY_GROUP,Computers
+DXCM UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+DXCM UW Equity,INDUSTRY_GROUP,Pharmaceuticals
+DYNIQ UN Equity,INDUSTRY_SECTOR,Utilities
+DYNIQ UN Equity,INDUSTRY_GROUP,Electric
+EA UQ Equity,INDUSTRY_SECTOR,Technology
+EA UQ Equity,INDUSTRY_GROUP,Software
+EA UW Equity,INDUSTRY_SECTOR,Technology
+EA UW Equity,INDUSTRY_GROUP,Software
+EBAY UQ Equity,INDUSTRY_SECTOR,Communications
+EBAY UQ Equity,INDUSTRY_GROUP,Internet
+EBAY UW Equity,INDUSTRY_SECTOR,Communications
+EBAY UW Equity,INDUSTRY_GROUP,Internet
+ECL UN Equity,INDUSTRY_SECTOR,Basic Materials
+ECL UN Equity,INDUSTRY_GROUP,Chemicals
+ED UN Equity,INDUSTRY_SECTOR,Utilities
+ED UN Equity,INDUSTRY_GROUP,Electric
+EFX UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+EFX UN Equity,INDUSTRY_GROUP,Commercial Services
+EHC UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+EHC UN Equity,INDUSTRY_GROUP,Healthcare-Services
+EIX UN Equity,INDUSTRY_SECTOR,Utilities
+EIX UN Equity,INDUSTRY_GROUP,Electric
+EKDKQ UN Equity,INDUSTRY_SECTOR,Industrial
+EKDKQ UN Equity,INDUSTRY_GROUP,Machinery-Diversified
+EL UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+EL UN Equity,INDUSTRY_GROUP,Cosmetics/Personal Care
+EMC UN Equity,INDUSTRY_SECTOR,Technology
+EMC UN Equity,INDUSTRY_GROUP,Computers
+EMN UN Equity,INDUSTRY_SECTOR,Basic Materials
+EMN UN Equity,INDUSTRY_GROUP,Chemicals
+EMR UN Equity,INDUSTRY_SECTOR,Industrial
+EMR UN Equity,INDUSTRY_GROUP,Electrical Compo&Equip
+ENDP UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+ENDP UW Equity,INDUSTRY_GROUP,Pharmaceuticals
+EOG UN Equity,INDUSTRY_SECTOR,Energy
+EOG UN Equity,INDUSTRY_GROUP,Oil&Gas
+EOP UN Equity,INDUSTRY_SECTOR,Financial
+EOP UN Equity,INDUSTRY_GROUP,Real Estate
+EP UN Equity,INDUSTRY_SECTOR,Energy
+EP UN Equity,INDUSTRY_GROUP,Pipelines
+EQIX UW Equity,INDUSTRY_SECTOR,Financial
+EQIX UW Equity,INDUSTRY_GROUP,REITS
+EQR UN Equity,INDUSTRY_SECTOR,Financial
+EQR UN Equity,INDUSTRY_GROUP,REITS
+EQT UN Equity,INDUSTRY_SECTOR,Energy
+EQT UN Equity,INDUSTRY_GROUP,Oil&Gas
+ES UN Equity,INDUSTRY_SECTOR,Utilities
+ES UN Equity,INDUSTRY_GROUP,Electric
+ESRX UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+ESRX UQ Equity,INDUSTRY_GROUP,Pharmaceuticals
+ESRX UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+ESRX UW Equity,INDUSTRY_GROUP,Pharmaceuticals
+ESS UN Equity,INDUSTRY_SECTOR,Financial
+ESS UN Equity,INDUSTRY_GROUP,REITS
+ETFC UN Equity,INDUSTRY_SECTOR,Communications
+ETFC UN Equity,INDUSTRY_GROUP,Internet
+ETFC US Equity,INDUSTRY_SECTOR,Communications
+ETFC US Equity,INDUSTRY_GROUP,Internet
+ETFC UW Equity,INDUSTRY_SECTOR,Communications
+ETFC UW Equity,INDUSTRY_GROUP,Internet
+ETN UN Equity,INDUSTRY_SECTOR,Industrial
+ETN UN Equity,INDUSTRY_GROUP,Miscellaneous Manufactur
+ETR UN Equity,INDUSTRY_SECTOR,Utilities
+ETR UN Equity,INDUSTRY_GROUP,Electric
+ETSY UW Equity,INDUSTRY_SECTOR,Communications
+ETSY UW Equity,INDUSTRY_GROUP,Internet
+EVHC UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+EVHC UN Equity,INDUSTRY_GROUP,Healthcare-Services
+EVRG UN Equity,INDUSTRY_SECTOR,Utilities
+EVRG UN Equity,INDUSTRY_GROUP,Electric
+EW UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+EW UN Equity,INDUSTRY_GROUP,Healthcare-Products
+EXC UN Equity,INDUSTRY_SECTOR,Utilities
+EXC UN Equity,INDUSTRY_GROUP,Electric
+EXC UW Equity,INDUSTRY_SECTOR,Utilities
+EXC UW Equity,INDUSTRY_GROUP,Electric
+EXPD UW Equity,INDUSTRY_SECTOR,Industrial
+EXPD UW Equity,INDUSTRY_GROUP,Transportation
+EXPE UW Equity,INDUSTRY_SECTOR,Communications
+EXPE UW Equity,INDUSTRY_GROUP,Internet
+EXR UN Equity,INDUSTRY_SECTOR,Financial
+EXR UN Equity,INDUSTRY_GROUP,REITS
+F UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+F UN Equity,INDUSTRY_GROUP,Auto Manufacturers
+FANG UW Equity,INDUSTRY_SECTOR,Energy
+FANG UW Equity,INDUSTRY_GROUP,Oil&Gas
+FAST UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+FAST UW Equity,INDUSTRY_GROUP,Distribution/Wholesale
+FB UW Equity,INDUSTRY_SECTOR,Communications
+FB UW Equity,INDUSTRY_GROUP,Internet
+FBF UN Equity,INDUSTRY_SECTOR,Financial
+FBF UN Equity,INDUSTRY_GROUP,Banks
+FBHS UN Equity,INDUSTRY_SECTOR,Industrial
+FBHS UN Equity,INDUSTRY_GROUP,Building Materials
+FCX UN Equity,INDUSTRY_SECTOR,Basic Materials
+FCX UN Equity,INDUSTRY_GROUP,Mining
+FDO UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+FDO UN Equity,INDUSTRY_GROUP,Retail
+FDX UN Equity,INDUSTRY_SECTOR,Industrial
+FDX UN Equity,INDUSTRY_GROUP,Transportation
+FE UN Equity,INDUSTRY_SECTOR,Utilities
+FE UN Equity,INDUSTRY_GROUP,Electric
+FFIV UW Equity,INDUSTRY_SECTOR,Communications
+FFIV UW Equity,INDUSTRY_GROUP,Internet
+FHI UN Equity,INDUSTRY_SECTOR,Financial
+FHI UN Equity,INDUSTRY_GROUP,Diversified Finan Serv
+FHN UN Equity,INDUSTRY_SECTOR,Financial
+FHN UN Equity,INDUSTRY_GROUP,Banks
+FIS UN Equity,INDUSTRY_SECTOR,Technology
+FIS UN Equity,INDUSTRY_GROUP,Software
+FISV UQ Equity,INDUSTRY_SECTOR,Technology
+FISV UQ Equity,INDUSTRY_GROUP,Software
+FISV UW Equity,INDUSTRY_SECTOR,Technology
+FISV UW Equity,INDUSTRY_GROUP,Software
+FITB UQ Equity,INDUSTRY_SECTOR,Financial
+FITB UQ Equity,INDUSTRY_GROUP,Banks
+FITB UW Equity,INDUSTRY_SECTOR,Financial
+FITB UW Equity,INDUSTRY_GROUP,Banks
+FL UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+FL UN Equity,INDUSTRY_GROUP,Retail
+FLIR UW Equity,INDUSTRY_SECTOR,Industrial
+FLIR UW Equity,INDUSTRY_GROUP,Electronics
+FLR UN Equity,INDUSTRY_SECTOR,Industrial
+FLR UN Equity,INDUSTRY_GROUP,Engineering&Construction
+FLS UN Equity,INDUSTRY_SECTOR,Industrial
+FLS UN Equity,INDUSTRY_GROUP,Machinery-Diversified
+FLT UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+FLT UN Equity,INDUSTRY_GROUP,Commercial Services
+FMC UN Equity,INDUSTRY_SECTOR,Basic Materials
+FMC UN Equity,INDUSTRY_GROUP,Chemicals
+FMCC UN Equity,INDUSTRY_SECTOR,Financial
+FMCC UN Equity,INDUSTRY_GROUP,Diversified Finan Serv
+FNMA UN Equity,INDUSTRY_SECTOR,Financial
+FNMA UN Equity,INDUSTRY_GROUP,Diversified Finan Serv
+FOSL UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+FOSL UW Equity,INDUSTRY_GROUP,Distribution/Wholesale
+FOX UW Equity,INDUSTRY_SECTOR,Communications
+FOX UW Equity,INDUSTRY_GROUP,Media
+FOXA UW Equity,INDUSTRY_SECTOR,Communications
+FOXA UW Equity,INDUSTRY_GROUP,Media
+FRC UN Equity,INDUSTRY_SECTOR,Financial
+FRC UN Equity,INDUSTRY_GROUP,Banks
+FRT UN Equity,INDUSTRY_SECTOR,Financial
+FRT UN Equity,INDUSTRY_GROUP,REITS
+FSH UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+FSH UN Equity,INDUSTRY_GROUP,Healthcare-Services
+FSLR UW Equity,INDUSTRY_SECTOR,Energy
+FSLR UW Equity,INDUSTRY_GROUP,Energy-Alternate Sources
+FTI UN Equity,INDUSTRY_SECTOR,Energy
+FTI UN Equity,INDUSTRY_GROUP,Oil&Gas Services
+FTNT UW Equity,INDUSTRY_SECTOR,Technology
+FTNT UW Equity,INDUSTRY_GROUP,Computers
+FTRCQ UN Equity,INDUSTRY_SECTOR,Communications
+FTRCQ UN Equity,INDUSTRY_GROUP,Telecommunications
+FTRCQ UW Equity,INDUSTRY_SECTOR,Communications
+FTRCQ UW Equity,INDUSTRY_GROUP,Telecommunications
+FTV UN Equity,INDUSTRY_SECTOR,Industrial
+FTV UN Equity,INDUSTRY_GROUP,Electronics
+GAS UN Equity,INDUSTRY_SECTOR,Utilities
+GAS UN Equity,INDUSTRY_GROUP,Gas
+GD UN Equity,INDUSTRY_SECTOR,Industrial
+GD UN Equity,INDUSTRY_GROUP,Aerospace/Defense
+GDT UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+GDT UN Equity,INDUSTRY_GROUP,Healthcare-Products
+GDW UN Equity,INDUSTRY_SECTOR,Financial
+GDW UN Equity,INDUSTRY_GROUP,Savings&Loans
+GE UN Equity,INDUSTRY_SECTOR,Industrial
+GE UN Equity,INDUSTRY_GROUP,Miscellaneous Manufactur
+GENZ UA Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+GENZ UA Equity,INDUSTRY_GROUP,Biotechnology
+GENZ UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+GENZ UQ Equity,INDUSTRY_GROUP,Biotechnology
+GENZ UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+GENZ UW Equity,INDUSTRY_GROUP,Biotechnology
+GGP UN Equity,INDUSTRY_SECTOR,Financial
+GGP UN Equity,INDUSTRY_GROUP,REITS
+GGP UP Equity,INDUSTRY_SECTOR,Financial
+GGP UP Equity,INDUSTRY_GROUP,REITS
+GHC UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+GHC UN Equity,INDUSTRY_GROUP,Commercial Services
+GILD UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+GILD UQ Equity,INDUSTRY_GROUP,Biotechnology
+GILD UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+GILD UW Equity,INDUSTRY_GROUP,Biotechnology
+GIS UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+GIS UN Equity,INDUSTRY_GROUP,Food
+GL UN Equity,INDUSTRY_SECTOR,Financial
+GL UN Equity,INDUSTRY_GROUP,Insurance
+GLW UN Equity,INDUSTRY_SECTOR,Communications
+GLW UN Equity,INDUSTRY_GROUP,Telecommunications
+GM UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+GM UN Equity,INDUSTRY_GROUP,Auto Manufacturers
+GMCR UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+GMCR UW Equity,INDUSTRY_GROUP,Beverages
+GME UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+GME UN Equity,INDUSTRY_GROUP,Retail
+GNW UN Equity,INDUSTRY_SECTOR,Financial
+GNW UN Equity,INDUSTRY_GROUP,Insurance
+GNW UP Equity,INDUSTRY_SECTOR,Financial
+GNW UP Equity,INDUSTRY_GROUP,Insurance
+GOOG UW Equity,INDUSTRY_SECTOR,Communications
+GOOG UW Equity,INDUSTRY_GROUP,Internet
+GOOGL UQ Equity,INDUSTRY_SECTOR,Communications
+GOOGL UQ Equity,INDUSTRY_GROUP,Internet
+GOOGL UW Equity,INDUSTRY_SECTOR,Communications
+GOOGL UW Equity,INDUSTRY_GROUP,Internet
+GPC UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+GPC UN Equity,INDUSTRY_GROUP,Retail
+GPN UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+GPN UN Equity,INDUSTRY_GROUP,Commercial Services
+GPS UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+GPS UN Equity,INDUSTRY_GROUP,Retail
+GR UN Equity,INDUSTRY_SECTOR,Industrial
+GR UN Equity,INDUSTRY_GROUP,Aerospace/Defense
+GR US Equity,INDUSTRY_SECTOR,Industrial
+GR US Equity,INDUSTRY_GROUP,Aerospace/Defense
+GRMN UW Equity,INDUSTRY_SECTOR,Industrial
+GRMN UW Equity,INDUSTRY_GROUP,Electronics
+GS UN Equity,INDUSTRY_SECTOR,Financial
+GS UN Equity,INDUSTRY_GROUP,Banks
+GT UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+GT UN Equity,INDUSTRY_GROUP,Auto Parts&Equipment
+GT UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+GT UW Equity,INDUSTRY_GROUP,Auto Parts&Equipment
+GTGOF US Equity,INDUSTRY_SECTOR,Industrial
+GTGOF US Equity,INDUSTRY_GROUP,Electronics
+GTW UN Equity,INDUSTRY_SECTOR,Technology
+GTW UN Equity,INDUSTRY_GROUP,Computers
+GTXMQ UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+GTXMQ UN Equity,INDUSTRY_GROUP,Auto Parts&Equipment
+GWW UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+GWW UN Equity,INDUSTRY_GROUP,Distribution/Wholesale
+HAL UN Equity,INDUSTRY_SECTOR,Energy
+HAL UN Equity,INDUSTRY_GROUP,Oil&Gas Services
+HAR UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+HAR UN Equity,INDUSTRY_GROUP,Home Furnishings
+HAR US Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+HAR US Equity,INDUSTRY_GROUP,Home Furnishings
+HAS US Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+HAS US Equity,INDUSTRY_GROUP,Toys/Games/Hobbies
+HAS UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+HAS UW Equity,INDUSTRY_GROUP,Toys/Games/Hobbies
+HBAN UA Equity,INDUSTRY_SECTOR,Financial
+HBAN UA Equity,INDUSTRY_GROUP,Banks
+HBAN UQ Equity,INDUSTRY_SECTOR,Financial
+HBAN UQ Equity,INDUSTRY_GROUP,Banks
+HBAN UW Equity,INDUSTRY_SECTOR,Financial
+HBAN UW Equity,INDUSTRY_GROUP,Banks
+HBI UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+HBI UN Equity,INDUSTRY_GROUP,Apparel
+HCA UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+HCA UN Equity,INDUSTRY_GROUP,Healthcare-Services
+HCBK UW Equity,INDUSTRY_SECTOR,Financial
+HCBK UW Equity,INDUSTRY_GROUP,Savings&Loans
+HD UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+HD UN Equity,INDUSTRY_GROUP,Retail
+HES UN Equity,INDUSTRY_SECTOR,Energy
+HES UN Equity,INDUSTRY_GROUP,Oil&Gas
+HET UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+HET UN Equity,INDUSTRY_GROUP,Lodging
+HFC UN Equity,INDUSTRY_SECTOR,Energy
+HFC UN Equity,INDUSTRY_GROUP,Oil&Gas
+HIG UN Equity,INDUSTRY_SECTOR,Financial
+HIG UN Equity,INDUSTRY_GROUP,Insurance
+HII UN Equity,INDUSTRY_SECTOR,Industrial
+HII UN Equity,INDUSTRY_GROUP,Shipbuilding
+HLT UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+HLT UN Equity,INDUSTRY_GROUP,Lodging
+HMA UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+HMA UN Equity,INDUSTRY_GROUP,Healthcare-Services
+HNZ UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+HNZ UN Equity,INDUSTRY_GROUP,Food
+HOG UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+HOG UN Equity,INDUSTRY_GROUP,Leisure Time
+HOLX UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+HOLX UW Equity,INDUSTRY_GROUP,Healthcare-Products
+HON UN Equity,INDUSTRY_SECTOR,Industrial
+HON UN Equity,INDUSTRY_GROUP,Electronics
+HOT UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+HOT UN Equity,INDUSTRY_GROUP,Lodging
+HP UN Equity,INDUSTRY_SECTOR,Energy
+HP UN Equity,INDUSTRY_GROUP,Oil&Gas
+HPC US Equity,INDUSTRY_SECTOR,Basic Materials
+HPC US Equity,INDUSTRY_GROUP,Chemicals
+HPE UN Equity,INDUSTRY_SECTOR,Technology
+HPE UN Equity,INDUSTRY_GROUP,Computers
+HPQ UN Equity,INDUSTRY_SECTOR,Technology
+HPQ UN Equity,INDUSTRY_GROUP,Computers
+HRB UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+HRB UN Equity,INDUSTRY_GROUP,Commercial Services
+HRL UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+HRL UN Equity,INDUSTRY_GROUP,Food
+HSH UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+HSH UN Equity,INDUSTRY_GROUP,Food
+HSIC UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+HSIC UW Equity,INDUSTRY_GROUP,Pharmaceuticals
+HSP UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+HSP UN Equity,INDUSTRY_GROUP,Pharmaceuticals
+HST UN Equity,INDUSTRY_SECTOR,Financial
+HST UN Equity,INDUSTRY_GROUP,REITS
+HST UW Equity,INDUSTRY_SECTOR,Financial
+HST UW Equity,INDUSTRY_GROUP,REITS
+HSY UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+HSY UN Equity,INDUSTRY_GROUP,Food
+HUM UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+HUM UN Equity,INDUSTRY_GROUP,Healthcare-Services
+HWM UN Equity,INDUSTRY_SECTOR,Industrial
+HWM UN Equity,INDUSTRY_GROUP,Aerospace/Defense
+IBM UN Equity,INDUSTRY_SECTOR,Technology
+IBM UN Equity,INDUSTRY_GROUP,Computers
+ICE UN Equity,INDUSTRY_SECTOR,Financial
+ICE UN Equity,INDUSTRY_GROUP,Diversified Finan Serv
+IDXX UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+IDXX UW Equity,INDUSTRY_GROUP,Healthcare-Products
+IEX UN Equity,INDUSTRY_SECTOR,Industrial
+IEX UN Equity,INDUSTRY_GROUP,Machinery-Diversified
+IFF UN Equity,INDUSTRY_SECTOR,Basic Materials
+IFF UN Equity,INDUSTRY_GROUP,Chemicals
+IILGV UQ Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+IILGV UQ Equity,INDUSTRY_GROUP,Lodging
+ILMN UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+ILMN UW Equity,INDUSTRY_GROUP,Biotechnology
+INCY UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+INCY UW Equity,INDUSTRY_GROUP,Biotechnology
+INFO UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+INFO UN Equity,INDUSTRY_GROUP,Commercial Services
+INFO UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+INFO UW Equity,INDUSTRY_GROUP,Commercial Services
+INTC UQ Equity,INDUSTRY_SECTOR,Technology
+INTC UQ Equity,INDUSTRY_GROUP,Semiconductors
+INTC UW Equity,INDUSTRY_SECTOR,Technology
+INTC UW Equity,INDUSTRY_GROUP,Semiconductors
+INTU UQ Equity,INDUSTRY_SECTOR,Technology
+INTU UQ Equity,INDUSTRY_GROUP,Software
+INTU UW Equity,INDUSTRY_SECTOR,Technology
+INTU UW Equity,INDUSTRY_GROUP,Software
+IP UN Equity,INDUSTRY_SECTOR,Basic Materials
+IP UN Equity,INDUSTRY_GROUP,Forest Products&Paper
+IPG UN Equity,INDUSTRY_SECTOR,Communications
+IPG UN Equity,INDUSTRY_GROUP,Advertising
+IPGP UW Equity,INDUSTRY_SECTOR,Technology
+IPGP UW Equity,INDUSTRY_GROUP,Semiconductors
+IQV UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+IQV UN Equity,INDUSTRY_GROUP,Healthcare-Services
+IR UN Equity,INDUSTRY_SECTOR,Industrial
+IR UN Equity,INDUSTRY_GROUP,Machinery-Diversified
+IRM UN Equity,INDUSTRY_SECTOR,Financial
+IRM UN Equity,INDUSTRY_GROUP,REITS
+ISRG UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+ISRG UW Equity,INDUSTRY_GROUP,Healthcare-Products
+IT UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+IT UN Equity,INDUSTRY_GROUP,Commercial Services
+ITT UN Equity,INDUSTRY_SECTOR,Industrial
+ITT UN Equity,INDUSTRY_GROUP,Miscellaneous Manufactur
+ITW UN Equity,INDUSTRY_SECTOR,Industrial
+ITW UN Equity,INDUSTRY_GROUP,Miscellaneous Manufactur
+IVZ UN Equity,INDUSTRY_SECTOR,Financial
+IVZ UN Equity,INDUSTRY_GROUP,Diversified Finan Serv
+J UN Equity,INDUSTRY_SECTOR,Industrial
+J UN Equity,INDUSTRY_GROUP,Engineering&Construction
+JAVA UQ Equity,INDUSTRY_SECTOR,Technology
+JAVA UQ Equity,INDUSTRY_GROUP,Computers
+JAVA UW Equity,INDUSTRY_SECTOR,Technology
+JAVA UW Equity,INDUSTRY_GROUP,Computers
+JBGS UN Equity,INDUSTRY_SECTOR,Financial
+JBGS UN Equity,INDUSTRY_GROUP,REITS
+JBHT UW Equity,INDUSTRY_SECTOR,Industrial
+JBHT UW Equity,INDUSTRY_GROUP,Transportation
+JBL UN Equity,INDUSTRY_SECTOR,Industrial
+JBL UN Equity,INDUSTRY_GROUP,Electronics
+JCI UN Equity,INDUSTRY_SECTOR,Industrial
+JCI UN Equity,INDUSTRY_GROUP,Building Materials
+JEF UN Equity,INDUSTRY_SECTOR,Financial
+JEF UN Equity,INDUSTRY_GROUP,Diversified Finan Serv
+JHF UN Equity,INDUSTRY_SECTOR,Financial
+JHF UN Equity,INDUSTRY_GROUP,Insurance
+JKHY UW Equity,INDUSTRY_SECTOR,Technology
+JKHY UW Equity,INDUSTRY_GROUP,Software
+JNJ UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+JNJ UN Equity,INDUSTRY_GROUP,Pharmaceuticals
+JNPR UN Equity,INDUSTRY_SECTOR,Communications
+JNPR UN Equity,INDUSTRY_GROUP,Telecommunications
+JNPR UQ Equity,INDUSTRY_SECTOR,Communications
+JNPR UQ Equity,INDUSTRY_GROUP,Telecommunications
+JNPR UW Equity,INDUSTRY_SECTOR,Communications
+JNPR UW Equity,INDUSTRY_GROUP,Telecommunications
+JNS UN Equity,INDUSTRY_SECTOR,Financial
+JNS UN Equity,INDUSTRY_GROUP,Diversified Finan Serv
+JNY UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+JNY UN Equity,INDUSTRY_GROUP,Apparel
+JOY UN Equity,INDUSTRY_SECTOR,Industrial
+JOY UN Equity,INDUSTRY_GROUP,Machinery-Constr&Mining
+JOY UW Equity,INDUSTRY_SECTOR,Industrial
+JOY UW Equity,INDUSTRY_GROUP,Machinery-Constr&Mining
+JPM UN Equity,INDUSTRY_SECTOR,Financial
+JPM UN Equity,INDUSTRY_GROUP,Banks
+JWN UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+JWN UN Equity,INDUSTRY_GROUP,Retail
+K UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+K UN Equity,INDUSTRY_GROUP,Food
+KATE UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+KATE UN Equity,INDUSTRY_GROUP,Retail
+KBH UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+KBH UN Equity,INDUSTRY_GROUP,Home Builders
+KDP UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+KDP UN Equity,INDUSTRY_GROUP,Beverages
+KEY UN Equity,INDUSTRY_SECTOR,Financial
+KEY UN Equity,INDUSTRY_GROUP,Banks
+KEYS UN Equity,INDUSTRY_SECTOR,Industrial
+KEYS UN Equity,INDUSTRY_GROUP,Electronics
+KG UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+KG UN Equity,INDUSTRY_GROUP,Pharmaceuticals
+KHC UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+KHC UW Equity,INDUSTRY_GROUP,Food
+KIM UN Equity,INDUSTRY_SECTOR,Financial
+KIM UN Equity,INDUSTRY_GROUP,REITS
+KLAC UQ Equity,INDUSTRY_SECTOR,Technology
+KLAC UQ Equity,INDUSTRY_GROUP,Semiconductors
+KLAC UW Equity,INDUSTRY_SECTOR,Technology
+KLAC UW Equity,INDUSTRY_GROUP,Semiconductors
+KMB UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+KMB UN Equity,INDUSTRY_GROUP,Household Products/Wares
+KMI UN Equity,INDUSTRY_SECTOR,Energy
+KMI UN Equity,INDUSTRY_GROUP,Pipelines
+KMX UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+KMX UN Equity,INDUSTRY_GROUP,Retail
+KO UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+KO UN Equity,INDUSTRY_GROUP,Beverages
+KR UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+KR UN Equity,INDUSTRY_GROUP,Food
+KRB UN Equity,INDUSTRY_SECTOR,Financial
+KRB UN Equity,INDUSTRY_GROUP,Diversified Finan Serv
+KRFT UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+KRFT UW Equity,INDUSTRY_GROUP,Food
+KRI UN Equity,INDUSTRY_SECTOR,Communications
+KRI UN Equity,INDUSTRY_GROUP,Media
+KSE UN Equity,INDUSTRY_SECTOR,Utilities
+KSE UN Equity,INDUSTRY_GROUP,Gas
+KSS UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+KSS UN Equity,INDUSTRY_GROUP,Retail
+KSU UN Equity,INDUSTRY_SECTOR,Industrial
+KSU UN Equity,INDUSTRY_GROUP,Transportation
+KTB UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+KTB UN Equity,INDUSTRY_GROUP,Apparel
+L UN Equity,INDUSTRY_SECTOR,Financial
+L UN Equity,INDUSTRY_GROUP,Insurance
+LB UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+LB UN Equity,INDUSTRY_GROUP,Retail
+LDOS UN Equity,INDUSTRY_SECTOR,Technology
+LDOS UN Equity,INDUSTRY_GROUP,Computers
+LEG UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+LEG UN Equity,INDUSTRY_GROUP,Home Furnishings
+LEHMQ UN Equity,INDUSTRY_SECTOR,Financial
+LEHMQ UN Equity,INDUSTRY_GROUP,Diversified Finan Serv
+LEHMQ UP Equity,INDUSTRY_SECTOR,Financial
+LEHMQ UP Equity,INDUSTRY_GROUP,Diversified Finan Serv
+LEN UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+LEN UN Equity,INDUSTRY_GROUP,Home Builders
+LH UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+LH UN Equity,INDUSTRY_GROUP,Healthcare-Services
+LHX UN Equity,INDUSTRY_SECTOR,Industrial
+LHX UN Equity,INDUSTRY_GROUP,Aerospace/Defense
+LIN UN Equity,INDUSTRY_SECTOR,Basic Materials
+LIN UN Equity,INDUSTRY_GROUP,Chemicals
+LKQ UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+LKQ UW Equity,INDUSTRY_GROUP,Distribution/Wholesale
+LLL UN Equity,INDUSTRY_SECTOR,Industrial
+LLL UN Equity,INDUSTRY_GROUP,Aerospace/Defense
+LLTC UQ Equity,INDUSTRY_SECTOR,Technology
+LLTC UQ Equity,INDUSTRY_GROUP,Semiconductors
+LLTC UW Equity,INDUSTRY_SECTOR,Technology
+LLTC UW Equity,INDUSTRY_GROUP,Semiconductors
+LLY UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+LLY UN Equity,INDUSTRY_GROUP,Pharmaceuticals
+LM UN Equity,INDUSTRY_SECTOR,Financial
+LM UN Equity,INDUSTRY_GROUP,Diversified Finan Serv
+LMT UN Equity,INDUSTRY_SECTOR,Industrial
+LMT UN Equity,INDUSTRY_GROUP,Aerospace/Defense
+LNC UN Equity,INDUSTRY_SECTOR,Financial
+LNC UN Equity,INDUSTRY_GROUP,Insurance
+LNT UN Equity,INDUSTRY_SECTOR,Utilities
+LNT UN Equity,INDUSTRY_GROUP,Electric
+LNT UW Equity,INDUSTRY_SECTOR,Utilities
+LNT UW Equity,INDUSTRY_GROUP,Electric
+LO UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+LO UN Equity,INDUSTRY_GROUP,Agriculture
+LOW UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+LOW UN Equity,INDUSTRY_GROUP,Retail
+LPX UN Equity,INDUSTRY_SECTOR,Industrial
+LPX UN Equity,INDUSTRY_GROUP,Building Materials
+LRCX UW Equity,INDUSTRY_SECTOR,Technology
+LRCX UW Equity,INDUSTRY_GROUP,Semiconductors
+LUMN UN Equity,INDUSTRY_SECTOR,Communications
+LUMN UN Equity,INDUSTRY_GROUP,Telecommunications
+LUV UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+LUV UN Equity,INDUSTRY_GROUP,Airlines
+LVLT UN Equity,INDUSTRY_SECTOR,Communications
+LVLT UN Equity,INDUSTRY_GROUP,Telecommunications
+LVS UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+LVS UN Equity,INDUSTRY_GROUP,Lodging
+LW UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+LW UN Equity,INDUSTRY_GROUP,Food
+LXK UN Equity,INDUSTRY_SECTOR,Technology
+LXK UN Equity,INDUSTRY_GROUP,Office/Business Equip
+LYB UN Equity,INDUSTRY_SECTOR,Basic Materials
+LYB UN Equity,INDUSTRY_GROUP,Chemicals
+LYV UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+LYV UN Equity,INDUSTRY_GROUP,Entertainment
+M UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+M UN Equity,INDUSTRY_GROUP,Retail
+MA UN Equity,INDUSTRY_SECTOR,Financial
+MA UN Equity,INDUSTRY_GROUP,Diversified Finan Serv
+MAA UN Equity,INDUSTRY_SECTOR,Financial
+MAA UN Equity,INDUSTRY_GROUP,REITS
+MAC UN Equity,INDUSTRY_SECTOR,Financial
+MAC UN Equity,INDUSTRY_GROUP,REITS
+MAR UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+MAR UN Equity,INDUSTRY_GROUP,Lodging
+MAR UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+MAR UW Equity,INDUSTRY_GROUP,Lodging
+MAS UN Equity,INDUSTRY_SECTOR,Industrial
+MAS UN Equity,INDUSTRY_GROUP,Building Materials
+MAT UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+MAT UN Equity,INDUSTRY_GROUP,Toys/Games/Hobbies
+MAT US Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+MAT US Equity,INDUSTRY_GROUP,Toys/Games/Hobbies
+MAT UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+MAT UW Equity,INDUSTRY_GROUP,Toys/Games/Hobbies
+MBI UN Equity,INDUSTRY_SECTOR,Financial
+MBI UN Equity,INDUSTRY_GROUP,Insurance
+MCD UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+MCD UN Equity,INDUSTRY_GROUP,Retail
+MCHP UW Equity,INDUSTRY_SECTOR,Technology
+MCHP UW Equity,INDUSTRY_GROUP,Semiconductors
+MCK UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+MCK UN Equity,INDUSTRY_GROUP,Pharmaceuticals
+MCO UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+MCO UN Equity,INDUSTRY_GROUP,Commercial Services
+MDLZ UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+MDLZ UN Equity,INDUSTRY_GROUP,Food
+MDLZ UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+MDLZ UW Equity,INDUSTRY_GROUP,Food
+MDP UN Equity,INDUSTRY_SECTOR,Communications
+MDP UN Equity,INDUSTRY_GROUP,Media
+MDRIQ UN Equity,INDUSTRY_SECTOR,Energy
+MDRIQ UN Equity,INDUSTRY_GROUP,Oil&Gas Services
+MDT UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+MDT UN Equity,INDUSTRY_GROUP,Healthcare-Products
+MEDI UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+MEDI UQ Equity,INDUSTRY_GROUP,Biotechnology
+MEDI UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+MEDI UW Equity,INDUSTRY_GROUP,Biotechnology
+MEE UN Equity,INDUSTRY_SECTOR,Energy
+MEE UN Equity,INDUSTRY_GROUP,Coal
+MEL UN Equity,INDUSTRY_SECTOR,Financial
+MEL UN Equity,INDUSTRY_GROUP,Banks
+MER UN Equity,INDUSTRY_SECTOR,Financial
+MER UN Equity,INDUSTRY_GROUP,Diversified Finan Serv
+MERQ UQ Equity,INDUSTRY_SECTOR,Technology
+MERQ UQ Equity,INDUSTRY_GROUP,Software
+MET UN Equity,INDUSTRY_SECTOR,Financial
+MET UN Equity,INDUSTRY_GROUP,Insurance
+MFE UN Equity,INDUSTRY_SECTOR,Communications
+MFE UN Equity,INDUSTRY_GROUP,Internet
+MGM UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+MGM UN Equity,INDUSTRY_GROUP,Lodging
+MHK UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+MHK UN Equity,INDUSTRY_GROUP,Textiles
+MHS UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+MHS UN Equity,INDUSTRY_GROUP,Pharmaceuticals
+MHS US Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+MHS US Equity,INDUSTRY_GROUP,Pharmaceuticals
+MI UN Equity,INDUSTRY_SECTOR,Financial
+MI UN Equity,INDUSTRY_GROUP,Banks
+MIRKQ UN Equity,INDUSTRY_SECTOR,Utilities
+MIRKQ UN Equity,INDUSTRY_GROUP,Electric
+MJN UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+MJN UN Equity,INDUSTRY_GROUP,Pharmaceuticals
+MJN US Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+MJN US Equity,INDUSTRY_GROUP,Pharmaceuticals
+MJN-W UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+MJN-W UN Equity,INDUSTRY_GROUP,Pharmaceuticals
+MKC UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+MKC UN Equity,INDUSTRY_GROUP,Food
+MKTX UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+MKTX UW Equity,INDUSTRY_GROUP,Commercial Services
+MLM UN Equity,INDUSTRY_SECTOR,Industrial
+MLM UN Equity,INDUSTRY_GROUP,Building Materials
+MMC UN Equity,INDUSTRY_SECTOR,Financial
+MMC UN Equity,INDUSTRY_GROUP,Insurance
+MMM UN Equity,INDUSTRY_SECTOR,Industrial
+MMM UN Equity,INDUSTRY_GROUP,Miscellaneous Manufactur
+MNKKQ UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+MNKKQ UN Equity,INDUSTRY_GROUP,Pharmaceuticals
+MNST UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+MNST UW Equity,INDUSTRY_GROUP,Beverages
+MO UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+MO UN Equity,INDUSTRY_GROUP,Agriculture
+MOLX UQ Equity,INDUSTRY_SECTOR,Industrial
+MOLX UQ Equity,INDUSTRY_GROUP,Electronics
+MOLX UW Equity,INDUSTRY_SECTOR,Industrial
+MOLX UW Equity,INDUSTRY_GROUP,Electronics
+MOS UN Equity,INDUSTRY_SECTOR,Basic Materials
+MOS UN Equity,INDUSTRY_GROUP,Chemicals
+MPC UN Equity,INDUSTRY_SECTOR,Energy
+MPC UN Equity,INDUSTRY_GROUP,Oil&Gas
+MRK UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+MRK UN Equity,INDUSTRY_GROUP,Pharmaceuticals
+MRO UN Equity,INDUSTRY_SECTOR,Energy
+MRO UN Equity,INDUSTRY_GROUP,Oil&Gas
+MS UN Equity,INDUSTRY_SECTOR,Financial
+MS UN Equity,INDUSTRY_GROUP,Banks
+MSCI UN Equity,INDUSTRY_SECTOR,Technology
+MSCI UN Equity,INDUSTRY_GROUP,Software
+MSFT UQ Equity,INDUSTRY_SECTOR,Technology
+MSFT UQ Equity,INDUSTRY_GROUP,Software
+MSFT UW Equity,INDUSTRY_SECTOR,Technology
+MSFT UW Equity,INDUSTRY_GROUP,Software
+MSI UN Equity,INDUSTRY_SECTOR,Communications
+MSI UN Equity,INDUSTRY_GROUP,Telecommunications
+MTB UN Equity,INDUSTRY_SECTOR,Financial
+MTB UN Equity,INDUSTRY_GROUP,Banks
+MTD UN Equity,INDUSTRY_SECTOR,Industrial
+MTD UN Equity,INDUSTRY_GROUP,Electronics
+MTG UN Equity,INDUSTRY_SECTOR,Financial
+MTG UN Equity,INDUSTRY_GROUP,Insurance
+MTLQQ UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+MTLQQ UN Equity,INDUSTRY_GROUP,Auto Manufacturers
+MTW UN Equity,INDUSTRY_SECTOR,Industrial
+MTW UN Equity,INDUSTRY_GROUP,Machinery-Constr&Mining
+MU UN Equity,INDUSTRY_SECTOR,Technology
+MU UN Equity,INDUSTRY_GROUP,Semiconductors
+MU UW Equity,INDUSTRY_SECTOR,Technology
+MU UW Equity,INDUSTRY_GROUP,Semiconductors
+MUR UN Equity,INDUSTRY_SECTOR,Energy
+MUR UN Equity,INDUSTRY_GROUP,Oil&Gas
+MWV UN Equity,INDUSTRY_SECTOR,Industrial
+MWV UN Equity,INDUSTRY_GROUP,Packaging&Containers
+MWW UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+MWW UN Equity,INDUSTRY_GROUP,Commercial Services
+MWW UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+MWW UQ Equity,INDUSTRY_GROUP,Commercial Services
+MWW UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+MWW UW Equity,INDUSTRY_GROUP,Commercial Services
+MXIM UQ Equity,INDUSTRY_SECTOR,Technology
+MXIM UQ Equity,INDUSTRY_GROUP,Semiconductors
+MXIM UW Equity,INDUSTRY_SECTOR,Technology
+MXIM UW Equity,INDUSTRY_GROUP,Semiconductors
+MYL UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+MYL UN Equity,INDUSTRY_GROUP,Pharmaceuticals
+MYL UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+MYL UW Equity,INDUSTRY_GROUP,Pharmaceuticals
+NAV UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+NAV UN Equity,INDUSTRY_GROUP,Auto Manufacturers
+NAVI UW Equity,INDUSTRY_SECTOR,Financial
+NAVI UW Equity,INDUSTRY_GROUP,Diversified Finan Serv
+NBL UN Equity,INDUSTRY_SECTOR,Energy
+NBL UN Equity,INDUSTRY_GROUP,Oil&Gas
+NBL US Equity,INDUSTRY_SECTOR,Energy
+NBL US Equity,INDUSTRY_GROUP,Oil&Gas
+NBL UW Equity,INDUSTRY_SECTOR,Energy
+NBL UW Equity,INDUSTRY_GROUP,Oil&Gas
+NBR UA Equity,INDUSTRY_SECTOR,Energy
+NBR UA Equity,INDUSTRY_GROUP,Oil&Gas
+NBR UN Equity,INDUSTRY_SECTOR,Energy
+NBR UN Equity,INDUSTRY_GROUP,Oil&Gas
+NCC UN Equity,INDUSTRY_SECTOR,Financial
+NCC UN Equity,INDUSTRY_GROUP,Banks
+NCLH UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+NCLH UN Equity,INDUSTRY_GROUP,Leisure Time
+NCLH UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+NCLH UW Equity,INDUSTRY_GROUP,Leisure Time
+NCR UN Equity,INDUSTRY_SECTOR,Technology
+NCR UN Equity,INDUSTRY_GROUP,Computers
+NDAQ UW Equity,INDUSTRY_SECTOR,Financial
+NDAQ UW Equity,INDUSTRY_GROUP,Diversified Finan Serv
+NEBLQ UN Equity,INDUSTRY_SECTOR,Energy
+NEBLQ UN Equity,INDUSTRY_GROUP,Oil&Gas
+NEE UN Equity,INDUSTRY_SECTOR,Utilities
+NEE UN Equity,INDUSTRY_GROUP,Electric
+NEM UN Equity,INDUSTRY_SECTOR,Basic Materials
+NEM UN Equity,INDUSTRY_GROUP,Mining
+NFB UN Equity,INDUSTRY_SECTOR,Financial
+NFB UN Equity,INDUSTRY_GROUP,Banks
+NFLX UW Equity,INDUSTRY_SECTOR,Communications
+NFLX UW Equity,INDUSTRY_GROUP,Internet
+NFX UN Equity,INDUSTRY_SECTOR,Energy
+NFX UN Equity,INDUSTRY_GROUP,Oil&Gas
+NGVT UN Equity,INDUSTRY_SECTOR,Basic Materials
+NGVT UN Equity,INDUSTRY_GROUP,Chemicals
+NI UN Equity,INDUSTRY_SECTOR,Utilities
+NI UN Equity,INDUSTRY_GROUP,Gas
+NKE UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+NKE UN Equity,INDUSTRY_GROUP,Apparel
+NKTR UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+NKTR UW Equity,INDUSTRY_GROUP,Biotechnology
+NLOK UQ Equity,INDUSTRY_SECTOR,Communications
+NLOK UQ Equity,INDUSTRY_GROUP,Internet
+NLOK UW Equity,INDUSTRY_SECTOR,Communications
+NLOK UW Equity,INDUSTRY_GROUP,Internet
+NLSN UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+NLSN UN Equity,INDUSTRY_GROUP,Commercial Services
+NOC UN Equity,INDUSTRY_SECTOR,Industrial
+NOC UN Equity,INDUSTRY_GROUP,Aerospace/Defense
+NOV UN Equity,INDUSTRY_SECTOR,Energy
+NOV UN Equity,INDUSTRY_GROUP,Oil&Gas Services
+NOVL UQ Equity,INDUSTRY_SECTOR,Technology
+NOVL UQ Equity,INDUSTRY_GROUP,Software
+NOVL UW Equity,INDUSTRY_SECTOR,Technology
+NOVL UW Equity,INDUSTRY_GROUP,Software
+NOW UN Equity,INDUSTRY_SECTOR,Technology
+NOW UN Equity,INDUSTRY_GROUP,Software
+NRG UN Equity,INDUSTRY_SECTOR,Utilities
+NRG UN Equity,INDUSTRY_GROUP,Electric
+NSC UN Equity,INDUSTRY_SECTOR,Industrial
+NSC UN Equity,INDUSTRY_GROUP,Transportation
+NTAP UQ Equity,INDUSTRY_SECTOR,Technology
+NTAP UQ Equity,INDUSTRY_GROUP,Computers
+NTAP UW Equity,INDUSTRY_SECTOR,Technology
+NTAP UW Equity,INDUSTRY_GROUP,Computers
+NTRS UQ Equity,INDUSTRY_SECTOR,Financial
+NTRS UQ Equity,INDUSTRY_GROUP,Banks
+NTRS UW Equity,INDUSTRY_SECTOR,Financial
+NTRS UW Equity,INDUSTRY_GROUP,Banks
+NUE UN Equity,INDUSTRY_SECTOR,Basic Materials
+NUE UN Equity,INDUSTRY_GROUP,Iron/Steel
+NVDA UA Equity,INDUSTRY_SECTOR,Technology
+NVDA UA Equity,INDUSTRY_GROUP,Semiconductors
+NVDA UQ Equity,INDUSTRY_SECTOR,Technology
+NVDA UQ Equity,INDUSTRY_GROUP,Semiconductors
+NVDA UW Equity,INDUSTRY_SECTOR,Technology
+NVDA UW Equity,INDUSTRY_GROUP,Semiconductors
+NVR UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+NVR UN Equity,INDUSTRY_GROUP,Home Builders
+NVT UN Equity,INDUSTRY_SECTOR,Industrial
+NVT UN Equity,INDUSTRY_GROUP,Electronics
+NWL UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+NWL UN Equity,INDUSTRY_GROUP,Housewares
+NWL UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+NWL UW Equity,INDUSTRY_GROUP,Housewares
+NWS UW Equity,INDUSTRY_SECTOR,Communications
+NWS UW Equity,INDUSTRY_GROUP,Media
+NWSA UW Equity,INDUSTRY_SECTOR,Communications
+NWSA UW Equity,INDUSTRY_GROUP,Media
+NXTL UQ Equity,INDUSTRY_SECTOR,Communications
+NXTL UQ Equity,INDUSTRY_GROUP,Telecommunications
+NYT UN Equity,INDUSTRY_SECTOR,Communications
+NYT UN Equity,INDUSTRY_GROUP,Media
+NYX UN Equity,INDUSTRY_SECTOR,Financial
+NYX UN Equity,INDUSTRY_GROUP,Diversified Finan Serv
+O UN Equity,INDUSTRY_SECTOR,Financial
+O UN Equity,INDUSTRY_GROUP,REITS
+ODFL UW Equity,INDUSTRY_SECTOR,Industrial
+ODFL UW Equity,INDUSTRY_GROUP,Transportation
+OI UN Equity,INDUSTRY_SECTOR,Industrial
+OI UN Equity,INDUSTRY_GROUP,Packaging&Containers
+OKE UN Equity,INDUSTRY_SECTOR,Energy
+OKE UN Equity,INDUSTRY_GROUP,Pipelines
+OMC UN Equity,INDUSTRY_SECTOR,Communications
+OMC UN Equity,INDUSTRY_GROUP,Advertising
+OMX UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+OMX UN Equity,INDUSTRY_GROUP,Retail
+ORCL UN Equity,INDUSTRY_SECTOR,Technology
+ORCL UN Equity,INDUSTRY_GROUP,Software
+ORCL UQ Equity,INDUSTRY_SECTOR,Technology
+ORCL UQ Equity,INDUSTRY_GROUP,Software
+ORCL UW Equity,INDUSTRY_SECTOR,Technology
+ORCL UW Equity,INDUSTRY_GROUP,Software
+ORLY UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+ORLY UW Equity,INDUSTRY_GROUP,Retail
+OTIS UN Equity,INDUSTRY_SECTOR,Industrial
+OTIS UN Equity,INDUSTRY_GROUP,Machinery-Diversified
+OXY UN Equity,INDUSTRY_SECTOR,Energy
+OXY UN Equity,INDUSTRY_GROUP,Oil&Gas
+PAYC UN Equity,INDUSTRY_SECTOR,Technology
+PAYC UN Equity,INDUSTRY_GROUP,Software
+PAYX UQ Equity,INDUSTRY_SECTOR,Technology
+PAYX UQ Equity,INDUSTRY_GROUP,Software
+PAYX UW Equity,INDUSTRY_SECTOR,Technology
+PAYX UW Equity,INDUSTRY_GROUP,Software
+PBCT UW Equity,INDUSTRY_SECTOR,Financial
+PBCT UW Equity,INDUSTRY_GROUP,Savings&Loans
+PBG UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+PBG UN Equity,INDUSTRY_GROUP,Beverages
+PBI UN Equity,INDUSTRY_SECTOR,Technology
+PBI UN Equity,INDUSTRY_GROUP,Office/Business Equip
+PCAR UQ Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+PCAR UQ Equity,INDUSTRY_GROUP,Auto Manufacturers
+PCAR UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+PCAR UW Equity,INDUSTRY_GROUP,Auto Manufacturers
+PCG UN Equity,INDUSTRY_SECTOR,Utilities
+PCG UN Equity,INDUSTRY_GROUP,Electric
+PCL UN Equity,INDUSTRY_SECTOR,Financial
+PCL UN Equity,INDUSTRY_GROUP,REITS
+PCP UN Equity,INDUSTRY_SECTOR,Industrial
+PCP UN Equity,INDUSTRY_GROUP,Metal Fabricate/Hardware
+PDCO UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+PDCO UQ Equity,INDUSTRY_GROUP,Healthcare-Products
+PDCO UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+PDCO UW Equity,INDUSTRY_GROUP,Healthcare-Products
+PEAK UN Equity,INDUSTRY_SECTOR,Financial
+PEAK UN Equity,INDUSTRY_GROUP,REITS
+PEG UN Equity,INDUSTRY_SECTOR,Utilities
+PEG UN Equity,INDUSTRY_GROUP,Electric
+PEP UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+PEP UN Equity,INDUSTRY_GROUP,Beverages
+PEP UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+PEP UW Equity,INDUSTRY_GROUP,Beverages
+PETM UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+PETM UW Equity,INDUSTRY_GROUP,Retail
+PFE UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+PFE UN Equity,INDUSTRY_GROUP,Pharmaceuticals
+PFG UN Equity,INDUSTRY_SECTOR,Financial
+PFG UN Equity,INDUSTRY_GROUP,Insurance
+PFG UW Equity,INDUSTRY_SECTOR,Financial
+PFG UW Equity,INDUSTRY_GROUP,Insurance
+PG UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+PG UN Equity,INDUSTRY_GROUP,Cosmetics/Personal Care
+PGL UN Equity,INDUSTRY_SECTOR,Utilities
+PGL UN Equity,INDUSTRY_GROUP,Gas
+PGR UN Equity,INDUSTRY_SECTOR,Financial
+PGR UN Equity,INDUSTRY_GROUP,Insurance
+PH UN Equity,INDUSTRY_SECTOR,Industrial
+PH UN Equity,INDUSTRY_GROUP,Miscellaneous Manufactur
+PHM UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+PHM UN Equity,INDUSTRY_GROUP,Home Builders
+PKG UN Equity,INDUSTRY_SECTOR,Industrial
+PKG UN Equity,INDUSTRY_GROUP,Packaging&Containers
+PKI UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+PKI UN Equity,INDUSTRY_GROUP,Healthcare-Products
+PLD UN Equity,INDUSTRY_SECTOR,Financial
+PLD UN Equity,INDUSTRY_GROUP,REITS
+PM UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+PM UN Equity,INDUSTRY_GROUP,Agriculture
+PMCS UQ Equity,INDUSTRY_SECTOR,Technology
+PMCS UQ Equity,INDUSTRY_GROUP,Semiconductors
+PMCS UW Equity,INDUSTRY_SECTOR,Technology
+PMCS UW Equity,INDUSTRY_GROUP,Semiconductors
+PNC UN Equity,INDUSTRY_SECTOR,Financial
+PNC UN Equity,INDUSTRY_GROUP,Banks
+PNR UN Equity,INDUSTRY_SECTOR,Industrial
+PNR UN Equity,INDUSTRY_GROUP,Environmental Control
+PNW UN Equity,INDUSTRY_SECTOR,Utilities
+PNW UN Equity,INDUSTRY_GROUP,Electric
+POM UN Equity,INDUSTRY_SECTOR,Utilities
+POM UN Equity,INDUSTRY_GROUP,Electric
+POM US Equity,INDUSTRY_SECTOR,Utilities
+POM US Equity,INDUSTRY_GROUP,Electric
+POOL UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+POOL UW Equity,INDUSTRY_GROUP,Distribution/Wholesale
+PPG UN Equity,INDUSTRY_SECTOR,Basic Materials
+PPG UN Equity,INDUSTRY_GROUP,Chemicals
+PPL UN Equity,INDUSTRY_SECTOR,Utilities
+PPL UN Equity,INDUSTRY_GROUP,Electric
+PRGO UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+PRGO UN Equity,INDUSTRY_GROUP,Pharmaceuticals
+PRGO UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+PRGO UW Equity,INDUSTRY_GROUP,Pharmaceuticals
+PRSP UN Equity,INDUSTRY_SECTOR,Technology
+PRSP UN Equity,INDUSTRY_GROUP,Computers
+PRU UN Equity,INDUSTRY_SECTOR,Financial
+PRU UN Equity,INDUSTRY_GROUP,Insurance
+PSA UN Equity,INDUSTRY_SECTOR,Financial
+PSA UN Equity,INDUSTRY_GROUP,REITS
+PSX UN Equity,INDUSTRY_SECTOR,Energy
+PSX UN Equity,INDUSTRY_GROUP,Oil&Gas
+PTC UQ Equity,INDUSTRY_SECTOR,Technology
+PTC UQ Equity,INDUSTRY_GROUP,Software
+PTC UW Equity,INDUSTRY_SECTOR,Technology
+PTC UW Equity,INDUSTRY_GROUP,Software
+PTV UN Equity,INDUSTRY_SECTOR,Industrial
+PTV UN Equity,INDUSTRY_GROUP,Packaging&Containers
+PVH UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+PVH UN Equity,INDUSTRY_GROUP,Apparel
+PVN UN Equity,INDUSTRY_SECTOR,Financial
+PVN UN Equity,INDUSTRY_GROUP,Diversified Finan Serv
+PWER UQ Equity,INDUSTRY_SECTOR,Industrial
+PWER UQ Equity,INDUSTRY_GROUP,Electrical Compo&Equip
+PWR UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+PWR UN Equity,INDUSTRY_GROUP,Commercial Services
+PX UN Equity,INDUSTRY_SECTOR,Basic Materials
+PX UN Equity,INDUSTRY_GROUP,Chemicals
+PXD UN Equity,INDUSTRY_SECTOR,Energy
+PXD UN Equity,INDUSTRY_GROUP,Oil&Gas
+PYPL UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+PYPL UW Equity,INDUSTRY_GROUP,Commercial Services
+QCOM UQ Equity,INDUSTRY_SECTOR,Technology
+QCOM UQ Equity,INDUSTRY_GROUP,Semiconductors
+QCOM UW Equity,INDUSTRY_SECTOR,Technology
+QCOM UW Equity,INDUSTRY_GROUP,Semiconductors
+QCP UN Equity,INDUSTRY_SECTOR,Financial
+QCP UN Equity,INDUSTRY_GROUP,REITS
+QEP UN Equity,INDUSTRY_SECTOR,Energy
+QEP UN Equity,INDUSTRY_GROUP,Oil&Gas
+QLGC UQ Equity,INDUSTRY_SECTOR,Technology
+QLGC UQ Equity,INDUSTRY_GROUP,Semiconductors
+QLGC UW Equity,INDUSTRY_SECTOR,Technology
+QLGC UW Equity,INDUSTRY_GROUP,Semiconductors
+QRVO UW Equity,INDUSTRY_SECTOR,Technology
+QRVO UW Equity,INDUSTRY_GROUP,Semiconductors
+QTRN UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+QTRN UQ Equity,INDUSTRY_GROUP,Pharmaceuticals
+R UN Equity,INDUSTRY_SECTOR,Industrial
+R UN Equity,INDUSTRY_GROUP,Transportation
+RAI UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+RAI UN Equity,INDUSTRY_GROUP,Agriculture
+RATL UQ Equity,INDUSTRY_SECTOR,Technology
+RATL UQ Equity,INDUSTRY_GROUP,Software
+RBK UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+RBK UN Equity,INDUSTRY_GROUP,Apparel
+RCL UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+RCL UN Equity,INDUSTRY_GROUP,Leisure Time
+RDC UN Equity,INDUSTRY_SECTOR,Energy
+RDC UN Equity,INDUSTRY_GROUP,Oil&Gas
+RE UN Equity,INDUSTRY_SECTOR,Financial
+RE UN Equity,INDUSTRY_GROUP,Insurance
+REG UN Equity,INDUSTRY_SECTOR,Financial
+REG UN Equity,INDUSTRY_GROUP,REITS
+REG UW Equity,INDUSTRY_SECTOR,Financial
+REG UW Equity,INDUSTRY_GROUP,REITS
+REGN UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+REGN UW Equity,INDUSTRY_GROUP,Biotechnology
+REZI UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+REZI UN Equity,INDUSTRY_GROUP,Distribution/Wholesale
+RF UN Equity,INDUSTRY_SECTOR,Financial
+RF UN Equity,INDUSTRY_GROUP,Banks
+RHI UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+RHI UN Equity,INDUSTRY_GROUP,Commercial Services
+RHT UN Equity,INDUSTRY_SECTOR,Technology
+RHT UN Equity,INDUSTRY_GROUP,Software
+RHT US Equity,INDUSTRY_SECTOR,Technology
+RHT US Equity,INDUSTRY_GROUP,Software
+RIG UN Equity,INDUSTRY_SECTOR,Energy
+RIG UN Equity,INDUSTRY_GROUP,Oil&Gas
+RJF UN Equity,INDUSTRY_SECTOR,Financial
+RJF UN Equity,INDUSTRY_GROUP,Diversified Finan Serv
+RL UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+RL UN Equity,INDUSTRY_GROUP,Apparel
+RMD UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+RMD UN Equity,INDUSTRY_GROUP,Healthcare-Products
+ROH UN Equity,INDUSTRY_SECTOR,Basic Materials
+ROH UN Equity,INDUSTRY_GROUP,Chemicals
+ROK UN Equity,INDUSTRY_SECTOR,Industrial
+ROK UN Equity,INDUSTRY_GROUP,Machinery-Diversified
+ROL UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+ROL UN Equity,INDUSTRY_GROUP,Commercial Services
+ROP UN Equity,INDUSTRY_SECTOR,Technology
+ROP UN Equity,INDUSTRY_GROUP,Software
+ROST UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+ROST UW Equity,INDUSTRY_GROUP,Retail
+RRC UN Equity,INDUSTRY_SECTOR,Energy
+RRC UN Equity,INDUSTRY_GROUP,Oil&Gas
+RRD UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+RRD UN Equity,INDUSTRY_GROUP,Commercial Services
+RRD UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+RRD UW Equity,INDUSTRY_GROUP,Commercial Services
+RSG UN Equity,INDUSTRY_SECTOR,Industrial
+RSG UN Equity,INDUSTRY_GROUP,Environmental Control
+RSHCQ UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+RSHCQ UN Equity,INDUSTRY_GROUP,Retail
+RTN UN Equity,INDUSTRY_SECTOR,Industrial
+RTN UN Equity,INDUSTRY_GROUP,Aerospace/Defense
+RTX UN Equity,INDUSTRY_SECTOR,Industrial
+RTX UN Equity,INDUSTRY_GROUP,Aerospace/Defense
+RX UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+RX UN Equity,INDUSTRY_GROUP,Healthcare-Services
+SANM UQ Equity,INDUSTRY_SECTOR,Industrial
+SANM UQ Equity,INDUSTRY_GROUP,Electronics
+SANM UW Equity,INDUSTRY_SECTOR,Industrial
+SANM UW Equity,INDUSTRY_GROUP,Electronics
+SBAC UW Equity,INDUSTRY_SECTOR,Financial
+SBAC UW Equity,INDUSTRY_GROUP,REITS
+SBUX UA Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+SBUX UA Equity,INDUSTRY_GROUP,Retail
+SBUX UQ Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+SBUX UQ Equity,INDUSTRY_GROUP,Retail
+SBUX UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+SBUX UW Equity,INDUSTRY_GROUP,Retail
+SCG UN Equity,INDUSTRY_SECTOR,Utilities
+SCG UN Equity,INDUSTRY_GROUP,Electric
+SCHW UN Equity,INDUSTRY_SECTOR,Financial
+SCHW UN Equity,INDUSTRY_GROUP,Diversified Finan Serv
+SCHW UQ Equity,INDUSTRY_SECTOR,Financial
+SCHW UQ Equity,INDUSTRY_GROUP,Diversified Finan Serv
+SCHW UW Equity,INDUSTRY_SECTOR,Financial
+SCHW UW Equity,INDUSTRY_GROUP,Diversified Finan Serv
+SEBL UA Equity,INDUSTRY_SECTOR,Technology
+SEBL UA Equity,INDUSTRY_GROUP,Software
+SEBL UQ Equity,INDUSTRY_SECTOR,Technology
+SEBL UQ Equity,INDUSTRY_GROUP,Software
+SEE UN Equity,INDUSTRY_SECTOR,Industrial
+SEE UN Equity,INDUSTRY_GROUP,Packaging&Containers
+SGP UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+SGP UN Equity,INDUSTRY_GROUP,Pharmaceuticals
+SHLDQ UQ Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+SHLDQ UQ Equity,INDUSTRY_GROUP,Retail
+SHLDQ UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+SHLDQ UW Equity,INDUSTRY_GROUP,Retail
+SHW UN Equity,INDUSTRY_SECTOR,Basic Materials
+SHW UN Equity,INDUSTRY_GROUP,Chemicals
+SIAL UQ Equity,INDUSTRY_SECTOR,Basic Materials
+SIAL UQ Equity,INDUSTRY_GROUP,Chemicals
+SIAL UW Equity,INDUSTRY_SECTOR,Basic Materials
+SIAL UW Equity,INDUSTRY_GROUP,Chemicals
+SIG UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+SIG UN Equity,INDUSTRY_GROUP,Retail
+SITC UN Equity,INDUSTRY_SECTOR,Financial
+SITC UN Equity,INDUSTRY_GROUP,REITS
+SIVB UW Equity,INDUSTRY_SECTOR,Financial
+SIVB UW Equity,INDUSTRY_GROUP,Banks
+SJM UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+SJM UN Equity,INDUSTRY_GROUP,Food
+SLB UN Equity,INDUSTRY_SECTOR,Energy
+SLB UN Equity,INDUSTRY_GROUP,Oil&Gas Services
+SLG UN Equity,INDUSTRY_SECTOR,Financial
+SLG UN Equity,INDUSTRY_GROUP,REITS
+SLM UN Equity,INDUSTRY_SECTOR,Financial
+SLM UN Equity,INDUSTRY_GROUP,Diversified Finan Serv
+SLM UQ Equity,INDUSTRY_SECTOR,Financial
+SLM UQ Equity,INDUSTRY_GROUP,Diversified Finan Serv
+SLM UW Equity,INDUSTRY_SECTOR,Financial
+SLM UW Equity,INDUSTRY_GROUP,Diversified Finan Serv
+SNA UN Equity,INDUSTRY_SECTOR,Industrial
+SNA UN Equity,INDUSTRY_GROUP,Hand/Machine Tools
+SNDK UQ Equity,INDUSTRY_SECTOR,Technology
+SNDK UQ Equity,INDUSTRY_GROUP,Computers
+SNDK UW Equity,INDUSTRY_SECTOR,Technology
+SNDK UW Equity,INDUSTRY_GROUP,Computers
+SNI UN Equity,INDUSTRY_SECTOR,Communications
+SNI UN Equity,INDUSTRY_GROUP,Media
+SNI UW Equity,INDUSTRY_SECTOR,Communications
+SNI UW Equity,INDUSTRY_GROUP,Media
+SNPS UW Equity,INDUSTRY_SECTOR,Technology
+SNPS UW Equity,INDUSTRY_GROUP,Software
+SNV UN Equity,INDUSTRY_SECTOR,Financial
+SNV UN Equity,INDUSTRY_GROUP,Banks
+SO UN Equity,INDUSTRY_SECTOR,Utilities
+SO UN Equity,INDUSTRY_GROUP,Electric
+SOV UN Equity,INDUSTRY_SECTOR,Financial
+SOV UN Equity,INDUSTRY_GROUP,Banks
+SPG UN Equity,INDUSTRY_SECTOR,Financial
+SPG UN Equity,INDUSTRY_GROUP,REITS
+SPGI UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+SPGI UN Equity,INDUSTRY_GROUP,Commercial Services
+SPLS UA Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+SPLS UA Equity,INDUSTRY_GROUP,Retail
+SPLS UQ Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+SPLS UQ Equity,INDUSTRY_GROUP,Retail
+SPLS US Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+SPLS US Equity,INDUSTRY_GROUP,Retail
+SPLS UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+SPLS UW Equity,INDUSTRY_GROUP,Retail
+SRCL UW Equity,INDUSTRY_SECTOR,Industrial
+SRCL UW Equity,INDUSTRY_GROUP,Environmental Control
+SRE UN Equity,INDUSTRY_SECTOR,Utilities
+SRE UN Equity,INDUSTRY_GROUP,Electric
+SSP UN Equity,INDUSTRY_SECTOR,Communications
+SSP UN Equity,INDUSTRY_GROUP,Media
+STE UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+STE UN Equity,INDUSTRY_GROUP,Healthcare-Products
+STI UN Equity,INDUSTRY_SECTOR,Financial
+STI UN Equity,INDUSTRY_GROUP,Banks
+STJ UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+STJ UN Equity,INDUSTRY_GROUP,Healthcare-Products
+STR UN Equity,INDUSTRY_SECTOR,Utilities
+STR UN Equity,INDUSTRY_GROUP,Gas
+STT UN Equity,INDUSTRY_SECTOR,Financial
+STT UN Equity,INDUSTRY_GROUP,Banks
+STX UW Equity,INDUSTRY_SECTOR,Technology
+STX UW Equity,INDUSTRY_GROUP,Computers
+STZ UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+STZ UN Equity,INDUSTRY_GROUP,Beverages
+SUNEQ UN Equity,INDUSTRY_SECTOR,Energy
+SUNEQ UN Equity,INDUSTRY_GROUP,Energy-Alternate Sources
+SVU UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+SVU UN Equity,INDUSTRY_GROUP,Food
+SWK UN Equity,INDUSTRY_SECTOR,Industrial
+SWK UN Equity,INDUSTRY_GROUP,Hand/Machine Tools
+SWKS UW Equity,INDUSTRY_SECTOR,Technology
+SWKS UW Equity,INDUSTRY_GROUP,Semiconductors
+SWN UN Equity,INDUSTRY_SECTOR,Energy
+SWN UN Equity,INDUSTRY_GROUP,Oil&Gas
+SWY UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+SWY UN Equity,INDUSTRY_GROUP,Food
+SYF UN Equity,INDUSTRY_SECTOR,Financial
+SYF UN Equity,INDUSTRY_GROUP,Diversified Finan Serv
+SYK UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+SYK UN Equity,INDUSTRY_GROUP,Healthcare-Products
+SYY UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+SYY UN Equity,INDUSTRY_GROUP,Food
+T UN Equity,INDUSTRY_SECTOR,Communications
+T UN Equity,INDUSTRY_GROUP,Telecommunications
+TAP UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+TAP UN Equity,INDUSTRY_GROUP,Beverages
+TDC UN Equity,INDUSTRY_SECTOR,Technology
+TDC UN Equity,INDUSTRY_GROUP,Software
+TDG UN Equity,INDUSTRY_SECTOR,Industrial
+TDG UN Equity,INDUSTRY_GROUP,Aerospace/Defense
+TDY UN Equity,INDUSTRY_SECTOR,Industrial
+TDY UN Equity,INDUSTRY_GROUP,Aerospace/Defense
+TEG UN Equity,INDUSTRY_SECTOR,Utilities
+TEG UN Equity,INDUSTRY_GROUP,Electric
+TEK UN Equity,INDUSTRY_SECTOR,Industrial
+TEK UN Equity,INDUSTRY_GROUP,Electronics
+TEL UN Equity,INDUSTRY_SECTOR,Industrial
+TEL UN Equity,INDUSTRY_GROUP,Electronics
+TER UN Equity,INDUSTRY_SECTOR,Technology
+TER UN Equity,INDUSTRY_GROUP,Semiconductors
+TER UW Equity,INDUSTRY_SECTOR,Technology
+TER UW Equity,INDUSTRY_GROUP,Semiconductors
+TEX UN Equity,INDUSTRY_SECTOR,Industrial
+TEX UN Equity,INDUSTRY_GROUP,Machinery-Constr&Mining
+TFC UN Equity,INDUSTRY_SECTOR,Financial
+TFC UN Equity,INDUSTRY_GROUP,Banks
+TFCF UW Equity,INDUSTRY_SECTOR,Communications
+TFCF UW Equity,INDUSTRY_GROUP,Media
+TFCFA UN Equity,INDUSTRY_SECTOR,Communications
+TFCFA UN Equity,INDUSTRY_GROUP,Media
+TFCFA UW Equity,INDUSTRY_SECTOR,Communications
+TFCFA UW Equity,INDUSTRY_GROUP,Media
+TFX UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+TFX UN Equity,INDUSTRY_GROUP,Healthcare-Products
+TGNA UN Equity,INDUSTRY_SECTOR,Communications
+TGNA UN Equity,INDUSTRY_GROUP,Media
+TGT UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+TGT UN Equity,INDUSTRY_GROUP,Retail
+THC UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+THC UN Equity,INDUSTRY_GROUP,Healthcare-Services
+TIE UN Equity,INDUSTRY_SECTOR,Basic Materials
+TIE UN Equity,INDUSTRY_GROUP,Mining
+TIF UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+TIF UN Equity,INDUSTRY_GROUP,Retail
+TIN UN Equity,INDUSTRY_SECTOR,Industrial
+TIN UN Equity,INDUSTRY_GROUP,Packaging&Containers
+TJX UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+TJX UN Equity,INDUSTRY_GROUP,Retail
+TLAB UQ Equity,INDUSTRY_SECTOR,Communications
+TLAB UQ Equity,INDUSTRY_GROUP,Telecommunications
+TLAB UW Equity,INDUSTRY_SECTOR,Communications
+TLAB UW Equity,INDUSTRY_GROUP,Telecommunications
+TMO UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+TMO UN Equity,INDUSTRY_GROUP,Healthcare-Products
+TMUS UN Equity,INDUSTRY_SECTOR,Communications
+TMUS UN Equity,INDUSTRY_GROUP,Telecommunications
+TMUS UW Equity,INDUSTRY_SECTOR,Communications
+TMUS UW Equity,INDUSTRY_GROUP,Telecommunications
+TNB UN Equity,INDUSTRY_SECTOR,Industrial
+TNB UN Equity,INDUSTRY_GROUP,Electronics
+TNL UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+TNL UN Equity,INDUSTRY_GROUP,Lodging
+TOY UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+TOY UN Equity,INDUSTRY_GROUP,Retail
+TPR UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+TPR UN Equity,INDUSTRY_GROUP,Apparel
+TRB UN Equity,INDUSTRY_SECTOR,Communications
+TRB UN Equity,INDUSTRY_GROUP,Media
+TRIP UW Equity,INDUSTRY_SECTOR,Communications
+TRIP UW Equity,INDUSTRY_GROUP,Internet
+TROW UQ Equity,INDUSTRY_SECTOR,Financial
+TROW UQ Equity,INDUSTRY_GROUP,Diversified Finan Serv
+TROW UW Equity,INDUSTRY_SECTOR,Financial
+TROW UW Equity,INDUSTRY_GROUP,Diversified Finan Serv
+TRV UN Equity,INDUSTRY_SECTOR,Financial
+TRV UN Equity,INDUSTRY_GROUP,Insurance
+TSCO UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+TSCO UW Equity,INDUSTRY_GROUP,Retail
+TSLA UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+TSLA UW Equity,INDUSTRY_GROUP,Auto Manufacturers
+TSN UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+TSN UN Equity,INDUSTRY_GROUP,Food
+TSS UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+TSS UN Equity,INDUSTRY_GROUP,Commercial Services
+TSS US Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+TSS US Equity,INDUSTRY_GROUP,Commercial Services
+TT UN Equity,INDUSTRY_SECTOR,Industrial
+TT UN Equity,INDUSTRY_GROUP,Miscellaneous Manufactur
+TTWO UW Equity,INDUSTRY_SECTOR,Technology
+TTWO UW Equity,INDUSTRY_GROUP,Software
+TUP UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+TUP UN Equity,INDUSTRY_GROUP,Housewares
+TWC UN Equity,INDUSTRY_SECTOR,Communications
+TWC UN Equity,INDUSTRY_GROUP,Media
+TWTR UN Equity,INDUSTRY_SECTOR,Communications
+TWTR UN Equity,INDUSTRY_GROUP,Internet
+TWX UN Equity,INDUSTRY_SECTOR,Communications
+TWX UN Equity,INDUSTRY_GROUP,Media
+TWX US Equity,INDUSTRY_SECTOR,Communications
+TWX US Equity,INDUSTRY_GROUP,Media
+TXN UN Equity,INDUSTRY_SECTOR,Technology
+TXN UN Equity,INDUSTRY_GROUP,Semiconductors
+TXN UW Equity,INDUSTRY_SECTOR,Technology
+TXN UW Equity,INDUSTRY_GROUP,Semiconductors
+TXT UN Equity,INDUSTRY_SECTOR,Industrial
+TXT UN Equity,INDUSTRY_GROUP,Miscellaneous Manufactur
+TXU US Equity,INDUSTRY_SECTOR,Utilities
+TXU US Equity,INDUSTRY_GROUP,Electric
+TYL UN Equity,INDUSTRY_SECTOR,Technology
+TYL UN Equity,INDUSTRY_GROUP,Software
+UA UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+UA UN Equity,INDUSTRY_GROUP,Apparel
+UAA UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+UAA UN Equity,INDUSTRY_GROUP,Apparel
+UAL UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+UAL UN Equity,INDUSTRY_GROUP,Airlines
+UAL UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+UAL UW Equity,INDUSTRY_GROUP,Airlines
+UDR UN Equity,INDUSTRY_SECTOR,Financial
+UDR UN Equity,INDUSTRY_GROUP,REITS
+UHS UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+UHS UN Equity,INDUSTRY_GROUP,Healthcare-Services
+UIS UN Equity,INDUSTRY_SECTOR,Technology
+UIS UN Equity,INDUSTRY_GROUP,Computers
+UIS UP Equity,INDUSTRY_SECTOR,Technology
+UIS UP Equity,INDUSTRY_GROUP,Computers
+ULTA UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+ULTA UW Equity,INDUSTRY_GROUP,Retail
+UNH UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+UNH UN Equity,INDUSTRY_GROUP,Healthcare-Services
+UNM UN Equity,INDUSTRY_SECTOR,Financial
+UNM UN Equity,INDUSTRY_GROUP,Insurance
+UNP UN Equity,INDUSTRY_SECTOR,Industrial
+UNP UN Equity,INDUSTRY_GROUP,Transportation
+UPS UN Equity,INDUSTRY_SECTOR,Industrial
+UPS UN Equity,INDUSTRY_GROUP,Transportation
+URBN UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+URBN UW Equity,INDUSTRY_GROUP,Apparel
+URI UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+URI UN Equity,INDUSTRY_GROUP,Commercial Services
+USB UN Equity,INDUSTRY_SECTOR,Financial
+USB UN Equity,INDUSTRY_GROUP,Banks
+V UN Equity,INDUSTRY_SECTOR,Financial
+V UN Equity,INDUSTRY_GROUP,Diversified Finan Serv
+VALPQ UN Equity,INDUSTRY_SECTOR,Energy
+VALPQ UN Equity,INDUSTRY_GROUP,Oil&Gas
+VAR UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+VAR UN Equity,INDUSTRY_GROUP,Healthcare-Products
+VFC UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+VFC UN Equity,INDUSTRY_GROUP,Apparel
+VIAB UN Equity,INDUSTRY_SECTOR,Communications
+VIAB UN Equity,INDUSTRY_GROUP,Media
+VIAB UW Equity,INDUSTRY_SECTOR,Communications
+VIAB UW Equity,INDUSTRY_GROUP,Media
+VIAC UN Equity,INDUSTRY_SECTOR,Communications
+VIAC UN Equity,INDUSTRY_GROUP,Media
+VIAC UW Equity,INDUSTRY_SECTOR,Communications
+VIAC UW Equity,INDUSTRY_GROUP,Media
+VIAV UQ Equity,INDUSTRY_SECTOR,Communications
+VIAV UQ Equity,INDUSTRY_GROUP,Telecommunications
+VIAV UW Equity,INDUSTRY_SECTOR,Communications
+VIAV UW Equity,INDUSTRY_GROUP,Telecommunications
+VLO UN Equity,INDUSTRY_SECTOR,Energy
+VLO UN Equity,INDUSTRY_GROUP,Oil&Gas
+VMC UN Equity,INDUSTRY_SECTOR,Industrial
+VMC UN Equity,INDUSTRY_GROUP,Building Materials
+VNO UN Equity,INDUSTRY_SECTOR,Financial
+VNO UN Equity,INDUSTRY_GROUP,REITS
+VNT UN Equity,INDUSTRY_SECTOR,Industrial
+VNT UN Equity,INDUSTRY_GROUP,Electronics
+VREX UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+VREX UW Equity,INDUSTRY_GROUP,Healthcare-Products
+VRSK UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+VRSK UW Equity,INDUSTRY_GROUP,Commercial Services
+VRSN UQ Equity,INDUSTRY_SECTOR,Communications
+VRSN UQ Equity,INDUSTRY_GROUP,Internet
+VRSN UW Equity,INDUSTRY_SECTOR,Communications
+VRSN UW Equity,INDUSTRY_GROUP,Internet
+VRTX UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+VRTX UW Equity,INDUSTRY_GROUP,Biotechnology
+VSM UN Equity,INDUSTRY_SECTOR,Basic Materials
+VSM UN Equity,INDUSTRY_GROUP,Chemicals
+VSTNQ UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+VSTNQ UN Equity,INDUSTRY_GROUP,Auto Parts&Equipment
+VTR UN Equity,INDUSTRY_SECTOR,Financial
+VTR UN Equity,INDUSTRY_GROUP,REITS
+VTRS UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+VTRS UW Equity,INDUSTRY_GROUP,Pharmaceuticals
+VZ UN Equity,INDUSTRY_SECTOR,Communications
+VZ UN Equity,INDUSTRY_GROUP,Telecommunications
+WAB UN Equity,INDUSTRY_SECTOR,Industrial
+WAB UN Equity,INDUSTRY_GROUP,Machinery-Diversified
+WAMUQ UN Equity,INDUSTRY_SECTOR,Financial
+WAMUQ UN Equity,INDUSTRY_GROUP,Savings&Loans
+WAMUQ US Equity,INDUSTRY_SECTOR,Financial
+WAMUQ US Equity,INDUSTRY_GROUP,Savings&Loans
+WAT UN Equity,INDUSTRY_SECTOR,Industrial
+WAT UN Equity,INDUSTRY_GROUP,Electronics
+WBA UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+WBA UN Equity,INDUSTRY_GROUP,Retail
+WBA UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+WBA UW Equity,INDUSTRY_GROUP,Retail
+WCG UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+WCG UN Equity,INDUSTRY_GROUP,Healthcare-Services
+WCG US Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+WCG US Equity,INDUSTRY_GROUP,Healthcare-Services
+WDC UN Equity,INDUSTRY_SECTOR,Technology
+WDC UN Equity,INDUSTRY_GROUP,Computers
+WDC UW Equity,INDUSTRY_SECTOR,Technology
+WDC UW Equity,INDUSTRY_GROUP,Computers
+WEC UN Equity,INDUSTRY_SECTOR,Utilities
+WEC UN Equity,INDUSTRY_GROUP,Electric
+WELL UN Equity,INDUSTRY_SECTOR,Financial
+WELL UN Equity,INDUSTRY_GROUP,REITS
+WFC UN Equity,INDUSTRY_SECTOR,Financial
+WFC UN Equity,INDUSTRY_GROUP,Banks
+WFM UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+WFM UQ Equity,INDUSTRY_GROUP,Food
+WFM UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+WFM UW Equity,INDUSTRY_GROUP,Food
+WFTIQ UN Equity,INDUSTRY_SECTOR,Energy
+WFTIQ UN Equity,INDUSTRY_GROUP,Oil&Gas Services
+WHR UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+WHR UN Equity,INDUSTRY_GROUP,Home Furnishings
+WINMQ UN Equity,INDUSTRY_SECTOR,Communications
+WINMQ UN Equity,INDUSTRY_GROUP,Telecommunications
+WINMQ UW Equity,INDUSTRY_SECTOR,Communications
+WINMQ UW Equity,INDUSTRY_GROUP,Telecommunications
+WLTW UW Equity,INDUSTRY_SECTOR,Financial
+WLTW UW Equity,INDUSTRY_GROUP,Insurance
+WM UN Equity,INDUSTRY_SECTOR,Industrial
+WM UN Equity,INDUSTRY_GROUP,Environmental Control
+WMB UN Equity,INDUSTRY_SECTOR,Energy
+WMB UN Equity,INDUSTRY_GROUP,Pipelines
+WMT UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+WMT UN Equity,INDUSTRY_GROUP,Retail
+WNDXQ UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+WNDXQ UN Equity,INDUSTRY_GROUP,Food
+WOR UN Equity,INDUSTRY_SECTOR,Industrial
+WOR UN Equity,INDUSTRY_GROUP,Metal Fabricate/Hardware
+WPX UN Equity,INDUSTRY_SECTOR,Energy
+WPX UN Equity,INDUSTRY_GROUP,Oil&Gas
+WRB UN Equity,INDUSTRY_SECTOR,Financial
+WRB UN Equity,INDUSTRY_GROUP,Insurance
+WRK UN Equity,INDUSTRY_SECTOR,Industrial
+WRK UN Equity,INDUSTRY_GROUP,Packaging&Containers
+WST UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+WST UN Equity,INDUSTRY_GROUP,Healthcare-Products
+WU UN Equity,INDUSTRY_SECTOR,Financial
+WU UN Equity,INDUSTRY_GROUP,Diversified Finan Serv
+WWY UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+WWY UN Equity,INDUSTRY_GROUP,Food
+WY UN Equity,INDUSTRY_SECTOR,Financial
+WY UN Equity,INDUSTRY_GROUP,REITS
+WYE UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+WYE UN Equity,INDUSTRY_GROUP,Pharmaceuticals
+WYND UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+WYND UN Equity,INDUSTRY_GROUP,Lodging
+WYNN UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+WYNN UW Equity,INDUSTRY_GROUP,Lodging
+X UN Equity,INDUSTRY_SECTOR,Basic Materials
+X UN Equity,INDUSTRY_GROUP,Iron/Steel
+XEC UN Equity,INDUSTRY_SECTOR,Energy
+XEC UN Equity,INDUSTRY_GROUP,Oil&Gas
+XEL UN Equity,INDUSTRY_SECTOR,Utilities
+XEL UN Equity,INDUSTRY_GROUP,Electric
+XEL UW Equity,INDUSTRY_SECTOR,Utilities
+XEL UW Equity,INDUSTRY_GROUP,Electric
+XLNX UQ Equity,INDUSTRY_SECTOR,Technology
+XLNX UQ Equity,INDUSTRY_GROUP,Semiconductors
+XLNX UW Equity,INDUSTRY_SECTOR,Technology
+XLNX UW Equity,INDUSTRY_GROUP,Semiconductors
+XOM UN Equity,INDUSTRY_SECTOR,Energy
+XOM UN Equity,INDUSTRY_GROUP,Oil&Gas
+XRAY UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+XRAY UW Equity,INDUSTRY_GROUP,Healthcare-Products
+XRX UN Equity,INDUSTRY_SECTOR,Technology
+XRX UN Equity,INDUSTRY_GROUP,Office/Business Equip
+XTO UN Equity,INDUSTRY_SECTOR,Energy
+XTO UN Equity,INDUSTRY_GROUP,Oil&Gas
+XYL UN Equity,INDUSTRY_SECTOR,Industrial
+XYL UN Equity,INDUSTRY_GROUP,Machinery-Diversified
+YUM UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+YUM UN Equity,INDUSTRY_GROUP,Retail
+YUMC UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+YUMC UN Equity,INDUSTRY_GROUP,Retail
+ZBH UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+ZBH UN Equity,INDUSTRY_GROUP,Healthcare-Products
+ZBRA UW Equity,INDUSTRY_SECTOR,Technology
+ZBRA UW Equity,INDUSTRY_GROUP,Office/Business Equip
+ZION UQ Equity,INDUSTRY_SECTOR,Financial
+ZION UQ Equity,INDUSTRY_GROUP,Banks
+ZION UW Equity,INDUSTRY_SECTOR,Financial
+ZION UW Equity,INDUSTRY_GROUP,Banks
+ZTS UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+ZTS UN Equity,INDUSTRY_GROUP,Pharmaceuticals
+ZTS-W UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+ZTS-W UN Equity,INDUSTRY_GROUP,Pharmaceuticals
+BF/B UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical"
+BF/B UN Equity,INDUSTRY_GROUP,Beverages
+BRK/B UN Equity,INDUSTRY_SECTOR,Financial
+BRK/B UN Equity,INDUSTRY_GROUP,Insurance
+FSL/B UN Equity,INDUSTRY_SECTOR,Technology
+FSL/B UN Equity,INDUSTRY_GROUP,Semiconductors
+LEN/B UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical"
+LEN/B UN Equity,INDUSTRY_GROUP,Home Builders
+TAP/B UN Equity,INDUSTRY_SECTOR,Financial
+TAP/B UN Equity,INDUSTRY_GROUP,Insurance
