@@ -5,4 +5,4 @@ python3 tests/sfi.py
 python3 tests/mdi.py
 python3 tests/mda.py
 python3 tests/huang.py
-python3 tests/forecast.py
+# python3 tests/forecast.py
