@@ -15,9 +15,9 @@ import random
 # variables
 SIG_LEVEL = 0.05
 MAX_LAG = 20 # maximum number of lags to create
-N_CORES = 30 # number of cores to use
-OUT_FOLDER = "spx" # name of the marked data folder
-DEBUG = False # param to debug the script
+N_CORES = 2 # number of cores to use
+OUT_FOLDER = "indices" # name of the marked data folder
+DEBUG = True # param to debug the script
 TEST_SIZE = 0.5 # pct of the train/test split
 THRESHOLD = 252 * 2 # treshold to filted merged datframes
                     # 252 = business days in a year
@@ -26,12 +26,11 @@ CORREL_THRESHOLD = 0.5 # correlation threshold to apply filter
 CONSTANT_THRESHOLD = 0.9 # constant threshold to apply filter
 
 # ajuste pra path do windows
-PATHS = sorted(glob("data/index/{}/*.csv".format(OUT_FOLDER)))
+PATHS = sorted(glob("data/{}/*.csv".format(OUT_FOLDER)))
 
 # debug condition
 if DEBUG:
     words = words[:3]
-    PATHS = PATHS[1:5]
 
 def granger_fs_vec(paths,
                  test_size=TEST_SIZE,
