@@ -20,15 +20,13 @@ if __name__ == '__main__':
         dfs = []
         for p in tqdm(path_list, desc='ticker'):
             try:
-                df_m = get_market_df(p).set_index("date")
+                df_m = get_market_df(p).set_index("date").dropna()
                 dfs.append(df_m)
             except ValueError:
                 pass
+        complete = pd.concat(dfs,1)
         new_name = sector.replace(", ", "_").replace("-", "_")
-        sector_df = pd.concat(
-            dfs, 1).mean(1).to_frame().rename(
-            columns={
-                0: new_name})
+        sector_df = complete.mean(1).to_frame().rename(columns={0: new_name})
         sector_df = sector_df * 100
         out_path = "data/indices/SPX_{}.csv".format(new_name) 
         sector_df.to_csv(out_path)
