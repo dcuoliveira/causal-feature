@@ -20,8 +20,21 @@
 `python3 get_trends.py`
 
 
-4) Run script for feature selection using the SFI method
+4) If needed, run the script to create sector time series:
+
+`cd src`
+
+`python3 create_sectors.py`
+
+
+5) Run scripts for feature selection
 
 `cd src`
 
 `python3 run_sfi.py`
+`python3 run_mdi.py`
+`python3 run_mda.py`
+`python3 run_granger.py`
+`python3 run_huang.py`
+`python3 run_IAMB.py`
+`python3 run_MMMB.py`

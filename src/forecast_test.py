@@ -10,13 +10,12 @@ from prediction.functions import new_forecast
 if __name__ == '__main__':
     
     init = time()
-    pred_results = new_forecast(ticker_name="SBUX UA Equity",
-                                fs_method="sfi",
-                                step_size=2,
-                                Wrapper=RandomForestWrapper,
-                                n_iter=10,
-                                n_splits=3,
-                                n_jobs=-1,
-                                verbose=1)
+    pred_results = forecast(ticker_name="SPX Financial",
+                            fs_method="sfi",
+                            Wrapper=RandomForestWrapper,
+                            n_iter=10,
+                            n_splits=5,
+                            n_jobs=-1,
+                            verbose=1)
     tempo = (time() - init) / 60
     print("total run time = ", np.round(tempo, 2), "min")    
