@@ -12,11 +12,11 @@ from data_mani.utils import get_ticker_name
 from data_mani.utils import path_filter
 
 # Variables
-N_CORES = 2 # number of cores to use
+N_CORES = 12 # number of cores to use
 MAX_LAG = 20 # maximum number of lags to create
              # google trends features
 OUT_FOLDER = "indices" # name of the marked data folder
-DEBUG = True # param to debug the script
+DEBUG = False # param to debug the script
 TEST_SIZE = 0.5 # pct of the train/test split
 THRESHOLD = 252 * 2 # treshold to filted merged datframes
                     # 252 = business days in a year
