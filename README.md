@@ -1,5 +1,8 @@
 # causal_feature
 
+## Installing
+
+Installing [miniconda on linux](https://dev.to/waylonwalker/installing-miniconda-on-linux-from-the-command-line-4ad7).
 
 ## Procedure
 
