@@ -28,11 +28,11 @@ if __name__ == '__main__':
         new_name = sector.replace(", ", " ").replace("-", " ")
         sector_df = complete.mean(1).to_frame().rename(columns={0: new_name})
         sector_df = sector_df * 100
-        out_path = "data/indices/SPX_{}.csv".format(new_name) 
+        out_path = "data/indices/SPX {}.csv".format(new_name) 
         sector_df.to_csv(out_path)
         # creating the same format as the other csv's
         file_in = open(out_path, "r")
-        prefix = ["ticker,SPX_{}\n".format(new_name),
+        prefix = ["ticker,SPX {}\n".format(new_name),
                   "field,DAY_TO_DAY_TOT_RETURN_GROSS_DVDS\n",
                   "date,\n"] 
         lines = prefix + file_in.readlines()[1:]
