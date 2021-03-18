@@ -25,7 +25,7 @@ if __name__ == '__main__':
             except ValueError:
                 pass
         complete = pd.concat(dfs,1)
-        new_name = sector.replace(", ", "_").replace("-", "_")
+        new_name = sector.replace(", ", " ").replace("-", " ")
         sector_df = complete.mean(1).to_frame().rename(columns={0: new_name})
         sector_df = sector_df * 100
         out_path = "data/indices/SPX_{}.csv".format(new_name) 

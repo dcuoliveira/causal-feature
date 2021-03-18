@@ -23,46 +23,21 @@ class Test_forecast(unittest.TestCase):
                         "src",
                         "data",
                         "gtrends.csv"]
-        ticker_name = '0544749D UN Equity'
+        ticker_name = 'SPX_Financial'
 
         path_t_list = [parentdir,
                         "src", "data",
-                        "index", "spx",
+                        "indices",
                         "{}.csv".format(ticker_name)]
         ticker1_path = os.path.join(*path_t_list)
         train, test = merge_market_and_gtrends(ticker1_path,
                                                test_size=0.5,
                                                path_gt_list=path_gt_list)
         complete = pd.concat([train, test])
+        print(complete.shape)
+        exit()
         pred_results = forecast(ticker_name=ticker_name,
-                                fs_method="granger",
-                                Wrapper=RandomForestWrapper,
-                                n_iter=1,
-                                n_splits=2,
-                                n_jobs=2,
-                                verbose=0,
-                                path_list=path_gt_list)
-        self.assertTrue(complete["2005":].shape[0] == pred_results.shape[0])
-
-
-    def test_ticker_with_years_missing(self):
-        path_gt_list = [parentdir,
-                        "src",
-                        "data",
-                        "gtrends.csv"]
-        ticker_name = "GENZ UA Equity"
-
-        path_t_list = [parentdir,
-                        "src", "data",
-                        "index", "spx",
-                        "{}.csv".format(ticker_name)]
-        ticker1_path = os.path.join(*path_t_list)
-        train, test = merge_market_and_gtrends(ticker1_path,
-                                               test_size=0.5,
-                                               path_gt_list=path_gt_list)
-        complete = pd.concat([train, test])
-        pred_results = forecast(ticker_name=ticker_name,
-                                fs_method="mda",
+                                fs_method="sfi",
                                 Wrapper=RandomForestWrapper,
                                 n_iter=1,
                                 n_splits=2,
