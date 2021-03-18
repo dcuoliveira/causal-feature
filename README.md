@@ -4,6 +4,8 @@
 
 Installing [miniconda on linux](https://dev.to/waylonwalker/installing-miniconda-on-linux-from-the-command-line-4ad7).
 
+Installing [multiprocess on conda](https://anaconda.org/conda-forge/multiprocess).
+
 ## Procedure
 
 1) Install all packages
