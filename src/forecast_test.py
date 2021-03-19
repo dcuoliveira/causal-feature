@@ -5,7 +5,7 @@ from time import time
 
 from data_mani.utils import merge_market_and_gtrends
 from prediction.models import RandomForestWrapper
-from prediction.functions import new_forecast
+from prediction.functions import forecast
 
 if __name__ == '__main__':
     
