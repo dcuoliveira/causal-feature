@@ -31,6 +31,7 @@ PATHS = sorted(glob("data/{}/*.csv".format(OUT_FOLDER)))
 # debug condition
 if DEBUG:
     words = words[:3]
+    PATHS = PATHS[1:10]
 
 def IAMB_fs_vec(paths,
                 test_size=TEST_SIZE,

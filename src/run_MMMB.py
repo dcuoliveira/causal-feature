@@ -23,6 +23,7 @@ THRESHOLD = 252 * 2 # treshold to filted merged datframes
                     # 252 = business days in a year
 PAR = True # enable run in paralell
 IS_DISCRETE = False
+CONSTANT_THRESHOLD = 0.9
 
 # ajuste pra path do windows
 PATHS = sorted(glob("data/{}/*.csv".format(OUT_FOLDER)))
@@ -31,6 +32,7 @@ PATHS = sorted(glob("data/{}/*.csv".format(OUT_FOLDER)))
 # debug condition
 if DEBUG:
     words = words[:3]
+    PATHS = PATHS[1:10]
 
 def MMMB_fs_vec(paths,
                 test_size=TEST_SIZE,
@@ -38,7 +40,8 @@ def MMMB_fs_vec(paths,
                 words=words,
                 max_lag=MAX_LAG,
                 sig_level=SIG_LEVEL,
-                is_discrete=IS_DISCRETE):
+                is_discrete=IS_DISCRETE,
+                constant_threshold=CONSTANT_THRESHOLD):
     """
     TODO
 
@@ -65,7 +68,8 @@ def MMMB_fs_vec(paths,
                           max_lag=max_lag,
                           verbose=False,
                           sig_level=sig_level,
-                          is_discrete=is_discrete)
+                          is_discrete=is_discrete,
+                          constant_threshold=constant_threshold)
 
         out_path = os.path.join("results",
                                 "feature_selection",
