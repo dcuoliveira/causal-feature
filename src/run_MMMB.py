@@ -59,9 +59,8 @@ def MMMB_fs_vec(paths,
     :type sig_level: int
     :param is_discrete: states if the target (exogenous) variable is continuos (if False) or discrete
     :type is_discrete: boolean
-    :param correl_threshold: correl_threshold: correlation threshold to apply the filter (excluded
-    high correlated series)
-    :type correl_threshold: float
+    :param constant_threshold: constant threshold to apply the filter
+    :type constant_threshold: float
     """
 
     for path in paths:
