@@ -8,6 +8,19 @@ def MMPC(data,
          target,
          alpha,
          is_discrete):
+    """
+    Implementation of the MMPC algorithm originally proposed by Tsamardinos et al. (2003) and
+    implemented by Kui Yu (https://github.com/kuiy/pyCausalFS).
+
+    :param data: data
+    :type data: dataframe
+    :param target: name of the dependent variable
+    :type target: str
+    :param alpha: alpha (pvalue) threshold to reject the null hypothesis of independence
+    :type alpha: float
+    :param is_discrete: states if the target (exogenous) variable is continuos (if False) or discrete
+    :type is_discrete: boolean
+    """
     number, kVar = np.shape(data)
     ci_number = 0
     CPC = []
@@ -78,7 +91,19 @@ def MMMB(data,
          target,
          alpha,
          is_discrete=True):
-    
+    """
+    Implementation of the MMMB algorithm originally proposed by Tsamardinos et al. (2003) and
+    implemented by Kui Yu (https://github.com/kuiy/pyCausalFS).
+
+    :param data: data
+    :type data: dataframe
+    :param target: name of the dependent variable
+    :type target: str
+    :param alpha: alpha (pvalue) threshold to reject the null hypothesis of independence
+    :type alpha: float
+    :param is_discrete: states if the target (exogenous) variable is continuos (if False) or discrete
+    :type is_discrete: boolean
+    """
     ci_number = 0
     PC, sepset, ci_num2 = MMPC(data, target, alpha, is_discrete)
     ci_number += ci_num2
@@ -107,6 +132,29 @@ def run_MMMB(merged_df,
              sig_level,
              is_discrete,
              constant_threshold):
+    """
+    Perform MMMB algorithm originally proposed by Tsamardinos et al. (2003) and
+    implemented by Kui Yu (https://github.com/kuiy/pyCausalFS).
+    
+    For more information, see the work of Yu et al. (2019) available at https://arxiv.org/abs/1911.07147.
+
+    :param merged_df: data
+    :type merged_df: dataframe
+    :param target_name: name of the dependent variable
+    :type target_name: str
+    :param words: list of words to test as exogenous variables
+    :type words: list
+    :param max_lag: number of max lags to test granger
+    :type max_lag: int
+    :param verbose:
+    :type verbose: boolean
+    :param sig_level: significance level to use as threshold of the test
+    :type sig_level: float
+    :param is_discrete: states if the target (exogenous) variable is continuos (if False) or discrete
+    :type is_discrete: boolean
+    :param constant_threshold: constant threshold to apply the filter
+    :type constant_threshold: float
+    """
     
     list_df = []
     for w in [target_name] + words:
