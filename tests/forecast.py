@@ -14,37 +14,59 @@ sys.path.insert(0, parentdir)
 
 from src.data_mani.utils import merge_market_and_gtrends  # noqa
 from src.prediction.models import RandomForestWrapper  # noqa
-from src.prediction.functions import forecast  # noqa
+from src.prediction.functions import get_selected_features, get_features_granger  # noqa
+from src.prediction.functions import add_shift, annualy_fit_and_predict  # noqa
 
 
 class Test_forecast(unittest.TestCase):
-    def test_ticker_with_all_years(self):
-        path_gt_list = [parentdir,
-                        "src",
-                        "data",
-                        "gtrends.csv"]
-        ticker_name = 'SPX_Financial'
 
+    @classmethod
+    def setUp(cls):
+        cls.ticker_name = "SPX Utilities"
+        market_folder = "toy"
+        cls.path_gt_list = [parentdir,
+                            "src",
+                            "data",
+                            "gtrends.csv"]
         path_t_list = [parentdir,
-                        "src", "data",
-                        "indices",
-                        "{}.csv".format(ticker_name)]
-        ticker1_path = os.path.join(*path_t_list)
-        train, test = merge_market_and_gtrends(ticker1_path,
+                       "src", "data",
+                       market_folder,
+                       "{}.csv".format(cls.ticker_name)]
+        ticker_path = os.path.join(*path_t_list)
+        max_lag = 20
+        verbose = False
+        cls.target_name = "target_return"
+        train, test = merge_market_and_gtrends(ticker_path,
                                                test_size=0.5,
-                                               path_gt_list=path_gt_list)
+                                               path_gt_list=cls.path_gt_list)
+        words = train.drop(cls.target_name, 1).columns.to_list()
         complete = pd.concat([train, test])
-        print(complete.shape)
-        exit()
-        pred_results = forecast(ticker_name=ticker_name,
-                                fs_method="sfi",
-                                Wrapper=RandomForestWrapper,
-                                n_iter=1,
-                                n_splits=2,
-                                n_jobs=2,
-                                verbose=0,
-                                path_list=path_gt_list)
-        self.assertTrue(complete["2005":].shape[0] == pred_results.shape[0])
+        del train, test
+        add_shift(merged_df=complete,
+                  words=words,
+                  max_lag=max_lag,
+                  verbose=verbose)
+        cls.complete = complete.fillna(0.0)
+
+    def test_forecast_ml_method(self):
+        fs_method = "mdi"
+        select = get_selected_features(ticker_name=self.ticker_name,
+                                       out_folder="indices",
+                                       fs_method=fs_method,
+                                       path_list=self.path_gt_list)
+        complete_selected = self.complete[[self.target_name] + select]
+        pred_results = annualy_fit_and_predict(df=complete_selected,
+                                               Wrapper=RandomForestWrapper,
+                                               n_iter=1,
+                                               n_jobs=2,
+                                               n_splits=2,
+                                               target_name=self.target_name,
+                                               verbose=False)
+
+        self.assertTrue(2 < complete_selected.shape[1] < 3641)
+        self.assertEqual(pred_results.shape[0],
+                         complete_selected.loc["2005":].shape[0])
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
