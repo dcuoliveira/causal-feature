@@ -586,6 +586,19 @@ def cond_indep_test(data,
                     cond_set=[],
                     is_discrete=False,
                     alpha=0.01):
+    """
+    Applies conditional independence test with the followgin hypothesis:
+    
+    H0: var \indep cond_set |data \ {var, cond_set}
+    H1: var \indep cond_set |data \ {var, cond_set}
+    
+    If is_discrete==True, apply G2 test, otherwise apply Fisher Z test.
+
+    :param paths: list of paths to market data
+    :type paths: [str]
+    :param n_cores: number of cores to use
+    :type n_cores: int
+    """
     if is_discrete:
         pval, dep = g2_test_dis(data, target, var, cond_set,alpha)
         # if selected:

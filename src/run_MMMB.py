@@ -43,7 +43,8 @@ def MMMB_fs_vec(paths,
                 is_discrete=IS_DISCRETE,
                 constant_threshold=CONSTANT_THRESHOLD):
     """
-    TODO
+    vectorized version of the Yu et al. (2019) Max-min Markov Blanket (IAMB)
+    algorithm available at https://github.com/kuiy/pyCausalFS.
 
     :param paths: list of paths to market data
     :type paths: [str]
@@ -56,6 +57,10 @@ def MMMB_fs_vec(paths,
     :type max_lag: int
     :param sig_level: significance level to use as threshold
     :type sig_level: int
+    :param is_discrete: states if the target (exogenous) variable is continuos (if False) or discrete
+    :type is_discrete: boolean
+    :param constant_threshold: constant threshold to apply the filter
+    :type constant_threshold: float
     """
 
     for path in paths:
@@ -83,8 +88,9 @@ def MMMB_fs_par(paths,
                 n_cores=N_CORES,
                 par=False):
     """
-    TODO
-
+    parallelized version of the Yu et al. (2019) Max-min Markov Blanket (IAMB)
+    algorithm available at https://github.com/kuiy/pyCausalFS.
+    
     :param paths: list of paths to market data
     :type paths: [str]
     :param n_cores: number of cores to use
