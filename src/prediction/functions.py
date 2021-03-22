@@ -12,10 +12,10 @@ except ModuleNotFoundError:
     from src.data_mani.utils import merge_market_and_gtrends
 
 
-def get_features_granger(ticker_name,
-                         out_folder,
-                         all_features,
-                         path_list):
+def get_features_granger_huang(ticker_name,
+                               out_folder,
+                               fs_method, 
+                               path_list):
     """
     Select a subset of features using
     the granger feature selection method.
@@ -27,8 +27,9 @@ def get_features_granger(ticker_name,
     :type ticker_name: str
     :param out_folder: folder with market data
     :type out_folder: str
-    :param all_features: list of all features
-    :type all_features: [str]
+    :param fs_method: folder with feature selection
+                      results
+    :type fs_method: str
     :param path_list: list of str to create feature path
     :type path_list: [str]
     :return: list of feature names
@@ -38,16 +39,13 @@ def get_features_granger(ticker_name,
     if len(path_list) > 2:
         path = os.path.join(*[path_list[0],
                               "src", "results", "feature_selection",
-                              "granger", out_folder, ticker_name])
+                              fs_method, out_folder, ticker_name])
     else:
         path = os.path.join(*["results", "feature_selection",
-                              "granger", out_folder, ticker_name])
-    scores = pd.read_csv(path)
-    features = scores["feature"].to_list()
-    if len(features) > 0:
-        return features
-    else:
-        return all_features
+                              fs_method, out_folder, ticker_name])
+    scores = pd.read_csv(path).dropna()
+    scores = scores.feature.to_list()
+    return scores
 
 
 def get_selected_features(ticker_name, out_folder, fs_method, path_list):
