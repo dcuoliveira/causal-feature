@@ -3,7 +3,7 @@ try:
     from data_mani.utils import *
 except ModuleNotFoundError:
     from src.data_mani.utils import *
-    
+
 
 def IAMB(data,
          target,
@@ -43,8 +43,8 @@ def IAMB(data,
             # chose maxsize of f(X:T|CMB)
             if pval <= alpha:
                 if dep > temp_dep:
-                    temp_dep=dep
-                    y=x
+                    temp_dep = dep
+                    y = x
 
         # if not condition independence the node,appended to CMB
         if y is not None:
@@ -56,9 +56,10 @@ def IAMB(data,
     CMB_temp = CMB.copy()
     for x in CMB_temp:
         # exclude variable which need test p-value
-        condition_Variables=[i for i in CMB if i != x]
+        condition_Variables = [i for i in CMB if i != x]
         ci_number += 1
-        pval, dep = cond_indep_test(data,target, x, condition_Variables, is_discrete)
+        pval, dep = cond_indep_test(
+            data, target, x, condition_Variables, is_discrete)
         # print("target is:", target, ",x is: ", x, " condition_Variables is: ", condition_Variables, " ,pval is: ", pval, " ,dep is: ", dep)
         if pval > alpha:
             # print("removed variables is: " + str(x))
@@ -78,7 +79,7 @@ def run_IAMB(merged_df,
     """
     Perform IAMB algorithm originally proposed by Tsamardinos and Aliferis (2003) and
     implemented by Kui Yu (https://github.com/kuiy/pyCausalFS).
-    
+
     For more information, see the work of Yu et al. (2019) available at https://arxiv.org/abs/1911.07147.
 
     :param merged_df: data
@@ -98,21 +99,21 @@ def run_IAMB(merged_df,
     :param constant_threshold: constant threshold to apply the filter
     :type constant_threshold: float
     """
-    
+
     list_df = []
     for w in [target_name] + words:
         list_df.append(merged_df[[w]])
     merged_df = pd.concat(list_df, axis=1)
-    
+
     merged_df, _ = make_shifted_df(df=merged_df,
                                    verbose=verbose,
                                    words=words,
                                    max_lag=max_lag)
-    
+
     for w in words:
         w_idx = list(merged_df.columns).index(w)
         del merged_df[merged_df.columns[w_idx]]
-    
+
     not_constant_df = []
     for col in merged_df.columns:
         tag = check_constant_series(df=merged_df,
@@ -122,16 +123,16 @@ def run_IAMB(merged_df,
             not_constant_df.append(merged_df[[col]])
     merged_df = pd.concat(not_constant_df, axis=1)
     del not_constant_df
-    
+
     target_name_index = list(merged_df.columns).index(target_name)
     MBs, ci_number = IAMB(data=merged_df.dropna(),
                           target=target_name_index,
                           alpha=sig_level,
                           is_discrete=is_discrete)
-    
+
     if len(MBs) == 0:
         features = list(merged_df.columns)
-        features.remove( )
+        features.remove()
         MBs_df = pd.DataFrame(data={'feature': features,
                                     'feature_score': np.nan})
     else:
@@ -140,5 +141,5 @@ def run_IAMB(merged_df,
             features.append(merged_df.columns[mb])
         MBs_df = pd.DataFrame(data={'feature': features,
                                     'feature_score': np.nan})
-    
+
     return MBs_df

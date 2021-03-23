@@ -12,16 +12,15 @@ except ModuleNotFoundError:
     from src.data_mani.utils import merge_market_and_gtrends
 
 
-def get_features_granger_huang(ticker_name,
-                               out_folder,
-                               fs_method, 
-                               path_list):
+def get_features_IAMB_MMMB(ticker_name,
+                           out_folder,
+                           fs_method,
+                           path_list):
     """
     Select a subset of features using
-    the granger feature selection method.
-    If no feature is selected this function
-    returns all features.
-
+    either the IAMB or the MMMB feature selection method.
+    We select all features that appear on the resulting
+    dataframe
 
     :param ticker_name: ticker name (without extension)
     :type ticker_name: str
@@ -35,6 +34,43 @@ def get_features_granger_huang(ticker_name,
     :return: list of feature names
     :rtype: [str]
     """
+    assert fs_method in ["IAMB", "MMMB"]
+    ticker_name = "{}.csv".format(ticker_name)
+    if len(path_list) > 2:
+        path = os.path.join(*[path_list[0],
+                              "src", "results", "feature_selection",
+                              fs_method, out_folder, ticker_name])
+    else:
+        path = os.path.join(*["results", "feature_selection",
+                              fs_method, out_folder, ticker_name])
+    scores = pd.read_csv(path)
+    scores = scores.feature.to_list()
+    return scores
+
+
+def get_features_granger_huang(ticker_name,
+                               out_folder,
+                               fs_method,
+                               path_list):
+    """
+    Select a subset of features using
+    either the granger or the huang feature selection method.
+    we select all features that has some p-value. All the
+    others, with nans, are excluded.
+
+    :param ticker_name: ticker name (without extension)
+    :type ticker_name: str
+    :param out_folder: folder with market data
+    :type out_folder: str
+    :param fs_method: folder with feature selection
+                      results
+    :type fs_method: str
+    :param path_list: list of str to create feature path
+    :type path_list: [str]
+    :return: list of feature names
+    :rtype: [str]
+    """
+    assert fs_method in ["huang", "granger"]
     ticker_name = "{}.csv".format(ticker_name)
     if len(path_list) > 2:
         path = os.path.join(*[path_list[0],
@@ -69,6 +105,7 @@ def get_selected_features(ticker_name, out_folder, fs_method, path_list):
     :return: list of feature names
     :rtype: [str]
     """
+    assert fs_method in ["sfi", "mdi", "mda"]
     ticker_name = "{}.csv".format(ticker_name)
 
     if len(path_list) > 2:

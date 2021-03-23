@@ -14,7 +14,9 @@ sys.path.insert(0, parentdir)
 
 from src.data_mani.utils import merge_market_and_gtrends  # noqa
 from src.prediction.models import RandomForestWrapper  # noqa
-from src.prediction.functions import get_selected_features, get_features_granger_huang  # noqa
+from src.prediction.functions import get_selected_features  # noqa
+from src.prediction.functions import get_features_granger_huang  # noqa
+from src.prediction.functions import get_features_IAMB_MMMB  # noqa
 from src.prediction.functions import add_shift, annualy_fit_and_predict  # noqa
 
 
@@ -73,6 +75,25 @@ class Test_forecast(unittest.TestCase):
                                             out_folder="indices",
                                             fs_method=fs_method,
                                             path_list=self.path_gt_list)
+        complete_selected = self.complete[[self.target_name] + select]
+        pred_results = annualy_fit_and_predict(df=complete_selected,
+                                               Wrapper=RandomForestWrapper,
+                                               n_iter=1,
+                                               n_jobs=2,
+                                               n_splits=2,
+                                               target_name=self.target_name,
+                                               verbose=False)
+
+        self.assertTrue(2 < complete_selected.shape[1] < 3641)
+        self.assertEqual(pred_results.shape[0],
+                         complete_selected.loc["2005":].shape[0])
+
+    def test_forecast_IAMB_MMB(self):
+        fs_method = "MMMB"
+        select = get_features_IAMB_MMMB(ticker_name=self.ticker_name,
+                                        out_folder="indices",
+                                        fs_method=fs_method,
+                                        path_list=self.path_gt_list)
         complete_selected = self.complete[[self.target_name] + select]
         pred_results = annualy_fit_and_predict(df=complete_selected,
                                                Wrapper=RandomForestWrapper,

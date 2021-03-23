@@ -4,6 +4,7 @@ try:
 except ModuleNotFoundError:
     from src.data_mani.utils import *
 
+
 def MMPC(data,
          target,
          alpha,
@@ -28,18 +29,21 @@ def MMPC(data,
     sepset = [[] for i in range(kVar)]
 
     while True:
-        M_variables = [i for i in range(kVar) if i != target and i not in CPC and i not in deoZeroSet]
+        M_variables = [i for i in range(
+            kVar) if i != target and i not in CPC and i not in deoZeroSet]
         vari_all_dep_max = -float("inf")
         vari_chose = 0
 
         # according to pseudocode, <F,assocF> = MaxMinFeuristic(T;CPC)
         for x in M_variables:
             # use a function of getMinDep to chose min dep of x
-            x_dep_min, sepset_temp, ci_num2 = getMinDep(data, target, x, CPC, alpha, is_discrete)
+            x_dep_min, sepset_temp, ci_num2 = getMinDep(
+                data, target, x, CPC, alpha, is_discrete)
             ci_number += ci_num2
             # print(str(x)+" dep min is: " + str(x_dep_min))
 
-            # if x chose min dep is 0, it never append to CPC and should not test from now on,
+            # if x chose min dep is 0, it never append to CPC and should not
+            # test from now on,
             if x_dep_min == 0:
                 deoZeroSet.append(x)
                 sepset[x] = [j for j in sepset_temp]
@@ -53,7 +57,8 @@ def MMPC(data,
             # print("CPC append is: "+ str(vari_chose))
             CPC.append(vari_chose)
         else:
-            # CPC has not changed(In other world,CPC not append new), circulate should be break
+            # CPC has not changed(In other world,CPC not append new), circulate
+            # should be break
             break
     # print("CPC is:" +str(CPC))
     """phaseII :Backward"""
@@ -72,7 +77,7 @@ def MMPC(data,
             C_length = len(C_subsets)
 
         breakFlag = False
-        for length in range(C_length+1):
+        for length in range(C_length + 1):
             if breakFlag:
                 break
             SS = subsets(C_subsets, length)
@@ -124,6 +129,7 @@ def MMMB(data,
                     break
     return list(set(MB)), ci_number
 
+
 def run_MMMB(merged_df,
              target_name,
              words,
@@ -135,7 +141,7 @@ def run_MMMB(merged_df,
     """
     Perform MMMB algorithm originally proposed by Tsamardinos et al. (2003) and
     implemented by Kui Yu (https://github.com/kuiy/pyCausalFS).
-    
+
     For more information, see the work of Yu et al. (2019) available at https://arxiv.org/abs/1911.07147.
 
     :param merged_df: data
@@ -155,12 +161,12 @@ def run_MMMB(merged_df,
     :param constant_threshold: constant threshold to apply the filter
     :type constant_threshold: float
     """
-    
+
     list_df = []
     for w in [target_name] + words:
         list_df.append(merged_df[[w]])
     merged_df = pd.concat(list_df, axis=1)
-    
+
     merged_df, _ = make_shifted_df(df=merged_df,
                                    verbose=verbose,
                                    words=words,
@@ -169,7 +175,7 @@ def run_MMMB(merged_df,
     for w in words:
         w_idx = list(merged_df.columns).index(w)
         del merged_df[merged_df.columns[w_idx]]
-    
+
     not_constant_df = []
     for col in merged_df.columns:
         tag = check_constant_series(df=merged_df,
@@ -179,16 +185,16 @@ def run_MMMB(merged_df,
             not_constant_df.append(merged_df[[col]])
     merged_df = pd.concat(not_constant_df, axis=1)
     del not_constant_df
-    
+
     target_name_index = list(merged_df.columns).index(target_name)
     MBs, ci_number = MMMB(data=merged_df.dropna(),
                           target=target_name_index,
                           alpha=sig_level,
-                          is_discrete=is_discrete) 
-    
+                          is_discrete=is_discrete)
+
     if len(MBs) == 0:
         features = list(merged_df.columns)
-        features.remove( )
+        features.remove()
         MBs_df = pd.DataFrame(data={'feature': features,
                                     'feature_score': np.nan})
     else:
@@ -197,5 +203,5 @@ def run_MMMB(merged_df,
             features.append(merged_df.columns[mb])
         MBs_df = pd.DataFrame(data={'feature': features,
                                     'feature_score': np.nan})
-    
+
     return MBs_df
