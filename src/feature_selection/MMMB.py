@@ -165,6 +165,10 @@ def run_MMMB(merged_df,
                                    verbose=verbose,
                                    words=words,
                                    max_lag=max_lag)
+
+    for w in words:
+        w_idx = list(merged_df.columns).index(w)
+        del merged_df[merged_df.columns[w_idx]]
     
     not_constant_df = []
     for col in merged_df.columns:
