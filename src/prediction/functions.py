@@ -336,8 +336,8 @@ def annualy_fit_and_predict(df,
     for y in tqdm(years,
                   disable=not verbose,
                   desc="anual training and prediction"):
-        train_ys = df[:str(y)]
-        test_ys = df[str(y + 1)]
+        train_ys = df.loc[:str(y)]
+        test_ys = df.loc[str(y + 1)]
 
         # we have some roles in the time interval
         # for some tickers, for example,
