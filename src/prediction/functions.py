@@ -210,13 +210,23 @@ def hyper_params_search(df,
     time_split = TimeSeriesSplit(n_splits=n_splits)
     r2_scorer = make_scorer(new_r2)
 
-    model_search = RandomizedSearchCV(estimator=wrapper.ModelClass,
-                                      param_distributions=wrapper.param_grid,
-                                      n_iter=n_iter,
-                                      cv=time_split,
-                                      verbose=verbose,
-                                      n_jobs=n_jobs,
-                                      scoring=r2_scorer)
+    if wrapper.search_type == 'random':
+        model_search = RandomizedSearchCV(estimator=wrapper.ModelClass,
+                                          param_distributions=wrapper.param_grid,
+                                          n_iter=n_iter,
+                                          cv=time_split,
+                                          verbose=verbose,
+                                          n_jobs=n_jobs,
+                                          scoring=r2_scorer)
+    elif wrapper.search_type == 'grid':
+      model_search = GridSearchCV(estimator=wrapper.ModelClass,
+                                  param_grid=wrapper.param_grid,
+                                  cv=time_split,
+                                  verbose=verbose,
+                                  n_jobs=n_jobs,
+                                  scoring=r2_scorer)
+    else:
+        raise Exception('search type method not registered')
 
     model_search = model_search.fit(X, y)
 
