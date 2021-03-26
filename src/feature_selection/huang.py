@@ -53,6 +53,7 @@ def univariate_granger_causality_test(x, y_name, x_name,
 
     return accept_tag, pval_tag
 
+
 def run_granger_causality(merged_df, target_name, words,
                           max_lag, sig_level, correl_threshold,
                           constant_threshold, verbose):
@@ -106,7 +107,6 @@ def run_granger_causality(merged_df, target_name, words,
     out_df = pd.DataFrame(data={'feature': selected_words_list, 'feature_score': pvals_list})
     
     return out_df
-
 
 
 def run_huang_methods(merged_df, target_name, words,
