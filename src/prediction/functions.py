@@ -373,8 +373,7 @@ def forecast(ticker_name,
              n_jobs,
              verbose=1,
              target_name="target_return",
-             max_lag=20,
-             path_list=["data", "gtrends.csv"]):
+             max_lag=20):
     """
     Function to perform the predition using one ticker,
     one feature selection method, and one prediction model.
@@ -398,24 +397,16 @@ def forecast(ticker_name,
     :type target_name: str
     :param max_lag: maximun number of lags
     :type max_lag: int
-    :param path_list: list of str to create gt path
-    :type path_list: [str]
     :return: dataframe with the date, true return
             and predicted return.
     :rtype: pd.DataFrame
     """
-    if len(path_list) > 2:
-        path_t_list = [path_list[0],
-                       "src", "data", "indices",
-                       "{}.csv".format(ticker_name)]
-        ticker_path = os.path.join(*path_t_list)
-    else:
-        ticker_path = "data/indices/{}.csv".format(ticker_name)
+    path_list = ["data", "index"]
+    ticker_path = "data/indices/{}.csv".format(ticker_name)
     train, test = merge_market_and_gtrends(
-        ticker_path, test_size=0.5, path_gt_list=path_list)
+        ticker_path, test_size=0.5)
     words = train.drop(target_name, 1).columns.to_list()
     complete = pd.concat([train, test])
-
     del train, test
 
     add_shift(merged_df=complete,
@@ -423,7 +414,6 @@ def forecast(ticker_name,
               max_lag=max_lag,
               verbose=verbose)
     complete = complete.fillna(0.0)
-    all_features = complete.drop(words + [target_name], 1).columns.to_list()
 
     if fs_method in ["sfi", "mdi", "mda"]:
 
@@ -432,22 +422,25 @@ def forecast(ticker_name,
                                        fs_method=fs_method,
                                        path_list=path_list)
 
-        complete_selected = complete[[target_name] + select]
+    elif fs_method in ["granger", "huang"]:
 
-    elif fs_method == "granger":
+        select = get_features_granger_huang(ticker_name=ticker_name,
+                                            out_folder="indices",
+                                            fs_method=fs_method,
+                                            path_list=path_list)
 
-        select = get_features_granger(ticker_name=ticker_name,
-                                      out_folder="indices",
-                                      all_features=all_features,
-                                      path_list=path_list)
+    elif fs_method in ["IAMB", "MMMB"]:
 
-        complete_selected = complete[[target_name] + select]
+        select = get_features_IAMB_MMMB(ticker_name=ticker_name,
+                                        out_folder="indices",
+                                        fs_method=fs_method,
+                                        path_list=path_list)
 
     else:
         assert fs_method == "all"
-        complete_selected = complete[[target_name] + all_features]
+        select = complete.drop(words + [target_name], 1).columns.to_list()
 
-    assert 2 < complete_selected.shape[1] < 3641  # max features is 3640
+    complete_selected = complete[[target_name] + select]
 
     pred_results = annualy_fit_and_predict(df=complete_selected,
                                            Wrapper=Wrapper,
