@@ -49,3 +49,11 @@ Installing [multiprocess on conda](https://anaconda.org/conda-forge/multiprocess
 `python3 run_IAMB.py`
 
 `python3 run_MMMB.py`
+
+
+6) Run script for forecast based on one feature selection method and one machine learning model. For example:
+
+`cd src`
+
+`python3 forecast.py "SPX Utilities" MMMB random_forest -i 1 -s 2 -j 2
+`
