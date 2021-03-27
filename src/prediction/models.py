@@ -19,7 +19,7 @@ class RandomForestWrapper():
             self.ModelClass = RandomForestRegressor(**model_params)
             
 class LinearRegression():
-    def __init__(self, model_params={'fit_intercept': False}):
+    def __init__(self, model_params={'fit_intercept': True}):
         self.model_name = "linear_regression"
         self.search_type = 'random'
         self.param_grid = None
@@ -29,7 +29,7 @@ class LinearRegression():
             self.ModelClass = Lasso(**model_params)
                        
 class LassoWrapper():
-    def __init__(self, model_params={'fit_intercept': False}):
+    def __init__(self, model_params={'fit_intercept': True}):
         self.model_name = "lasso"
         self.search_type = 'random'
         self.param_grid = {'alpha': np.linspace(0, 1, 100)}
@@ -39,7 +39,7 @@ class LassoWrapper():
             self.ModelClass = Lasso(**model_params)
             
 class RidgeWrapper():
-    def __init__(self, model_params={'fit_intercept': False}):
+    def __init__(self, model_params={'fit_intercept': True}):
         self.model_name = "ridge"
         self.search_type = 'random'
         self.param_grid = {'alpha': np.linspace(0, 1, 100)}
@@ -49,7 +49,7 @@ class RidgeWrapper():
             self.ModelClass = Ridge(**model_params)
             
 class ElasticNetWrapper():
-    def __init__(self, model_params={'fit_intercept': False}):
+    def __init__(self, model_params={'fit_intercept': True}):
         self.model_name = "elastic_net"
         self.search_type = 'random'
         self.param_grid = {'alpha': np.linspace(0, 1, 100),
