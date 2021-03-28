@@ -55,7 +55,8 @@ def main():
                             n_iter=args.n_iter,
                             n_splits=args.n_splits,
                             n_jobs=args.n_jobs,
-                            verbose=args.verbose)
+                            verbose=args.verbose,
+                            seed=2294)
 
     # saving forecast on the results folder
     out_path_list = ["results", "forecast", args.fs_method,

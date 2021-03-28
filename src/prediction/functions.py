@@ -167,6 +167,7 @@ def hyper_params_search(df,
                         n_splits,
                         n_jobs,
                         verbose,
+                        seed,
                         target_name="target_return"):
     """
     Use the dataframe 'df' to search for the best
@@ -204,19 +205,31 @@ def hyper_params_search(df,
     :rtype: float
     """
 
+ 
     X = df.drop(target_name, 1).values
     y = df[target_name].values
 
     time_split = TimeSeriesSplit(n_splits=n_splits)
     r2_scorer = make_scorer(new_r2)
 
-    model_search = RandomizedSearchCV(estimator=wrapper.ModelClass,
-                                      param_distributions=wrapper.param_grid,
-                                      n_iter=n_iter,
-                                      cv=time_split,
-                                      verbose=verbose,
-                                      n_jobs=n_jobs,
-                                      scoring=r2_scorer)
+    if wrapper.search_type == 'random':
+        model_search = RandomizedSearchCV(estimator=wrapper.ModelClass,
+                                          param_distributions=wrapper.param_grid,
+                                          n_iter=n_iter,
+                                          cv=time_split,
+                                          verbose=verbose,
+                                          n_jobs=n_jobs,
+                                          scoring=r2_scorer,
+                                          random_state=seed)
+    elif wrapper.search_type == 'grid':
+      model_search = GridSearchCV(estimator=wrapper.ModelClass,
+                                  param_grid=wrapper.param_grid,
+                                  cv=time_split,
+                                  verbose=verbose,
+                                  n_jobs=n_jobs,
+                                  scoring=r2_scorer)
+    else:
+        raise Exception('search type method not registered')
 
     model_search = model_search.fit(X, y)
 
@@ -230,6 +243,7 @@ def periodic_fit_and_predict(df,
                              n_splits,
                              n_jobs,
                              verbose,
+                             seed,
                              target_name="target_return"):
     """
      We recursively increase the training sample, periodically refitting
@@ -279,6 +293,7 @@ def periodic_fit_and_predict(df,
                                                n_jobs=n_jobs,
                                                n_splits=n_splits,
                                                n_iter=n_iter,
+                                               seed=seed,
                                                verbose=verbose)
             X_test = test_ys.drop(target_name, 1).values
             y_test = test_ys[target_name].values
