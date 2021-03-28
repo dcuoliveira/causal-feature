@@ -17,16 +17,6 @@ class RandomForestWrapper():
             self.ModelClass = RandomForestRegressor()
         else:
             self.ModelClass = RandomForestRegressor(**model_params)
-            
-class LinearRegression():
-    def __init__(self, model_params={'fit_intercept': True}):
-        self.model_name = "linear_regression"
-        self.search_type = 'random'
-        self.param_grid = None
-        if model_params is None:
-            self.ModelClass = Lasso()
-        else:
-            self.ModelClass = Lasso(**model_params)
                        
 class LassoWrapper():
     def __init__(self, model_params={'fit_intercept': True}):
