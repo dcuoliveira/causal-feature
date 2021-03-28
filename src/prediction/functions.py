@@ -316,6 +316,7 @@ def annualy_fit_and_predict(df,
                             n_splits,
                             n_jobs,
                             verbose,
+                            seed,
                             target_name="target_return"):
     """
      We recursively increase the training sample, periodically refitting
@@ -465,6 +466,7 @@ def forecast(ticker_name,
                                            n_jobs=n_jobs,
                                            n_splits=n_splits,
                                            target_name=target_name,
+                                           seed=seed,
                                            verbose=verbose)
 
     return pred_results
