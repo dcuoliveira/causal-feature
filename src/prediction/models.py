@@ -45,6 +45,6 @@ class ElasticNetWrapper():
         self.param_grid = {'alpha': np.linspace(0, 1, 100),
                            'l1_ratio': np.linspace(0, 1, 100)}
         if model_params is None:
-            self.ModelClass = Ridge()
+            self.ModelClass = ElasticNet()
         else:
-            self.ModelClass = Ridge(**model_params)
+            self.ModelClass = ElasticNet(**model_params)

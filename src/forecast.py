@@ -5,6 +5,9 @@ import argparse
 from time import time
 
 from prediction.models import RandomForestWrapper
+from prediction.models import LassoWrapper
+from prediction.models import RidgeWrapper
+from prediction.models import ElasticNetWrapper
 from prediction.functions import forecast
 
 
@@ -24,8 +27,8 @@ def main():
     parser.add_argument('-i',
                         '--n_iter',
                         type=int,
-                        help='number of hyperparameter searchs, (default=30)',
-                        default=30)
+                        help='number of hyperparameter searchs, (default=50)',
+                        default=50)
     parser.add_argument('-s',
                         '--n_splits',
                         type=int,
@@ -49,7 +52,11 @@ def main():
     args = parser.parse_args()
 
     # selecting the ML model
-    model_dict = {"random_forest": RandomForestWrapper}
+    model_dict = {"random_forest": RandomForestWrapper,
+                  "lasso": LassoWrapper,
+                  "ridge": RidgeWrapper,
+                  "enet": ElasticNetWrapper}
+
     assert args.model_name in model_dict, "no model with this name"
     Wrapper = model_dict[args.model_name]
 
