@@ -64,7 +64,7 @@ def main():
                             seed=args.seed)
 
     # saving forecast on the results folder
-    out_path_list = ["results", "forecast", args.fs_method,
+    out_path_list = ["results", "forecast", args.fs_method, "indices",
                      args.model_name, "{}.csv".format(args.ticker_name)]
     out_folder = os.path.join(*out_path_list[:-1])
     out_path = os.path.join(*out_path_list)
