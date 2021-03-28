@@ -62,6 +62,7 @@ class Test_forecast(unittest.TestCase):
                                                n_iter=1,
                                                n_jobs=2,
                                                n_splits=2,
+                                               seed=123,
                                                target_name=self.target_name,
                                                verbose=False)
 
@@ -81,6 +82,7 @@ class Test_forecast(unittest.TestCase):
                                                n_iter=1,
                                                n_jobs=2,
                                                n_splits=2,
+                                               seed=123,
                                                target_name=self.target_name,
                                                verbose=False)
 
@@ -100,6 +102,7 @@ class Test_forecast(unittest.TestCase):
                                                n_iter=1,
                                                n_jobs=2,
                                                n_splits=2,
+                                               seed=123,
                                                target_name=self.target_name,
                                                verbose=False)
 

@@ -36,6 +36,11 @@ def main():
                         type=int,
                         help='number of concurrent workers, (default=-1)',
                         default=-1)
+    parser.add_argument('-S',
+                        '--seed',
+                        type=int,
+                        help='random seed, (default=None)',
+                        default=None)
     parser.add_argument("-v",
                         "--verbose",
                         action="store_true",
@@ -56,7 +61,7 @@ def main():
                             n_splits=args.n_splits,
                             n_jobs=args.n_jobs,
                             verbose=args.verbose,
-                            seed=2294)
+                            seed=args.seed)
 
     # saving forecast on the results folder
     out_path_list = ["results", "forecast", args.fs_method,
