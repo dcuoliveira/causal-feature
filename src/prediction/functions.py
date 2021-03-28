@@ -364,6 +364,7 @@ def annualy_fit_and_predict(df,
                                                n_jobs=n_jobs,
                                                n_splits=n_splits,
                                                n_iter=n_iter,
+                                               seed=seed,
                                                verbose=verbose)
             X_test = test_ys.drop(target_name, 1).values
             y_test = test_ys[target_name].values
