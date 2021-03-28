@@ -386,6 +386,7 @@ def forecast(ticker_name,
              n_iter,
              n_splits,
              n_jobs,
+             seed,
              verbose=1,
              target_name="target_return",
              max_lag=20):
