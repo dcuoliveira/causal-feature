@@ -4,6 +4,7 @@ import numpy as np
 from sklearn.linear_model import Lasso, Ridge, ElasticNet
 from sklearn.ensemble import RandomForestRegressor
 from xgboost import XGBRegressor
+from lightgbm import LGBMRegressor
 
 
 class RandomForestWrapper():
@@ -54,20 +55,22 @@ class ElasticNetWrapper():
             self.ModelClass = ElasticNet(**model_params)
 
 
-class XGBWrapper():
+class LGBWrapper():
     def __init__(self, model_params=None):
-        self.model_name = "xgb_regression"
+        self.model_name = "lgb_regression"
         self.search_type = 'random'
-        self.param_grid = {'min_child_weight': [1e-5, 1e-3, 1e-2, 1e-1, 1, 1e1, 1e2, 1e3, 1e4],
+        self.param_grid = {'num_leaves': sp_randint(6, 50),
+                           'min_child_samples': sp_randint(100, 500),
+                           'min_child_weight': [1e-5, 1e-3, 1e-2, 1e-1, 1, 1e1, 1e2, 1e3, 1e4],
                            'subsample': sp_uniform(loc=0.2, scale=0.8),
-                           "n_estimators": sp_randint(10, 300),
+                           "n_estimators": sp_randint(500, 1000),
                            "max_depth": sp_randint(3, 100),
-                           "learning_rate": np.linspace(0, 1, 100),
+                           "learning_rate": np.linspace(0.001, 0.99, 100),
                            'colsample_bytree': sp_uniform(loc=0.4, scale=0.6),
                            'reg_alpha': [0, 1e-1, 1, 2, 5, 7, 10, 50, 100],
                            'reg_lambda': [0, 1e-1, 1, 5, 10, 20, 50, 100],
-                           "objective": ["reg:pseudohubererror"]}
+                           "objective": ["huber"]}
         if model_params is None:
-            self.ModelClass = XGBRegressor()
+            self.ModelClass = LGBMRegressor()
         else:
-            self.ModelClass = XGBRegressor(**model_params)
+            self.ModelClass = LGBMRegressor(**model_params)

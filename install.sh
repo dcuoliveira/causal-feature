@@ -8,6 +8,7 @@ pip3 install numpy
 pip3 install seaborn
 pip3 install statsmodels
 pip3 install xgboost
+pip3 install lightgbm
 
 
 
