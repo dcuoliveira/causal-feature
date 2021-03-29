@@ -82,8 +82,8 @@ class NN3Wrapper():
         self.search_type = 'random'
         self.param_grid = {"early_stopping": [True],
                            "learning_rate": ["invscaling"],
-                           "learning_rate_init": np.linspace(0.1, 0.99, 100),
-                           'alpha': np.linspace(0.1, 0.99, 100),
+                           "learning_rate_init": np.linspace(0.0, 1.0, 100),
+                           'alpha': np.linspace(0.0, 1.0, 100),
                            'solver': ["adam"],
                            'activation': ["relu"],
                            "hidden_layer_sizes": [(32, 16, 8)]}
