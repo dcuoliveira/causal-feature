@@ -8,6 +8,7 @@ from prediction.models import RandomForestWrapper
 from prediction.models import LassoWrapper
 from prediction.models import RidgeWrapper
 from prediction.models import ElasticNetWrapper
+from prediction.models import XGBWrapper
 from prediction.functions import forecast
 
 
@@ -55,7 +56,8 @@ def main():
     model_dict = {"random_forest": RandomForestWrapper,
                   "lasso": LassoWrapper,
                   "ridge": RidgeWrapper,
-                  "enet": ElasticNetWrapper}
+                  "enet": ElasticNetWrapper,
+                  "xgb": XGBWrapper}
 
     assert args.model_name in model_dict, "no model with this name"
     Wrapper = model_dict[args.model_name]
