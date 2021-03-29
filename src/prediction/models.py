@@ -60,7 +60,7 @@ class XGBWrapper():
         self.search_type = 'random'
         self.param_grid = {'min_child_weight': [1e-5, 1e-3, 1e-2, 1e-1, 1, 1e1, 1e2, 1e3, 1e4],
                            'subsample': sp_uniform(loc=0.2, scale=0.8),
-                           "n_estimators": sp_randint(500, 1000),
+                           "n_estimators": sp_randint(10, 300),
                            "max_depth": sp_randint(3, 100),
                            "learning_rate": np.linspace(0, 1, 100),
                            'colsample_bytree': sp_uniform(loc=0.4, scale=0.6),
