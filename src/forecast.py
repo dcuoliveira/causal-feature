@@ -9,6 +9,7 @@ from prediction.models import LassoWrapper
 from prediction.models import RidgeWrapper
 from prediction.models import ElasticNetWrapper
 from prediction.models import LGBWrapper
+from prediction.models import NN3Wrapper
 from prediction.functions import forecast
 
 
@@ -57,7 +58,8 @@ def main():
                   "lasso": LassoWrapper,
                   "ridge": RidgeWrapper,
                   "enet": ElasticNetWrapper,
-                  "lgb": LGBWrapper}
+                  "lgb": LGBWrapper,
+                  "nn3": NN3Wrapper}
 
     assert args.model_name in model_dict, "no model with this name"
     Wrapper = model_dict[args.model_name]
@@ -83,5 +85,7 @@ def main():
 
     tempo = (time() - init) / 60
     print("\nDONE\ntotal run time = ", np.round(tempo, 2), "min")
+
+
 if __name__ == '__main__':
     main()

@@ -3,7 +3,7 @@ from scipy.stats import uniform as sp_uniform
 import numpy as np
 from sklearn.linear_model import Lasso, Ridge, ElasticNet
 from sklearn.ensemble import RandomForestRegressor
-from xgboost import XGBRegressor
+from sklearn.neural_network import MLPRegressor
 from lightgbm import LGBMRegressor
 
 
@@ -74,3 +74,20 @@ class LGBWrapper():
             self.ModelClass = LGBMRegressor()
         else:
             self.ModelClass = LGBMRegressor(**model_params)
+
+
+class NN3Wrapper():
+    def __init__(self, model_params=None):
+        self.model_name = "nn3"
+        self.search_type = 'random'
+        self.param_grid = {"early_stopping": [True],
+                           "learning_rate": ["invscaling"],
+                           "learning_rate_init": np.linspace(0.1, 0.99, 100),
+                           'alpha': np.linspace(0.1, 0.99, 100),
+                           'solver': ["adam"],
+                           'activation': ["relu"],
+                           "hidden_layer_sizes": [(32, 16, 8)]}
+        if model_params is None:
+            self.ModelClass = MLPRegressor()
+        else:
+            self.ModelClass = MLPRegressor(**model_params)
