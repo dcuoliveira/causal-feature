@@ -5,6 +5,7 @@ from tqdm import tqdm
 from sklearn.model_selection import TimeSeriesSplit
 from sklearn.metrics import make_scorer
 from sklearn.model_selection import RandomizedSearchCV
+from sklearn.preprocessing import StandardScaler
 
 try:
     from data_mani.utils import merge_market_and_gtrends
@@ -349,11 +350,27 @@ def annualy_fit_and_predict(df,
 
     years = df.index.map(lambda x: x.year)
     years = range(np.min(years), np.max(years))
+    features = df.columns.to_list()
+    features = [f for f in features if f!= target_name]
+    features.sort()
+    df = df[features + [target_name]]
+
     for y in tqdm(years,
                   disable=not verbose,
                   desc="anual training and prediction"):
         train_ys = df.loc[:str(y)]
         test_ys = df.loc[str(y + 1)]
+
+        scaler = StandardScaler()
+        train_ys_v = scaler.fit_transform(train_ys)
+        train_ys = pd.DataFrame(train_ys_v,
+                                columns=train_ys.columns,
+                                index=train_ys.index)
+        y_test = test_ys[target_name].values
+        test_ys_v = scaler.transform(test_ys)
+        test_ys = pd.DataFrame(test_ys_v,
+                               columns=test_ys.columns,
+                               index=test_ys.index)
 
         # we have some roles in the time interval
         # for some tickers, for example,
@@ -368,8 +385,14 @@ def annualy_fit_and_predict(df,
                                                seed=seed,
                                                verbose=verbose)
             X_test = test_ys.drop(target_name, 1).values
-            y_test = test_ys[target_name].values
             test_pred = model_search.best_estimator_.predict(X_test)
+            X_to_go = np.hstack([X_test,test_pred.reshape(-1,1)])
+            X_to_go = scaler.inverse_transform(X_to_go)
+            df_to_go = pd.DataFrame(X_to_go,
+                                    columns=test_ys.columns,
+                                    index=test_ys.index)
+            test_pred = df_to_go[target_name].values
+
             dict_ = {"date": test_ys.index,
                      "return": y_test,
                      "prediction": test_pred}
