@@ -22,7 +22,7 @@ TEST_SIZE = 0.5 # pct of the train/test split
 THRESHOLD = 252 * 2 # treshold to filted merged datframes
                     # 252 = business days in a year
 PAR = True # enable run in paralell
-IS_DISCRETE = False
+IS_DISCRETE = True
 CONSTANT_THRESHOLD = 0.9
 
 # ajuste pra path do windows

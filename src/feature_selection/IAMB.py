@@ -123,6 +123,10 @@ def run_IAMB(merged_df,
             not_constant_df.append(merged_df[[col]])
     merged_df = pd.concat(not_constant_df, axis=1)
     del not_constant_df
+    
+    if is_discrete:
+        merged_df = target_ret_to_directional_movements(x=merged_df,
+                                                        y_name=target_name)
 
     target_name_index = list(merged_df.columns).index(target_name)
     MBs, ci_number = IAMB(data=merged_df.dropna(),
