@@ -206,7 +206,6 @@ def hyper_params_search(df,
     :rtype: float
     """
 
- 
     X = df.drop(target_name, 1).values
     y = df[target_name].values
 
@@ -223,92 +222,18 @@ def hyper_params_search(df,
                                           scoring=r2_scorer,
                                           random_state=seed)
     elif wrapper.search_type == 'grid':
-      model_search = GridSearchCV(estimator=wrapper.ModelClass,
-                                  param_grid=wrapper.param_grid,
-                                  cv=time_split,
-                                  verbose=verbose,
-                                  n_jobs=n_jobs,
-                                  scoring=r2_scorer)
+        model_search = GridSearchCV(estimator=wrapper.ModelClass,
+                                    param_grid=wrapper.param_grid,
+                                    cv=time_split,
+                                    verbose=verbose,
+                                    n_jobs=n_jobs,
+                                    scoring=r2_scorer)
     else:
         raise Exception('search type method not registered')
 
     model_search = model_search.fit(X, y)
 
     return model_search
-
-
-def periodic_fit_and_predict(df,
-                             step_size,
-                             Wrapper,
-                             n_iter,
-                             n_splits,
-                             n_jobs,
-                             verbose,
-                             seed,
-                             target_name="target_return"):
-    """
-     We recursively increase the training sample, periodically refitting
-     the entire model once per year, and making
-     out-of-sample predictions for the subsequent year.
-
-     On each fit, to perform hyperparameter search,
-     we perform cross-validation on a rolling basis.
-
-     :param df: train and test data combined
-     :type df: pd.DataFrame
-     :param Wrapper: predictive model class
-     :type Wrapper: sklearn model wrapper class
-     :param n_iter: number of hyperparameter searchs
-     :type n_iter: int
-     :param n_splits: number of splits for the cross-validation
-     :type n_splits: int
-     :param n_jobs: number of concurrent workers
-     :type n_jobs: int
-     :param verbose: param to print iteration status
-     :type verbose: bool, int
-     :param target_name: name of the target column in 'df'
-     :type target_name: str
-     :return: dataframe with the date, true return
-              and predicted return.
-     :rtype: pd.DataFrame
-     """
-
-    all_preds = []
-
-    years = df.index.map(lambda x: x.year)
-    years = range(np.min(years), np.max(years), step_size)
-    for y in tqdm(years,
-                  disable=not verbose,
-                  desc="anual training and prediction"):
-
-        train_ys = df[:str(y)]
-        test_ys = df[str(y + 1):str(y + step_size)]
-
-        # we have some roles in the time interval
-        # for some tickers, for example,
-        # "SBUX UA Equity"
-        if test_ys.shape[0] > 0:
-            model_wrapper = Wrapper()
-            model_search = hyper_params_search(df=train_ys,
-                                               wrapper=model_wrapper,
-                                               n_jobs=n_jobs,
-                                               n_splits=n_splits,
-                                               n_iter=n_iter,
-                                               seed=seed,
-                                               verbose=verbose)
-            X_test = test_ys.drop(target_name, 1).values
-            y_test = test_ys[target_name].values
-            test_pred = model_search.best_estimator_.predict(X_test)
-            dict_ = {"date": test_ys.index,
-                     "return": y_test,
-                     "prediction": test_pred}
-            result = pd.DataFrame(dict_)
-            all_preds.append(result)
-        else:
-            pass
-
-    pred_results = pd.concat(all_preds).reset_index(drop=True)
-    return pred_results
 
 
 def annualy_fit_and_predict(df,
@@ -350,9 +275,7 @@ def annualy_fit_and_predict(df,
 
     years = df.index.map(lambda x: x.year)
     years = range(np.min(years), np.max(years))
-    features = df.columns.to_list()
-    features = [f for f in features if f!= target_name]
-    features.sort()
+    features = sorted(df.drop(target_name, 1).columns.to_list())
     df = df[features + [target_name]]
 
     for y in tqdm(years,
@@ -386,7 +309,7 @@ def annualy_fit_and_predict(df,
                                                verbose=verbose)
             X_test = test_ys.drop(target_name, 1).values
             test_pred = model_search.best_estimator_.predict(X_test)
-            X_to_go = np.hstack([X_test,test_pred.reshape(-1,1)])
+            X_to_go = np.hstack([X_test, test_pred.reshape(-1, 1)])
             X_to_go = scaler.inverse_transform(X_to_go)
             df_to_go = pd.DataFrame(X_to_go,
                                     columns=test_ys.columns,
