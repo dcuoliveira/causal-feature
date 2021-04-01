@@ -15,9 +15,13 @@ except ModuleNotFoundError:
     from src.data_mani.utils import merge_market_and_gtrends
     
  
- def sharpe_ratio(returns_df,
-                  rf=.0):
-    pass
+def sharpe_ratio_tb(returns_df,
+                    rf=.0):
+    
+    ranking = (((pivot_metrics_df.mean() - rf) / pivot_metrics_df.std()) * np.sqrt(252)).sort_values(ascending=False)
+    pivot_tb = (((pivot_metrics_df.mean() - rf) / pivot_metrics_df.std()) * np.sqrt(252)).reset_index().pivot_table(index=['fs'], columns=['model'], values=[0])
+
+    return ranking, pivot_tb.style.apply(highlight_max)
 
 def aggregate_prediction_positions(predictions_df,
                                    forecast_model,
@@ -36,7 +40,7 @@ def aggregate_prediction_positions(predictions_df,
     positions_df = []
     for model in forecast_model:
         _, _, _, positons_fs_model_df = plot_ret_from_predictions(predictions_df=predictions_df,
-                                                                  forecast_model=forecast_model,
+                                                                  forecast_model=model,
                                                                   benchmark_name=benchmark_name,
                                                                   benchmark_alias=benchmark_alias)
         positions_df.append(positons_fs_model_df.reset_index().melt('date'))
