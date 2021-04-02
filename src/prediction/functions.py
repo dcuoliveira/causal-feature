@@ -13,92 +13,155 @@ try:
     from data_mani.utils import merge_market_and_gtrends
 except ModuleNotFoundError:
     from src.data_mani.utils import merge_market_and_gtrends
-    
- 
-def sharpe_ratio_tb(returns_df,
-                    rf=.0):
-    
-    ranking = pd.DataFrame((((returns_df.mean() - rf) / returns_df.std()) * np.sqrt(252)).sort_values(ascending=False)).reset_index()
-    ranking.rename(columns={ranking.columns[2]: 'sharpe ratio'}, inplace=True)
-    pivot_tb = ranking.reset_index().pivot_table(index=['fs'], columns=['model'], values=['sharpe ratio'])
-    
-    agg_pivot_tb = pd.concat([pivot_tb.sum(axis=1), pivot_tb.mean(axis=1)], axis=1)
-    agg_pivot_tb = pd.concat([agg_pivot_tb, pivot_tb.mean(axis=1) / pivot_tb.std(axis=1)], axis=1)
-    agg_pivot_tb.columns = ['sum', 'mean', 'mean_std_adj']
-
-    return ranking, pivot_tb.fillna(0).style.apply(highlight_max), agg_pivot_tb.style.apply(highlight_max)
-
-def aggregate_prediction_positions(predictions_df,
-                                   forecast_model,
-                                   benchmark_name,
-                                   benchmark_alias,
-                                   plot_title='OOS Cummulative Returns for each Feature Selection Method given a Prediction Model'):
-
-    benchmark_buynhold_df = predictions_df.loc[(predictions_df['model'] == forecast_model[0])&
-                                               (predictions_df['variable'] == benchmark_name)&
-                                               (predictions_df['fs'] == 'all')]
-    benchmark_buynhold_df = benchmark_buynhold_df.pivot_table(index=['date'], columns=['variable'], values=['value'])
-    benchmark_buynhold_df.rename(columns={benchmark_name: benchmark_alias}, inplace=True)
-    melt_benchmark_buynhold_df = benchmark_buynhold_df.reset_index().melt('date')
-    melt_benchmark_buynhold_df.rename(columns={melt_benchmark_buynhold_df.columns[1]: 'model',
-                                            melt_benchmark_buynhold_df.columns[2]: 'fs'}, inplace=True)
-
-    metrics_df = []
-    positions_df = []
-    for model in forecast_model:
-        _, _, all_ret, positons_fs_model_df = plot_ret_from_predictions(predictions_df=predictions_df,
-                                                                        forecast_model=model,
-                                                                        benchmark_name=benchmark_name,
-                                                                        benchmark_alias=benchmark_alias,
-                                                                        plot_title=plot_title + ' ' + model)
-        all_ret['model'] = model
-        all_ret = all_ret.drop(benchmark_alias, axis=1).reset_index().melt(['date', 'model'])
-        positions_df.append(positons_fs_model_df.reset_index().melt('date'))
-        metrics_df.append(all_ret)
 
 
-    positions_df = pd.concat(positions_df, axis=0)
-    pivot_positions_df = positions_df.pivot_table(index=['date'], columns=['model', 'fs'], values=['value'])
-    metrics_ex_ret_df = pd.concat(metrics_df, axis=0)
-    metrics_df = pd.concat([metrics_ex_ret_df, melt_benchmark_buynhold_df], axis=0)
-    pivot_metrics_df = metrics_df.pivot_table(index=['date'], columns=['model', 'fs'], values=['value'])
-    pivot_metrics_df.columns = pivot_metrics_df.columns.droplevel()
-    
-    return pivot_metrics_df
- 
- 
 def aggregate_prediction_results(prediction_models,
-                                 fs_models,
-                                 evaluation_start_date,
-                                 ticker_name):
+                                fs_models,
+                                evaluation_start_date,
+                                ticker_names,
+                                benchmark_name='return'):
     predictions = []
     r2s = []
-
-    for model in prediction_models:
-        for fs in fs_models:
-            assets = glob('results/forecast/' + fs + '/indices/' + model + '/' + ticker_name + '.csv')
-            for asset_path in assets:
-                df = pd.read_csv(asset_path)
+    for fs in fs_models:
+        for model in prediction_models:
+            for ticker in ticker_names:
+                df = pd.read_csv('results/forecast/' + fs + '/indices/' + model + '/' + ticker + '.csv')
                 df.set_index('date', inplace=True)
                 df = df.loc[evaluation_start_date:]
                 df = df.reset_index()
 
                 r2_eval_df = df.copy()
                 r2 = new_r2(r2_eval_df['return'].values, r2_eval_df['prediction'].values)
-                r2_df = pd.DataFrame([{'model': model,
-                                    'fs': fs,
-                                    'r2': r2}])
+                r2_df = pd.DataFrame([{'ticker': ticker,
+                                                'model': model,
+                                                'fs': fs,
+                                                'r2': r2}])
                 r2s.append(r2_df)
 
                 melt_df = df.melt('date')
                 melt_df['model'] = model
                 melt_df['fs'] = fs
+                melt_df['ticker'] = ticker
                 predictions.append(melt_df)
 
     predictions_df = pd.concat(predictions, axis=0)
+    benchmark_df = predictions_df.loc[(predictions_df['variable']==benchmark_name)&
+                                    (predictions_df['fs']==fs)&
+                                    (predictions_df['model']==model)]
+    benchmark_df['model'] = benchmark_df['ticker']
+    benchmark_df['fs'] = 'raw'
+    predictions_df = predictions_df.loc[(predictions_df['variable']!=benchmark_name)]
     r2_df = pd.concat(r2s, axis=0)
+
+    return predictions_df, benchmark_df, r2_df
+
+
+def plot_cum_ret(pred_ret_df,
+                 benchmark_df,
+                 level_to_subset,
+                 show=True):
+
+    ret_df = pd.concat([pred_ret_df, benchmark_df], axis=0)
+
+    cum_ret = []
+    for ticker in ret_df['ticker'].unique():
+        for level in ret_df[level_to_subset].unique():
+            if level == ticker:
+                continue
+            loop_df = ret_df.loc[(ret_df['ticker'] == ticker)&((ret_df[level_to_subset] == level)|(ret_df[level_to_subset] == ticker)|(ret_df['variable'] == 'return'))]
+            pivot_level_to_add = list(loop_df.columns.drop(['date', 'ticker', 'value', 'variable'] + [level_to_subset]))
+            pivot_all_ret_df = loop_df.pivot_table(index=['date'], columns=['ticker', 'variable'] + pivot_level_to_add, values=['value'])
+            pivot_all_ret_df.columns = pivot_all_ret_df.columns.droplevel()
+
+            cum_all_ret = (1 + pivot_all_ret_df).cumprod()
+            cum_ret.append(cum_all_ret)
+            if show:
+                cum_all_ret.plot(figsize=(15, 10), title=level_to_subset + ' = ' + level.upper())
+    cum_ret_df = pd.concat(cum_ret, axis=1)
+    return cum_ret_df
+
+
+def sharpe_ratio_tb(returns_df,
+                    rf=.0):
     
-    return predictions_df, r2_df
+    mean = returns_df.pivot_table(index=['date'], columns=['ticker', 'variable', 'model', 'fs'], values=['value']).mean()
+    std = returns_df.pivot_table(index=['date'], columns=['ticker', 'variable', 'model', 'fs'], values=['value']).std()
+
+    sr_df = pd.DataFrame((mean - .0) / std * np.sqrt(252))
+    sr_df.index = sr_df.index.droplevel()
+    sr_df.rename(columns={0: 'sharpe ratio'}, inplace=True)
+    rank_df = sr_df.sort_values('sharpe ratio', ascending=False)
+
+    pivot_tb = rank_df.reset_index().pivot_table(index=['ticker', 'fs'], columns=['model'], values=['sharpe ratio'])
+    
+    agg_pivot_tb = pd.concat([pivot_tb.sum(axis=1), pivot_tb.mean(axis=1)], axis=1)
+    agg_pivot_tb = pd.concat([agg_pivot_tb, pivot_tb.mean(axis=1) / pivot_tb.std(axis=1)], axis=1)
+    agg_pivot_tb.columns = ['sum', 'mean', 'mean_std_adj']
+
+    return rank_df, pivot_tb.fillna(0).style.apply(highlight_max), agg_pivot_tb.style.apply(highlight_max)
+
+
+def max_drawdown_tb(pivot_ret_all_df):
+    cum_prod_df = (1 + pivot_ret_all_df).cumprod()
+    previous_peaks_df =  cum_prod_df.cummax()
+    drawdown_df = (cum_prod_df - previous_peaks_df)/previous_peaks_df
+    rank_df = pd.DataFrame(drawdown_df.min().sort_values(ascending=False))
+    rank_df.index = rank_df.index.droplevel()
+    rank_df.rename(columns={0: 'max drawdown'}, inplace=True)
+    rank_df = rank_df.sort_values('max drawdown', ascending=False)
+
+
+    tb_df = rank_df.reset_index()
+    tb_df = tb_df.pivot_table(index=['ticker', 'fs'], columns=['model'], values=['max drawdown']).fillna(0)
+
+    agg_pivot_tb = pd.concat([tb_df.sum(axis=1), tb_df.mean(axis=1)], axis=1)
+    agg_pivot_tb = pd.concat([agg_pivot_tb, tb_df.mean(axis=1) / tb_df.std(axis=1)], axis=1)
+    agg_pivot_tb.columns = ['sum', 'mean', 'mean_std_adj']
+
+    return rank_df, tb_df.style.apply(highlight_max), agg_pivot_tb.style.apply(highlight_max)
+
+
+def gen_strat_positions_and_ret_from_pred(predictions_df,
+                                          target_asset_returns):
+
+    if 'strat_type' not in predictions_df.columns:
+        predictions_df['strat_type'] = 'simple'
+    
+    pred_positions = []
+    pred_returns = []
+    for strat in predictions_df['strat_type'].unique():
+        strat_df = predictions_df.loc[predictions_df['strat_type'] == strat].drop('strat_type', axis=1)
+        if strat == 'simple':
+            for ticker in strat_df['ticker'].unique():
+                ticker_strat_df = strat_df.loc[strat_df['ticker'] == ticker]
+                ticker_strat_pivot_df = ticker_strat_df.pivot_table(index=['date'], columns=['variable', 'ticker', 'model', 'fs'], values=['value'])
+                names = ticker_strat_pivot_df.columns.droplevel().droplevel()
+
+                # Benchmark
+                benchmark_df = target_asset_returns.loc[target_asset_returns['ticker'] == 'SPX Index']
+                pivot_benchmark_df = benchmark_df.pivot_table(index=['date'], columns=['variable', 'ticker', 'model', 'fs'], values=['value'])
+
+                # Positions
+                positions_df = pd.DataFrame(np.where(ticker_strat_pivot_df > 0, 1, -1))
+                positions_df.columns = names
+                positions_df.index = ticker_strat_pivot_df.index
+                melt_positions_df = positions_df.reset_index().melt('date')
+                melt_positions_df['variable'] = 'prediction'
+                pred_positions.append(melt_positions_df)
+                
+                # Strategy 
+                pred_ret_df = pd.DataFrame(positions_df.values * pivot_benchmark_df.values)
+                pred_ret_df.columns = names
+                pred_ret_df.index = ticker_strat_pivot_df.index
+                melt_pred_df = pred_ret_df.reset_index().melt('date')
+                melt_pred_df['variable'] = 'prediction'
+                pred_returns.append(melt_pred_df)
+            pred_ret_df = pd.concat(pred_returns, axis=0)
+            pred_pos_df = pd.concat(pred_positions)
+        elif strat == 'rank':
+            pass
+
+    return pred_ret_df, pred_pos_df
 
 
 def get_features_IAMB_MMMB(ticker_name,
