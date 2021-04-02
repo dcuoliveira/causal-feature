@@ -1,7 +1,8 @@
 import pandas as pd
 import numpy as np
 from tqdm import tqdm
-from collections import Counter
+from collections import Counter 
+
 
 def highlight_max(s):
     if s.dtype == np.object:
@@ -10,7 +11,7 @@ def highlight_max(s):
         is_neg = s < 0
     return ['color: red;' if cell else 'color:white' 
             for cell in is_neg]
-    
+       
     
 def plot_df_to_table(df,
                      index,
@@ -22,11 +23,15 @@ def plot_df_to_table(df,
     tb_df.columns = tb_df.columns.droplevel()
     tb_df.index.name = None
     
-    agg_tb_df = pd.concat([tb_df.sum(axis=1), tb_df.mean(axis=1)], axis=1)
-    agg_tb_df = pd.concat([agg_tb_df, tb_df.mean(axis=1) / tb_df.std(axis=1)], axis=1)
-    agg_tb_df.columns = ['sum', 'mean', 'mean_std_adj']
+    agg_fs_tb_df = pd.concat([tb_df.sum(axis=1), tb_df.mean(axis=1)], axis=1)
+    agg_fs_tb_df = pd.concat([agg_fs_tb_df, tb_df.mean(axis=1) / tb_df.std(axis=1)], axis=1)
+    agg_fs_tb_df.columns = ['sum', 'mean', 'mean_std_adj']
     
-    return tb_df.style.apply(highlight_max), agg_tb_df.style.apply(highlight_max)
+    agg_fore_tb_df = pd.concat([tb_df.sum(axis=0), tb_df.mean(axis=0)], axis=1)
+    agg_fore_tb_df = pd.concat([agg_fore_tb_df, tb_df.mean(axis=0) / tb_df.std(axis=0)], axis=1)
+    agg_fore_tb_df.columns = ['sum', 'mean', 'mean_std_adj']
+    
+    return tb_df.style.apply(highlight_max), agg_fs_tb_df.style.apply(highlight_max), agg_fore_tb_df.style.apply(highlight_max)
 
 
 def plot_ret_from_predictions(predictions_df,
