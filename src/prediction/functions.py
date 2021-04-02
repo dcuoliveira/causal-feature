@@ -16,19 +16,6 @@ except ModuleNotFoundError:
     from src.data_mani.utils import merge_market_and_gtrends
     from src.data_mani.visu import *
 
-    
- 
-def sharpe_ratio_tb(returns_df,
-                    rf=.0):
-    
-    ranking = pd.DataFrame((((returns_df.mean() - rf) / returns_df.std()) * np.sqrt(252)).sort_values(ascending=False)).reset_index()
-    ranking.rename(columns={ranking.columns[2]: 'sharpe ratio'}, inplace=True)
-    pivot_tb = ranking.reset_index().pivot_table(index=['fs'], columns=['model'], values=['sharpe ratio'])
-    
-    agg_pivot_tb = pd.concat([pivot_tb.sum(axis=1), pivot_tb.mean(axis=1)], axis=1)
-    agg_pivot_tb = pd.concat([agg_pivot_tb, pivot_tb.mean(axis=1) / pivot_tb.std(axis=1)], axis=1)
-    agg_pivot_tb.columns = ['sum', 'mean', 'mean_std_adj']
-
 
 def aggregate_prediction_results(prediction_models,
                                 fs_models,
