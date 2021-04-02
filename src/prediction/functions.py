@@ -18,20 +18,27 @@ except ModuleNotFoundError:
 def sharpe_ratio_tb(returns_df,
                     rf=.0):
     
-    ranking = (((pivot_metrics_df.mean() - rf) / pivot_metrics_df.std()) * np.sqrt(252)).sort_values(ascending=False)
-    pivot_tb = (((pivot_metrics_df.mean() - rf) / pivot_metrics_df.std()) * np.sqrt(252)).reset_index().pivot_table(index=['fs'], columns=['model'], values=[0])
+    ranking = pd.DataFrame((((returns_df.mean() - rf) / returns_df.std()) * np.sqrt(252)).sort_values(ascending=False)).reset_index()
+    ranking.rename(columns={ranking.columns[2]: 'sharpe ratio'}, inplace=True)
+    pivot_tb = ranking.reset_index().pivot_table(index=['fs'], columns=['model'], values=['sharpe ratio'])
+    
+    agg_pivot_tb = pd.concat([pivot_tb.sum(axis=1), pivot_tb.mean(axis=1)], axis=1)
+    agg_pivot_tb = pd.concat([agg_pivot_tb, pivot_tb.mean(axis=1) / pivot_tb.std(axis=1)], axis=1)
+    agg_pivot_tb.columns = ['sum', 'mean', 'mean_std_adj']
 
-    return ranking, pivot_tb.style.apply(highlight_max)
+    return ranking, pivot_tb.fillna(0).style.apply(highlight_max), agg_pivot_tb.style.apply(highlight_max)
 
 def aggregate_prediction_positions(predictions_df,
                                    forecast_model,
                                    benchmark_name,
-                                   benchmark_alias):
+                                   benchmark_alias,
+                                   plot_title='OOS Cummulative Returns for each Feature Selection Method given a Prediction Model'):
 
     benchmark_buynhold_df = predictions_df.loc[(predictions_df['model'] == forecast_model[0])&
                                                (predictions_df['variable'] == benchmark_name)&
                                                (predictions_df['fs'] == 'all')]
     benchmark_buynhold_df = benchmark_buynhold_df.pivot_table(index=['date'], columns=['variable'], values=['value'])
+    benchmark_buynhold_df.rename(columns={benchmark_name: benchmark_alias}, inplace=True)
     melt_benchmark_buynhold_df = benchmark_buynhold_df.reset_index().melt('date')
     melt_benchmark_buynhold_df.rename(columns={melt_benchmark_buynhold_df.columns[1]: 'model',
                                             melt_benchmark_buynhold_df.columns[2]: 'fs'}, inplace=True)
@@ -39,17 +46,23 @@ def aggregate_prediction_positions(predictions_df,
     metrics_df = []
     positions_df = []
     for model in forecast_model:
-        _, _, _, positons_fs_model_df = plot_ret_from_predictions(predictions_df=predictions_df,
-                                                                  forecast_model=model,
-                                                                  benchmark_name=benchmark_name,
-                                                                  benchmark_alias=benchmark_alias)
+        _, _, all_ret, positons_fs_model_df = plot_ret_from_predictions(predictions_df=predictions_df,
+                                                                        forecast_model=model,
+                                                                        benchmark_name=benchmark_name,
+                                                                        benchmark_alias=benchmark_alias,
+                                                                        plot_title=plot_title + ' ' + model)
+        all_ret['model'] = model
+        all_ret = all_ret.drop(benchmark_alias, axis=1).reset_index().melt(['date', 'model'])
         positions_df.append(positons_fs_model_df.reset_index().melt('date'))
+        metrics_df.append(all_ret)
+
 
     positions_df = pd.concat(positions_df, axis=0)
     pivot_positions_df = positions_df.pivot_table(index=['date'], columns=['model', 'fs'], values=['value'])
     metrics_ex_ret_df = pd.concat(metrics_df, axis=0)
     metrics_df = pd.concat([metrics_ex_ret_df, melt_benchmark_buynhold_df], axis=0)
     pivot_metrics_df = metrics_df.pivot_table(index=['date'], columns=['model', 'fs'], values=['value'])
+    pivot_metrics_df.columns = pivot_metrics_df.columns.droplevel()
     
     return pivot_metrics_df
  
