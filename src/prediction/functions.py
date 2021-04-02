@@ -1,4 +1,5 @@
 import os
+from glob import glob
 import pandas as pd
 import numpy as np
 from tqdm import tqdm
@@ -6,11 +7,98 @@ from sklearn.model_selection import TimeSeriesSplit
 from sklearn.metrics import make_scorer
 from sklearn.model_selection import RandomizedSearchCV
 from sklearn.preprocessing import StandardScaler
+from data_mani.visu import *
 
 try:
     from data_mani.utils import merge_market_and_gtrends
 except ModuleNotFoundError:
     from src.data_mani.utils import merge_market_and_gtrends
+    
+ 
+def sharpe_ratio_tb(returns_df,
+                    rf=.0):
+    
+    ranking = pd.DataFrame((((returns_df.mean() - rf) / returns_df.std()) * np.sqrt(252)).sort_values(ascending=False)).reset_index()
+    ranking.rename(columns={ranking.columns[2]: 'sharpe ratio'}, inplace=True)
+    pivot_tb = ranking.reset_index().pivot_table(index=['fs'], columns=['model'], values=['sharpe ratio'])
+    
+    agg_pivot_tb = pd.concat([pivot_tb.sum(axis=1), pivot_tb.mean(axis=1)], axis=1)
+    agg_pivot_tb = pd.concat([agg_pivot_tb, pivot_tb.mean(axis=1) / pivot_tb.std(axis=1)], axis=1)
+    agg_pivot_tb.columns = ['sum', 'mean', 'mean_std_adj']
+
+    return ranking, pivot_tb.fillna(0).style.apply(highlight_max), agg_pivot_tb.style.apply(highlight_max)
+
+def aggregate_prediction_positions(predictions_df,
+                                   forecast_model,
+                                   benchmark_name,
+                                   benchmark_alias,
+                                   plot_title='OOS Cummulative Returns for each Feature Selection Method given a Prediction Model'):
+
+    benchmark_buynhold_df = predictions_df.loc[(predictions_df['model'] == forecast_model[0])&
+                                               (predictions_df['variable'] == benchmark_name)&
+                                               (predictions_df['fs'] == 'all')]
+    benchmark_buynhold_df = benchmark_buynhold_df.pivot_table(index=['date'], columns=['variable'], values=['value'])
+    benchmark_buynhold_df.rename(columns={benchmark_name: benchmark_alias}, inplace=True)
+    melt_benchmark_buynhold_df = benchmark_buynhold_df.reset_index().melt('date')
+    melt_benchmark_buynhold_df.rename(columns={melt_benchmark_buynhold_df.columns[1]: 'model',
+                                            melt_benchmark_buynhold_df.columns[2]: 'fs'}, inplace=True)
+
+    metrics_df = []
+    positions_df = []
+    for model in forecast_model:
+        _, _, all_ret, positons_fs_model_df = plot_ret_from_predictions(predictions_df=predictions_df,
+                                                                        forecast_model=model,
+                                                                        benchmark_name=benchmark_name,
+                                                                        benchmark_alias=benchmark_alias,
+                                                                        plot_title=plot_title + ' ' + model)
+        all_ret['model'] = model
+        all_ret = all_ret.drop(benchmark_alias, axis=1).reset_index().melt(['date', 'model'])
+        positions_df.append(positons_fs_model_df.reset_index().melt('date'))
+        metrics_df.append(all_ret)
+
+
+    positions_df = pd.concat(positions_df, axis=0)
+    pivot_positions_df = positions_df.pivot_table(index=['date'], columns=['model', 'fs'], values=['value'])
+    metrics_ex_ret_df = pd.concat(metrics_df, axis=0)
+    metrics_df = pd.concat([metrics_ex_ret_df, melt_benchmark_buynhold_df], axis=0)
+    pivot_metrics_df = metrics_df.pivot_table(index=['date'], columns=['model', 'fs'], values=['value'])
+    pivot_metrics_df.columns = pivot_metrics_df.columns.droplevel()
+    
+    return pivot_metrics_df
+ 
+ 
+def aggregate_prediction_results(prediction_models,
+                                 fs_models,
+                                 evaluation_start_date,
+                                 ticker_name):
+    predictions = []
+    r2s = []
+
+    for model in prediction_models:
+        for fs in fs_models:
+            assets = glob('results/forecast/' + fs + '/indices/' + model + '/' + ticker_name + '.csv')
+            for asset_path in assets:
+                df = pd.read_csv(asset_path)
+                df.set_index('date', inplace=True)
+                df = df.loc[evaluation_start_date:]
+                df = df.reset_index()
+
+                r2_eval_df = df.copy()
+                r2 = new_r2(r2_eval_df['return'].values, r2_eval_df['prediction'].values)
+                r2_df = pd.DataFrame([{'model': model,
+                                    'fs': fs,
+                                    'r2': r2}])
+                r2s.append(r2_df)
+
+                melt_df = df.melt('date')
+                melt_df['model'] = model
+                melt_df['fs'] = fs
+                predictions.append(melt_df)
+
+    predictions_df = pd.concat(predictions, axis=0)
+    r2_df = pd.concat(r2s, axis=0)
+    
+    return predictions_df, r2_df
 
 
 def get_features_IAMB_MMMB(ticker_name,
