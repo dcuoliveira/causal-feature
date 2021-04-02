@@ -7,12 +7,15 @@ from sklearn.model_selection import TimeSeriesSplit
 from sklearn.metrics import make_scorer
 from sklearn.model_selection import RandomizedSearchCV
 from sklearn.preprocessing import StandardScaler
-from data_mani.visu import *
 
 try:
     from data_mani.utils import merge_market_and_gtrends
+    from data_mani.visu import *
+
 except ModuleNotFoundError:
     from src.data_mani.utils import merge_market_and_gtrends
+    from src.data_mani.visu import *
+
     
  
 def sharpe_ratio_tb(returns_df,
