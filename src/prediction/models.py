@@ -36,7 +36,7 @@ class RidgeWrapper():
     def __init__(self, model_params={'fit_intercept': True}):
         self.model_name = "ridge"
         self.search_type = 'random'
-        self.param_grid = {'alpha': np.linspace(0, 1, 100)}
+        self.param_grid = {'alpha': np.linspace(0, 50, 100)}
         if model_params is None:
             self.ModelClass = Ridge()
         else:
