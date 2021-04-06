@@ -18,10 +18,26 @@ except ModuleNotFoundError:
 
 
 def aggregate_prediction_results(prediction_models,
-                                fs_models,
-                                evaluation_start_date,
-                                ticker_names,
-                                benchmark_name='return'):
+                                 fs_models,
+                                 evaluation_start_date,
+                                 ticker_names,
+                                 benchmark_name='return'):
+    """
+    aggreagate prediction results of the specified models
+    and feature selection methods.
+
+    :param prediction_models: list of predcition model names (must match with results dir)
+    :type prediction_models: list of strs
+    :param fs_models: list of fs model names (must match with results dir)
+    :type fs_models: list of strs
+    :param evaluation_start_date: date to start to start computing oos results
+    :type evaluation_start_date: str (yyyy-mm-dd)
+    :param ticker_names: list of predcition model names (must match with data dir) 
+    :type ticker_names: list of strs
+    :param benchmark_name: name of the benchmark in the files of the data and results directory
+    :type benchmark_name: str
+    """
+    
     predictions = []
     r2s = []
     for fs in fs_models:
@@ -58,52 +74,51 @@ def aggregate_prediction_results(prediction_models,
     return predictions_df, benchmark_df, r2_df
 
 
-def plot_cum_ret(pred_ret_df,
-                 benchmark_df,
-                 level_to_subset,
-                 show=True):
-
-    ret_df = pd.concat([pred_ret_df, benchmark_df], axis=0)
-
-    cum_ret = []
-    for ticker in ret_df['ticker'].unique():
-        for level in ret_df[level_to_subset].unique():
-            if level == ticker:
-                continue
-            loop_df = ret_df.loc[(ret_df['ticker'] == ticker)&((ret_df[level_to_subset] == level)|(ret_df[level_to_subset] == ticker)|(ret_df['variable'] == 'return'))]
-            pivot_level_to_add = list(loop_df.columns.drop(['date', 'ticker', 'value', 'variable'] + [level_to_subset]))
-            pivot_all_ret_df = loop_df.pivot_table(index=['date'], columns=['ticker', 'variable'] + pivot_level_to_add, values=['value'])
-            pivot_all_ret_df.columns = pivot_all_ret_df.columns.droplevel()
-
-            cum_all_ret = (1 + pivot_all_ret_df).cumprod()
-            cum_ret.append(cum_all_ret)
-            if show:
-                cum_all_ret.plot(figsize=(15, 10), title=level_to_subset + ' = ' + level.upper())
-    cum_ret_df = pd.concat(cum_ret, axis=1)
-    return cum_ret_df
-
-
 def sharpe_ratio_tb(returns_df,
+                    level_to_subset,
                     rf=.0):
-    
-    mean = returns_df.pivot_table(index=['date'], columns=['ticker', 'variable', 'model', 'fs'], values=['value']).mean()
-    std = returns_df.pivot_table(index=['date'], columns=['ticker', 'variable', 'model', 'fs'], values=['value']).std()
+    """
+    generate sharpe ratio table for each "level to subset"
+
+    :param returns_df: melted dataframe containing the returns of a strategy based on
+    of each fs method and pred. model
+    :type returns_df: dataframe
+    :param level_to_subset: name of the columns to fix so as to generate the table (i.e. fs or model)
+    :type level_to_subset: str
+    """
+    mean = returns_df.pivot_table(index=['date'], columns=['ticker', 'variable', 'model'] +  [level_to_subset], values=['value']).mean()
+    std = returns_df.pivot_table(index=['date'], columns=['ticker', 'variable', 'model'] +  [level_to_subset], values=['value']).std()
 
     sr_df = pd.DataFrame((mean - .0) / std * np.sqrt(252))
     sr_df.index = sr_df.index.droplevel()
     sr_df.rename(columns={0: 'sharpe ratio'}, inplace=True)
     rank_df = sr_df.sort_values('sharpe ratio', ascending=False)
 
-    pivot_tb = rank_df.reset_index().pivot_table(index=['ticker', 'fs'], columns=['model'], values=['sharpe ratio'])
+    pivot_tb = rank_df.reset_index().pivot_table(index=['ticker'] +  [level_to_subset], columns=['model'], values=['sharpe ratio'])
     
-    agg_pivot_tb = pd.concat([pivot_tb.sum(axis=1), pivot_tb.mean(axis=1)], axis=1)
-    agg_pivot_tb = pd.concat([agg_pivot_tb, pivot_tb.mean(axis=1) / pivot_tb.std(axis=1)], axis=1)
-    agg_pivot_tb.columns = ['sum', 'mean', 'mean_std_adj']
+    agg_pivot_tb = pd.concat([pivot_tb.sum(axis=1), pivot_tb.median(axis=1)], axis=1)
+    agg_pivot_tb = pd.concat([agg_pivot_tb, pivot_tb.median(axis=1) / pivot_tb.std(axis=1)], axis=1)
+    agg_pivot_tb.columns = ['sum', 'median', 'median_std_adj']
 
     return rank_df, pivot_tb.fillna(0).style.apply(highlight_max), agg_pivot_tb.style.apply(highlight_max)
 
 
-def max_drawdown_tb(pivot_ret_all_df):
+def max_drawdown_tb(pivot_ret_all_df,
+                    level_to_subset):
+    """
+    generate max drawdown table for each "level to subset"
+
+    :param pivot_ret_all_df: pivot dataframe containing in each columns the return of each of
+    the fs x (pred. model) combinations
+    :type pivot_ret_all_df: dataframe
+    :param level_to_subset: name of the columns to fix so as to generate the table (i.e. fs or model)
+    :type level_to_subset: str
+    """
+    if level_to_subset == 'fs':
+        other_level = 'model'
+    else:
+        other_level = 'fs'
+    
     cum_prod_df = (1 + pivot_ret_all_df).cumprod()
     previous_peaks_df =  cum_prod_df.cummax()
     drawdown_df = (cum_prod_df - previous_peaks_df)/previous_peaks_df
@@ -114,54 +129,67 @@ def max_drawdown_tb(pivot_ret_all_df):
 
 
     tb_df = rank_df.reset_index()
-    tb_df = tb_df.pivot_table(index=['ticker', 'fs'], columns=['model'], values=['max drawdown']).fillna(0)
+    tb_df = tb_df.pivot_table(index=['ticker'] +  [other_level], columns=[other_level], values=['max drawdown']).fillna(0)
 
-    agg_pivot_tb = pd.concat([tb_df.sum(axis=1), tb_df.mean(axis=1)], axis=1)
-    agg_pivot_tb = pd.concat([agg_pivot_tb, tb_df.mean(axis=1) / tb_df.std(axis=1)], axis=1)
-    agg_pivot_tb.columns = ['sum', 'mean', 'mean_std_adj']
+    agg_pivot_tb = pd.concat([tb_df.sum(axis=1), tb_df.median(axis=1)], axis=1)
+    agg_pivot_tb = pd.concat([agg_pivot_tb, tb_df.median(axis=1) / tb_df.std(axis=1)], axis=1)
+    agg_pivot_tb.columns = ['sum', 'median', 'median_std_adj']
 
     return rank_df, tb_df.style.apply(highlight_max), agg_pivot_tb.style.apply(highlight_max)
 
 
 def gen_strat_positions_and_ret_from_pred(predictions_df,
                                           target_asset_returns):
+    """
+    generate strategy positions (simple or ranking) from each of the
+    fs x (pred model) predictions.
+
+    :param predictions_df: melted dataframe containing the predictions of each fs method and pred. model
+    :type predictions_df: dataframe
+    :param target_asset_returns: melted dataframe containing daily returns of the benchmark indices
+    :type target_asset_returns: dataframe
+    """
 
     if 'strat_type' not in predictions_df.columns:
         predictions_df['strat_type'] = 'simple'
     
-    pred_positions = []
-    pred_returns = []
-    for strat in predictions_df['strat_type'].unique():
-        strat_df = predictions_df.loc[predictions_df['strat_type'] == strat].drop('strat_type', axis=1)
-        if strat == 'simple':
-            for ticker in strat_df['ticker'].unique():
-                ticker_strat_df = strat_df.loc[strat_df['ticker'] == ticker]
-                ticker_strat_pivot_df = ticker_strat_df.pivot_table(index=['date'], columns=['variable', 'ticker', 'model', 'fs'], values=['value'])
-                names = ticker_strat_pivot_df.columns.droplevel().droplevel()
+    
+    for ticker in predictions_df['ticker'].unique():
+        pred_positions = []
+        pred_returns = []
+        for strat in predictions_df['strat_type'].unique():
+            strat_df = predictions_df.loc[predictions_df['strat_type'] == strat].drop('strat_type', axis=1)
+            if strat == 'simple':
+                for ticker in strat_df['ticker'].unique():
+                    ticker_strat_df = strat_df.loc[strat_df['ticker'] == ticker]
+                    ticker_strat_pivot_df = ticker_strat_df.pivot_table(index=['date'], columns=['variable', 'ticker', 'model', 'fs'], values=['value'])
+                    names = ticker_strat_pivot_df.columns.droplevel().droplevel()
 
-                # Benchmark
-                benchmark_df = target_asset_returns.loc[target_asset_returns['ticker'] == 'SPX Index']
-                pivot_benchmark_df = benchmark_df.pivot_table(index=['date'], columns=['variable', 'ticker', 'model', 'fs'], values=['value'])
+                    # Benchmark
+                    benchmark_df = target_asset_returns.loc[target_asset_returns['ticker'] == ticker]
+                    pivot_benchmark_df = benchmark_df.pivot_table(index=['date'], columns=['variable', 'ticker', 'model', 'fs'], values=['value'])
 
-                # Positions
-                positions_df = pd.DataFrame(np.where(ticker_strat_pivot_df > 0, 1, -1))
-                positions_df.columns = names
-                positions_df.index = ticker_strat_pivot_df.index
-                melt_positions_df = positions_df.reset_index().melt('date')
-                melt_positions_df['variable'] = 'prediction'
-                pred_positions.append(melt_positions_df)
-                
-                # Strategy 
-                pred_ret_df = pd.DataFrame(positions_df.values * pivot_benchmark_df.values)
-                pred_ret_df.columns = names
-                pred_ret_df.index = ticker_strat_pivot_df.index
-                melt_pred_df = pred_ret_df.reset_index().melt('date')
-                melt_pred_df['variable'] = 'prediction'
-                pred_returns.append(melt_pred_df)
-            pred_ret_df = pd.concat(pred_returns, axis=0)
-            pred_pos_df = pd.concat(pred_positions)
-        elif strat == 'rank':
-            pass
+                    # Positions
+                    positions_df = pd.DataFrame(np.where(ticker_strat_pivot_df > 0, 1, -1))
+                    positions_df.columns = names
+                    positions_df.index = ticker_strat_pivot_df.index
+                    melt_positions_df = positions_df.reset_index().melt('date')
+                    melt_positions_df['variable'] = 'prediction'
+                    melt_positions_df['ticker'] = ticker
+                    pred_positions.append(melt_positions_df)
+                    
+                    # Strategy 
+                    pred_ret_df = pd.DataFrame(positions_df.values * pivot_benchmark_df.values)
+                    pred_ret_df.columns = names
+                    pred_ret_df.index = ticker_strat_pivot_df.index
+                    melt_pred_df = pred_ret_df.reset_index().melt('date')
+                    melt_pred_df['variable'] = 'prediction'
+                    melt_pred_df['ticker'] = ticker
+                    pred_returns.append(melt_pred_df)
+                pred_ret_df = pd.concat(pred_returns, axis=0)
+                pred_pos_df = pd.concat(pred_positions)
+            elif strat == 'rank':
+                pass
 
     return pred_ret_df, pred_pos_df
 
