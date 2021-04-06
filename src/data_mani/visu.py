@@ -18,58 +18,70 @@ def plot_df_to_table(df,
                      columns,
                      values,
                      apply_factor_to_table=100):
+    """
+    plot tables from dataframe
+
+    :param df: melted dataframe
+    :type df: dataframe
+    :param target_asset_returns: name of the columns to use as pivot index
+    :type target_asset_returns: list
+    :param target_asset_returns: name of the columns to use as pivot table columns
+    :type target_asset_returns: list
+    :param target_asset_returns: name of the column to use as pivot table values
+    :type target_asset_returns: list
+    :param target_asset_returns: factor to multiply in the table
+    :type target_asset_returns: int
+    """
     
     tb_df = df.pivot_table(index=index, columns=columns, values=values) * apply_factor_to_table
     tb_df.columns = tb_df.columns.droplevel()
     tb_df.index.name = None
     
-    agg_fs_tb_df = pd.concat([tb_df.sum(axis=1), tb_df.mean(axis=1)], axis=1)
-    agg_fs_tb_df = pd.concat([agg_fs_tb_df, tb_df.mean(axis=1) / tb_df.std(axis=1)], axis=1)
-    agg_fs_tb_df.columns = ['sum', 'mean', 'mean_std_adj']
+    agg_fs_tb_df = pd.concat([tb_df.sum(axis=1), tb_df.median(axis=1)], axis=1)
+    agg_fs_tb_df = pd.concat([agg_fs_tb_df, tb_df.median(axis=1) / tb_df.std(axis=1)], axis=1)
+    agg_fs_tb_df.columns = ['sum', 'median', 'median_std_adj']
     
-    agg_fore_tb_df = pd.concat([tb_df.sum(axis=0), tb_df.mean(axis=0)], axis=1)
-    agg_fore_tb_df = pd.concat([agg_fore_tb_df, tb_df.mean(axis=0) / tb_df.std(axis=0)], axis=1)
-    agg_fore_tb_df.columns = ['sum', 'mean', 'mean_std_adj']
+    agg_fore_tb_df = pd.concat([tb_df.sum(axis=0), tb_df.median(axis=0)], axis=1)
+    agg_fore_tb_df = pd.concat([agg_fore_tb_df, tb_df.median(axis=0) / tb_df.std(axis=0)], axis=1)
+    agg_fore_tb_df.columns = ['sum', 'median', 'median_std_adj']
     
-    return tb_df.style.apply(highlight_max), agg_fs_tb_df.style.apply(highlight_max), agg_fore_tb_df.style.apply(highlight_max)
+    return tb_df.round(2).style.apply(highlight_max), agg_fs_tb_df.round(2).style.apply(highlight_max), agg_fore_tb_df.round(2).style.apply(highlight_max)
 
 
-def plot_ret_from_predictions(predictions_df,
-                              forecast_model,
-                              benchmark_name,
-                              benchmark_alias,
-                              plot_title='Cummulative Returns for each Feature Selection Method given a Prediction Model'):
+def plot_cum_ret(pred_ret_df,
+                 benchmark_df,
+                 level_to_subset,
+                 show=True):
+    """
+    plot tables from dataframe
 
-    # Benchmark
-    benchmark_buynhold_df = predictions_df.loc[(predictions_df['model'] == forecast_model)&
-                                               (predictions_df['variable'] == benchmark_name)&
-                                               (predictions_df['fs'] == 'all')]
-    benchmark_buynhold_df = benchmark_buynhold_df.pivot_table(index=['date'], columns=['variable'], values=['value'])
-    fs_model_pred_df = predictions_df.loc[(predictions_df['model'] == forecast_model)&
-                                          (predictions_df['variable'] != benchmark_name)]
-    fs_model_pred_df = fs_model_pred_df.pivot_table(index=['date'], columns=['model', 'fs'], values=['value'])
-    names = fs_model_pred_df.columns.droplevel()
-    
-    # Positions
-    positions_df = pd.DataFrame(np.where(fs_model_pred_df > 0, 1, -1))
-    positions_df.columns = names
-    positions_df.index = benchmark_buynhold_df.index
-    
-    # Strategy 
-    fs_model_ret_df = pd.DataFrame(positions_df.values * benchmark_buynhold_df.values)
-    fs_model_ret_df.columns = names
-    fs_model_ret_df.index = benchmark_buynhold_df.index
+    :param df: melted dataframe containing the predictions of each fs method and pred. model
+    :type df: dataframe
+    :param target_asset_returns: melted dataframe containing the benchmark returns of each ticker
+    :type target_asset_returns: daframe
+    :param target_asset_returns: level to fix in the plot (i.e. plot by fs, plot by pred. model)
+    :type target_asset_returns: str
+    :param target_asset_returns: show or not show plot
+    :type target_asset_returns: boolean
+    """
+    ret_df = pd.concat([pred_ret_df, benchmark_df], axis=0)
 
-    # Concat benchmark + strategy
-    all_ret = pd.concat([fs_model_ret_df, benchmark_buynhold_df], axis=1)
-    all_ret.columns = all_ret.columns.droplevel()
-    all_ret.rename(columns={benchmark_name: benchmark_alias}, inplace=True)
-    
-    cum_ret = (1 + all_ret).cumprod()
-    cum_ret_fig = cum_ret.plot(figsize=(15, 10),
-                               title=plot_title)
-    
-    return cum_ret_fig, cum_ret, all_ret, positions_df
+    cum_ret = []
+    for ticker in ret_df['ticker'].unique():
+        for level in ret_df[level_to_subset].unique():
+            if level == ticker:
+                continue
+            loop_df = ret_df.loc[(ret_df['ticker'] == ticker)&((ret_df[level_to_subset] == level)|(ret_df[level_to_subset] == ticker)|(ret_df['variable'] == 'return'))]
+            pivot_level_to_add = list(loop_df.columns.drop(['date', 'ticker', 'value', 'variable'] + [level_to_subset]))
+            pivot_all_ret_df = loop_df.pivot_table(index=['date'], columns=['ticker', 'variable'] + pivot_level_to_add, values=['value'])
+            pivot_all_ret_df.columns = pivot_all_ret_df.columns.droplevel()
+
+            cum_all_ret = (1 + pivot_all_ret_df).cumprod()
+            cum_ret.append(cum_all_ret)
+            if show:
+                cum_all_ret.plot(figsize=(15, 10), title=level_to_subset + ' = ' + level.upper())
+    cum_ret_df = pd.concat(cum_ret, axis=1)
+    return cum_ret_df
 
 
 def fs_results_aggregation(fs_paths, n):
