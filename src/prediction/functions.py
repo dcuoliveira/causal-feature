@@ -86,15 +86,19 @@ def sharpe_ratio_tb(returns_df,
     :param level_to_subset: name of the columns to fix so as to generate the table (i.e. fs or model)
     :type level_to_subset: str
     """
-    mean = returns_df.pivot_table(index=['date'], columns=['ticker', 'variable', 'model'] +  [level_to_subset], values=['value']).mean()
-    std = returns_df.pivot_table(index=['date'], columns=['ticker', 'variable', 'model'] +  [level_to_subset], values=['value']).std()
+    if level_to_subset == 'fs':
+        other_level = 'model'
+    else:
+        other_level = 'fs'
+    mean = returns_df.pivot_table(index=['date'], columns=['ticker', 'variable'] + [other_level] +  [level_to_subset], values=['value']).mean()
+    std = returns_df.pivot_table(index=['date'], columns=['ticker', 'variable'] + [other_level]+  [level_to_subset], values=['value']).std()
 
     sr_df = pd.DataFrame((mean - .0) / std * np.sqrt(252))
     sr_df.index = sr_df.index.droplevel()
     sr_df.rename(columns={0: 'sharpe ratio'}, inplace=True)
     rank_df = sr_df.sort_values('sharpe ratio', ascending=False)
 
-    pivot_tb = rank_df.reset_index().pivot_table(index=['ticker'] +  [level_to_subset], columns=['model'], values=['sharpe ratio'])
+    pivot_tb = rank_df.reset_index().pivot_table(index=['ticker'] +  [level_to_subset], columns=[other_level], values=['sharpe ratio'])
     
     agg_pivot_tb = pd.concat([pivot_tb.sum(axis=1), pivot_tb.median(axis=1)], axis=1)
     agg_pivot_tb = pd.concat([agg_pivot_tb, pivot_tb.median(axis=1) / pivot_tb.std(axis=1)], axis=1)
@@ -129,7 +133,7 @@ def max_drawdown_tb(pivot_ret_all_df,
 
 
     tb_df = rank_df.reset_index()
-    tb_df = tb_df.pivot_table(index=['ticker'] +  [other_level], columns=[other_level], values=['max drawdown']).fillna(0)
+    tb_df = tb_df.pivot_table(index=['ticker'] +  [level_to_subset], columns=[other_level], values=['max drawdown']).fillna(0)
 
     agg_pivot_tb = pd.concat([tb_df.sum(axis=1), tb_df.median(axis=1)], axis=1)
     agg_pivot_tb = pd.concat([agg_pivot_tb, tb_df.median(axis=1) / tb_df.std(axis=1)], axis=1)
