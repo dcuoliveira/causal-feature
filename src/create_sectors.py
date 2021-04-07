@@ -30,11 +30,9 @@ if __name__ == '__main__':
     assert len(sectors) == len(merge_melt_df['sectors'].unique())
     
     for sector in tqdm(merge_melt_df['sectors'].unique(), desc='agg by sectors and save data'):
-        sector = merge_melt_df['sectors'].unique()[0]
         complete = merge_melt_df.loc[merge_melt_df['sectors'] == sector].drop('sectors', 1).pivot_table(index=['date'], columns=['ticker'])
         new_name = sector.replace(", ", " ").replace("-", " ")
         sector_df = complete.mean(1).to_frame().rename(columns={0: new_name})
-        sector_df = sector_df
         out_path = "data/indices/SPX {}.csv".format(new_name) 
         sector_df.to_csv(out_path)
         # creating the same format as the other csv's
