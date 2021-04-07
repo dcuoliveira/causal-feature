@@ -7,34 +7,41 @@ from glob import glob
 
 
 if __name__ == '__main__':
-    path = "data/tickers/spx_group_sector.csv"
-    df = pd.read_csv(path)
-    df = df.loc[df.field == "INDUSTRY_SECTOR"].reset_index(drop=True)
-    df.loc[:, "ticker"] = df.ticker.map(lambda x: x.replace("/", " "))
-    sectors = df.value.unique().tolist()
-    df_ord = df.set_index("value")
+   path = "data/tickers/spx_group_sector.csv"
+    dicionario_df = pd.read_csv(path)
+    dicionario_df = dicionario_df.loc[dicionario_df.field == "INDUSTRY_SECTOR"].reset_index(drop=True)
+    dicionario_df.loc[:, "ticker"] = dicionario_df.ticker.map(lambda x: x.replace("/", " "))
+    sectors = dicionario_df.value.unique().tolist()
+    dicionario_df.rename(columns={'value': 'sectors'}, inplace=True)
+    
+    spx_adj_ticker = glob('data/tickers/spx_adj/*.csv')
 
-    for sector in tqdm(sectors, desc='sector'):
-        base_list = df_ord.xs(sector).ticker.values.tolist()
-        path_list = ['data/tickers/spx/{}.csv'.format(n) for n in base_list]
-        dfs = []
-        for p in tqdm(path_list, desc='ticker'):
-            try:
-                df_m = get_market_df(p).set_index("date").dropna()
-                dfs.append(df_m)
-            except ValueError:
-                pass
-        complete = pd.concat(dfs,1)
+    melt_out = []
+    for ticker in tqdm(spx_adj_ticker, desc='Build melted dataframe with stocks'):
+        df = pd.read_csv(ticker)
+        melt_df = df.melt('date')
+        melt_out.append(melt_df)
+    melt_df = pd.concat(melt_out, axis=0)
+    melt_df.rename(columns={'variable': 'ticker'}, inplace=True)
+    merge_melt_df = pd.merge(melt_df, dicionario_df, on='ticker', how='left')
+    merge_melt_df = merge_melt_df[['date', 'ticker', 'value', 'sectors']]
+    
+    assert  merge_melt_df.shape[0] == melt_df.shape[0]
+    assert len(sectors) == len(merge_melt_df['sectors'].unique())
+    
+    for sector in tqdm(merge_melt_df['sectors'].unique(), desc='agg by sectors and save data'):
+        sector = merge_melt_df['sectors'].unique()[0]
+        complete = merge_melt_df.loc[merge_melt_df['sectors'] == sector].drop('sectors', 1).pivot_table(index=['date'], columns=['ticker'])
         new_name = sector.replace(", ", " ").replace("-", " ")
         sector_df = complete.mean(1).to_frame().rename(columns={0: new_name})
-        sector_df = sector_df * 100
+        sector_df = sector_df
         out_path = "data/indices/SPX {}.csv".format(new_name) 
         sector_df.to_csv(out_path)
         # creating the same format as the other csv's
         file_in = open(out_path, "r")
         prefix = ["ticker,SPX {}\n".format(new_name),
-                  "field,DAY_TO_DAY_TOT_RETURN_GROSS_DVDS\n",
-                  "date,\n"] 
+                "field,DAY_TO_DAY_TOT_RETURN_GROSS_DVDS\n",
+                "date,\n"] 
         lines = prefix + file_in.readlines()[1:]
         file_out = open(out_path,"w") 
         file_out.writelines(lines) 
