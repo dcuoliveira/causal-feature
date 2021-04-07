@@ -1,1104 +1,1104 @@
-ticker,field,value,exchange
-0111145D UN Equity,INDUSTRY_SECTOR,Utilities,UN
-0202445Q UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-0203524D UN Equity,INDUSTRY_SECTOR,Technology,UN
-0226226D UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-0544749D UN Equity,INDUSTRY_SECTOR,Energy,UN
-0574018D UN Equity,INDUSTRY_SECTOR,Financial,UN
-0772031D UN Equity,INDUSTRY_SECTOR,Communications,UN
-0848680D UN Equity,INDUSTRY_SECTOR,Communications,UN
-0867887D UN Equity,INDUSTRY_SECTOR,Communications,UN
-0867887D US Equity,INDUSTRY_SECTOR,Communications,US
-0910150D US Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",US
-0948669D UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-0961514D UN Equity,INDUSTRY_SECTOR,Utilities,UN
-0964591D UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UQ
-0964591D UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-1028411Q UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-1086832D UN Equity,INDUSTRY_SECTOR,Energy,UN
-1255173D UN Equity,INDUSTRY_SECTOR,Financial,UN
-1255459D UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-1280712D UQ Equity,INDUSTRY_SECTOR,Technology,UQ
-1280712D UW Equity,INDUSTRY_SECTOR,Technology,UW
-1281683D UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-1284849D UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-1288453D UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-1288652D US Equity,INDUSTRY_SECTOR,Financial,US
-1293405D UN Equity,INDUSTRY_SECTOR,Communications,UN
-1312089D UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-1317355D UN Equity,INDUSTRY_SECTOR,Technology,UN
-1431816D UN Equity,INDUSTRY_SECTOR,Technology,UN
-1431816D UW Equity,INDUSTRY_SECTOR,Technology,UW
-1436513D UN Equity,INDUSTRY_SECTOR,Industrial,UN
-1437355D US Equity,INDUSTRY_SECTOR,Technology,US
-1448062D UN Equity,INDUSTRY_SECTOR,Communications,UN
-1448062D UQ Equity,INDUSTRY_SECTOR,Communications,UQ
-1448062D UW Equity,INDUSTRY_SECTOR,Communications,UW
-1500785D UN Equity,INDUSTRY_SECTOR,Utilities,UN
-1518855D US Equity,INDUSTRY_SECTOR,Communications,US
-1519128D UA Equity,INDUSTRY_SECTOR,Technology,UA
-1519128D UQ Equity,INDUSTRY_SECTOR,Technology,UQ
-1519128D UW Equity,INDUSTRY_SECTOR,Technology,UW
-1520415D UN Equity,INDUSTRY_SECTOR,Financial,UN
-1524867D UN Equity,INDUSTRY_SECTOR,Energy,UN
-1528159D UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-1539941D UN Equity,INDUSTRY_SECTOR,Energy,UN
-1541931D UA Equity,INDUSTRY_SECTOR,Technology,UA
-1541931D UQ Equity,INDUSTRY_SECTOR,Technology,UQ
-1541931D UW Equity,INDUSTRY_SECTOR,Technology,UW
-1566019D UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-1649858D UN Equity,INDUSTRY_SECTOR,Financial,UN
-1649858D UQ Equity,INDUSTRY_SECTOR,Financial,UQ
-1649858D UW Equity,INDUSTRY_SECTOR,Financial,UW
-1654539D UN Equity,INDUSTRY_SECTOR,Communications,UN
-1683351D UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UQ
-1683997D UQ Equity,INDUSTRY_SECTOR,Technology,UQ
-1683997D UW Equity,INDUSTRY_SECTOR,Technology,UW
-1684442D UN Equity,INDUSTRY_SECTOR,Industrial,UN
-1697067D UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-1699947D US Equity,INDUSTRY_SECTOR,Industrial,US
-1704453D UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-1715651D UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-1719868D UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-1746513D UQ Equity,INDUSTRY_SECTOR,Communications,UQ
-1746513D UW Equity,INDUSTRY_SECTOR,Communications,UW
-1752754D UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-1799685D UN Equity,INDUSTRY_SECTOR,Energy,UN
-1806854D UN Equity,INDUSTRY_SECTOR,Technology,UN
-1810430D UN Equity,INDUSTRY_SECTOR,Energy,UN
-1812212D UW Equity,INDUSTRY_SECTOR,Communications,UW
-1822785D UN Equity,INDUSTRY_SECTOR,Financial,UN
-1825471D UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-1831877D UN Equity,INDUSTRY_SECTOR,Financial,UN
-1831877D US Equity,INDUSTRY_SECTOR,Financial,US
-1837572D UN Equity,INDUSTRY_SECTOR,Communications,UN
-1844053D US Equity,INDUSTRY_SECTOR,Financial,US
-1856613D UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-1858968D UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-2307532Q UQ Equity,INDUSTRY_SECTOR,Industrial,UQ
-2307532Q UW Equity,INDUSTRY_SECTOR,Industrial,UW
-2641504Q UN Equity,INDUSTRY_SECTOR,Industrial,UN
-2676187Q UQ Equity,INDUSTRY_SECTOR,Financial,UQ
-2727195Q UN Equity,INDUSTRY_SECTOR,Financial,UN
-2942331Q UN Equity,INDUSTRY_SECTOR,Financial,UN
-2968900Q UN Equity,INDUSTRY_SECTOR,Communications,UN
-297504Q UN Equity,INDUSTRY_SECTOR,Industrial,UN
-2987536Q UN Equity,INDUSTRY_SECTOR,Industrial,UN
-2999130Q UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-3022239Q UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-3026360Q UN Equity,INDUSTRY_SECTOR,Communications,UN
-3029830Q UQ Equity,INDUSTRY_SECTOR,Technology,UQ
-3080867Q UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-3133754Q UN Equity,INDUSTRY_SECTOR,Financial,UN
-3153670Q UQ Equity,INDUSTRY_SECTOR,Technology,UQ
-3286728Q UN Equity,INDUSTRY_SECTOR,Industrial,UN
-3362726Q UN Equity,INDUSTRY_SECTOR,Financial,UN
-3393199Q UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-3403545Q UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-3414924Q US Equity,INDUSTRY_SECTOR,Communications,US
-3423152Q UN Equity,INDUSTRY_SECTOR,Technology,UN
-3517233Q UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-355488Q UN Equity,INDUSTRY_SECTOR,Financial,UN
-3605818Q UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-3621240Q UN Equity,INDUSTRY_SECTOR,Financial,UN
-3692470Q UN Equity,INDUSTRY_SECTOR,Communications,UN
-4621824Q UN Equity,INDUSTRY_SECTOR,Energy,UN
-502466Q US Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",US
-519239Q UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-519239Q UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UQ
-5656565D UN Equity,INDUSTRY_SECTOR,Industrial,UN
-605018Q UN Equity,INDUSTRY_SECTOR,Financial,UN
-605555Q UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-653707Q UN Equity,INDUSTRY_SECTOR,Communications,UN
-723588Q UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-748957Q UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-764144Q UN Equity,INDUSTRY_SECTOR,Technology,UN
-8206908Q UQ Equity,INDUSTRY_SECTOR,Financial,UQ
-8206908Q UW Equity,INDUSTRY_SECTOR,Financial,UW
-8277831Q UN Equity,INDUSTRY_SECTOR,Technology,UN
-8394653Q UN Equity,INDUSTRY_SECTOR,Financial,UN
-929530Q UN Equity,INDUSTRY_SECTOR,Energy,UN
-945852Q UN Equity,INDUSTRY_SECTOR,Communications,UN
-987200Q UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-9876544D UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-9876549D UN Equity,INDUSTRY_SECTOR,Communications,UN
-9876566D UN Equity,INDUSTRY_SECTOR,Financial,UN
-9995522D UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-A UN Equity,INDUSTRY_SECTOR,Industrial,UN
-AA UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-AAL UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW
-AAMRQ UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-AAP UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-AAPL UQ Equity,INDUSTRY_SECTOR,Technology,UQ
-AAPL UW Equity,INDUSTRY_SECTOR,Technology,UW
-ABBV UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-ABC UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-ABKFQ UN Equity,INDUSTRY_SECTOR,Financial,UN
-ABMD UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-ABT UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-ACAS UW Equity,INDUSTRY_SECTOR,Financial,UW
-ACN UN Equity,INDUSTRY_SECTOR,Technology,UN
-ADBE UQ Equity,INDUSTRY_SECTOR,Technology,UQ
-ADBE UW Equity,INDUSTRY_SECTOR,Technology,UW
-ADI UN Equity,INDUSTRY_SECTOR,Technology,UN
-ADI UW Equity,INDUSTRY_SECTOR,Technology,UW
-ADM UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-ADNT UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-ADP UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-ADP UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-ADS UN Equity,INDUSTRY_SECTOR,Financial,UN
-ADSK UQ Equity,INDUSTRY_SECTOR,Technology,UQ
-ADSK UW Equity,INDUSTRY_SECTOR,Technology,UW
-AEE UN Equity,INDUSTRY_SECTOR,Utilities,UN
-AEP UN Equity,INDUSTRY_SECTOR,Utilities,UN
-AEP UW Equity,INDUSTRY_SECTOR,Utilities,UW
-AES UN Equity,INDUSTRY_SECTOR,Utilities,UN
-AET UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-AFL UN Equity,INDUSTRY_SECTOR,Financial,UN
-AGN UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-AIG UN Equity,INDUSTRY_SECTOR,Financial,UN
-AIRC UN Equity,INDUSTRY_SECTOR,Financial,UN
-AIV UN Equity,INDUSTRY_SECTOR,Financial,UN
-AIZ UN Equity,INDUSTRY_SECTOR,Financial,UN
-AJG UN Equity,INDUSTRY_SECTOR,Financial,UN
-AKAM UW Equity,INDUSTRY_SECTOR,Technology,UW
-AKS UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-ALB UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-ALGN UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-ALK UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-ALL UN Equity,INDUSTRY_SECTOR,Financial,UN
-ALLE UN Equity,INDUSTRY_SECTOR,Industrial,UN
-ALXN UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-AMAT UQ Equity,INDUSTRY_SECTOR,Technology,UQ
-AMAT UW Equity,INDUSTRY_SECTOR,Technology,UW
-AMCC UQ Equity,INDUSTRY_SECTOR,Technology,UQ
-AMCR UN Equity,INDUSTRY_SECTOR,Industrial,UN
-AMD UN Equity,INDUSTRY_SECTOR,Technology,UN
-AMD UR Equity,INDUSTRY_SECTOR,Technology,UR
-AMD UW Equity,INDUSTRY_SECTOR,Technology,UW
-AME UN Equity,INDUSTRY_SECTOR,Industrial,UN
-AMG UN Equity,INDUSTRY_SECTOR,Financial,UN
-AMGN UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UQ
-AMGN UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-AMP UN Equity,INDUSTRY_SECTOR,Financial,UN
-AMT UN Equity,INDUSTRY_SECTOR,Financial,UN
-AMZN UQ Equity,INDUSTRY_SECTOR,Communications,UQ
-AMZN UW Equity,INDUSTRY_SECTOR,Communications,UW
-AN UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-ANDV UN Equity,INDUSTRY_SECTOR,Energy,UN
-ANDV US Equity,INDUSTRY_SECTOR,Energy,US
-ANDW UQ Equity,INDUSTRY_SECTOR,Communications,UQ
-ANDW UW Equity,INDUSTRY_SECTOR,Communications,UW
-ANET UN Equity,INDUSTRY_SECTOR,Communications,UN
-ANF UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-ANRZQ UN Equity,INDUSTRY_SECTOR,Energy,UN
-ANSS UW Equity,INDUSTRY_SECTOR,Technology,UW
-ANTM UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-AON UN Equity,INDUSTRY_SECTOR,Financial,UN
-AOS UN Equity,INDUSTRY_SECTOR,Industrial,UN
-APA UN Equity,INDUSTRY_SECTOR,Energy,UN
-APA UW Equity,INDUSTRY_SECTOR,Energy,UW
-APC UN Equity,INDUSTRY_SECTOR,Energy,UN
-APD UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-APH UN Equity,INDUSTRY_SECTOR,Industrial,UN
-APOL UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UQ
-APOL UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-APTV UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-ARE UN Equity,INDUSTRY_SECTOR,Financial,UN
-ARG UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-ARNC UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-ASH UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-ASIX UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-ATGE UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-ATI UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-ATO UN Equity,INDUSTRY_SECTOR,Utilities,UN
-ATVI UW Equity,INDUSTRY_SECTOR,Technology,UW
-AVB UN Equity,INDUSTRY_SECTOR,Financial,UN
-AVGO UW Equity,INDUSTRY_SECTOR,Technology,UW
-AVP UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-AVY UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-AW UN Equity,INDUSTRY_SECTOR,Industrial,UN
-AWE UN Equity,INDUSTRY_SECTOR,Communications,UN
-AWK UN Equity,INDUSTRY_SECTOR,Utilities,UN
-AXP UN Equity,INDUSTRY_SECTOR,Financial,UN
-AYE UN Equity,INDUSTRY_SECTOR,Utilities,UN
-AYI UN Equity,INDUSTRY_SECTOR,Industrial,UN
-AZO UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-BA UN Equity,INDUSTRY_SECTOR,Industrial,UN
-BAC UN Equity,INDUSTRY_SECTOR,Financial,UN
-BAX UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-BBBY UQ Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UQ
-BBBY UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW
-BBY UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-BC UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-BCR UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-BCR US Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",US
-BDK UN Equity,INDUSTRY_SECTOR,Industrial,UN
-BDX UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-BEN UN Equity,INDUSTRY_SECTOR,Financial,UN
-BGEN UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UQ
-BHF UW Equity,INDUSTRY_SECTOR,Financial,UW
-BHI UN Equity,INDUSTRY_SECTOR,Energy,UN
-BIG UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-BIIB UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UQ
-BIIB UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-BIO UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-BIVV UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-BK UN Equity,INDUSTRY_SECTOR,Financial,UN
-BKNG UW Equity,INDUSTRY_SECTOR,Communications,UW
-BKR UN Equity,INDUSTRY_SECTOR,Energy,UN
-BLK UN Equity,INDUSTRY_SECTOR,Financial,UN
-BLL UN Equity,INDUSTRY_SECTOR,Industrial,UN
-BLS UN Equity,INDUSTRY_SECTOR,Communications,UN
-BMC UN Equity,INDUSTRY_SECTOR,Technology,UN
-BMC UW Equity,INDUSTRY_SECTOR,Technology,UW
-BMS UN Equity,INDUSTRY_SECTOR,Industrial,UN
-BMY UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-BNI UN Equity,INDUSTRY_SECTOR,Industrial,UN
-BOL UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-BR UN Equity,INDUSTRY_SECTOR,Technology,UN
-BRCM UQ Equity,INDUSTRY_SECTOR,Technology,UQ
-BRCM UW Equity,INDUSTRY_SECTOR,Technology,UW
-BRL UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-BSX UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-BTUUQ UN Equity,INDUSTRY_SECTOR,Energy,UN
-BWA UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-BXLT UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-BXP UN Equity,INDUSTRY_SECTOR,Financial,UN
-C UN Equity,INDUSTRY_SECTOR,Financial,UN
-CA UN Equity,INDUSTRY_SECTOR,Technology,UN
-CA UW Equity,INDUSTRY_SECTOR,Technology,UW
-CAG UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-CAH UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-CAM UN Equity,INDUSTRY_SECTOR,Energy,UN
-CAR UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-CARR UN Equity,INDUSTRY_SECTOR,Industrial,UN
-CAT UN Equity,INDUSTRY_SECTOR,Industrial,UN
-CB UN Equity,INDUSTRY_SECTOR,Financial,UN
-CBE UN Equity,INDUSTRY_SECTOR,Industrial,UN
-CBOE UF Equity,INDUSTRY_SECTOR,Financial,UF
-CBOE UW Equity,INDUSTRY_SECTOR,Financial,UW
-CBRE UN Equity,INDUSTRY_SECTOR,Financial,UN
-CCEP UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-CCI UN Equity,INDUSTRY_SECTOR,Financial,UN
-CCL UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-CCTYQ UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-CDNS UW Equity,INDUSTRY_SECTOR,Technology,UW
-CDW UW Equity,INDUSTRY_SECTOR,Communications,UW
-CE UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-CEG UN Equity,INDUSTRY_SECTOR,Utilities,UN
-CELG UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-CEPH UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-CERN UW Equity,INDUSTRY_SECTOR,Technology,UW
-CF UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-CFC UN Equity,INDUSTRY_SECTOR,Financial,UN
-CFG UN Equity,INDUSTRY_SECTOR,Financial,UN
-CFN UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-CHD UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-CHKAQ UN Equity,INDUSTRY_SECTOR,Energy,UN
-CHRW UW Equity,INDUSTRY_SECTOR,Industrial,UW
-CHTR UW Equity,INDUSTRY_SECTOR,Communications,UW
-CHX UN Equity,INDUSTRY_SECTOR,Energy,UN
-CI UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-CIEN UA Equity,INDUSTRY_SECTOR,Communications,UA
-CIEN UQ Equity,INDUSTRY_SECTOR,Communications,UQ
-CIEN UW Equity,INDUSTRY_SECTOR,Communications,UW
-CIN UN Equity,INDUSTRY_SECTOR,Utilities,UN
-CINF UQ Equity,INDUSTRY_SECTOR,Financial,UQ
-CINF UW Equity,INDUSTRY_SECTOR,Financial,UW
-CITGQ UN Equity,INDUSTRY_SECTOR,Financial,UN
-CL UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-CLF UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-CLX UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-CMA UN Equity,INDUSTRY_SECTOR,Financial,UN
-CMCSA UA Equity,INDUSTRY_SECTOR,Communications,UA
-CMCSA UQ Equity,INDUSTRY_SECTOR,Communications,UQ
-CMCSA UW Equity,INDUSTRY_SECTOR,Communications,UW
-CMCSK UQ Equity,INDUSTRY_SECTOR,Communications,UQ
-CMCSK UW Equity,INDUSTRY_SECTOR,Communications,UW
-CME UN Equity,INDUSTRY_SECTOR,Financial,UN
-CME UW Equity,INDUSTRY_SECTOR,Financial,UW
-CMG UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-CMI UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-CMS UN Equity,INDUSTRY_SECTOR,Utilities,UN
-CMVT UQ Equity,INDUSTRY_SECTOR,Communications,UQ
-CMX UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-CNC UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-CNP UN Equity,INDUSTRY_SECTOR,Utilities,UN
-CNX UN Equity,INDUSTRY_SECTOR,Energy,UN
-COF UN Equity,INDUSTRY_SECTOR,Financial,UN
-COG UN Equity,INDUSTRY_SECTOR,Energy,UN
-COL UN Equity,INDUSTRY_SECTOR,Industrial,UN
-COO UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-COP UN Equity,INDUSTRY_SECTOR,Energy,UN
-COST UA Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UA
-COST UQ Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UQ
-COST UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW
-COTY UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-COV UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-CPB UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-CPGX UN Equity,INDUSTRY_SECTOR,Energy,UN
-CPGX US Equity,INDUSTRY_SECTOR,Energy,US
-CPNLQ UN Equity,INDUSTRY_SECTOR,Utilities,UN
-CPPRQ UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-CPRI UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-CPRT UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW
-CR UN Equity,INDUSTRY_SECTOR,Industrial,UN
-CRM UN Equity,INDUSTRY_SECTOR,Technology,UN
-CSC UN Equity,INDUSTRY_SECTOR,Technology,UN
-CSCO UQ Equity,INDUSTRY_SECTOR,Communications,UQ
-CSCO UW Equity,INDUSTRY_SECTOR,Communications,UW
-CSRA UN Equity,INDUSTRY_SECTOR,Technology,UN
-CSX UN Equity,INDUSTRY_SECTOR,Industrial,UN
-CSX UW Equity,INDUSTRY_SECTOR,Industrial,UW
-CTAS UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UQ
-CTAS UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-CTB UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-CTLT UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-CTSH UW Equity,INDUSTRY_SECTOR,Technology,UW
-CTVA UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-CTXS UQ Equity,INDUSTRY_SECTOR,Technology,UQ
-CTXS UW Equity,INDUSTRY_SECTOR,Technology,UW
-CVC UN Equity,INDUSTRY_SECTOR,Communications,UN
-CVET UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-CVG UN Equity,INDUSTRY_SECTOR,Technology,UN
-CVH UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-CVH US Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",US
-CVS UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-CVX UN Equity,INDUSTRY_SECTOR,Energy,UN
-CXO UN Equity,INDUSTRY_SECTOR,Energy,UN
-D UN Equity,INDUSTRY_SECTOR,Utilities,UN
-DAL UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-DALRQ UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-DCNAQ UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-DD UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-DDS UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-DE UN Equity,INDUSTRY_SECTOR,Industrial,UN
-DFODQ UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-DFS UN Equity,INDUSTRY_SECTOR,Financial,UN
-DG UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-DGX UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-DHI UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-DHR UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-DIS UN Equity,INDUSTRY_SECTOR,Communications,UN
-DISCA UW Equity,INDUSTRY_SECTOR,Communications,UW
-DISCK UW Equity,INDUSTRY_SECTOR,Communications,UW
-DISH UW Equity,INDUSTRY_SECTOR,Communications,UW
-DJ UN Equity,INDUSTRY_SECTOR,Communications,UN
-DLPH UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-DLR UN Equity,INDUSTRY_SECTOR,Financial,UN
-DLTR UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW
-DLX UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-DNRCQ UN Equity,INDUSTRY_SECTOR,Energy,UN
-DOFSQ UN Equity,INDUSTRY_SECTOR,Energy,UN
-DOV UN Equity,INDUSTRY_SECTOR,Industrial,UN
-DOW UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-DPHIQ UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-DPZ UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-DRE UN Equity,INDUSTRY_SECTOR,Financial,UN
-DRI UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-DTE UN Equity,INDUSTRY_SECTOR,Utilities,UN
-DUK UN Equity,INDUSTRY_SECTOR,Utilities,UN
-DVA UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-DVMT UN Equity,INDUSTRY_SECTOR,Technology,UN
-DVN UA Equity,INDUSTRY_SECTOR,Energy,UA
-DVN UN Equity,INDUSTRY_SECTOR,Energy,UN
-DXC UN Equity,INDUSTRY_SECTOR,Technology,UN
-DXCM UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-DYNIQ UN Equity,INDUSTRY_SECTOR,Utilities,UN
-EA UQ Equity,INDUSTRY_SECTOR,Technology,UQ
-EA UW Equity,INDUSTRY_SECTOR,Technology,UW
-EBAY UQ Equity,INDUSTRY_SECTOR,Communications,UQ
-EBAY UW Equity,INDUSTRY_SECTOR,Communications,UW
-ECL UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-ED UN Equity,INDUSTRY_SECTOR,Utilities,UN
-EFX UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-EHC UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-EIX UN Equity,INDUSTRY_SECTOR,Utilities,UN
-EKDKQ UN Equity,INDUSTRY_SECTOR,Industrial,UN
-EL UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-EMC UN Equity,INDUSTRY_SECTOR,Technology,UN
-EMN UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-EMR UN Equity,INDUSTRY_SECTOR,Industrial,UN
-ENDP UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-EOG UN Equity,INDUSTRY_SECTOR,Energy,UN
-EOP UN Equity,INDUSTRY_SECTOR,Financial,UN
-EP UN Equity,INDUSTRY_SECTOR,Energy,UN
-EQIX UW Equity,INDUSTRY_SECTOR,Financial,UW
-EQR UN Equity,INDUSTRY_SECTOR,Financial,UN
-EQT UN Equity,INDUSTRY_SECTOR,Energy,UN
-ES UN Equity,INDUSTRY_SECTOR,Utilities,UN
-ESRX UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UQ
-ESRX UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-ESS UN Equity,INDUSTRY_SECTOR,Financial,UN
-ETFC UN Equity,INDUSTRY_SECTOR,Communications,UN
-ETFC US Equity,INDUSTRY_SECTOR,Communications,US
-ETFC UW Equity,INDUSTRY_SECTOR,Communications,UW
-ETN UN Equity,INDUSTRY_SECTOR,Industrial,UN
-ETR UN Equity,INDUSTRY_SECTOR,Utilities,UN
-ETSY UW Equity,INDUSTRY_SECTOR,Communications,UW
-EVHC UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-EVRG UN Equity,INDUSTRY_SECTOR,Utilities,UN
-EW UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-EXC UN Equity,INDUSTRY_SECTOR,Utilities,UN
-EXC UW Equity,INDUSTRY_SECTOR,Utilities,UW
-EXPD UW Equity,INDUSTRY_SECTOR,Industrial,UW
-EXPE UW Equity,INDUSTRY_SECTOR,Communications,UW
-EXR UN Equity,INDUSTRY_SECTOR,Financial,UN
-F UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-FANG UW Equity,INDUSTRY_SECTOR,Energy,UW
-FAST UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW
-FB UW Equity,INDUSTRY_SECTOR,Communications,UW
-FBF UN Equity,INDUSTRY_SECTOR,Financial,UN
-FBHS UN Equity,INDUSTRY_SECTOR,Industrial,UN
-FCX UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-FDO UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-FDX UN Equity,INDUSTRY_SECTOR,Industrial,UN
-FE UN Equity,INDUSTRY_SECTOR,Utilities,UN
-FFIV UW Equity,INDUSTRY_SECTOR,Communications,UW
-FHI UN Equity,INDUSTRY_SECTOR,Financial,UN
-FHN UN Equity,INDUSTRY_SECTOR,Financial,UN
-FIS UN Equity,INDUSTRY_SECTOR,Technology,UN
-FISV UQ Equity,INDUSTRY_SECTOR,Technology,UQ
-FISV UW Equity,INDUSTRY_SECTOR,Technology,UW
-FITB UQ Equity,INDUSTRY_SECTOR,Financial,UQ
-FITB UW Equity,INDUSTRY_SECTOR,Financial,UW
-FL UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-FLIR UW Equity,INDUSTRY_SECTOR,Industrial,UW
-FLR UN Equity,INDUSTRY_SECTOR,Industrial,UN
-FLS UN Equity,INDUSTRY_SECTOR,Industrial,UN
-FLT UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-FMC UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-FMCC UN Equity,INDUSTRY_SECTOR,Financial,UN
-FNMA UN Equity,INDUSTRY_SECTOR,Financial,UN
-FOSL UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW
-FOX UW Equity,INDUSTRY_SECTOR,Communications,UW
-FOXA UW Equity,INDUSTRY_SECTOR,Communications,UW
-FRC UN Equity,INDUSTRY_SECTOR,Financial,UN
-FRT UN Equity,INDUSTRY_SECTOR,Financial,UN
-FSH UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-FSLR UW Equity,INDUSTRY_SECTOR,Energy,UW
-FTI UN Equity,INDUSTRY_SECTOR,Energy,UN
-FTNT UW Equity,INDUSTRY_SECTOR,Technology,UW
-FTRCQ UN Equity,INDUSTRY_SECTOR,Communications,UN
-FTRCQ UW Equity,INDUSTRY_SECTOR,Communications,UW
-FTV UN Equity,INDUSTRY_SECTOR,Industrial,UN
-GAS UN Equity,INDUSTRY_SECTOR,Utilities,UN
-GD UN Equity,INDUSTRY_SECTOR,Industrial,UN
-GDT UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-GDW UN Equity,INDUSTRY_SECTOR,Financial,UN
-GE UN Equity,INDUSTRY_SECTOR,Industrial,UN
-GENZ UA Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UA
-GENZ UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UQ
-GENZ UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-GGP UN Equity,INDUSTRY_SECTOR,Financial,UN
-GGP UP Equity,INDUSTRY_SECTOR,Financial,UP
-GHC UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-GILD UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UQ
-GILD UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-GIS UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-GL UN Equity,INDUSTRY_SECTOR,Financial,UN
-GLW UN Equity,INDUSTRY_SECTOR,Communications,UN
-GM UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-GMCR UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-GME UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-GNW UN Equity,INDUSTRY_SECTOR,Financial,UN
-GNW UP Equity,INDUSTRY_SECTOR,Financial,UP
-GOOG UW Equity,INDUSTRY_SECTOR,Communications,UW
-GOOGL UQ Equity,INDUSTRY_SECTOR,Communications,UQ
-GOOGL UW Equity,INDUSTRY_SECTOR,Communications,UW
-GPC UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-GPN UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-GPS UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-GR UN Equity,INDUSTRY_SECTOR,Industrial,UN
-GR US Equity,INDUSTRY_SECTOR,Industrial,US
-GRMN UW Equity,INDUSTRY_SECTOR,Industrial,UW
-GS UN Equity,INDUSTRY_SECTOR,Financial,UN
-GT UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-GT UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW
-GTGOF US Equity,INDUSTRY_SECTOR,Industrial,US
-GTW UN Equity,INDUSTRY_SECTOR,Technology,UN
-GTXMQ UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-GWW UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-HAL UN Equity,INDUSTRY_SECTOR,Energy,UN
-HAR UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-HAR US Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",US
-HAS US Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",US
-HAS UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW
-HBAN UA Equity,INDUSTRY_SECTOR,Financial,UA
-HBAN UQ Equity,INDUSTRY_SECTOR,Financial,UQ
-HBAN UW Equity,INDUSTRY_SECTOR,Financial,UW
-HBI UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-HCA UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-HCBK UW Equity,INDUSTRY_SECTOR,Financial,UW
-HD UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-HES UN Equity,INDUSTRY_SECTOR,Energy,UN
-HET UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-HFC UN Equity,INDUSTRY_SECTOR,Energy,UN
-HIG UN Equity,INDUSTRY_SECTOR,Financial,UN
-HII UN Equity,INDUSTRY_SECTOR,Industrial,UN
-HLT UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-HMA UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-HNZ UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-HOG UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-HOLX UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-HON UN Equity,INDUSTRY_SECTOR,Industrial,UN
-HOT UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-HP UN Equity,INDUSTRY_SECTOR,Energy,UN
-HPC US Equity,INDUSTRY_SECTOR,Basic Materials,US
-HPE UN Equity,INDUSTRY_SECTOR,Technology,UN
-HPQ UN Equity,INDUSTRY_SECTOR,Technology,UN
-HRB UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-HRL UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-HSH UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-HSIC UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-HSP UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-HST UN Equity,INDUSTRY_SECTOR,Financial,UN
-HST UW Equity,INDUSTRY_SECTOR,Financial,UW
-HSY UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-HUM UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-HWM UN Equity,INDUSTRY_SECTOR,Industrial,UN
-IBM UN Equity,INDUSTRY_SECTOR,Technology,UN
-ICE UN Equity,INDUSTRY_SECTOR,Financial,UN
-IDXX UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-IEX UN Equity,INDUSTRY_SECTOR,Industrial,UN
-IFF UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-IILGV UQ Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UQ
-ILMN UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-INCY UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-INFO UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-INFO UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-INTC UQ Equity,INDUSTRY_SECTOR,Technology,UQ
-INTC UW Equity,INDUSTRY_SECTOR,Technology,UW
-INTU UQ Equity,INDUSTRY_SECTOR,Technology,UQ
-INTU UW Equity,INDUSTRY_SECTOR,Technology,UW
-IP UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-IPG UN Equity,INDUSTRY_SECTOR,Communications,UN
-IPGP UW Equity,INDUSTRY_SECTOR,Technology,UW
-IQV UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-IR UN Equity,INDUSTRY_SECTOR,Industrial,UN
-IRM UN Equity,INDUSTRY_SECTOR,Financial,UN
-ISRG UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-IT UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-ITT UN Equity,INDUSTRY_SECTOR,Industrial,UN
-ITW UN Equity,INDUSTRY_SECTOR,Industrial,UN
-IVZ UN Equity,INDUSTRY_SECTOR,Financial,UN
-J UN Equity,INDUSTRY_SECTOR,Industrial,UN
-JAVA UQ Equity,INDUSTRY_SECTOR,Technology,UQ
-JAVA UW Equity,INDUSTRY_SECTOR,Technology,UW
-JBGS UN Equity,INDUSTRY_SECTOR,Financial,UN
-JBHT UW Equity,INDUSTRY_SECTOR,Industrial,UW
-JBL UN Equity,INDUSTRY_SECTOR,Industrial,UN
-JCI UN Equity,INDUSTRY_SECTOR,Industrial,UN
-JEF UN Equity,INDUSTRY_SECTOR,Financial,UN
-JHF UN Equity,INDUSTRY_SECTOR,Financial,UN
-JKHY UW Equity,INDUSTRY_SECTOR,Technology,UW
-JNJ UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-JNPR UN Equity,INDUSTRY_SECTOR,Communications,UN
-JNPR UQ Equity,INDUSTRY_SECTOR,Communications,UQ
-JNPR UW Equity,INDUSTRY_SECTOR,Communications,UW
-JNS UN Equity,INDUSTRY_SECTOR,Financial,UN
-JNY UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-JOY UN Equity,INDUSTRY_SECTOR,Industrial,UN
-JOY UW Equity,INDUSTRY_SECTOR,Industrial,UW
-JPM UN Equity,INDUSTRY_SECTOR,Financial,UN
-JWN UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-K UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-KATE UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-KBH UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-KDP UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-KEY UN Equity,INDUSTRY_SECTOR,Financial,UN
-KEYS UN Equity,INDUSTRY_SECTOR,Industrial,UN
-KG UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-KHC UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-KIM UN Equity,INDUSTRY_SECTOR,Financial,UN
-KLAC UQ Equity,INDUSTRY_SECTOR,Technology,UQ
-KLAC UW Equity,INDUSTRY_SECTOR,Technology,UW
-KMB UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-KMI UN Equity,INDUSTRY_SECTOR,Energy,UN
-KMX UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-KO UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-KR UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-KRB UN Equity,INDUSTRY_SECTOR,Financial,UN
-KRFT UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-KRI UN Equity,INDUSTRY_SECTOR,Communications,UN
-KSE UN Equity,INDUSTRY_SECTOR,Utilities,UN
-KSS UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-KSU UN Equity,INDUSTRY_SECTOR,Industrial,UN
-KTB UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-L UN Equity,INDUSTRY_SECTOR,Financial,UN
-LB UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-LDOS UN Equity,INDUSTRY_SECTOR,Technology,UN
-LEG UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-LEHMQ UN Equity,INDUSTRY_SECTOR,Financial,UN
-LEHMQ UP Equity,INDUSTRY_SECTOR,Financial,UP
-LEN UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-LH UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-LHX UN Equity,INDUSTRY_SECTOR,Industrial,UN
-LIN UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-LKQ UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW
-LLL UN Equity,INDUSTRY_SECTOR,Industrial,UN
-LLTC UQ Equity,INDUSTRY_SECTOR,Technology,UQ
-LLTC UW Equity,INDUSTRY_SECTOR,Technology,UW
-LLY UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-LM UN Equity,INDUSTRY_SECTOR,Financial,UN
-LMT UN Equity,INDUSTRY_SECTOR,Industrial,UN
-LNC UN Equity,INDUSTRY_SECTOR,Financial,UN
-LNT UN Equity,INDUSTRY_SECTOR,Utilities,UN
-LNT UW Equity,INDUSTRY_SECTOR,Utilities,UW
-LO UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-LOW UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-LPX UN Equity,INDUSTRY_SECTOR,Industrial,UN
-LRCX UW Equity,INDUSTRY_SECTOR,Technology,UW
-LUMN UN Equity,INDUSTRY_SECTOR,Communications,UN
-LUV UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-LVLT UN Equity,INDUSTRY_SECTOR,Communications,UN
-LVS UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-LW UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-LXK UN Equity,INDUSTRY_SECTOR,Technology,UN
-LYB UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-LYV UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-M UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-MA UN Equity,INDUSTRY_SECTOR,Financial,UN
-MAA UN Equity,INDUSTRY_SECTOR,Financial,UN
-MAC UN Equity,INDUSTRY_SECTOR,Financial,UN
-MAR UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-MAR UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW
-MAS UN Equity,INDUSTRY_SECTOR,Industrial,UN
-MAT UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-MAT US Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",US
-MAT UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW
-MBI UN Equity,INDUSTRY_SECTOR,Financial,UN
-MCD UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-MCHP UW Equity,INDUSTRY_SECTOR,Technology,UW
-MCK UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-MCO UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-MDLZ UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-MDLZ UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-MDP UN Equity,INDUSTRY_SECTOR,Communications,UN
-MDRIQ UN Equity,INDUSTRY_SECTOR,Energy,UN
-MDT UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-MEDI UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UQ
-MEDI UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-MEE UN Equity,INDUSTRY_SECTOR,Energy,UN
-MEL UN Equity,INDUSTRY_SECTOR,Financial,UN
-MER UN Equity,INDUSTRY_SECTOR,Financial,UN
-MERQ UQ Equity,INDUSTRY_SECTOR,Technology,UQ
-MET UN Equity,INDUSTRY_SECTOR,Financial,UN
-MFE UN Equity,INDUSTRY_SECTOR,Communications,UN
-MGM UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-MHK UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-MHS UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-MHS US Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",US
-MI UN Equity,INDUSTRY_SECTOR,Financial,UN
-MIRKQ UN Equity,INDUSTRY_SECTOR,Utilities,UN
-MJN UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-MJN US Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",US
-MJN-W UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-MKC UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-MKTX UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-MLM UN Equity,INDUSTRY_SECTOR,Industrial,UN
-MMC UN Equity,INDUSTRY_SECTOR,Financial,UN
-MMM UN Equity,INDUSTRY_SECTOR,Industrial,UN
-MNKKQ UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-MNST UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-MO UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-MOLX UQ Equity,INDUSTRY_SECTOR,Industrial,UQ
-MOLX UW Equity,INDUSTRY_SECTOR,Industrial,UW
-MOS UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-MPC UN Equity,INDUSTRY_SECTOR,Energy,UN
-MRK UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-MRO UN Equity,INDUSTRY_SECTOR,Energy,UN
-MS UN Equity,INDUSTRY_SECTOR,Financial,UN
-MSCI UN Equity,INDUSTRY_SECTOR,Technology,UN
-MSFT UQ Equity,INDUSTRY_SECTOR,Technology,UQ
-MSFT UW Equity,INDUSTRY_SECTOR,Technology,UW
-MSI UN Equity,INDUSTRY_SECTOR,Communications,UN
-MTB UN Equity,INDUSTRY_SECTOR,Financial,UN
-MTD UN Equity,INDUSTRY_SECTOR,Industrial,UN
-MTG UN Equity,INDUSTRY_SECTOR,Financial,UN
-MTLQQ UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-MTW UN Equity,INDUSTRY_SECTOR,Industrial,UN
-MU UN Equity,INDUSTRY_SECTOR,Technology,UN
-MU UW Equity,INDUSTRY_SECTOR,Technology,UW
-MUR UN Equity,INDUSTRY_SECTOR,Energy,UN
-MWV UN Equity,INDUSTRY_SECTOR,Industrial,UN
-MWW UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-MWW UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UQ
-MWW UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-MXIM UQ Equity,INDUSTRY_SECTOR,Technology,UQ
-MXIM UW Equity,INDUSTRY_SECTOR,Technology,UW
-MYL UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-MYL UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-NAV UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-NAVI UW Equity,INDUSTRY_SECTOR,Financial,UW
-NBL UN Equity,INDUSTRY_SECTOR,Energy,UN
-NBL US Equity,INDUSTRY_SECTOR,Energy,US
-NBL UW Equity,INDUSTRY_SECTOR,Energy,UW
-NBR UA Equity,INDUSTRY_SECTOR,Energy,UA
-NBR UN Equity,INDUSTRY_SECTOR,Energy,UN
-NCC UN Equity,INDUSTRY_SECTOR,Financial,UN
-NCLH UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-NCLH UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW
-NCR UN Equity,INDUSTRY_SECTOR,Technology,UN
-NDAQ UW Equity,INDUSTRY_SECTOR,Financial,UW
-NEBLQ UN Equity,INDUSTRY_SECTOR,Energy,UN
-NEE UN Equity,INDUSTRY_SECTOR,Utilities,UN
-NEM UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-NFB UN Equity,INDUSTRY_SECTOR,Financial,UN
-NFLX UW Equity,INDUSTRY_SECTOR,Communications,UW
-NFX UN Equity,INDUSTRY_SECTOR,Energy,UN
-NGVT UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-NI UN Equity,INDUSTRY_SECTOR,Utilities,UN
-NKE UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-NKTR UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-NLOK UQ Equity,INDUSTRY_SECTOR,Communications,UQ
-NLOK UW Equity,INDUSTRY_SECTOR,Communications,UW
-NLSN UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-NOC UN Equity,INDUSTRY_SECTOR,Industrial,UN
-NOV UN Equity,INDUSTRY_SECTOR,Energy,UN
-NOVL UQ Equity,INDUSTRY_SECTOR,Technology,UQ
-NOVL UW Equity,INDUSTRY_SECTOR,Technology,UW
-NOW UN Equity,INDUSTRY_SECTOR,Technology,UN
-NRG UN Equity,INDUSTRY_SECTOR,Utilities,UN
-NSC UN Equity,INDUSTRY_SECTOR,Industrial,UN
-NTAP UQ Equity,INDUSTRY_SECTOR,Technology,UQ
-NTAP UW Equity,INDUSTRY_SECTOR,Technology,UW
-NTRS UQ Equity,INDUSTRY_SECTOR,Financial,UQ
-NTRS UW Equity,INDUSTRY_SECTOR,Financial,UW
-NUE UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-NVDA UA Equity,INDUSTRY_SECTOR,Technology,UA
-NVDA UQ Equity,INDUSTRY_SECTOR,Technology,UQ
-NVDA UW Equity,INDUSTRY_SECTOR,Technology,UW
-NVR UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-NVT UN Equity,INDUSTRY_SECTOR,Industrial,UN
-NWL UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-NWL UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW
-NWS UW Equity,INDUSTRY_SECTOR,Communications,UW
-NWSA UW Equity,INDUSTRY_SECTOR,Communications,UW
-NXTL UQ Equity,INDUSTRY_SECTOR,Communications,UQ
-NYT UN Equity,INDUSTRY_SECTOR,Communications,UN
-NYX UN Equity,INDUSTRY_SECTOR,Financial,UN
-O UN Equity,INDUSTRY_SECTOR,Financial,UN
-ODFL UW Equity,INDUSTRY_SECTOR,Industrial,UW
-OI UN Equity,INDUSTRY_SECTOR,Industrial,UN
-OKE UN Equity,INDUSTRY_SECTOR,Energy,UN
-OMC UN Equity,INDUSTRY_SECTOR,Communications,UN
-OMX UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-ORCL UN Equity,INDUSTRY_SECTOR,Technology,UN
-ORCL UQ Equity,INDUSTRY_SECTOR,Technology,UQ
-ORCL UW Equity,INDUSTRY_SECTOR,Technology,UW
-ORLY UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW
-OTIS UN Equity,INDUSTRY_SECTOR,Industrial,UN
-OXY UN Equity,INDUSTRY_SECTOR,Energy,UN
-PAYC UN Equity,INDUSTRY_SECTOR,Technology,UN
-PAYX UQ Equity,INDUSTRY_SECTOR,Technology,UQ
-PAYX UW Equity,INDUSTRY_SECTOR,Technology,UW
-PBCT UW Equity,INDUSTRY_SECTOR,Financial,UW
-PBG UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-PBI UN Equity,INDUSTRY_SECTOR,Technology,UN
-PCAR UQ Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UQ
-PCAR UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW
-PCG UN Equity,INDUSTRY_SECTOR,Utilities,UN
-PCL UN Equity,INDUSTRY_SECTOR,Financial,UN
-PCP UN Equity,INDUSTRY_SECTOR,Industrial,UN
-PDCO UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UQ
-PDCO UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-PEAK UN Equity,INDUSTRY_SECTOR,Financial,UN
-PEG UN Equity,INDUSTRY_SECTOR,Utilities,UN
-PEP UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-PEP UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-PETM UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW
-PFE UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-PFG UN Equity,INDUSTRY_SECTOR,Financial,UN
-PFG UW Equity,INDUSTRY_SECTOR,Financial,UW
-PG UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-PGL UN Equity,INDUSTRY_SECTOR,Utilities,UN
-PGR UN Equity,INDUSTRY_SECTOR,Financial,UN
-PH UN Equity,INDUSTRY_SECTOR,Industrial,UN
-PHM UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-PKG UN Equity,INDUSTRY_SECTOR,Industrial,UN
-PKI UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-PLD UN Equity,INDUSTRY_SECTOR,Financial,UN
-PM UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-PMCS UQ Equity,INDUSTRY_SECTOR,Technology,UQ
-PMCS UW Equity,INDUSTRY_SECTOR,Technology,UW
-PNC UN Equity,INDUSTRY_SECTOR,Financial,UN
-PNR UN Equity,INDUSTRY_SECTOR,Industrial,UN
-PNW UN Equity,INDUSTRY_SECTOR,Utilities,UN
-POM UN Equity,INDUSTRY_SECTOR,Utilities,UN
-POM US Equity,INDUSTRY_SECTOR,Utilities,US
-POOL UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW
-PPG UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-PPL UN Equity,INDUSTRY_SECTOR,Utilities,UN
-PRGO UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-PRGO UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-PRSP UN Equity,INDUSTRY_SECTOR,Technology,UN
-PRU UN Equity,INDUSTRY_SECTOR,Financial,UN
-PSA UN Equity,INDUSTRY_SECTOR,Financial,UN
-PSX UN Equity,INDUSTRY_SECTOR,Energy,UN
-PTC UQ Equity,INDUSTRY_SECTOR,Technology,UQ
-PTC UW Equity,INDUSTRY_SECTOR,Technology,UW
-PTV UN Equity,INDUSTRY_SECTOR,Industrial,UN
-PVH UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-PVN UN Equity,INDUSTRY_SECTOR,Financial,UN
-PWER UQ Equity,INDUSTRY_SECTOR,Industrial,UQ
-PWR UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-PX UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-PXD UN Equity,INDUSTRY_SECTOR,Energy,UN
-PYPL UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-QCOM UQ Equity,INDUSTRY_SECTOR,Technology,UQ
-QCOM UW Equity,INDUSTRY_SECTOR,Technology,UW
-QCP UN Equity,INDUSTRY_SECTOR,Financial,UN
-QEP UN Equity,INDUSTRY_SECTOR,Energy,UN
-QLGC UQ Equity,INDUSTRY_SECTOR,Technology,UQ
-QLGC UW Equity,INDUSTRY_SECTOR,Technology,UW
-QRVO UW Equity,INDUSTRY_SECTOR,Technology,UW
-QTRN UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UQ
-R UN Equity,INDUSTRY_SECTOR,Industrial,UN
-RAI UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-RATL UQ Equity,INDUSTRY_SECTOR,Technology,UQ
-RBK UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-RCL UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-RDC UN Equity,INDUSTRY_SECTOR,Energy,UN
-RE UN Equity,INDUSTRY_SECTOR,Financial,UN
-REG UN Equity,INDUSTRY_SECTOR,Financial,UN
-REG UW Equity,INDUSTRY_SECTOR,Financial,UW
-REGN UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-REZI UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-RF UN Equity,INDUSTRY_SECTOR,Financial,UN
-RHI UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-RHT UN Equity,INDUSTRY_SECTOR,Technology,UN
-RHT US Equity,INDUSTRY_SECTOR,Technology,US
-RIG UN Equity,INDUSTRY_SECTOR,Energy,UN
-RJF UN Equity,INDUSTRY_SECTOR,Financial,UN
-RL UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-RMD UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-ROH UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-ROK UN Equity,INDUSTRY_SECTOR,Industrial,UN
-ROL UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-ROP UN Equity,INDUSTRY_SECTOR,Technology,UN
-ROST UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW
-RRC UN Equity,INDUSTRY_SECTOR,Energy,UN
-RRD UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-RRD UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-RSG UN Equity,INDUSTRY_SECTOR,Industrial,UN
-RSHCQ UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-RTN UN Equity,INDUSTRY_SECTOR,Industrial,UN
-RTX UN Equity,INDUSTRY_SECTOR,Industrial,UN
-RX UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-SANM UQ Equity,INDUSTRY_SECTOR,Industrial,UQ
-SANM UW Equity,INDUSTRY_SECTOR,Industrial,UW
-SBAC UW Equity,INDUSTRY_SECTOR,Financial,UW
-SBUX UA Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UA
-SBUX UQ Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UQ
-SBUX UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW
-SCG UN Equity,INDUSTRY_SECTOR,Utilities,UN
-SCHW UN Equity,INDUSTRY_SECTOR,Financial,UN
-SCHW UQ Equity,INDUSTRY_SECTOR,Financial,UQ
-SCHW UW Equity,INDUSTRY_SECTOR,Financial,UW
-SEBL UA Equity,INDUSTRY_SECTOR,Technology,UA
-SEBL UQ Equity,INDUSTRY_SECTOR,Technology,UQ
-SEE UN Equity,INDUSTRY_SECTOR,Industrial,UN
-SGP UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-SHLDQ UQ Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UQ
-SHLDQ UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW
-SHW UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-SIAL UQ Equity,INDUSTRY_SECTOR,Basic Materials,UQ
-SIAL UW Equity,INDUSTRY_SECTOR,Basic Materials,UW
-SIG UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-SITC UN Equity,INDUSTRY_SECTOR,Financial,UN
-SIVB UW Equity,INDUSTRY_SECTOR,Financial,UW
-SJM UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-SLB UN Equity,INDUSTRY_SECTOR,Energy,UN
-SLG UN Equity,INDUSTRY_SECTOR,Financial,UN
-SLM UN Equity,INDUSTRY_SECTOR,Financial,UN
-SLM UQ Equity,INDUSTRY_SECTOR,Financial,UQ
-SLM UW Equity,INDUSTRY_SECTOR,Financial,UW
-SNA UN Equity,INDUSTRY_SECTOR,Industrial,UN
-SNDK UQ Equity,INDUSTRY_SECTOR,Technology,UQ
-SNDK UW Equity,INDUSTRY_SECTOR,Technology,UW
-SNI UN Equity,INDUSTRY_SECTOR,Communications,UN
-SNI UW Equity,INDUSTRY_SECTOR,Communications,UW
-SNPS UW Equity,INDUSTRY_SECTOR,Technology,UW
-SNV UN Equity,INDUSTRY_SECTOR,Financial,UN
-SO UN Equity,INDUSTRY_SECTOR,Utilities,UN
-SOV UN Equity,INDUSTRY_SECTOR,Financial,UN
-SPG UN Equity,INDUSTRY_SECTOR,Financial,UN
-SPGI UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-SPLS UA Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UA
-SPLS UQ Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UQ
-SPLS US Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",US
-SPLS UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW
-SRCL UW Equity,INDUSTRY_SECTOR,Industrial,UW
-SRE UN Equity,INDUSTRY_SECTOR,Utilities,UN
-SSP UN Equity,INDUSTRY_SECTOR,Communications,UN
-STE UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-STI UN Equity,INDUSTRY_SECTOR,Financial,UN
-STJ UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-STR UN Equity,INDUSTRY_SECTOR,Utilities,UN
-STT UN Equity,INDUSTRY_SECTOR,Financial,UN
-STX UW Equity,INDUSTRY_SECTOR,Technology,UW
-STZ UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-SUNEQ UN Equity,INDUSTRY_SECTOR,Energy,UN
-SVU UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-SWK UN Equity,INDUSTRY_SECTOR,Industrial,UN
-SWKS UW Equity,INDUSTRY_SECTOR,Technology,UW
-SWN UN Equity,INDUSTRY_SECTOR,Energy,UN
-SWY UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-SYF UN Equity,INDUSTRY_SECTOR,Financial,UN
-SYK UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-SYY UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-T UN Equity,INDUSTRY_SECTOR,Communications,UN
-TAP UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-TDC UN Equity,INDUSTRY_SECTOR,Technology,UN
-TDG UN Equity,INDUSTRY_SECTOR,Industrial,UN
-TDY UN Equity,INDUSTRY_SECTOR,Industrial,UN
-TEG UN Equity,INDUSTRY_SECTOR,Utilities,UN
-TEK UN Equity,INDUSTRY_SECTOR,Industrial,UN
-TEL UN Equity,INDUSTRY_SECTOR,Industrial,UN
-TER UN Equity,INDUSTRY_SECTOR,Technology,UN
-TER UW Equity,INDUSTRY_SECTOR,Technology,UW
-TEX UN Equity,INDUSTRY_SECTOR,Industrial,UN
-TFC UN Equity,INDUSTRY_SECTOR,Financial,UN
-TFCF UW Equity,INDUSTRY_SECTOR,Communications,UW
-TFCFA UN Equity,INDUSTRY_SECTOR,Communications,UN
-TFCFA UW Equity,INDUSTRY_SECTOR,Communications,UW
-TFX UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-TGNA UN Equity,INDUSTRY_SECTOR,Communications,UN
-TGT UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-THC UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-TIE UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-TIF UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-TIN UN Equity,INDUSTRY_SECTOR,Industrial,UN
-TJX UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-TLAB UQ Equity,INDUSTRY_SECTOR,Communications,UQ
-TLAB UW Equity,INDUSTRY_SECTOR,Communications,UW
-TMO UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-TMUS UN Equity,INDUSTRY_SECTOR,Communications,UN
-TMUS UW Equity,INDUSTRY_SECTOR,Communications,UW
-TNB UN Equity,INDUSTRY_SECTOR,Industrial,UN
-TNL UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-TOY UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-TPR UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-TRB UN Equity,INDUSTRY_SECTOR,Communications,UN
-TRIP UW Equity,INDUSTRY_SECTOR,Communications,UW
-TROW UQ Equity,INDUSTRY_SECTOR,Financial,UQ
-TROW UW Equity,INDUSTRY_SECTOR,Financial,UW
-TRV UN Equity,INDUSTRY_SECTOR,Financial,UN
-TSCO UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW
-TSLA UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW
-TSN UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-TSS UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-TSS US Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",US
-TT UN Equity,INDUSTRY_SECTOR,Industrial,UN
-TTWO UW Equity,INDUSTRY_SECTOR,Technology,UW
-TUP UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-TWC UN Equity,INDUSTRY_SECTOR,Communications,UN
-TWTR UN Equity,INDUSTRY_SECTOR,Communications,UN
-TWX UN Equity,INDUSTRY_SECTOR,Communications,UN
-TWX US Equity,INDUSTRY_SECTOR,Communications,US
-TXN UN Equity,INDUSTRY_SECTOR,Technology,UN
-TXN UW Equity,INDUSTRY_SECTOR,Technology,UW
-TXT UN Equity,INDUSTRY_SECTOR,Industrial,UN
-TXU US Equity,INDUSTRY_SECTOR,Utilities,US
-TYL UN Equity,INDUSTRY_SECTOR,Technology,UN
-UA UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-UAA UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-UAL UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-UAL UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW
-UDR UN Equity,INDUSTRY_SECTOR,Financial,UN
-UHS UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-UIS UN Equity,INDUSTRY_SECTOR,Technology,UN
-UIS UP Equity,INDUSTRY_SECTOR,Technology,UP
-ULTA UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW
-UNH UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-UNM UN Equity,INDUSTRY_SECTOR,Financial,UN
-UNP UN Equity,INDUSTRY_SECTOR,Industrial,UN
-UPS UN Equity,INDUSTRY_SECTOR,Industrial,UN
-URBN UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW
-URI UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-USB UN Equity,INDUSTRY_SECTOR,Financial,UN
-V UN Equity,INDUSTRY_SECTOR,Financial,UN
-VALPQ UN Equity,INDUSTRY_SECTOR,Energy,UN
-VAR UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-VFC UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-VIAB UN Equity,INDUSTRY_SECTOR,Communications,UN
-VIAB UW Equity,INDUSTRY_SECTOR,Communications,UW
-VIAC UN Equity,INDUSTRY_SECTOR,Communications,UN
-VIAC UW Equity,INDUSTRY_SECTOR,Communications,UW
-VIAV UQ Equity,INDUSTRY_SECTOR,Communications,UQ
-VIAV UW Equity,INDUSTRY_SECTOR,Communications,UW
-VLO UN Equity,INDUSTRY_SECTOR,Energy,UN
-VMC UN Equity,INDUSTRY_SECTOR,Industrial,UN
-VNO UN Equity,INDUSTRY_SECTOR,Financial,UN
-VNT UN Equity,INDUSTRY_SECTOR,Industrial,UN
-VREX UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-VRSK UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-VRSN UQ Equity,INDUSTRY_SECTOR,Communications,UQ
-VRSN UW Equity,INDUSTRY_SECTOR,Communications,UW
-VRTX UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-VSM UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-VSTNQ UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-VTR UN Equity,INDUSTRY_SECTOR,Financial,UN
-VTRS UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-VZ UN Equity,INDUSTRY_SECTOR,Communications,UN
-WAB UN Equity,INDUSTRY_SECTOR,Industrial,UN
-WAMUQ UN Equity,INDUSTRY_SECTOR,Financial,UN
-WAMUQ US Equity,INDUSTRY_SECTOR,Financial,US
-WAT UN Equity,INDUSTRY_SECTOR,Industrial,UN
-WBA UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-WBA UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW
-WCG UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-WCG US Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",US
-WDC UN Equity,INDUSTRY_SECTOR,Technology,UN
-WDC UW Equity,INDUSTRY_SECTOR,Technology,UW
-WEC UN Equity,INDUSTRY_SECTOR,Utilities,UN
-WELL UN Equity,INDUSTRY_SECTOR,Financial,UN
-WFC UN Equity,INDUSTRY_SECTOR,Financial,UN
-WFM UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UQ
-WFM UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-WFTIQ UN Equity,INDUSTRY_SECTOR,Energy,UN
-WHR UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-WINMQ UN Equity,INDUSTRY_SECTOR,Communications,UN
-WINMQ UW Equity,INDUSTRY_SECTOR,Communications,UW
-WLTW UW Equity,INDUSTRY_SECTOR,Financial,UW
-WM UN Equity,INDUSTRY_SECTOR,Industrial,UN
-WMB UN Equity,INDUSTRY_SECTOR,Energy,UN
-WMT UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-WNDXQ UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-WOR UN Equity,INDUSTRY_SECTOR,Industrial,UN
-WPX UN Equity,INDUSTRY_SECTOR,Energy,UN
-WRB UN Equity,INDUSTRY_SECTOR,Financial,UN
-WRK UN Equity,INDUSTRY_SECTOR,Industrial,UN
-WST UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-WU UN Equity,INDUSTRY_SECTOR,Financial,UN
-WWY UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-WY UN Equity,INDUSTRY_SECTOR,Financial,UN
-WYE UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-WYND UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-WYNN UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW
-X UN Equity,INDUSTRY_SECTOR,Basic Materials,UN
-XEC UN Equity,INDUSTRY_SECTOR,Energy,UN
-XEL UN Equity,INDUSTRY_SECTOR,Utilities,UN
-XEL UW Equity,INDUSTRY_SECTOR,Utilities,UW
-XLNX UQ Equity,INDUSTRY_SECTOR,Technology,UQ
-XLNX UW Equity,INDUSTRY_SECTOR,Technology,UW
-XOM UN Equity,INDUSTRY_SECTOR,Energy,UN
-XRAY UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW
-XRX UN Equity,INDUSTRY_SECTOR,Technology,UN
-XTO UN Equity,INDUSTRY_SECTOR,Energy,UN
-XYL UN Equity,INDUSTRY_SECTOR,Industrial,UN
-YUM UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-YUMC UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN
-ZBH UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-ZBRA UW Equity,INDUSTRY_SECTOR,Technology,UW
-ZION UQ Equity,INDUSTRY_SECTOR,Financial,UQ
-ZION UW Equity,INDUSTRY_SECTOR,Financial,UW
-ZTS UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-ZTS-W UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN
-BF B UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",B
-BRK B UN Equity,INDUSTRY_SECTOR,Financial,B
-FSL B UN Equity,INDUSTRY_SECTOR,Technology,B
-LEN B UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",B
-TAP B UN Equity,INDUSTRY_SECTOR,Financial,B
+,ticker,field,value,exchange,stock
+0,0111145D UN Equity,INDUSTRY_SECTOR,Utilities,UN,0111145D
+1,0202445Q UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,0202445Q
+2,0203524D UN Equity,INDUSTRY_SECTOR,Technology,UN,0203524D
+3,0226226D UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,0226226D
+4,0544749D UN Equity,INDUSTRY_SECTOR,Energy,UN,0544749D
+5,0574018D UN Equity,INDUSTRY_SECTOR,Financial,UN,0574018D
+6,0772031D UN Equity,INDUSTRY_SECTOR,Communications,UN,0772031D
+7,0848680D UN Equity,INDUSTRY_SECTOR,Communications,UN,0848680D
+8,0867887D UN Equity,INDUSTRY_SECTOR,Communications,UN,0867887D
+9,0867887D US Equity,INDUSTRY_SECTOR,Communications,US,0867887D
+10,0910150D US Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",US,0910150D
+11,0948669D UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,0948669D
+12,0961514D UN Equity,INDUSTRY_SECTOR,Utilities,UN,0961514D
+13,0964591D UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UQ,0964591D
+14,0964591D UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,0964591D
+15,1028411Q UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,1028411Q
+16,1086832D UN Equity,INDUSTRY_SECTOR,Energy,UN,1086832D
+17,1255173D UN Equity,INDUSTRY_SECTOR,Financial,UN,1255173D
+18,1255459D UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,1255459D
+19,1280712D UQ Equity,INDUSTRY_SECTOR,Technology,UQ,1280712D
+20,1280712D UW Equity,INDUSTRY_SECTOR,Technology,UW,1280712D
+21,1281683D UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,1281683D
+22,1284849D UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,1284849D
+23,1288453D UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,1288453D
+24,1288652D US Equity,INDUSTRY_SECTOR,Financial,US,1288652D
+25,1293405D UN Equity,INDUSTRY_SECTOR,Communications,UN,1293405D
+26,1312089D UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,1312089D
+27,1317355D UN Equity,INDUSTRY_SECTOR,Technology,UN,1317355D
+28,1431816D UN Equity,INDUSTRY_SECTOR,Technology,UN,1431816D
+29,1431816D UW Equity,INDUSTRY_SECTOR,Technology,UW,1431816D
+30,1436513D UN Equity,INDUSTRY_SECTOR,Industrial,UN,1436513D
+31,1437355D US Equity,INDUSTRY_SECTOR,Technology,US,1437355D
+32,1448062D UN Equity,INDUSTRY_SECTOR,Communications,UN,1448062D
+33,1448062D UQ Equity,INDUSTRY_SECTOR,Communications,UQ,1448062D
+34,1448062D UW Equity,INDUSTRY_SECTOR,Communications,UW,1448062D
+35,1500785D UN Equity,INDUSTRY_SECTOR,Utilities,UN,1500785D
+36,1518855D US Equity,INDUSTRY_SECTOR,Communications,US,1518855D
+37,1519128D UA Equity,INDUSTRY_SECTOR,Technology,UA,1519128D
+38,1519128D UQ Equity,INDUSTRY_SECTOR,Technology,UQ,1519128D
+39,1519128D UW Equity,INDUSTRY_SECTOR,Technology,UW,1519128D
+40,1520415D UN Equity,INDUSTRY_SECTOR,Financial,UN,1520415D
+41,1524867D UN Equity,INDUSTRY_SECTOR,Energy,UN,1524867D
+42,1528159D UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,1528159D
+43,1539941D UN Equity,INDUSTRY_SECTOR,Energy,UN,1539941D
+44,1541931D UA Equity,INDUSTRY_SECTOR,Technology,UA,1541931D
+45,1541931D UQ Equity,INDUSTRY_SECTOR,Technology,UQ,1541931D
+46,1541931D UW Equity,INDUSTRY_SECTOR,Technology,UW,1541931D
+47,1566019D UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,1566019D
+48,1649858D UN Equity,INDUSTRY_SECTOR,Financial,UN,1649858D
+49,1649858D UQ Equity,INDUSTRY_SECTOR,Financial,UQ,1649858D
+50,1649858D UW Equity,INDUSTRY_SECTOR,Financial,UW,1649858D
+51,1654539D UN Equity,INDUSTRY_SECTOR,Communications,UN,1654539D
+52,1683351D UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UQ,1683351D
+53,1683997D UQ Equity,INDUSTRY_SECTOR,Technology,UQ,1683997D
+54,1683997D UW Equity,INDUSTRY_SECTOR,Technology,UW,1683997D
+55,1684442D UN Equity,INDUSTRY_SECTOR,Industrial,UN,1684442D
+56,1697067D UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,1697067D
+57,1699947D US Equity,INDUSTRY_SECTOR,Industrial,US,1699947D
+58,1704453D UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,1704453D
+59,1715651D UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,1715651D
+60,1719868D UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,1719868D
+61,1746513D UQ Equity,INDUSTRY_SECTOR,Communications,UQ,1746513D
+62,1746513D UW Equity,INDUSTRY_SECTOR,Communications,UW,1746513D
+63,1752754D UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,1752754D
+64,1799685D UN Equity,INDUSTRY_SECTOR,Energy,UN,1799685D
+65,1806854D UN Equity,INDUSTRY_SECTOR,Technology,UN,1806854D
+66,1810430D UN Equity,INDUSTRY_SECTOR,Energy,UN,1810430D
+67,1812212D UW Equity,INDUSTRY_SECTOR,Communications,UW,1812212D
+68,1822785D UN Equity,INDUSTRY_SECTOR,Financial,UN,1822785D
+69,1825471D UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,1825471D
+70,1831877D UN Equity,INDUSTRY_SECTOR,Financial,UN,1831877D
+71,1831877D US Equity,INDUSTRY_SECTOR,Financial,US,1831877D
+72,1837572D UN Equity,INDUSTRY_SECTOR,Communications,UN,1837572D
+73,1844053D US Equity,INDUSTRY_SECTOR,Financial,US,1844053D
+74,1856613D UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,1856613D
+75,1858968D UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,1858968D
+76,2307532Q UQ Equity,INDUSTRY_SECTOR,Industrial,UQ,2307532Q
+77,2307532Q UW Equity,INDUSTRY_SECTOR,Industrial,UW,2307532Q
+78,2641504Q UN Equity,INDUSTRY_SECTOR,Industrial,UN,2641504Q
+79,2676187Q UQ Equity,INDUSTRY_SECTOR,Financial,UQ,2676187Q
+80,2727195Q UN Equity,INDUSTRY_SECTOR,Financial,UN,2727195Q
+81,2942331Q UN Equity,INDUSTRY_SECTOR,Financial,UN,2942331Q
+82,2968900Q UN Equity,INDUSTRY_SECTOR,Communications,UN,2968900Q
+83,297504Q UN Equity,INDUSTRY_SECTOR,Industrial,UN,297504Q
+84,2987536Q UN Equity,INDUSTRY_SECTOR,Industrial,UN,2987536Q
+85,2999130Q UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,2999130Q
+86,3022239Q UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,3022239Q
+87,3026360Q UN Equity,INDUSTRY_SECTOR,Communications,UN,3026360Q
+88,3029830Q UQ Equity,INDUSTRY_SECTOR,Technology,UQ,3029830Q
+89,3080867Q UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,3080867Q
+90,3133754Q UN Equity,INDUSTRY_SECTOR,Financial,UN,3133754Q
+91,3153670Q UQ Equity,INDUSTRY_SECTOR,Technology,UQ,3153670Q
+92,3286728Q UN Equity,INDUSTRY_SECTOR,Industrial,UN,3286728Q
+93,3362726Q UN Equity,INDUSTRY_SECTOR,Financial,UN,3362726Q
+94,3393199Q UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,3393199Q
+95,3403545Q UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,3403545Q
+96,3414924Q US Equity,INDUSTRY_SECTOR,Communications,US,3414924Q
+97,3423152Q UN Equity,INDUSTRY_SECTOR,Technology,UN,3423152Q
+98,3517233Q UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,3517233Q
+99,355488Q UN Equity,INDUSTRY_SECTOR,Financial,UN,355488Q
+100,3605818Q UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,3605818Q
+101,3621240Q UN Equity,INDUSTRY_SECTOR,Financial,UN,3621240Q
+102,3692470Q UN Equity,INDUSTRY_SECTOR,Communications,UN,3692470Q
+103,4621824Q UN Equity,INDUSTRY_SECTOR,Energy,UN,4621824Q
+104,502466Q US Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",US,502466Q
+105,519239Q UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,519239Q
+106,519239Q UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UQ,519239Q
+107,5656565D UN Equity,INDUSTRY_SECTOR,Industrial,UN,5656565D
+108,605018Q UN Equity,INDUSTRY_SECTOR,Financial,UN,605018Q
+109,605555Q UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,605555Q
+110,653707Q UN Equity,INDUSTRY_SECTOR,Communications,UN,653707Q
+111,723588Q UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,723588Q
+112,748957Q UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,748957Q
+113,764144Q UN Equity,INDUSTRY_SECTOR,Technology,UN,764144Q
+114,8206908Q UQ Equity,INDUSTRY_SECTOR,Financial,UQ,8206908Q
+115,8206908Q UW Equity,INDUSTRY_SECTOR,Financial,UW,8206908Q
+116,8277831Q UN Equity,INDUSTRY_SECTOR,Technology,UN,8277831Q
+117,8394653Q UN Equity,INDUSTRY_SECTOR,Financial,UN,8394653Q
+118,929530Q UN Equity,INDUSTRY_SECTOR,Energy,UN,929530Q
+119,945852Q UN Equity,INDUSTRY_SECTOR,Communications,UN,945852Q
+120,987200Q UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,987200Q
+121,9876544D UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,9876544D
+122,9876549D UN Equity,INDUSTRY_SECTOR,Communications,UN,9876549D
+123,9876566D UN Equity,INDUSTRY_SECTOR,Financial,UN,9876566D
+124,9995522D UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,9995522D
+125,A UN Equity,INDUSTRY_SECTOR,Industrial,UN,A
+126,AA UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,AA
+127,AAL UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW,AAL
+128,AAMRQ UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,AAMRQ
+129,AAP UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,AAP
+130,AAPL UQ Equity,INDUSTRY_SECTOR,Technology,UQ,AAPL
+131,AAPL UW Equity,INDUSTRY_SECTOR,Technology,UW,AAPL
+132,ABBV UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,ABBV
+133,ABC UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,ABC
+134,ABKFQ UN Equity,INDUSTRY_SECTOR,Financial,UN,ABKFQ
+135,ABMD UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,ABMD
+136,ABT UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,ABT
+137,ACAS UW Equity,INDUSTRY_SECTOR,Financial,UW,ACAS
+138,ACN UN Equity,INDUSTRY_SECTOR,Technology,UN,ACN
+139,ADBE UQ Equity,INDUSTRY_SECTOR,Technology,UQ,ADBE
+140,ADBE UW Equity,INDUSTRY_SECTOR,Technology,UW,ADBE
+141,ADI UN Equity,INDUSTRY_SECTOR,Technology,UN,ADI
+142,ADI UW Equity,INDUSTRY_SECTOR,Technology,UW,ADI
+143,ADM UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,ADM
+144,ADNT UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,ADNT
+145,ADP UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,ADP
+146,ADP UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,ADP
+147,ADS UN Equity,INDUSTRY_SECTOR,Financial,UN,ADS
+148,ADSK UQ Equity,INDUSTRY_SECTOR,Technology,UQ,ADSK
+149,ADSK UW Equity,INDUSTRY_SECTOR,Technology,UW,ADSK
+150,AEE UN Equity,INDUSTRY_SECTOR,Utilities,UN,AEE
+151,AEP UN Equity,INDUSTRY_SECTOR,Utilities,UN,AEP
+152,AEP UW Equity,INDUSTRY_SECTOR,Utilities,UW,AEP
+153,AES UN Equity,INDUSTRY_SECTOR,Utilities,UN,AES
+154,AET UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,AET
+155,AFL UN Equity,INDUSTRY_SECTOR,Financial,UN,AFL
+156,AGN UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,AGN
+157,AIG UN Equity,INDUSTRY_SECTOR,Financial,UN,AIG
+158,AIRC UN Equity,INDUSTRY_SECTOR,Financial,UN,AIRC
+159,AIV UN Equity,INDUSTRY_SECTOR,Financial,UN,AIV
+160,AIZ UN Equity,INDUSTRY_SECTOR,Financial,UN,AIZ
+161,AJG UN Equity,INDUSTRY_SECTOR,Financial,UN,AJG
+162,AKAM UW Equity,INDUSTRY_SECTOR,Technology,UW,AKAM
+163,AKS UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,AKS
+164,ALB UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,ALB
+165,ALGN UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,ALGN
+166,ALK UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,ALK
+167,ALL UN Equity,INDUSTRY_SECTOR,Financial,UN,ALL
+168,ALLE UN Equity,INDUSTRY_SECTOR,Industrial,UN,ALLE
+169,ALXN UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,ALXN
+170,AMAT UQ Equity,INDUSTRY_SECTOR,Technology,UQ,AMAT
+171,AMAT UW Equity,INDUSTRY_SECTOR,Technology,UW,AMAT
+172,AMCC UQ Equity,INDUSTRY_SECTOR,Technology,UQ,AMCC
+173,AMCR UN Equity,INDUSTRY_SECTOR,Industrial,UN,AMCR
+174,AMD UN Equity,INDUSTRY_SECTOR,Technology,UN,AMD
+175,AMD UR Equity,INDUSTRY_SECTOR,Technology,UR,AMD
+176,AMD UW Equity,INDUSTRY_SECTOR,Technology,UW,AMD
+177,AME UN Equity,INDUSTRY_SECTOR,Industrial,UN,AME
+178,AMG UN Equity,INDUSTRY_SECTOR,Financial,UN,AMG
+179,AMGN UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UQ,AMGN
+180,AMGN UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,AMGN
+181,AMP UN Equity,INDUSTRY_SECTOR,Financial,UN,AMP
+182,AMT UN Equity,INDUSTRY_SECTOR,Financial,UN,AMT
+183,AMZN UQ Equity,INDUSTRY_SECTOR,Communications,UQ,AMZN
+184,AMZN UW Equity,INDUSTRY_SECTOR,Communications,UW,AMZN
+185,AN UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,AN
+186,ANDV UN Equity,INDUSTRY_SECTOR,Energy,UN,ANDV
+187,ANDV US Equity,INDUSTRY_SECTOR,Energy,US,ANDV
+188,ANDW UQ Equity,INDUSTRY_SECTOR,Communications,UQ,ANDW
+189,ANDW UW Equity,INDUSTRY_SECTOR,Communications,UW,ANDW
+190,ANET UN Equity,INDUSTRY_SECTOR,Communications,UN,ANET
+191,ANF UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,ANF
+192,ANRZQ UN Equity,INDUSTRY_SECTOR,Energy,UN,ANRZQ
+193,ANSS UW Equity,INDUSTRY_SECTOR,Technology,UW,ANSS
+194,ANTM UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,ANTM
+195,AON UN Equity,INDUSTRY_SECTOR,Financial,UN,AON
+196,AOS UN Equity,INDUSTRY_SECTOR,Industrial,UN,AOS
+197,APA UN Equity,INDUSTRY_SECTOR,Energy,UN,APA
+198,APA UW Equity,INDUSTRY_SECTOR,Energy,UW,APA
+199,APC UN Equity,INDUSTRY_SECTOR,Energy,UN,APC
+200,APD UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,APD
+201,APH UN Equity,INDUSTRY_SECTOR,Industrial,UN,APH
+202,APOL UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UQ,APOL
+203,APOL UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,APOL
+204,APTV UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,APTV
+205,ARE UN Equity,INDUSTRY_SECTOR,Financial,UN,ARE
+206,ARG UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,ARG
+207,ARNC UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,ARNC
+208,ASH UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,ASH
+209,ASIX UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,ASIX
+210,ATGE UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,ATGE
+211,ATI UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,ATI
+212,ATO UN Equity,INDUSTRY_SECTOR,Utilities,UN,ATO
+213,ATVI UW Equity,INDUSTRY_SECTOR,Technology,UW,ATVI
+214,AVB UN Equity,INDUSTRY_SECTOR,Financial,UN,AVB
+215,AVGO UW Equity,INDUSTRY_SECTOR,Technology,UW,AVGO
+216,AVP UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,AVP
+217,AVY UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,AVY
+218,AW UN Equity,INDUSTRY_SECTOR,Industrial,UN,AW
+219,AWE UN Equity,INDUSTRY_SECTOR,Communications,UN,AWE
+220,AWK UN Equity,INDUSTRY_SECTOR,Utilities,UN,AWK
+221,AXP UN Equity,INDUSTRY_SECTOR,Financial,UN,AXP
+222,AYE UN Equity,INDUSTRY_SECTOR,Utilities,UN,AYE
+223,AYI UN Equity,INDUSTRY_SECTOR,Industrial,UN,AYI
+224,AZO UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,AZO
+225,BA UN Equity,INDUSTRY_SECTOR,Industrial,UN,BA
+226,BAC UN Equity,INDUSTRY_SECTOR,Financial,UN,BAC
+227,BAX UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,BAX
+228,BBBY UQ Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UQ,BBBY
+229,BBBY UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW,BBBY
+230,BBY UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,BBY
+231,BC UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,BC
+232,BCR UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,BCR
+233,BCR US Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",US,BCR
+234,BDK UN Equity,INDUSTRY_SECTOR,Industrial,UN,BDK
+235,BDX UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,BDX
+236,BEN UN Equity,INDUSTRY_SECTOR,Financial,UN,BEN
+237,BGEN UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UQ,BGEN
+238,BHF UW Equity,INDUSTRY_SECTOR,Financial,UW,BHF
+239,BHI UN Equity,INDUSTRY_SECTOR,Energy,UN,BHI
+240,BIG UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,BIG
+241,BIIB UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UQ,BIIB
+242,BIIB UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,BIIB
+243,BIO UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,BIO
+244,BIVV UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,BIVV
+245,BK UN Equity,INDUSTRY_SECTOR,Financial,UN,BK
+246,BKNG UW Equity,INDUSTRY_SECTOR,Communications,UW,BKNG
+247,BKR UN Equity,INDUSTRY_SECTOR,Energy,UN,BKR
+248,BLK UN Equity,INDUSTRY_SECTOR,Financial,UN,BLK
+249,BLL UN Equity,INDUSTRY_SECTOR,Industrial,UN,BLL
+250,BLS UN Equity,INDUSTRY_SECTOR,Communications,UN,BLS
+251,BMC UN Equity,INDUSTRY_SECTOR,Technology,UN,BMC
+252,BMC UW Equity,INDUSTRY_SECTOR,Technology,UW,BMC
+253,BMS UN Equity,INDUSTRY_SECTOR,Industrial,UN,BMS
+254,BMY UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,BMY
+255,BNI UN Equity,INDUSTRY_SECTOR,Industrial,UN,BNI
+256,BOL UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,BOL
+257,BR UN Equity,INDUSTRY_SECTOR,Technology,UN,BR
+258,BRCM UQ Equity,INDUSTRY_SECTOR,Technology,UQ,BRCM
+259,BRCM UW Equity,INDUSTRY_SECTOR,Technology,UW,BRCM
+260,BRL UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,BRL
+261,BSX UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,BSX
+262,BTUUQ UN Equity,INDUSTRY_SECTOR,Energy,UN,BTUUQ
+263,BWA UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,BWA
+264,BXLT UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,BXLT
+265,BXP UN Equity,INDUSTRY_SECTOR,Financial,UN,BXP
+266,C UN Equity,INDUSTRY_SECTOR,Financial,UN,C
+267,CA UN Equity,INDUSTRY_SECTOR,Technology,UN,CA
+268,CA UW Equity,INDUSTRY_SECTOR,Technology,UW,CA
+269,CAG UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,CAG
+270,CAH UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,CAH
+271,CAM UN Equity,INDUSTRY_SECTOR,Energy,UN,CAM
+272,CAR UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,CAR
+273,CARR UN Equity,INDUSTRY_SECTOR,Industrial,UN,CARR
+274,CAT UN Equity,INDUSTRY_SECTOR,Industrial,UN,CAT
+275,CB UN Equity,INDUSTRY_SECTOR,Financial,UN,CB
+276,CBE UN Equity,INDUSTRY_SECTOR,Industrial,UN,CBE
+277,CBOE UF Equity,INDUSTRY_SECTOR,Financial,UF,CBOE
+278,CBOE UW Equity,INDUSTRY_SECTOR,Financial,UW,CBOE
+279,CBRE UN Equity,INDUSTRY_SECTOR,Financial,UN,CBRE
+280,CCEP UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,CCEP
+281,CCI UN Equity,INDUSTRY_SECTOR,Financial,UN,CCI
+282,CCL UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,CCL
+283,CCTYQ UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,CCTYQ
+284,CDNS UW Equity,INDUSTRY_SECTOR,Technology,UW,CDNS
+285,CDW UW Equity,INDUSTRY_SECTOR,Communications,UW,CDW
+286,CE UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,CE
+287,CEG UN Equity,INDUSTRY_SECTOR,Utilities,UN,CEG
+288,CELG UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,CELG
+289,CEPH UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,CEPH
+290,CERN UW Equity,INDUSTRY_SECTOR,Technology,UW,CERN
+291,CF UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,CF
+292,CFC UN Equity,INDUSTRY_SECTOR,Financial,UN,CFC
+293,CFG UN Equity,INDUSTRY_SECTOR,Financial,UN,CFG
+294,CFN UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,CFN
+295,CHD UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,CHD
+296,CHKAQ UN Equity,INDUSTRY_SECTOR,Energy,UN,CHKAQ
+297,CHRW UW Equity,INDUSTRY_SECTOR,Industrial,UW,CHRW
+298,CHTR UW Equity,INDUSTRY_SECTOR,Communications,UW,CHTR
+299,CHX UN Equity,INDUSTRY_SECTOR,Energy,UN,CHX
+300,CI UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,CI
+301,CIEN UA Equity,INDUSTRY_SECTOR,Communications,UA,CIEN
+302,CIEN UQ Equity,INDUSTRY_SECTOR,Communications,UQ,CIEN
+303,CIEN UW Equity,INDUSTRY_SECTOR,Communications,UW,CIEN
+304,CIN UN Equity,INDUSTRY_SECTOR,Utilities,UN,CIN
+305,CINF UQ Equity,INDUSTRY_SECTOR,Financial,UQ,CINF
+306,CINF UW Equity,INDUSTRY_SECTOR,Financial,UW,CINF
+307,CITGQ UN Equity,INDUSTRY_SECTOR,Financial,UN,CITGQ
+308,CL UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,CL
+309,CLF UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,CLF
+310,CLX UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,CLX
+311,CMA UN Equity,INDUSTRY_SECTOR,Financial,UN,CMA
+312,CMCSA UA Equity,INDUSTRY_SECTOR,Communications,UA,CMCSA
+313,CMCSA UQ Equity,INDUSTRY_SECTOR,Communications,UQ,CMCSA
+314,CMCSA UW Equity,INDUSTRY_SECTOR,Communications,UW,CMCSA
+315,CMCSK UQ Equity,INDUSTRY_SECTOR,Communications,UQ,CMCSK
+316,CMCSK UW Equity,INDUSTRY_SECTOR,Communications,UW,CMCSK
+317,CME UN Equity,INDUSTRY_SECTOR,Financial,UN,CME
+318,CME UW Equity,INDUSTRY_SECTOR,Financial,UW,CME
+319,CMG UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,CMG
+320,CMI UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,CMI
+321,CMS UN Equity,INDUSTRY_SECTOR,Utilities,UN,CMS
+322,CMVT UQ Equity,INDUSTRY_SECTOR,Communications,UQ,CMVT
+323,CMX UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,CMX
+324,CNC UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,CNC
+325,CNP UN Equity,INDUSTRY_SECTOR,Utilities,UN,CNP
+326,CNX UN Equity,INDUSTRY_SECTOR,Energy,UN,CNX
+327,COF UN Equity,INDUSTRY_SECTOR,Financial,UN,COF
+328,COG UN Equity,INDUSTRY_SECTOR,Energy,UN,COG
+329,COL UN Equity,INDUSTRY_SECTOR,Industrial,UN,COL
+330,COO UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,COO
+331,COP UN Equity,INDUSTRY_SECTOR,Energy,UN,COP
+332,COST UA Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UA,COST
+333,COST UQ Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UQ,COST
+334,COST UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW,COST
+335,COTY UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,COTY
+336,COV UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,COV
+337,CPB UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,CPB
+338,CPGX UN Equity,INDUSTRY_SECTOR,Energy,UN,CPGX
+339,CPGX US Equity,INDUSTRY_SECTOR,Energy,US,CPGX
+340,CPNLQ UN Equity,INDUSTRY_SECTOR,Utilities,UN,CPNLQ
+341,CPPRQ UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,CPPRQ
+342,CPRI UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,CPRI
+343,CPRT UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW,CPRT
+344,CR UN Equity,INDUSTRY_SECTOR,Industrial,UN,CR
+345,CRM UN Equity,INDUSTRY_SECTOR,Technology,UN,CRM
+346,CSC UN Equity,INDUSTRY_SECTOR,Technology,UN,CSC
+347,CSCO UQ Equity,INDUSTRY_SECTOR,Communications,UQ,CSCO
+348,CSCO UW Equity,INDUSTRY_SECTOR,Communications,UW,CSCO
+349,CSRA UN Equity,INDUSTRY_SECTOR,Technology,UN,CSRA
+350,CSX UN Equity,INDUSTRY_SECTOR,Industrial,UN,CSX
+351,CSX UW Equity,INDUSTRY_SECTOR,Industrial,UW,CSX
+352,CTAS UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UQ,CTAS
+353,CTAS UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,CTAS
+354,CTB UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,CTB
+355,CTLT UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,CTLT
+356,CTSH UW Equity,INDUSTRY_SECTOR,Technology,UW,CTSH
+357,CTVA UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,CTVA
+358,CTXS UQ Equity,INDUSTRY_SECTOR,Technology,UQ,CTXS
+359,CTXS UW Equity,INDUSTRY_SECTOR,Technology,UW,CTXS
+360,CVC UN Equity,INDUSTRY_SECTOR,Communications,UN,CVC
+361,CVET UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,CVET
+362,CVG UN Equity,INDUSTRY_SECTOR,Technology,UN,CVG
+363,CVH UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,CVH
+364,CVH US Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",US,CVH
+365,CVS UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,CVS
+366,CVX UN Equity,INDUSTRY_SECTOR,Energy,UN,CVX
+367,CXO UN Equity,INDUSTRY_SECTOR,Energy,UN,CXO
+368,D UN Equity,INDUSTRY_SECTOR,Utilities,UN,D
+369,DAL UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,DAL
+370,DALRQ UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,DALRQ
+371,DCNAQ UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,DCNAQ
+372,DD UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,DD
+373,DDS UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,DDS
+374,DE UN Equity,INDUSTRY_SECTOR,Industrial,UN,DE
+375,DFODQ UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,DFODQ
+376,DFS UN Equity,INDUSTRY_SECTOR,Financial,UN,DFS
+377,DG UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,DG
+378,DGX UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,DGX
+379,DHI UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,DHI
+380,DHR UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,DHR
+381,DIS UN Equity,INDUSTRY_SECTOR,Communications,UN,DIS
+382,DISCA UW Equity,INDUSTRY_SECTOR,Communications,UW,DISCA
+383,DISCK UW Equity,INDUSTRY_SECTOR,Communications,UW,DISCK
+384,DISH UW Equity,INDUSTRY_SECTOR,Communications,UW,DISH
+385,DJ UN Equity,INDUSTRY_SECTOR,Communications,UN,DJ
+386,DLPH UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,DLPH
+387,DLR UN Equity,INDUSTRY_SECTOR,Financial,UN,DLR
+388,DLTR UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW,DLTR
+389,DLX UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,DLX
+390,DNRCQ UN Equity,INDUSTRY_SECTOR,Energy,UN,DNRCQ
+391,DOFSQ UN Equity,INDUSTRY_SECTOR,Energy,UN,DOFSQ
+392,DOV UN Equity,INDUSTRY_SECTOR,Industrial,UN,DOV
+393,DOW UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,DOW
+394,DPHIQ UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,DPHIQ
+395,DPZ UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,DPZ
+396,DRE UN Equity,INDUSTRY_SECTOR,Financial,UN,DRE
+397,DRI UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,DRI
+398,DTE UN Equity,INDUSTRY_SECTOR,Utilities,UN,DTE
+399,DUK UN Equity,INDUSTRY_SECTOR,Utilities,UN,DUK
+400,DVA UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,DVA
+401,DVMT UN Equity,INDUSTRY_SECTOR,Technology,UN,DVMT
+402,DVN UA Equity,INDUSTRY_SECTOR,Energy,UA,DVN
+403,DVN UN Equity,INDUSTRY_SECTOR,Energy,UN,DVN
+404,DXC UN Equity,INDUSTRY_SECTOR,Technology,UN,DXC
+405,DXCM UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,DXCM
+406,DYNIQ UN Equity,INDUSTRY_SECTOR,Utilities,UN,DYNIQ
+407,EA UQ Equity,INDUSTRY_SECTOR,Technology,UQ,EA
+408,EA UW Equity,INDUSTRY_SECTOR,Technology,UW,EA
+409,EBAY UQ Equity,INDUSTRY_SECTOR,Communications,UQ,EBAY
+410,EBAY UW Equity,INDUSTRY_SECTOR,Communications,UW,EBAY
+411,ECL UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,ECL
+412,ED UN Equity,INDUSTRY_SECTOR,Utilities,UN,ED
+413,EFX UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,EFX
+414,EHC UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,EHC
+415,EIX UN Equity,INDUSTRY_SECTOR,Utilities,UN,EIX
+416,EKDKQ UN Equity,INDUSTRY_SECTOR,Industrial,UN,EKDKQ
+417,EL UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,EL
+418,EMC UN Equity,INDUSTRY_SECTOR,Technology,UN,EMC
+419,EMN UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,EMN
+420,EMR UN Equity,INDUSTRY_SECTOR,Industrial,UN,EMR
+421,ENDP UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,ENDP
+422,EOG UN Equity,INDUSTRY_SECTOR,Energy,UN,EOG
+423,EOP UN Equity,INDUSTRY_SECTOR,Financial,UN,EOP
+424,EP UN Equity,INDUSTRY_SECTOR,Energy,UN,EP
+425,EQIX UW Equity,INDUSTRY_SECTOR,Financial,UW,EQIX
+426,EQR UN Equity,INDUSTRY_SECTOR,Financial,UN,EQR
+427,EQT UN Equity,INDUSTRY_SECTOR,Energy,UN,EQT
+428,ES UN Equity,INDUSTRY_SECTOR,Utilities,UN,ES
+429,ESRX UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UQ,ESRX
+430,ESRX UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,ESRX
+431,ESS UN Equity,INDUSTRY_SECTOR,Financial,UN,ESS
+432,ETFC UN Equity,INDUSTRY_SECTOR,Communications,UN,ETFC
+433,ETFC US Equity,INDUSTRY_SECTOR,Communications,US,ETFC
+434,ETFC UW Equity,INDUSTRY_SECTOR,Communications,UW,ETFC
+435,ETN UN Equity,INDUSTRY_SECTOR,Industrial,UN,ETN
+436,ETR UN Equity,INDUSTRY_SECTOR,Utilities,UN,ETR
+437,ETSY UW Equity,INDUSTRY_SECTOR,Communications,UW,ETSY
+438,EVHC UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,EVHC
+439,EVRG UN Equity,INDUSTRY_SECTOR,Utilities,UN,EVRG
+440,EW UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,EW
+441,EXC UN Equity,INDUSTRY_SECTOR,Utilities,UN,EXC
+442,EXC UW Equity,INDUSTRY_SECTOR,Utilities,UW,EXC
+443,EXPD UW Equity,INDUSTRY_SECTOR,Industrial,UW,EXPD
+444,EXPE UW Equity,INDUSTRY_SECTOR,Communications,UW,EXPE
+445,EXR UN Equity,INDUSTRY_SECTOR,Financial,UN,EXR
+446,F UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,F
+447,FANG UW Equity,INDUSTRY_SECTOR,Energy,UW,FANG
+448,FAST UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW,FAST
+449,FB UW Equity,INDUSTRY_SECTOR,Communications,UW,FB
+450,FBF UN Equity,INDUSTRY_SECTOR,Financial,UN,FBF
+451,FBHS UN Equity,INDUSTRY_SECTOR,Industrial,UN,FBHS
+452,FCX UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,FCX
+453,FDO UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,FDO
+454,FDX UN Equity,INDUSTRY_SECTOR,Industrial,UN,FDX
+455,FE UN Equity,INDUSTRY_SECTOR,Utilities,UN,FE
+456,FFIV UW Equity,INDUSTRY_SECTOR,Communications,UW,FFIV
+457,FHI UN Equity,INDUSTRY_SECTOR,Financial,UN,FHI
+458,FHN UN Equity,INDUSTRY_SECTOR,Financial,UN,FHN
+459,FIS UN Equity,INDUSTRY_SECTOR,Technology,UN,FIS
+460,FISV UQ Equity,INDUSTRY_SECTOR,Technology,UQ,FISV
+461,FISV UW Equity,INDUSTRY_SECTOR,Technology,UW,FISV
+462,FITB UQ Equity,INDUSTRY_SECTOR,Financial,UQ,FITB
+463,FITB UW Equity,INDUSTRY_SECTOR,Financial,UW,FITB
+464,FL UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,FL
+465,FLIR UW Equity,INDUSTRY_SECTOR,Industrial,UW,FLIR
+466,FLR UN Equity,INDUSTRY_SECTOR,Industrial,UN,FLR
+467,FLS UN Equity,INDUSTRY_SECTOR,Industrial,UN,FLS
+468,FLT UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,FLT
+469,FMC UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,FMC
+470,FMCC UN Equity,INDUSTRY_SECTOR,Financial,UN,FMCC
+471,FNMA UN Equity,INDUSTRY_SECTOR,Financial,UN,FNMA
+472,FOSL UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW,FOSL
+473,FOX UW Equity,INDUSTRY_SECTOR,Communications,UW,FOX
+474,FOXA UW Equity,INDUSTRY_SECTOR,Communications,UW,FOXA
+475,FRC UN Equity,INDUSTRY_SECTOR,Financial,UN,FRC
+476,FRT UN Equity,INDUSTRY_SECTOR,Financial,UN,FRT
+477,FSH UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,FSH
+478,FSLR UW Equity,INDUSTRY_SECTOR,Energy,UW,FSLR
+479,FTI UN Equity,INDUSTRY_SECTOR,Energy,UN,FTI
+480,FTNT UW Equity,INDUSTRY_SECTOR,Technology,UW,FTNT
+481,FTRCQ UN Equity,INDUSTRY_SECTOR,Communications,UN,FTRCQ
+482,FTRCQ UW Equity,INDUSTRY_SECTOR,Communications,UW,FTRCQ
+483,FTV UN Equity,INDUSTRY_SECTOR,Industrial,UN,FTV
+484,GAS UN Equity,INDUSTRY_SECTOR,Utilities,UN,GAS
+485,GD UN Equity,INDUSTRY_SECTOR,Industrial,UN,GD
+486,GDT UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,GDT
+487,GDW UN Equity,INDUSTRY_SECTOR,Financial,UN,GDW
+488,GE UN Equity,INDUSTRY_SECTOR,Industrial,UN,GE
+489,GENZ UA Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UA,GENZ
+490,GENZ UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UQ,GENZ
+491,GENZ UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,GENZ
+492,GGP UN Equity,INDUSTRY_SECTOR,Financial,UN,GGP
+493,GGP UP Equity,INDUSTRY_SECTOR,Financial,UP,GGP
+494,GHC UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,GHC
+495,GILD UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UQ,GILD
+496,GILD UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,GILD
+497,GIS UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,GIS
+498,GL UN Equity,INDUSTRY_SECTOR,Financial,UN,GL
+499,GLW UN Equity,INDUSTRY_SECTOR,Communications,UN,GLW
+500,GM UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,GM
+501,GMCR UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,GMCR
+502,GME UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,GME
+503,GNW UN Equity,INDUSTRY_SECTOR,Financial,UN,GNW
+504,GNW UP Equity,INDUSTRY_SECTOR,Financial,UP,GNW
+505,GOOG UW Equity,INDUSTRY_SECTOR,Communications,UW,GOOG
+506,GOOGL UQ Equity,INDUSTRY_SECTOR,Communications,UQ,GOOGL
+507,GOOGL UW Equity,INDUSTRY_SECTOR,Communications,UW,GOOGL
+508,GPC UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,GPC
+509,GPN UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,GPN
+510,GPS UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,GPS
+511,GR UN Equity,INDUSTRY_SECTOR,Industrial,UN,GR
+512,GR US Equity,INDUSTRY_SECTOR,Industrial,US,GR
+513,GRMN UW Equity,INDUSTRY_SECTOR,Industrial,UW,GRMN
+514,GS UN Equity,INDUSTRY_SECTOR,Financial,UN,GS
+515,GT UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,GT
+516,GT UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW,GT
+517,GTGOF US Equity,INDUSTRY_SECTOR,Industrial,US,GTGOF
+518,GTW UN Equity,INDUSTRY_SECTOR,Technology,UN,GTW
+519,GTXMQ UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,GTXMQ
+520,GWW UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,GWW
+521,HAL UN Equity,INDUSTRY_SECTOR,Energy,UN,HAL
+522,HAR UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,HAR
+523,HAR US Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",US,HAR
+524,HAS US Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",US,HAS
+525,HAS UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW,HAS
+526,HBAN UA Equity,INDUSTRY_SECTOR,Financial,UA,HBAN
+527,HBAN UQ Equity,INDUSTRY_SECTOR,Financial,UQ,HBAN
+528,HBAN UW Equity,INDUSTRY_SECTOR,Financial,UW,HBAN
+529,HBI UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,HBI
+530,HCA UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,HCA
+531,HCBK UW Equity,INDUSTRY_SECTOR,Financial,UW,HCBK
+532,HD UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,HD
+533,HES UN Equity,INDUSTRY_SECTOR,Energy,UN,HES
+534,HET UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,HET
+535,HFC UN Equity,INDUSTRY_SECTOR,Energy,UN,HFC
+536,HIG UN Equity,INDUSTRY_SECTOR,Financial,UN,HIG
+537,HII UN Equity,INDUSTRY_SECTOR,Industrial,UN,HII
+538,HLT UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,HLT
+539,HMA UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,HMA
+540,HNZ UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,HNZ
+541,HOG UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,HOG
+542,HOLX UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,HOLX
+543,HON UN Equity,INDUSTRY_SECTOR,Industrial,UN,HON
+544,HOT UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,HOT
+545,HP UN Equity,INDUSTRY_SECTOR,Energy,UN,HP
+546,HPC US Equity,INDUSTRY_SECTOR,Basic Materials,US,HPC
+547,HPE UN Equity,INDUSTRY_SECTOR,Technology,UN,HPE
+548,HPQ UN Equity,INDUSTRY_SECTOR,Technology,UN,HPQ
+549,HRB UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,HRB
+550,HRL UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,HRL
+551,HSH UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,HSH
+552,HSIC UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,HSIC
+553,HSP UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,HSP
+554,HST UN Equity,INDUSTRY_SECTOR,Financial,UN,HST
+555,HST UW Equity,INDUSTRY_SECTOR,Financial,UW,HST
+556,HSY UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,HSY
+557,HUM UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,HUM
+558,HWM UN Equity,INDUSTRY_SECTOR,Industrial,UN,HWM
+559,IBM UN Equity,INDUSTRY_SECTOR,Technology,UN,IBM
+560,ICE UN Equity,INDUSTRY_SECTOR,Financial,UN,ICE
+561,IDXX UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,IDXX
+562,IEX UN Equity,INDUSTRY_SECTOR,Industrial,UN,IEX
+563,IFF UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,IFF
+564,IILGV UQ Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UQ,IILGV
+565,ILMN UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,ILMN
+566,INCY UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,INCY
+567,INFO UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,INFO
+568,INFO UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,INFO
+569,INTC UQ Equity,INDUSTRY_SECTOR,Technology,UQ,INTC
+570,INTC UW Equity,INDUSTRY_SECTOR,Technology,UW,INTC
+571,INTU UQ Equity,INDUSTRY_SECTOR,Technology,UQ,INTU
+572,INTU UW Equity,INDUSTRY_SECTOR,Technology,UW,INTU
+573,IP UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,IP
+574,IPG UN Equity,INDUSTRY_SECTOR,Communications,UN,IPG
+575,IPGP UW Equity,INDUSTRY_SECTOR,Technology,UW,IPGP
+576,IQV UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,IQV
+577,IR UN Equity,INDUSTRY_SECTOR,Industrial,UN,IR
+578,IRM UN Equity,INDUSTRY_SECTOR,Financial,UN,IRM
+579,ISRG UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,ISRG
+580,IT UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,IT
+581,ITT UN Equity,INDUSTRY_SECTOR,Industrial,UN,ITT
+582,ITW UN Equity,INDUSTRY_SECTOR,Industrial,UN,ITW
+583,IVZ UN Equity,INDUSTRY_SECTOR,Financial,UN,IVZ
+584,J UN Equity,INDUSTRY_SECTOR,Industrial,UN,J
+585,JAVA UQ Equity,INDUSTRY_SECTOR,Technology,UQ,JAVA
+586,JAVA UW Equity,INDUSTRY_SECTOR,Technology,UW,JAVA
+587,JBGS UN Equity,INDUSTRY_SECTOR,Financial,UN,JBGS
+588,JBHT UW Equity,INDUSTRY_SECTOR,Industrial,UW,JBHT
+589,JBL UN Equity,INDUSTRY_SECTOR,Industrial,UN,JBL
+590,JCI UN Equity,INDUSTRY_SECTOR,Industrial,UN,JCI
+591,JEF UN Equity,INDUSTRY_SECTOR,Financial,UN,JEF
+592,JHF UN Equity,INDUSTRY_SECTOR,Financial,UN,JHF
+593,JKHY UW Equity,INDUSTRY_SECTOR,Technology,UW,JKHY
+594,JNJ UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,JNJ
+595,JNPR UN Equity,INDUSTRY_SECTOR,Communications,UN,JNPR
+596,JNPR UQ Equity,INDUSTRY_SECTOR,Communications,UQ,JNPR
+597,JNPR UW Equity,INDUSTRY_SECTOR,Communications,UW,JNPR
+598,JNS UN Equity,INDUSTRY_SECTOR,Financial,UN,JNS
+599,JNY UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,JNY
+600,JOY UN Equity,INDUSTRY_SECTOR,Industrial,UN,JOY
+601,JOY UW Equity,INDUSTRY_SECTOR,Industrial,UW,JOY
+602,JPM UN Equity,INDUSTRY_SECTOR,Financial,UN,JPM
+603,JWN UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,JWN
+604,K UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,K
+605,KATE UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,KATE
+606,KBH UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,KBH
+607,KDP UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,KDP
+608,KEY UN Equity,INDUSTRY_SECTOR,Financial,UN,KEY
+609,KEYS UN Equity,INDUSTRY_SECTOR,Industrial,UN,KEYS
+610,KG UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,KG
+611,KHC UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,KHC
+612,KIM UN Equity,INDUSTRY_SECTOR,Financial,UN,KIM
+613,KLAC UQ Equity,INDUSTRY_SECTOR,Technology,UQ,KLAC
+614,KLAC UW Equity,INDUSTRY_SECTOR,Technology,UW,KLAC
+615,KMB UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,KMB
+616,KMI UN Equity,INDUSTRY_SECTOR,Energy,UN,KMI
+617,KMX UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,KMX
+618,KO UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,KO
+619,KR UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,KR
+620,KRB UN Equity,INDUSTRY_SECTOR,Financial,UN,KRB
+621,KRFT UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,KRFT
+622,KRI UN Equity,INDUSTRY_SECTOR,Communications,UN,KRI
+623,KSE UN Equity,INDUSTRY_SECTOR,Utilities,UN,KSE
+624,KSS UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,KSS
+625,KSU UN Equity,INDUSTRY_SECTOR,Industrial,UN,KSU
+626,KTB UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,KTB
+627,L UN Equity,INDUSTRY_SECTOR,Financial,UN,L
+628,LB UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,LB
+629,LDOS UN Equity,INDUSTRY_SECTOR,Technology,UN,LDOS
+630,LEG UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,LEG
+631,LEHMQ UN Equity,INDUSTRY_SECTOR,Financial,UN,LEHMQ
+632,LEHMQ UP Equity,INDUSTRY_SECTOR,Financial,UP,LEHMQ
+633,LEN UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,LEN
+634,LH UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,LH
+635,LHX UN Equity,INDUSTRY_SECTOR,Industrial,UN,LHX
+636,LIN UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,LIN
+637,LKQ UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW,LKQ
+638,LLL UN Equity,INDUSTRY_SECTOR,Industrial,UN,LLL
+639,LLTC UQ Equity,INDUSTRY_SECTOR,Technology,UQ,LLTC
+640,LLTC UW Equity,INDUSTRY_SECTOR,Technology,UW,LLTC
+641,LLY UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,LLY
+642,LM UN Equity,INDUSTRY_SECTOR,Financial,UN,LM
+643,LMT UN Equity,INDUSTRY_SECTOR,Industrial,UN,LMT
+644,LNC UN Equity,INDUSTRY_SECTOR,Financial,UN,LNC
+645,LNT UN Equity,INDUSTRY_SECTOR,Utilities,UN,LNT
+646,LNT UW Equity,INDUSTRY_SECTOR,Utilities,UW,LNT
+647,LO UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,LO
+648,LOW UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,LOW
+649,LPX UN Equity,INDUSTRY_SECTOR,Industrial,UN,LPX
+650,LRCX UW Equity,INDUSTRY_SECTOR,Technology,UW,LRCX
+651,LUMN UN Equity,INDUSTRY_SECTOR,Communications,UN,LUMN
+652,LUV UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,LUV
+653,LVLT UN Equity,INDUSTRY_SECTOR,Communications,UN,LVLT
+654,LVS UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,LVS
+655,LW UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,LW
+656,LXK UN Equity,INDUSTRY_SECTOR,Technology,UN,LXK
+657,LYB UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,LYB
+658,LYV UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,LYV
+659,M UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,M
+660,MA UN Equity,INDUSTRY_SECTOR,Financial,UN,MA
+661,MAA UN Equity,INDUSTRY_SECTOR,Financial,UN,MAA
+662,MAC UN Equity,INDUSTRY_SECTOR,Financial,UN,MAC
+663,MAR UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,MAR
+664,MAR UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW,MAR
+665,MAS UN Equity,INDUSTRY_SECTOR,Industrial,UN,MAS
+666,MAT UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,MAT
+667,MAT US Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",US,MAT
+668,MAT UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW,MAT
+669,MBI UN Equity,INDUSTRY_SECTOR,Financial,UN,MBI
+670,MCD UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,MCD
+671,MCHP UW Equity,INDUSTRY_SECTOR,Technology,UW,MCHP
+672,MCK UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,MCK
+673,MCO UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,MCO
+674,MDLZ UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,MDLZ
+675,MDLZ UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,MDLZ
+676,MDP UN Equity,INDUSTRY_SECTOR,Communications,UN,MDP
+677,MDRIQ UN Equity,INDUSTRY_SECTOR,Energy,UN,MDRIQ
+678,MDT UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,MDT
+679,MEDI UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UQ,MEDI
+680,MEDI UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,MEDI
+681,MEE UN Equity,INDUSTRY_SECTOR,Energy,UN,MEE
+682,MEL UN Equity,INDUSTRY_SECTOR,Financial,UN,MEL
+683,MER UN Equity,INDUSTRY_SECTOR,Financial,UN,MER
+684,MERQ UQ Equity,INDUSTRY_SECTOR,Technology,UQ,MERQ
+685,MET UN Equity,INDUSTRY_SECTOR,Financial,UN,MET
+686,MFE UN Equity,INDUSTRY_SECTOR,Communications,UN,MFE
+687,MGM UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,MGM
+688,MHK UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,MHK
+689,MHS UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,MHS
+690,MHS US Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",US,MHS
+691,MI UN Equity,INDUSTRY_SECTOR,Financial,UN,MI
+692,MIRKQ UN Equity,INDUSTRY_SECTOR,Utilities,UN,MIRKQ
+693,MJN UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,MJN
+694,MJN US Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",US,MJN
+695,MJN-W UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,MJN-W
+696,MKC UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,MKC
+697,MKTX UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,MKTX
+698,MLM UN Equity,INDUSTRY_SECTOR,Industrial,UN,MLM
+699,MMC UN Equity,INDUSTRY_SECTOR,Financial,UN,MMC
+700,MMM UN Equity,INDUSTRY_SECTOR,Industrial,UN,MMM
+701,MNKKQ UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,MNKKQ
+702,MNST UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,MNST
+703,MO UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,MO
+704,MOLX UQ Equity,INDUSTRY_SECTOR,Industrial,UQ,MOLX
+705,MOLX UW Equity,INDUSTRY_SECTOR,Industrial,UW,MOLX
+706,MOS UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,MOS
+707,MPC UN Equity,INDUSTRY_SECTOR,Energy,UN,MPC
+708,MRK UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,MRK
+709,MRO UN Equity,INDUSTRY_SECTOR,Energy,UN,MRO
+710,MS UN Equity,INDUSTRY_SECTOR,Financial,UN,MS
+711,MSCI UN Equity,INDUSTRY_SECTOR,Technology,UN,MSCI
+712,MSFT UQ Equity,INDUSTRY_SECTOR,Technology,UQ,MSFT
+713,MSFT UW Equity,INDUSTRY_SECTOR,Technology,UW,MSFT
+714,MSI UN Equity,INDUSTRY_SECTOR,Communications,UN,MSI
+715,MTB UN Equity,INDUSTRY_SECTOR,Financial,UN,MTB
+716,MTD UN Equity,INDUSTRY_SECTOR,Industrial,UN,MTD
+717,MTG UN Equity,INDUSTRY_SECTOR,Financial,UN,MTG
+718,MTLQQ UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,MTLQQ
+719,MTW UN Equity,INDUSTRY_SECTOR,Industrial,UN,MTW
+720,MU UN Equity,INDUSTRY_SECTOR,Technology,UN,MU
+721,MU UW Equity,INDUSTRY_SECTOR,Technology,UW,MU
+722,MUR UN Equity,INDUSTRY_SECTOR,Energy,UN,MUR
+723,MWV UN Equity,INDUSTRY_SECTOR,Industrial,UN,MWV
+724,MWW UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,MWW
+725,MWW UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UQ,MWW
+726,MWW UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,MWW
+727,MXIM UQ Equity,INDUSTRY_SECTOR,Technology,UQ,MXIM
+728,MXIM UW Equity,INDUSTRY_SECTOR,Technology,UW,MXIM
+729,MYL UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,MYL
+730,MYL UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,MYL
+731,NAV UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,NAV
+732,NAVI UW Equity,INDUSTRY_SECTOR,Financial,UW,NAVI
+733,NBL UN Equity,INDUSTRY_SECTOR,Energy,UN,NBL
+734,NBL US Equity,INDUSTRY_SECTOR,Energy,US,NBL
+735,NBL UW Equity,INDUSTRY_SECTOR,Energy,UW,NBL
+736,NBR UA Equity,INDUSTRY_SECTOR,Energy,UA,NBR
+737,NBR UN Equity,INDUSTRY_SECTOR,Energy,UN,NBR
+738,NCC UN Equity,INDUSTRY_SECTOR,Financial,UN,NCC
+739,NCLH UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,NCLH
+740,NCLH UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW,NCLH
+741,NCR UN Equity,INDUSTRY_SECTOR,Technology,UN,NCR
+742,NDAQ UW Equity,INDUSTRY_SECTOR,Financial,UW,NDAQ
+743,NEBLQ UN Equity,INDUSTRY_SECTOR,Energy,UN,NEBLQ
+744,NEE UN Equity,INDUSTRY_SECTOR,Utilities,UN,NEE
+745,NEM UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,NEM
+746,NFB UN Equity,INDUSTRY_SECTOR,Financial,UN,NFB
+747,NFLX UW Equity,INDUSTRY_SECTOR,Communications,UW,NFLX
+748,NFX UN Equity,INDUSTRY_SECTOR,Energy,UN,NFX
+749,NGVT UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,NGVT
+750,NI UN Equity,INDUSTRY_SECTOR,Utilities,UN,NI
+751,NKE UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,NKE
+752,NKTR UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,NKTR
+753,NLOK UQ Equity,INDUSTRY_SECTOR,Communications,UQ,NLOK
+754,NLOK UW Equity,INDUSTRY_SECTOR,Communications,UW,NLOK
+755,NLSN UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,NLSN
+756,NOC UN Equity,INDUSTRY_SECTOR,Industrial,UN,NOC
+757,NOV UN Equity,INDUSTRY_SECTOR,Energy,UN,NOV
+758,NOVL UQ Equity,INDUSTRY_SECTOR,Technology,UQ,NOVL
+759,NOVL UW Equity,INDUSTRY_SECTOR,Technology,UW,NOVL
+760,NOW UN Equity,INDUSTRY_SECTOR,Technology,UN,NOW
+761,NRG UN Equity,INDUSTRY_SECTOR,Utilities,UN,NRG
+762,NSC UN Equity,INDUSTRY_SECTOR,Industrial,UN,NSC
+763,NTAP UQ Equity,INDUSTRY_SECTOR,Technology,UQ,NTAP
+764,NTAP UW Equity,INDUSTRY_SECTOR,Technology,UW,NTAP
+765,NTRS UQ Equity,INDUSTRY_SECTOR,Financial,UQ,NTRS
+766,NTRS UW Equity,INDUSTRY_SECTOR,Financial,UW,NTRS
+767,NUE UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,NUE
+768,NVDA UA Equity,INDUSTRY_SECTOR,Technology,UA,NVDA
+769,NVDA UQ Equity,INDUSTRY_SECTOR,Technology,UQ,NVDA
+770,NVDA UW Equity,INDUSTRY_SECTOR,Technology,UW,NVDA
+771,NVR UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,NVR
+772,NVT UN Equity,INDUSTRY_SECTOR,Industrial,UN,NVT
+773,NWL UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,NWL
+774,NWL UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW,NWL
+775,NWS UW Equity,INDUSTRY_SECTOR,Communications,UW,NWS
+776,NWSA UW Equity,INDUSTRY_SECTOR,Communications,UW,NWSA
+777,NXTL UQ Equity,INDUSTRY_SECTOR,Communications,UQ,NXTL
+778,NYT UN Equity,INDUSTRY_SECTOR,Communications,UN,NYT
+779,NYX UN Equity,INDUSTRY_SECTOR,Financial,UN,NYX
+780,O UN Equity,INDUSTRY_SECTOR,Financial,UN,O
+781,ODFL UW Equity,INDUSTRY_SECTOR,Industrial,UW,ODFL
+782,OI UN Equity,INDUSTRY_SECTOR,Industrial,UN,OI
+783,OKE UN Equity,INDUSTRY_SECTOR,Energy,UN,OKE
+784,OMC UN Equity,INDUSTRY_SECTOR,Communications,UN,OMC
+785,OMX UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,OMX
+786,ORCL UN Equity,INDUSTRY_SECTOR,Technology,UN,ORCL
+787,ORCL UQ Equity,INDUSTRY_SECTOR,Technology,UQ,ORCL
+788,ORCL UW Equity,INDUSTRY_SECTOR,Technology,UW,ORCL
+789,ORLY UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW,ORLY
+790,OTIS UN Equity,INDUSTRY_SECTOR,Industrial,UN,OTIS
+791,OXY UN Equity,INDUSTRY_SECTOR,Energy,UN,OXY
+792,PAYC UN Equity,INDUSTRY_SECTOR,Technology,UN,PAYC
+793,PAYX UQ Equity,INDUSTRY_SECTOR,Technology,UQ,PAYX
+794,PAYX UW Equity,INDUSTRY_SECTOR,Technology,UW,PAYX
+795,PBCT UW Equity,INDUSTRY_SECTOR,Financial,UW,PBCT
+796,PBG UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,PBG
+797,PBI UN Equity,INDUSTRY_SECTOR,Technology,UN,PBI
+798,PCAR UQ Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UQ,PCAR
+799,PCAR UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW,PCAR
+800,PCG UN Equity,INDUSTRY_SECTOR,Utilities,UN,PCG
+801,PCL UN Equity,INDUSTRY_SECTOR,Financial,UN,PCL
+802,PCP UN Equity,INDUSTRY_SECTOR,Industrial,UN,PCP
+803,PDCO UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UQ,PDCO
+804,PDCO UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,PDCO
+805,PEAK UN Equity,INDUSTRY_SECTOR,Financial,UN,PEAK
+806,PEG UN Equity,INDUSTRY_SECTOR,Utilities,UN,PEG
+807,PEP UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,PEP
+808,PEP UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,PEP
+809,PETM UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW,PETM
+810,PFE UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,PFE
+811,PFG UN Equity,INDUSTRY_SECTOR,Financial,UN,PFG
+812,PFG UW Equity,INDUSTRY_SECTOR,Financial,UW,PFG
+813,PG UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,PG
+814,PGL UN Equity,INDUSTRY_SECTOR,Utilities,UN,PGL
+815,PGR UN Equity,INDUSTRY_SECTOR,Financial,UN,PGR
+816,PH UN Equity,INDUSTRY_SECTOR,Industrial,UN,PH
+817,PHM UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,PHM
+818,PKG UN Equity,INDUSTRY_SECTOR,Industrial,UN,PKG
+819,PKI UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,PKI
+820,PLD UN Equity,INDUSTRY_SECTOR,Financial,UN,PLD
+821,PM UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,PM
+822,PMCS UQ Equity,INDUSTRY_SECTOR,Technology,UQ,PMCS
+823,PMCS UW Equity,INDUSTRY_SECTOR,Technology,UW,PMCS
+824,PNC UN Equity,INDUSTRY_SECTOR,Financial,UN,PNC
+825,PNR UN Equity,INDUSTRY_SECTOR,Industrial,UN,PNR
+826,PNW UN Equity,INDUSTRY_SECTOR,Utilities,UN,PNW
+827,POM UN Equity,INDUSTRY_SECTOR,Utilities,UN,POM
+828,POM US Equity,INDUSTRY_SECTOR,Utilities,US,POM
+829,POOL UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW,POOL
+830,PPG UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,PPG
+831,PPL UN Equity,INDUSTRY_SECTOR,Utilities,UN,PPL
+832,PRGO UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,PRGO
+833,PRGO UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,PRGO
+834,PRSP UN Equity,INDUSTRY_SECTOR,Technology,UN,PRSP
+835,PRU UN Equity,INDUSTRY_SECTOR,Financial,UN,PRU
+836,PSA UN Equity,INDUSTRY_SECTOR,Financial,UN,PSA
+837,PSX UN Equity,INDUSTRY_SECTOR,Energy,UN,PSX
+838,PTC UQ Equity,INDUSTRY_SECTOR,Technology,UQ,PTC
+839,PTC UW Equity,INDUSTRY_SECTOR,Technology,UW,PTC
+840,PTV UN Equity,INDUSTRY_SECTOR,Industrial,UN,PTV
+841,PVH UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,PVH
+842,PVN UN Equity,INDUSTRY_SECTOR,Financial,UN,PVN
+843,PWER UQ Equity,INDUSTRY_SECTOR,Industrial,UQ,PWER
+844,PWR UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,PWR
+845,PX UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,PX
+846,PXD UN Equity,INDUSTRY_SECTOR,Energy,UN,PXD
+847,PYPL UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,PYPL
+848,QCOM UQ Equity,INDUSTRY_SECTOR,Technology,UQ,QCOM
+849,QCOM UW Equity,INDUSTRY_SECTOR,Technology,UW,QCOM
+850,QCP UN Equity,INDUSTRY_SECTOR,Financial,UN,QCP
+851,QEP UN Equity,INDUSTRY_SECTOR,Energy,UN,QEP
+852,QLGC UQ Equity,INDUSTRY_SECTOR,Technology,UQ,QLGC
+853,QLGC UW Equity,INDUSTRY_SECTOR,Technology,UW,QLGC
+854,QRVO UW Equity,INDUSTRY_SECTOR,Technology,UW,QRVO
+855,QTRN UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UQ,QTRN
+856,R UN Equity,INDUSTRY_SECTOR,Industrial,UN,R
+857,RAI UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,RAI
+858,RATL UQ Equity,INDUSTRY_SECTOR,Technology,UQ,RATL
+859,RBK UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,RBK
+860,RCL UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,RCL
+861,RDC UN Equity,INDUSTRY_SECTOR,Energy,UN,RDC
+862,RE UN Equity,INDUSTRY_SECTOR,Financial,UN,RE
+863,REG UN Equity,INDUSTRY_SECTOR,Financial,UN,REG
+864,REG UW Equity,INDUSTRY_SECTOR,Financial,UW,REG
+865,REGN UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,REGN
+866,REZI UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,REZI
+867,RF UN Equity,INDUSTRY_SECTOR,Financial,UN,RF
+868,RHI UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,RHI
+869,RHT UN Equity,INDUSTRY_SECTOR,Technology,UN,RHT
+870,RHT US Equity,INDUSTRY_SECTOR,Technology,US,RHT
+871,RIG UN Equity,INDUSTRY_SECTOR,Energy,UN,RIG
+872,RJF UN Equity,INDUSTRY_SECTOR,Financial,UN,RJF
+873,RL UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,RL
+874,RMD UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,RMD
+875,ROH UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,ROH
+876,ROK UN Equity,INDUSTRY_SECTOR,Industrial,UN,ROK
+877,ROL UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,ROL
+878,ROP UN Equity,INDUSTRY_SECTOR,Technology,UN,ROP
+879,ROST UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW,ROST
+880,RRC UN Equity,INDUSTRY_SECTOR,Energy,UN,RRC
+881,RRD UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,RRD
+882,RRD UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,RRD
+883,RSG UN Equity,INDUSTRY_SECTOR,Industrial,UN,RSG
+884,RSHCQ UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,RSHCQ
+885,RTN UN Equity,INDUSTRY_SECTOR,Industrial,UN,RTN
+886,RTX UN Equity,INDUSTRY_SECTOR,Industrial,UN,RTX
+887,RX UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,RX
+888,SANM UQ Equity,INDUSTRY_SECTOR,Industrial,UQ,SANM
+889,SANM UW Equity,INDUSTRY_SECTOR,Industrial,UW,SANM
+890,SBAC UW Equity,INDUSTRY_SECTOR,Financial,UW,SBAC
+891,SBUX UA Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UA,SBUX
+892,SBUX UQ Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UQ,SBUX
+893,SBUX UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW,SBUX
+894,SCG UN Equity,INDUSTRY_SECTOR,Utilities,UN,SCG
+895,SCHW UN Equity,INDUSTRY_SECTOR,Financial,UN,SCHW
+896,SCHW UQ Equity,INDUSTRY_SECTOR,Financial,UQ,SCHW
+897,SCHW UW Equity,INDUSTRY_SECTOR,Financial,UW,SCHW
+898,SEBL UA Equity,INDUSTRY_SECTOR,Technology,UA,SEBL
+899,SEBL UQ Equity,INDUSTRY_SECTOR,Technology,UQ,SEBL
+900,SEE UN Equity,INDUSTRY_SECTOR,Industrial,UN,SEE
+901,SGP UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,SGP
+902,SHLDQ UQ Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UQ,SHLDQ
+903,SHLDQ UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW,SHLDQ
+904,SHW UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,SHW
+905,SIAL UQ Equity,INDUSTRY_SECTOR,Basic Materials,UQ,SIAL
+906,SIAL UW Equity,INDUSTRY_SECTOR,Basic Materials,UW,SIAL
+907,SIG UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,SIG
+908,SITC UN Equity,INDUSTRY_SECTOR,Financial,UN,SITC
+909,SIVB UW Equity,INDUSTRY_SECTOR,Financial,UW,SIVB
+910,SJM UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,SJM
+911,SLB UN Equity,INDUSTRY_SECTOR,Energy,UN,SLB
+912,SLG UN Equity,INDUSTRY_SECTOR,Financial,UN,SLG
+913,SLM UN Equity,INDUSTRY_SECTOR,Financial,UN,SLM
+914,SLM UQ Equity,INDUSTRY_SECTOR,Financial,UQ,SLM
+915,SLM UW Equity,INDUSTRY_SECTOR,Financial,UW,SLM
+916,SNA UN Equity,INDUSTRY_SECTOR,Industrial,UN,SNA
+917,SNDK UQ Equity,INDUSTRY_SECTOR,Technology,UQ,SNDK
+918,SNDK UW Equity,INDUSTRY_SECTOR,Technology,UW,SNDK
+919,SNI UN Equity,INDUSTRY_SECTOR,Communications,UN,SNI
+920,SNI UW Equity,INDUSTRY_SECTOR,Communications,UW,SNI
+921,SNPS UW Equity,INDUSTRY_SECTOR,Technology,UW,SNPS
+922,SNV UN Equity,INDUSTRY_SECTOR,Financial,UN,SNV
+923,SO UN Equity,INDUSTRY_SECTOR,Utilities,UN,SO
+924,SOV UN Equity,INDUSTRY_SECTOR,Financial,UN,SOV
+925,SPG UN Equity,INDUSTRY_SECTOR,Financial,UN,SPG
+926,SPGI UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,SPGI
+927,SPLS UA Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UA,SPLS
+928,SPLS UQ Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UQ,SPLS
+929,SPLS US Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",US,SPLS
+930,SPLS UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW,SPLS
+931,SRCL UW Equity,INDUSTRY_SECTOR,Industrial,UW,SRCL
+932,SRE UN Equity,INDUSTRY_SECTOR,Utilities,UN,SRE
+933,SSP UN Equity,INDUSTRY_SECTOR,Communications,UN,SSP
+934,STE UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,STE
+935,STI UN Equity,INDUSTRY_SECTOR,Financial,UN,STI
+936,STJ UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,STJ
+937,STR UN Equity,INDUSTRY_SECTOR,Utilities,UN,STR
+938,STT UN Equity,INDUSTRY_SECTOR,Financial,UN,STT
+939,STX UW Equity,INDUSTRY_SECTOR,Technology,UW,STX
+940,STZ UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,STZ
+941,SUNEQ UN Equity,INDUSTRY_SECTOR,Energy,UN,SUNEQ
+942,SVU UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,SVU
+943,SWK UN Equity,INDUSTRY_SECTOR,Industrial,UN,SWK
+944,SWKS UW Equity,INDUSTRY_SECTOR,Technology,UW,SWKS
+945,SWN UN Equity,INDUSTRY_SECTOR,Energy,UN,SWN
+946,SWY UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,SWY
+947,SYF UN Equity,INDUSTRY_SECTOR,Financial,UN,SYF
+948,SYK UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,SYK
+949,SYY UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,SYY
+950,T UN Equity,INDUSTRY_SECTOR,Communications,UN,T
+951,TAP UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,TAP
+952,TDC UN Equity,INDUSTRY_SECTOR,Technology,UN,TDC
+953,TDG UN Equity,INDUSTRY_SECTOR,Industrial,UN,TDG
+954,TDY UN Equity,INDUSTRY_SECTOR,Industrial,UN,TDY
+955,TEG UN Equity,INDUSTRY_SECTOR,Utilities,UN,TEG
+956,TEK UN Equity,INDUSTRY_SECTOR,Industrial,UN,TEK
+957,TEL UN Equity,INDUSTRY_SECTOR,Industrial,UN,TEL
+958,TER UN Equity,INDUSTRY_SECTOR,Technology,UN,TER
+959,TER UW Equity,INDUSTRY_SECTOR,Technology,UW,TER
+960,TEX UN Equity,INDUSTRY_SECTOR,Industrial,UN,TEX
+961,TFC UN Equity,INDUSTRY_SECTOR,Financial,UN,TFC
+962,TFCF UW Equity,INDUSTRY_SECTOR,Communications,UW,TFCF
+963,TFCFA UN Equity,INDUSTRY_SECTOR,Communications,UN,TFCFA
+964,TFCFA UW Equity,INDUSTRY_SECTOR,Communications,UW,TFCFA
+965,TFX UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,TFX
+966,TGNA UN Equity,INDUSTRY_SECTOR,Communications,UN,TGNA
+967,TGT UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,TGT
+968,THC UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,THC
+969,TIE UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,TIE
+970,TIF UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,TIF
+971,TIN UN Equity,INDUSTRY_SECTOR,Industrial,UN,TIN
+972,TJX UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,TJX
+973,TLAB UQ Equity,INDUSTRY_SECTOR,Communications,UQ,TLAB
+974,TLAB UW Equity,INDUSTRY_SECTOR,Communications,UW,TLAB
+975,TMO UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,TMO
+976,TMUS UN Equity,INDUSTRY_SECTOR,Communications,UN,TMUS
+977,TMUS UW Equity,INDUSTRY_SECTOR,Communications,UW,TMUS
+978,TNB UN Equity,INDUSTRY_SECTOR,Industrial,UN,TNB
+979,TNL UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,TNL
+980,TOY UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,TOY
+981,TPR UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,TPR
+982,TRB UN Equity,INDUSTRY_SECTOR,Communications,UN,TRB
+983,TRIP UW Equity,INDUSTRY_SECTOR,Communications,UW,TRIP
+984,TROW UQ Equity,INDUSTRY_SECTOR,Financial,UQ,TROW
+985,TROW UW Equity,INDUSTRY_SECTOR,Financial,UW,TROW
+986,TRV UN Equity,INDUSTRY_SECTOR,Financial,UN,TRV
+987,TSCO UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW,TSCO
+988,TSLA UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW,TSLA
+989,TSN UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,TSN
+990,TSS UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,TSS
+991,TSS US Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",US,TSS
+992,TT UN Equity,INDUSTRY_SECTOR,Industrial,UN,TT
+993,TTWO UW Equity,INDUSTRY_SECTOR,Technology,UW,TTWO
+994,TUP UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,TUP
+995,TWC UN Equity,INDUSTRY_SECTOR,Communications,UN,TWC
+996,TWTR UN Equity,INDUSTRY_SECTOR,Communications,UN,TWTR
+997,TWX UN Equity,INDUSTRY_SECTOR,Communications,UN,TWX
+998,TWX US Equity,INDUSTRY_SECTOR,Communications,US,TWX
+999,TXN UN Equity,INDUSTRY_SECTOR,Technology,UN,TXN
+1000,TXN UW Equity,INDUSTRY_SECTOR,Technology,UW,TXN
+1001,TXT UN Equity,INDUSTRY_SECTOR,Industrial,UN,TXT
+1002,TXU US Equity,INDUSTRY_SECTOR,Utilities,US,TXU
+1003,TYL UN Equity,INDUSTRY_SECTOR,Technology,UN,TYL
+1004,UA UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,UA
+1005,UAA UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,UAA
+1006,UAL UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,UAL
+1007,UAL UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW,UAL
+1008,UDR UN Equity,INDUSTRY_SECTOR,Financial,UN,UDR
+1009,UHS UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,UHS
+1010,UIS UN Equity,INDUSTRY_SECTOR,Technology,UN,UIS
+1011,UIS UP Equity,INDUSTRY_SECTOR,Technology,UP,UIS
+1012,ULTA UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW,ULTA
+1013,UNH UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,UNH
+1014,UNM UN Equity,INDUSTRY_SECTOR,Financial,UN,UNM
+1015,UNP UN Equity,INDUSTRY_SECTOR,Industrial,UN,UNP
+1016,UPS UN Equity,INDUSTRY_SECTOR,Industrial,UN,UPS
+1017,URBN UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW,URBN
+1018,URI UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,URI
+1019,USB UN Equity,INDUSTRY_SECTOR,Financial,UN,USB
+1020,V UN Equity,INDUSTRY_SECTOR,Financial,UN,V
+1021,VALPQ UN Equity,INDUSTRY_SECTOR,Energy,UN,VALPQ
+1022,VAR UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,VAR
+1023,VFC UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,VFC
+1024,VIAB UN Equity,INDUSTRY_SECTOR,Communications,UN,VIAB
+1025,VIAB UW Equity,INDUSTRY_SECTOR,Communications,UW,VIAB
+1026,VIAC UN Equity,INDUSTRY_SECTOR,Communications,UN,VIAC
+1027,VIAC UW Equity,INDUSTRY_SECTOR,Communications,UW,VIAC
+1028,VIAV UQ Equity,INDUSTRY_SECTOR,Communications,UQ,VIAV
+1029,VIAV UW Equity,INDUSTRY_SECTOR,Communications,UW,VIAV
+1030,VLO UN Equity,INDUSTRY_SECTOR,Energy,UN,VLO
+1031,VMC UN Equity,INDUSTRY_SECTOR,Industrial,UN,VMC
+1032,VNO UN Equity,INDUSTRY_SECTOR,Financial,UN,VNO
+1033,VNT UN Equity,INDUSTRY_SECTOR,Industrial,UN,VNT
+1034,VREX UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,VREX
+1035,VRSK UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,VRSK
+1036,VRSN UQ Equity,INDUSTRY_SECTOR,Communications,UQ,VRSN
+1037,VRSN UW Equity,INDUSTRY_SECTOR,Communications,UW,VRSN
+1038,VRTX UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,VRTX
+1039,VSM UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,VSM
+1040,VSTNQ UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,VSTNQ
+1041,VTR UN Equity,INDUSTRY_SECTOR,Financial,UN,VTR
+1042,VTRS UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,VTRS
+1043,VZ UN Equity,INDUSTRY_SECTOR,Communications,UN,VZ
+1044,WAB UN Equity,INDUSTRY_SECTOR,Industrial,UN,WAB
+1045,WAMUQ UN Equity,INDUSTRY_SECTOR,Financial,UN,WAMUQ
+1046,WAMUQ US Equity,INDUSTRY_SECTOR,Financial,US,WAMUQ
+1047,WAT UN Equity,INDUSTRY_SECTOR,Industrial,UN,WAT
+1048,WBA UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,WBA
+1049,WBA UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW,WBA
+1050,WCG UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,WCG
+1051,WCG US Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",US,WCG
+1052,WDC UN Equity,INDUSTRY_SECTOR,Technology,UN,WDC
+1053,WDC UW Equity,INDUSTRY_SECTOR,Technology,UW,WDC
+1054,WEC UN Equity,INDUSTRY_SECTOR,Utilities,UN,WEC
+1055,WELL UN Equity,INDUSTRY_SECTOR,Financial,UN,WELL
+1056,WFC UN Equity,INDUSTRY_SECTOR,Financial,UN,WFC
+1057,WFM UQ Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UQ,WFM
+1058,WFM UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,WFM
+1059,WFTIQ UN Equity,INDUSTRY_SECTOR,Energy,UN,WFTIQ
+1060,WHR UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,WHR
+1061,WINMQ UN Equity,INDUSTRY_SECTOR,Communications,UN,WINMQ
+1062,WINMQ UW Equity,INDUSTRY_SECTOR,Communications,UW,WINMQ
+1063,WLTW UW Equity,INDUSTRY_SECTOR,Financial,UW,WLTW
+1064,WM UN Equity,INDUSTRY_SECTOR,Industrial,UN,WM
+1065,WMB UN Equity,INDUSTRY_SECTOR,Energy,UN,WMB
+1066,WMT UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,WMT
+1067,WNDXQ UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,WNDXQ
+1068,WOR UN Equity,INDUSTRY_SECTOR,Industrial,UN,WOR
+1069,WPX UN Equity,INDUSTRY_SECTOR,Energy,UN,WPX
+1070,WRB UN Equity,INDUSTRY_SECTOR,Financial,UN,WRB
+1071,WRK UN Equity,INDUSTRY_SECTOR,Industrial,UN,WRK
+1072,WST UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,WST
+1073,WU UN Equity,INDUSTRY_SECTOR,Financial,UN,WU
+1074,WWY UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,WWY
+1075,WY UN Equity,INDUSTRY_SECTOR,Financial,UN,WY
+1076,WYE UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,WYE
+1077,WYND UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,WYND
+1078,WYNN UW Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UW,WYNN
+1079,X UN Equity,INDUSTRY_SECTOR,Basic Materials,UN,X
+1080,XEC UN Equity,INDUSTRY_SECTOR,Energy,UN,XEC
+1081,XEL UN Equity,INDUSTRY_SECTOR,Utilities,UN,XEL
+1082,XEL UW Equity,INDUSTRY_SECTOR,Utilities,UW,XEL
+1083,XLNX UQ Equity,INDUSTRY_SECTOR,Technology,UQ,XLNX
+1084,XLNX UW Equity,INDUSTRY_SECTOR,Technology,UW,XLNX
+1085,XOM UN Equity,INDUSTRY_SECTOR,Energy,UN,XOM
+1086,XRAY UW Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UW,XRAY
+1087,XRX UN Equity,INDUSTRY_SECTOR,Technology,UN,XRX
+1088,XTO UN Equity,INDUSTRY_SECTOR,Energy,UN,XTO
+1089,XYL UN Equity,INDUSTRY_SECTOR,Industrial,UN,XYL
+1090,YUM UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,YUM
+1091,YUMC UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",UN,YUMC
+1092,ZBH UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,ZBH
+1093,ZBRA UW Equity,INDUSTRY_SECTOR,Technology,UW,ZBRA
+1094,ZION UQ Equity,INDUSTRY_SECTOR,Financial,UQ,ZION
+1095,ZION UW Equity,INDUSTRY_SECTOR,Financial,UW,ZION
+1096,ZTS UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,ZTS
+1097,ZTS-W UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",UN,ZTS-W
+1098,BF B UN Equity,INDUSTRY_SECTOR,"Consumer, Non-cyclical",B,BF
+1099,BRK B UN Equity,INDUSTRY_SECTOR,Financial,B,BRK
+1100,FSL B UN Equity,INDUSTRY_SECTOR,Technology,B,FSL
+1101,LEN B UN Equity,INDUSTRY_SECTOR,"Consumer, Cyclical",B,LEN
+1102,TAP B UN Equity,INDUSTRY_SECTOR,Financial,B,TAP
