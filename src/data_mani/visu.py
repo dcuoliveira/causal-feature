@@ -45,7 +45,7 @@ def plot_df_to_table(df,
     agg_fore_tb_df = pd.concat([agg_fore_tb_df, tb_df.median(axis=0) / tb_df.std(axis=0)], axis=1)
     agg_fore_tb_df.columns = ['sum', 'median', 'median_std_adj']
     
-    return tb_df.round(2).style.apply(highlight_max), agg_fs_tb_df.round(2).style.apply(highlight_max), agg_fore_tb_df.round(2).style.apply(highlight_max)
+    return tb_df.round(2), agg_fs_tb_df.round(2), agg_fore_tb_df.round(2)
 
 
 def plot_cum_ret(pred_ret_df,
