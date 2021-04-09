@@ -104,7 +104,7 @@ def sharpe_ratio_tb(returns_df,
     agg_pivot_tb = pd.concat([agg_pivot_tb, pivot_tb.median(axis=1) / pivot_tb.std(axis=1)], axis=1)
     agg_pivot_tb.columns = ['sum', 'median', 'median_std_adj']
 
-    return rank_df, pivot_tb.fillna(0).style.apply(highlight_max), agg_pivot_tb.style.apply(highlight_max)
+    return rank_df, pivot_tb.fillna(0), agg_pivot_tb
 
 
 def max_drawdown_tb(pivot_ret_all_df,
@@ -139,7 +139,7 @@ def max_drawdown_tb(pivot_ret_all_df,
     agg_pivot_tb = pd.concat([agg_pivot_tb, tb_df.median(axis=1) / tb_df.std(axis=1)], axis=1)
     agg_pivot_tb.columns = ['sum', 'median', 'median_std_adj']
 
-    return rank_df, tb_df.style.apply(highlight_max), agg_pivot_tb.style.apply(highlight_max)
+    return rank_df, tb_df, agg_pivot_tb
 
 
 def gen_strat_positions_and_ret_from_pred(predictions_df,
