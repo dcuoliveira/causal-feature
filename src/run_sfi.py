@@ -13,7 +13,7 @@ from data_mani.utils import path_filter
 
 # Variables
 N_SPLITS = 10  # number of CV splits
-N_CORES = 60  # number of cores to use
+N_CORES = 9  # number of cores to use
 MAX_LAG = 20  # maximum number of lags to create
 # google trends features
 OUT_FOLDER = "indices"  # name of the marked data folder
