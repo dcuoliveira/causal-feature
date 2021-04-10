@@ -14,25 +14,31 @@ import random
 
 # variables
 SIG_LEVEL = 0.01
-MAX_LAG = 20 # maximum number of lags to create
-N_CORES = 30 # number of cores to use
-OUT_FOLDER = "indices" # name of the marked data folder
-DEBUG = False # param to debug the script
-TEST_SIZE = 0.5 # pct of the train/test split
-THRESHOLD = 252 * 2 # treshold to filted merged datframes
-                    # 252 = business days in a year
-PAR = True # enable run in paralell
+MAX_LAG = 20  # maximum number of lags to create
+N_CORES = 60  # number of cores to use
+OUT_FOLDER = "indices"  # name of the marked data folder
+DEBUG = False  # param to debug the script
+TEST_SIZE = 0.5  # pct of the train/test split
+THRESHOLD = 252 * 2  # treshold to filted merged datframes
+# 252 = business days in a year
+PAR = True  # enable run in paralell
 IS_DISCRETE = False
 CONSTANT_THRESHOLD = 0.9
 
 # ajuste pra path do windows
 PATHS = sorted(glob("data/{}/*.csv".format(OUT_FOLDER)))
 
+done = ['data/indices/CCMP Index.csv',
+        'data/indices/RTY Index.csv',
+        'data/indices/SPX Index.csv', ]
+
+PATHS = [p for p in PATHS if p not in done]
 
 # debug condition
 if DEBUG:
     words = words[:3]
     PATHS = PATHS[1:10]
+
 
 def MMMB_fs_vec(paths,
                 test_size=TEST_SIZE,
@@ -90,7 +96,7 @@ def MMMB_fs_par(paths,
     """
     parallelized version of the Yu et al. (2019) Max-min Markov Blanket (IAMB)
     algorithm available at https://github.com/kuiy/pyCausalFS.
-    
+
     :param paths: list of paths to market data
     :type paths: [str]
     :param n_cores: number of cores to use
@@ -111,6 +117,7 @@ def MMMB_fs_par(paths,
         result = None
 
     return result
+
 
 if __name__ == '__main__':
     paths = path_filter(paths=PATHS,
@@ -134,7 +141,7 @@ if __name__ == '__main__':
         for p in paths:
             name = get_ticker_name(p).replace("_", " ")
             out_path = os.path.join("results",
-                                    "feature_selection", 
+                                    "feature_selection",
                                     "MMMB",
                                     OUT_FOLDER,
                                     name + ".csv")

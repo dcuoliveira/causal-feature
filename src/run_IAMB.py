@@ -15,7 +15,7 @@ import random
 # variables
 SIG_LEVEL = 0.01
 MAX_LAG = 20 # maximum number of lags to create
-N_CORES = 30 # number of cores to use
+N_CORES = 60 # number of cores to use
 OUT_FOLDER = "indices" # name of the marked data folder
 DEBUG = False # param to debug the script
 TEST_SIZE = 0.5 # pct of the train/test split
@@ -27,6 +27,13 @@ CONSTANT_THRESHOLD = 0.9
 
 # ajuste pra path do windows
 PATHS = sorted(glob("data/{}/*.csv".format(OUT_FOLDER)))
+
+done = ['data/indices/CCMP Index.csv',
+        'data/indices/RTY Index.csv',
+        'data/indices/SPX Index.csv',]
+
+PATHS = [p for p in PATHS if p not in done]
+
 
 # debug condition
 if DEBUG:
