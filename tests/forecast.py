@@ -76,6 +76,8 @@ class Test_forecast(unittest.TestCase):
                                             out_folder="indices",
                                             fs_method=fs_method,
                                             path_list=self.path_gt_list)
+        # Ajuste para acomodar a removao da palavra "DOW JONES", deev normalizar depois que rodar a primeira vez na nova versao
+        select = [s.lower() for s in select]
         complete_selected = self.complete[[self.target_name] + select]
         pred_results = annualy_fit_and_predict(df=complete_selected,
                                                Wrapper=RandomForestWrapper,
