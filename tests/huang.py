@@ -16,7 +16,6 @@ from src.data_mani.utils import merge_market_and_gtrends  # noqa
 from src.feature_selection.huang import run_huang_methods  # noqa
 
 full_words = ['BUY AND HOLD',
-              'DOW JONES',
               'act',
               'arts',
               'bank',
@@ -199,7 +198,7 @@ full_words = ['BUY AND HOLD',
               'york']
 
 words = ['BUY AND HOLD',
-         'DOW JONES',
+         'dow jones',
          'act',
          'arts',
          'bank',
@@ -241,10 +240,10 @@ class Test_huang(unittest.TestCase):
                                                            "data",
                                                            "gtrends.csv"])
         result = run_huang_methods(merged_df=merged, target_name="target_return",
-                                   words=["DOW JONES", "act", "arts", "bank", "business"], max_lag=20, verbose=False,
+                                   words=["dow jones", "act", "arts", "bank", "business"], max_lag=20, verbose=False,
                                    sig_level=0.05, correl_threshold=0.5, constant_threshold=0.9)
 
-        self.assertAlmostEqual(result.loc[result['feature'] == 'DOW_JONES_11']['feature_score'].iloc[0],
+        self.assertAlmostEqual(result.loc[result['feature'] == 'dow_jones_11']['feature_score'].iloc[0],
                                0.004244, places=3)
         self.assertAlmostEqual(result.loc[result['feature'] == 'act_20']['feature_score'].iloc[0],
                                0.023372, places=3)
