@@ -13,7 +13,7 @@ import random
 
 
 # variables
-SIG_LEVEL = 0.01
+SIG_LEVEL = 0.05
 MAX_LAG = 20 # maximum number of lags to create
 N_CORES = 9 # number of cores to use
 OUT_FOLDER = "indices" # name of the marked data folder
@@ -38,7 +38,7 @@ PATHS = sorted(glob("data/{}/*.csv".format(OUT_FOLDER)))
 # debug condition
 if DEBUG:
     words = words[:3]
-    PATHS = PATHS[1:10]
+    PATHS = PATHS[1:2]
 
 def IAMB_fs_vec(paths,
                 test_size=TEST_SIZE,
