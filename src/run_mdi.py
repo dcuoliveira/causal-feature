@@ -22,9 +22,9 @@ THRESHOLD = 252 * 2 # treshold to filted merged datframes
                     # 252 = business days in a year
 PATHS = sorted(glob("data/{}/*.csv".format(OUT_FOLDER)))
 
-done = ['data/indices/CCMP Index.csv',
-        'data/indices/RTY Index.csv',
-        'data/indices/SPX Index.csv',]
+# done = ['data/indices/CCMP Index.csv',
+#         'data/indices/RTY Index.csv',
+#         'data/indices/SPX Index.csv',]
 
 PATHS = [p for p in PATHS if p not in done]
 
