@@ -17,7 +17,7 @@ N_CORES = 9  # number of cores to use
 MAX_LAG = 20  # maximum number of lags to create
 # google trends features
 OUT_FOLDER = "indices"  # name of the marked data folder
-DEBUG = False  # param to debug the script
+DEBUG = True  # param to debug the script
 TEST_SIZE = 0.5  # pct of the train/test split
 THRESHOLD = 252 * 2  # treshold to filted merged datframes
 # 252 = business days in a year
