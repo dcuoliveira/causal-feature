@@ -141,6 +141,7 @@ def merge_data(df_list, freq='D'):
 
 def merge_market_and_gtrends(path,
                              test_size,
+                             is_discrete=False,
                              path_gt_list=["data", "gtrends.csv"]):
     """
     Merge market and google trends data.
@@ -174,6 +175,9 @@ def merge_market_and_gtrends(path,
     # merging
     merged = merge_data([market, gtrends])
     merged = merged.dropna()
+    if is_discrete:
+        merged.loc[:, 'target_return'] = target_ret_to_directional_movements(x=merged,
+                                                                             y_name='target_return')
 
     # if the merged data is null or has only one element
     # then both train and test are null
