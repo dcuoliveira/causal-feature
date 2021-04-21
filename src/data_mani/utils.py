@@ -6,7 +6,7 @@ import numpy as np
 from scipy.stats import chi2, norm
 import itertools
 from itertools import combinations, chain
-
+from statsmodels.discrete.discrete_model import Logit
 
 def target_ret_to_directional_movements(x, y_name):
     """
@@ -485,7 +485,6 @@ def g_square_dis(dm,
                 i = dm[row_index, x]
                 j = dm[row_index, y]
                 nijk[i, j] += 1
-                pass
             tx = np.array([nijk.sum(axis = 1)]).T
             ty = np.array([nijk.sum(axis = 0)])
             tdij = tx.dot(ty)
@@ -588,6 +587,23 @@ def g2_test_dis(data_matrix,
     return g_square_dis(data_matrix, x, y, s1, alpha, levels)
 
 
+def logistic_reg(data,
+                 target,
+                 var,
+                 cond_set,
+                 alpha):
+    cond_set = list(cond_set)
+    logit_model = Logit(endog=data.iloc[:, [target]], exog=data.iloc[:, [var] + cond_set]).fit(disp=0)
+    pval = logit_model.pvalues[data.columns[var]]
+    
+    if pval <= alpha:
+        dep = 1
+    else:
+        dep = 0
+    
+    return pval, dep
+
+
 def cond_indep_test(data,
                     target,
                     var,
@@ -608,11 +624,11 @@ def cond_indep_test(data,
     :type n_cores: int
     """
     if is_discrete:
-        pval, dep = g2_test_dis(data, target, var, cond_set, alpha)
-        # if selected:
-        #     _, pval, _, dep = chi_square_test(data, target, var, cond_set, alpha)
-        # else:
-        # _, _, dep, pval = chi_square(target, var, cond_set, data, alpha)
+        ## old function for all discrete variables in matrix
+        # pval, dep = g2_test_dis(data, target, var, cond_set, alpha)
+        
+        ## new function to test conditional independence using a logistic model
+        pval, dep = logistic_reg(data, target, var, cond_set, alpha)
     else:
         CI, dep, pval = cond_indep_fisher_z(data, target, var, cond_set, alpha)
     return pval, dep
