@@ -32,7 +32,7 @@ PATHS = sorted(glob("data/{}/*.csv".format(OUT_FOLDER)))
 #         'data/indices/RTY Index.csv',
 #         'data/indices/SPX Index.csv',]
 
-PATHS = [p for p in PATHS if p not in done]
+# PATHS = [p for p in PATHS if p not in done]
 
 
 # debug condition
