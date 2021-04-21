@@ -29,7 +29,8 @@ class Test_mda(unittest.TestCase):
                                                           "gtrends.csv"],
                                             test_size=0.5)
         target_ret_to_directional_movements(train, y_name="target_return")
-        words = ["bank", "BUY AND HOLD", "act", "DOW JONES"]
+
+        words = ["bank", "BUY AND HOLD", "act", "dow jones"]
         results = get_mda_scores(merged_df=train,
                                  target_name="target_return",
                                  words=words,
@@ -38,9 +39,9 @@ class Test_mda(unittest.TestCase):
                                  n_splits=2,
                                  n_estimators=10,
                                  verbose=False)
-        self.assertEqual(results.iloc[0, 0], 'bank_1')
+        self.assertEqual(results.iloc[0, 0], 'dow_jones_1')
         self.assertAlmostEqual(
-            results.iloc[0, 1], 0.028174249182277657, places=3)
+            results.iloc[0, 1], 0.00609893918389498, places=3)
 
 
 if __name__ == '__main__':
