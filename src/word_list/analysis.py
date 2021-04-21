@@ -1,5 +1,4 @@
 words = ['BUY AND HOLD',
-         'DOW JONES',
          'act',
          'arts',
          'bank',
