@@ -12,25 +12,20 @@ from data_mani.utils import get_ticker_name
 from data_mani.utils import path_filter
 
 # Variables
-N_CORES = 9 # number of cores to use
-MAX_LAG = 20 # maximum number of lags to create
-             # google trends features
-OUT_FOLDER = "indices" # name of the marked data folder
-DEBUG = False # param to debug the script
-TEST_SIZE = 0.5 # pct of the train/test split
-THRESHOLD = 252 * 2 # treshold to filted merged datframes
-                    # 252 = business days in a year
+MAX_LAG = 20  # maximum number of lags to create
+              # google trends features
+OUT_FOLDER = "indices"  # name of the marked data folder
+DEBUG = True  # param to debug the script
+TEST_SIZE = 0.5  # pct of the train/test split
+THRESHOLD = 252 * 2  # treshold to filted merged datframes
+# 252 = business days in a year
 PATHS = sorted(glob("data/{}/*.csv".format(OUT_FOLDER)))
-
-# done = ['data/indices/CCMP Index.csv',
-#         'data/indices/RTY Index.csv',
-#         'data/indices/SPX Index.csv',]
-
-PATHS = [p for p in PATHS if p not in done]
+N_CORES = len(PATHS)  # number of cores to use
 
 
 # debug condition
 if DEBUG:
+    N_CORES = 2
     words = words[:3]
 
 
@@ -61,13 +56,19 @@ def mdi_vec(paths,
     n = len(paths)
     rds = np.random.randint(1000000, size=n)
     names = [get_ticker_name(path) for path in paths]
-    log = pd.DataFrame({"ticker": names, 
-                        "random_state":rds})
+    log = pd.DataFrame({"ticker": names,
+                        "random_state": rds})
     first, last = names[0], names[-1]
-    log_path = os.path.join("logs", "mdi", out_folder, "{}_to_{}.csv".format(first, last))
+    log_path = os.path.join(
+        "logs",
+        "mdi",
+        out_folder,
+        "{}_to_{}.csv".format(
+            first,
+            last))
     log.to_csv(log_path, index=False)
 
-    for path, random_state in zip(paths,rds):
+    for path, random_state in zip(paths, rds):
         merged, _ = merge_market_and_gtrends(path, test_size=test_size)
         name = get_ticker_name(path).replace("_", " ")
         result = get_mdi_scores(merged_df=merged,
@@ -119,19 +120,20 @@ if __name__ == '__main__':
 
     # Cleaning logs:
     log_paths = glob("logs/mdi/{}/*.csv".format(OUT_FOLDER))
-    log_paths = [lpath for lpath in log_paths if lpath.find("random_states") ==-1]
+    log_paths = [lpath for lpath in log_paths if lpath.find(
+        "random_states") == -1]
 
     if DEBUG:
-        for lpath in log_paths: 
-                os.remove(lpath)
+        for lpath in log_paths:
+            os.remove(lpath)
     else:
-        final_log_path =  os.path.join("logs", "mdi", OUT_FOLDER, "random_states.csv")
+        final_log_path = os.path.join(
+            "logs", "mdi", OUT_FOLDER, "random_states.csv")
         logs = [pd.read_csv(lpath) for lpath in log_paths]
         log = pd.concat(logs)
         log.to_csv(final_log_path, index=False)
         for lpath in log_paths:
-                os.remove(lpath)
-    
+            os.remove(lpath)
 
     # Cleaning debug
     if DEBUG:
@@ -142,4 +144,3 @@ if __name__ == '__main__':
                 "feature_selection",
                 "mdi", OUT_FOLDER, name + ".csv")
             os.remove(out_path)
-

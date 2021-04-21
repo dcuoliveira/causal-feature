@@ -32,9 +32,33 @@ class Test_MDI(unittest.TestCase):
                                 words=["bank", "return", "food"],
                                 max_lag=30,
                                 random_state=2927,
-                                verbose=False)
+                                verbose=False,
+                                classification=False)
 
-        self.assertAlmostEqual(result.iloc[0, 1], 0.01656738359641016, places=3)
+        self.assertAlmostEqual(
+            result.iloc[0, 1], 0.01656738359641016, places=3)
+
+    def test_mdi_classifiction(self):
+        path_m = os.path.join(parentdir,
+                              "src", "data",
+                              "toy", "ticker2.csv")
+        train, test = merge_market_and_gtrends(path_m,
+                                               path_gt_list=[parentdir,
+                                                             "src",
+                                                             "data",
+                                                             "gtrends.csv"],
+                                               test_size=0.5)
+        result = get_mdi_scores(merged_df=train,
+                                target_name="target_return",
+                                words=["bank", "return", "food"],
+                                max_lag=30,
+                                random_state=2927,
+                                verbose=False,
+                                classification=True)
+
+        self.assertEqual(result.iloc[0, 0], "bank_4")
+        self.assertAlmostEqual(
+            result.iloc[0, 1], 0.015275348798034095, places=3)
 
 
 if __name__ == '__main__':
