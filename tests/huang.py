@@ -236,6 +236,7 @@ class Test_huang(unittest.TestCase):
                               "toy", "ticker8.csv")
         merged, _ = merge_market_and_gtrends(path_m,
                                              test_size=0.5,
+                                             is_discrete=True,
                                              path_gt_list=[parentdir,
                                                            "src",
                                                            "data",
