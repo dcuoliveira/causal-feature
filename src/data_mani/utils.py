@@ -604,7 +604,7 @@ def cond_indep_test(data,
     :type n_cores: int
     """
     if is_discrete:
-        pval, dep = g2_test_dis(data, target, var, cond_set,alpha)
+        pval, dep = g2_test_dis(data, target, var, cond_set, alpha)
         # if selected:
         #     _, pval, _, dep = chi_square_test(data, target, var, cond_set, alpha)
         # else:
