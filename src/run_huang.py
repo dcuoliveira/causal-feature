@@ -28,9 +28,9 @@ CONSTANT_THRESHOLD = 0.9 # constant threshold to apply filter
 # ajuste pra path do windows
 PATHS = sorted(glob("data/{}/*.csv".format(OUT_FOLDER)))
 
-done = ['data/indices/CCMP Index.csv',
-        'data/indices/RTY Index.csv',
-        'data/indices/SPX Index.csv',]
+# done = ['data/indices/CCMP Index.csv',
+#         'data/indices/RTY Index.csv',
+#         'data/indices/SPX Index.csv',]
 
 PATHS = [p for p in PATHS if p not in done]
 
