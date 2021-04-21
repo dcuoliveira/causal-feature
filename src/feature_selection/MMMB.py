@@ -122,8 +122,7 @@ def MMMB(data,
                 conditions_Set.append(x)
                 conditions_Set = list(set(conditions_Set))
                 ci_number += 1
-                pval, dep = cond_indep_test(
-                    data, target, y, conditions_Set, is_discrete)
+                pval, dep = cond_indep_test(data, target, y, conditions_Set, is_discrete)
                 if pval <= alpha:
                     MB.append(y)
                     break
@@ -194,7 +193,7 @@ def run_MMMB(merged_df,
 
     if len(MBs) == 0:
         features = list(merged_df.columns)
-        features.remove()
+        features.remove(target_name)
         MBs_df = pd.DataFrame(data={'feature': features,
                                     'feature_score': np.nan})
     else:
