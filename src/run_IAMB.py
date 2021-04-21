@@ -22,7 +22,7 @@ TEST_SIZE = 0.5 # pct of the train/test split
 THRESHOLD = 252 * 2 # treshold to filted merged datframes
                     # 252 = business days in a year
 PAR = True # enable run in paralell
-IS_DISCRETE = False
+IS_DISCRETE = True
 CONSTANT_THRESHOLD = 0.9
 
 # ajuste pra path do windows
@@ -70,7 +70,9 @@ def IAMB_fs_vec(paths,
     """
 
     for path in paths:
-        merged, _ = merge_market_and_gtrends(path, test_size=test_size)
+        merged, _ = merge_market_and_gtrends(path,
+                                             test_size=test_size,
+                                             is_discrete=is_discrete)
 
         name = get_ticker_name(path).replace("_", " ")
         result = run_IAMB(merged_df=merged,
