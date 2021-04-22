@@ -7,6 +7,7 @@ from scipy.stats import chi2, norm
 import itertools
 from itertools import combinations, chain
 from statsmodels.discrete.discrete_model import Logit
+from statsmodels.regression.linear_model import OLS
 
 def target_ret_to_directional_movements(x, y_name):
     """
@@ -593,8 +594,25 @@ def logistic_reg(data,
                  cond_set,
                  alpha):
     cond_set = list(cond_set)
-    logit_model = Logit(endog=data.iloc[:, [target]], exog=data.iloc[:, [var] + cond_set]).fit(disp=0)
-    pval = logit_model.pvalues[data.columns[var]]
+    model_fit = Logit(endog=data.iloc[:, [target]], exog=data.iloc[:, [var] + cond_set]).fit(disp=0)
+    pval = model_fit.pvalues[data.columns[var]]
+    
+    if pval <= alpha:
+        dep = 1
+    else:
+        dep = 0
+    
+    return pval, dep
+
+
+def linear_gaussian_ols_reg(data,
+                            target,
+                            var,
+                            cond_set,
+                            alpha):
+    cond_set = list(cond_set)
+    model_fit = OLS(endog=data.iloc[:, [target]], exog=data.iloc[:, [var] + cond_set]).fit(disp=0)
+    pval = model_fit.pvalues[data.columns[var]]
     
     if pval <= alpha:
         dep = 1
@@ -628,7 +646,19 @@ def cond_indep_test(data,
         # pval, dep = g2_test_dis(data, target, var, cond_set, alpha)
         
         ## new function to test conditional independence using a logistic model
-        pval, dep = logistic_reg(data, target, var, cond_set, alpha)
+        if len(data.iloc[:, target].unique()) == 2:
+            pval, dep = logistic_reg(data=data, 
+                                     target=target, 
+                                     var=var, 
+                                     cond_set=cond_set, 
+                                     alpha=alpha)
+        else:
+            pval, dep = linear_gaussian_ols_reg(data=data, 
+                                                target=target, 
+                                                var=var, 
+                                                cond_set=cond_set, 
+                                                alpha=alpha)
+            
     else:
         CI, dep, pval = cond_indep_fisher_z(data, target, var, cond_set, alpha)
     return pval, dep
