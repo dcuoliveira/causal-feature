@@ -131,7 +131,7 @@ def run_IAMB(merged_df,
 
     if len(MBs) == 0:
         features = list(merged_df.columns)
-        features.remove(target_name')
+        features.remove(target_name)
         MBs_df = pd.DataFrame(data={'feature': features,
                                     'feature_score': np.nan})
     else:

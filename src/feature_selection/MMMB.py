@@ -37,8 +37,12 @@ def MMPC(data,
         # according to pseudocode, <F,assocF> = MaxMinFeuristic(T;CPC)
         for x in M_variables:
             # use a function of getMinDep to chose min dep of x
-            x_dep_min, sepset_temp, ci_num2 = getMinDep(
-                data, target, x, CPC, alpha, is_discrete)
+            x_dep_min, sepset_temp, ci_num2 = getMinDep(data,
+                                                        target,
+                                                        x,
+                                                        CPC,
+                                                        alpha,
+                                                        is_discrete)
             ci_number += ci_num2
             # print(str(x)+" dep min is: " + str(x_dep_min))
 
