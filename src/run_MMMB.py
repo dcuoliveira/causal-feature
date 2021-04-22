@@ -27,12 +27,8 @@ CONSTANT_THRESHOLD = 0.9
 
 # ajuste pra path do windows
 PATHS = sorted(glob("data/{}/*.csv".format(OUT_FOLDER)))
+N_CORES = len(PATHS)  # number of cores to use
 
-# done = ['data/indices/CCMP Index.csv',
-#         'data/indices/RTY Index.csv',
-#         'data/indices/SPX Index.csv', ]
-
-# PATHS = [p for p in PATHS if p not in done]
 
 # debug condition
 if DEBUG:
