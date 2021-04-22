@@ -15,7 +15,7 @@ import random
 # variables
 SIG_LEVEL = 0.05
 MAX_LAG = 20  # maximum number of lags to create
-N_CORES = 9  # number of cores to use
+# N_CORES = 2  # number of cores to use
 OUT_FOLDER = "indices"  # name of the marked data folder
 DEBUG = False  # param to debug the script
 TEST_SIZE = 0.5  # pct of the train/test split
@@ -27,7 +27,7 @@ CONSTANT_THRESHOLD = 0.9
 
 # ajuste pra path do windows
 PATHS = sorted(glob("data/{}/*.csv".format(OUT_FOLDER)))
-# N_CORES = len(PATHS)  # number of cores to use
+N_CORES = len(PATHS)  # number of cores to use
 
 
 # debug condition

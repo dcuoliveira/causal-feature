@@ -26,7 +26,7 @@ CONSTANT_THRESHOLD = 0.9
 
 # ajuste pra path do windows
 PATHS = sorted(glob("data/{}/*.csv".format(OUT_FOLDER)))
-N_CORES = 2 # len(PATHS)  # number of cores to use
+N_CORES = len(PATHS)  # number of cores to use
 
 
 # debug condition
