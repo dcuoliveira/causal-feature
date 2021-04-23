@@ -21,7 +21,7 @@ class RandomForestWrapper():
             self.ModelClass = RandomForestRegressor(**model_params)
 
 
-class LinearGaussianRegression():
+class LinearGaussianRegressionWrapper():
     def __init__(self, model_params={'fit_intercept': True}):
         self.model_name = "linear_gaussian_reg"
         self.param_grid = {}
