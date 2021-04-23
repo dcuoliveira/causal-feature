@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 from tqdm import tqdm
 from sklearn.model_selection import TimeSeriesSplit
-from sklearn.metrics import make_scorer
+from sklearn.metrics import make_scorer, roc_auc_score
 from sklearn.model_selection import RandomizedSearchCV
 from sklearn.preprocessing import StandardScaler
 
@@ -395,7 +395,7 @@ def hyper_params_search(df,
     y = df[target_name].values
 
     time_split = TimeSeriesSplit(n_splits=n_splits)
-    r2_scorer = make_scorer(new_r2)
+    # roc_auc_scorer = make_scorer(roc_auc_score)
 
     if wrapper.search_type == 'random':
         model_search = RandomizedSearchCV(estimator=wrapper.ModelClass,
@@ -404,7 +404,7 @@ def hyper_params_search(df,
                                           cv=time_split,
                                           verbose=verbose,
                                           n_jobs=n_jobs,
-                                          scoring=r2_scorer,
+                                          scoring=roc_auc_score,
                                           random_state=seed)
     elif wrapper.search_type == 'grid':
         model_search = GridSearchCV(estimator=wrapper.ModelClass,
@@ -412,7 +412,7 @@ def hyper_params_search(df,
                                     cv=time_split,
                                     verbose=verbose,
                                     n_jobs=n_jobs,
-                                    scoring=r2_scorer)
+                                    scoring=roc_auc_scorer)
     else:
         raise Exception('search type method not registered')
 
@@ -520,6 +520,7 @@ def forecast(ticker_name,
              n_splits,
              n_jobs,
              seed,
+             is_discrete,
              verbose=1,
              target_name="target_return",
              max_lag=20):
@@ -552,8 +553,9 @@ def forecast(ticker_name,
     """
     path_list = ["data", "index"]
     ticker_path = "data/indices/{}.csv".format(ticker_name)
-    train, test = merge_market_and_gtrends(
-        ticker_path, test_size=0.5)
+    train, test = merge_market_and_gtrends(ticker_path,
+                                           is_discrete=is_discrete,
+                                           test_size=0.5)
     words = train.drop(target_name, 1).columns.to_list()
     complete = pd.concat([train, test])
     del train, test
