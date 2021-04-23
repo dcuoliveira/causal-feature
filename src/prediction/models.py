@@ -1,7 +1,7 @@
 from scipy.stats import randint as sp_randint
 from scipy.stats import uniform as sp_uniform
 import numpy as np
-from sklearn.linear_model import Lasso, Ridge, ElasticNet
+from sklearn.linear_model import LinearRegression, Lasso, Ridge, ElasticNet
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.neural_network import MLPRegressor
 from lightgbm import LGBMRegressor
@@ -19,6 +19,16 @@ class RandomForestWrapper():
             self.ModelClass = RandomForestRegressor()
         else:
             self.ModelClass = RandomForestRegressor(**model_params)
+
+
+class LinearGaussianRegression():
+    def __init__(self, model_params={'fit_intercept': True}):
+        self.model_name = "linear_gaussian_reg"
+        self.param_grid = {}
+    if model_params is None:
+        self.ModelClass = LinearRegression()
+    else:
+        self.ModelClass = LinearRegression(**model_params)
 
 
 class LassoWrapper():
