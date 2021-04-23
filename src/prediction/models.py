@@ -25,10 +25,10 @@ class LinearGaussianRegressionWrapper():
     def __init__(self, model_params={'fit_intercept': True}):
         self.model_name = "linear_gaussian_reg"
         self.param_grid = {}
-    if model_params is None:
-        self.ModelClass = LinearRegression()
-    else:
-        self.ModelClass = LinearRegression(**model_params)
+        if model_params is None:
+            self.ModelClass = LinearRegression()
+        else:
+            self.ModelClass = LinearRegression(**model_params)
 
 
 class LassoWrapper():
