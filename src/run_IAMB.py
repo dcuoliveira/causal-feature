@@ -13,7 +13,7 @@ import random
 
 
 # variables
-SIG_LEVEL = 0.05
+SIG_LEVEL = 0.01
 MAX_LAG = 20 # maximum number of lags to create
 OUT_FOLDER = "indices" # name of the marked data folder
 DEBUG = False # param to debug the script
