@@ -609,7 +609,7 @@ def linear_gaussian_ols_reg(data,
     cond_set = list(cond_set)
     model_fit = OLS(endog=data.iloc[:, [target]], exog=data.iloc[:, [var] + cond_set]).fit(disp=0)
     pval = model_fit.pvalues[data.columns[var]]
-    dep = abs(model_fit.params)
+    dep = abs(model_fit.params[data.columns[var]])
 
     return pval, dep
 
