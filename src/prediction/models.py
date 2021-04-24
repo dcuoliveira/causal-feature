@@ -59,7 +59,7 @@ class ElasticNetWrapper():
         self.model_name = "elastic_net"
         self.search_type = 'random'
         self.param_grid = {'C': np.linspace(0, 50, 200),
-                           'l1_ratio': np.linspace(0, 50, 200)}
+                           'l1_ratio': np.linspace(0.001, 0.999, 200)}
         if model_params is None:
             self.ModelClass = LogisticRegression()
         else:
