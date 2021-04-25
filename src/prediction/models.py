@@ -3,7 +3,7 @@ from scipy.stats import uniform as sp_uniform
 import numpy as np
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.neural_network import MLPRegressor
+from sklearn.neural_network import MLPClassifier
 from lightgbm import LGBMClassifier
 
 
@@ -36,7 +36,7 @@ class LassoWrapper():
     def __init__(self, model_params={'fit_intercept': True, 'penalty': 'l1', 'solver': 'liblinear'}):
         self.model_name = "lasso"
         self.search_type = 'random'
-        self.param_grid = {'C': np.linspace(0, 10, 100)}
+        self.param_grid = {'C': np.linspace(0, 10, 200)}
         if model_params is None:
             self.ModelClass = LogisticRegression()
         else:
