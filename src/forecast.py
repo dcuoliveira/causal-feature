@@ -10,6 +10,7 @@ from prediction.models import RidgeWrapper
 from prediction.models import ElasticNetWrapper
 from prediction.models import LGBWrapper
 from prediction.models import NN3Wrapper
+from prediction.models import LogisticRegWrapper
 from prediction.functions import forecast
 
 
@@ -54,7 +55,8 @@ def main():
     args = parser.parse_args()
 
     # selecting the ML model
-    model_dict = {"random_forest": RandomForestWrapper,
+    model_dict = {"logit": LogisticRegWrapper,
+                  "random_forest": RandomForestWrapper,
                   "lasso": LassoWrapper,
                   "ridge": RidgeWrapper,
                   "enet": ElasticNetWrapper,

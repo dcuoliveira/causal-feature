@@ -9,11 +9,11 @@ from sklearn.model_selection import RandomizedSearchCV
 from sklearn.preprocessing import StandardScaler
 
 try:
-    from data_mani.utils import merge_market_and_gtrends
+    from data_mani.utils import merge_market_and_gtrends, target_ret_to_directional_movements
     from data_mani.visu import *
 
 except ModuleNotFoundError:
-    from src.data_mani.utils import merge_market_and_gtrends
+    from src.data_mani.utils import merge_market_and_gtrends, target_ret_to_directional_movements
     from src.data_mani.visu import *
 
 
@@ -395,7 +395,7 @@ def hyper_params_search(df,
     y = df[target_name].values
 
     time_split = TimeSeriesSplit(n_splits=n_splits)
-    # roc_auc_scorer = make_scorer(roc_auc_score)
+    roc_auc_scorer = make_scorer(roc_auc_score)
 
     if wrapper.search_type == 'random':
         model_search = RandomizedSearchCV(estimator=wrapper.ModelClass,
@@ -404,7 +404,7 @@ def hyper_params_search(df,
                                           cv=time_split,
                                           verbose=verbose,
                                           n_jobs=n_jobs,
-                                          scoring=roc_auc_score,
+                                          scoring=roc_auc_scorer,
                                           random_state=seed)
     elif wrapper.search_type == 'grid':
         model_search = GridSearchCV(estimator=wrapper.ModelClass,
@@ -462,23 +462,29 @@ def annualy_fit_and_predict(df,
     years = range(np.min(years), np.max(years))
     features = sorted(df.drop(target_name, 1).columns.to_list())
     df = df[features + [target_name]]
+    df = target_ret_to_directional_movements(df, target_name)
 
     for y in tqdm(years,
                   disable=not verbose,
                   desc="anual training and prediction"):
         train_ys = df.loc[:str(y)]
         test_ys = df.loc[str(y + 1)]
+        store_train_target = train_ys[target_name].values
+        store_test_target = test_ys[target_name].values
 
         scaler = StandardScaler()
         train_ys_v = scaler.fit_transform(train_ys)
         train_ys = pd.DataFrame(train_ys_v,
                                 columns=train_ys.columns,
                                 index=train_ys.index)
-        y_test = test_ys[target_name].values
+        train_ys.loc[:, target_name] = store_train_target
+
         test_ys_v = scaler.transform(test_ys)
         test_ys = pd.DataFrame(test_ys_v,
                                columns=test_ys.columns,
                                index=test_ys.index)
+        test_ys.loc[:, target_name] = store_test_target
+        y_test = test_ys[target_name].values
 
         # we have some roles in the time interval
         # for some tickers, for example,
@@ -494,21 +500,13 @@ def annualy_fit_and_predict(df,
                                                verbose=verbose)
             X_test = test_ys.drop(target_name, 1).values
             test_pred = model_search.best_estimator_.predict(X_test)
-            X_to_go = np.hstack([X_test, test_pred.reshape(-1, 1)])
-            X_to_go = scaler.inverse_transform(X_to_go)
-            df_to_go = pd.DataFrame(X_to_go,
-                                    columns=test_ys.columns,
-                                    index=test_ys.index)
-            test_pred = df_to_go[target_name].values
-
             dict_ = {"date": test_ys.index,
-                     "return": y_test,
+                     "return_direction": y_test,
                      "prediction": test_pred}
             result = pd.DataFrame(dict_)
             all_preds.append(result)
         else:
             pass
-
     pred_results = pd.concat(all_preds).reset_index(drop=True)
     return pred_results
 
