@@ -1,15 +1,3 @@
-# 1) feature selection phase
-
-# python3 run_sfi.py
-# python3 run_mdi.py
-# python3 run_mda.py
-# python3 run_granger.py
-# python3 run_huang.py
-# python3 run_IAMB.py
-# python3 run_MMMB.py
-
-# Logit
-
 # commands for SPX Index -i 1
 python3 forecast.py 'SPX Index' all logit -S 331 -i 1
 python3 forecast.py 'SPX Index' sfi logit -S 44219 -i 1
@@ -118,5 +106,3 @@ python3 forecast.py 'SPX Utilities' huang logit -S 21393 -i 1
 python3 forecast.py 'SPX Utilities' granger logit -S 20629 -i 1
 python3 forecast.py 'SPX Utilities' IAMB logit -S 9413 -i 1
 python3 forecast.py 'SPX Utilities' MMMB logit -S 823 -i 1
-
-
