@@ -499,7 +499,7 @@ def annualy_fit_and_predict(df,
                                                seed=seed,
                                                verbose=verbose)
             X_test = test_ys.drop(target_name, 1).values
-            test_pred = model_search.best_estimator_.predict(X_test)
+            test_pred = model_search.best_estimator_.predict_proba(X_test)[:, 1]
             dict_ = {"date": test_ys.index,
                      "return_direction": y_test,
                      "prediction": test_pred}

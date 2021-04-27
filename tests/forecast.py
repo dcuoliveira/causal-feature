@@ -4,6 +4,8 @@ import sys
 import inspect
 import unittest
 from glob import glob
+from sklearn.metrics import roc_auc_score
+from warnings import simplefilter
 
 currentdir = os.path.dirname(
     os.path.abspath(
@@ -19,6 +21,7 @@ from src.prediction.models import LassoWrapper  # noqa
 from src.prediction.models import RidgeWrapper  # noqa
 from src.prediction.models import ElasticNetWrapper  # noqa
 from src.prediction.models import LGBWrapper  # noqa
+from src.prediction.models import NN3Wrapper  # noqa
 from src.prediction.functions import get_selected_features  # noqa
 from src.prediction.functions import get_features_granger_huang  # noqa
 from src.prediction.functions import get_features_IAMB_MMMB  # noqa
@@ -54,6 +57,27 @@ class Test_forecast(unittest.TestCase):
                   max_lag=max_lag,
                   verbose=verbose)
         cls.complete = complete.fillna(0.0)
+
+    def test_forecast_auc(self):
+        fs_method = "mdi"
+        select = get_selected_features(ticker_name=self.ticker_name,
+                                       out_folder="indices",
+                                       fs_method=fs_method,
+                                       path_list=self.path_gt_list)
+        complete_selected = self.complete[[self.target_name] + select]
+
+        pred_results = annualy_fit_and_predict(df=complete_selected,
+                                               Wrapper=NN3Wrapper,
+                                               n_iter=2,
+                                               n_jobs=2,
+                                               n_splits=2,
+                                               seed=44,
+                                               target_name=self.target_name,
+                                               verbose=False)
+        y_true = pred_results["return_direction"]
+        y_pred = pred_results["prediction"]
+        auc = roc_auc_score(y_true, y_pred)
+        self.assertTrue(0.0 < auc < 1.0)
 
     def test_forecast_models(self):
         fs_method = "mdi"
@@ -104,8 +128,7 @@ class Test_forecast(unittest.TestCase):
                                             out_folder="indices",
                                             fs_method=fs_method,
                                             path_list=self.path_gt_list)
-        # Ajuste para acomodar a removao da palavra "DOW JONES", deev normalizar depois que rodar a primeira vez na nova versao
-        # select = [s.lower() for s in select]
+
         complete_selected = self.complete[[self.target_name] + select]
         pred_results = annualy_fit_and_predict(df=complete_selected,
                                                Wrapper=RandomForestWrapper,
@@ -120,25 +143,25 @@ class Test_forecast(unittest.TestCase):
         self.assertEqual(pred_results.shape[0],
                          complete_selected.loc["2005":].shape[0])
 
-    # def test_forecast_IAMB_MMB(self):
-    #     fs_method = "MMMB"
-    #     select = get_features_IAMB_MMMB(ticker_name=self.ticker_name,
-    #                                     out_folder="indices",
-    #                                     fs_method=fs_method,
-    #                                     path_list=self.path_gt_list)
-    #     complete_selected = self.complete[[self.target_name] + select]
-    #     pred_results = annualy_fit_and_predict(df=complete_selected,
-    #                                            Wrapper=RandomForestWrapper,
-    #                                            n_iter=1,
-    #                                            n_jobs=2,
-    #                                            n_splits=2,
-    #                                            seed=123,
-    #                                            target_name=self.target_name,
-    #                                            verbose=False)
+    def test_forecast_IAMB_MMB(self):
+        fs_method = "IAMB"
+        select = get_features_IAMB_MMMB(ticker_name=self.ticker_name,
+                                        out_folder="indices",
+                                        fs_method=fs_method,
+                                        path_list=self.path_gt_list)
+        complete_selected = self.complete[[self.target_name] + select]
+        pred_results = annualy_fit_and_predict(df=complete_selected,
+                                               Wrapper=RandomForestWrapper,
+                                               n_iter=1,
+                                               n_jobs=2,
+                                               n_splits=2,
+                                               seed=123,
+                                               target_name=self.target_name,
+                                               verbose=False)
 
-    #     self.assertTrue(2 < complete_selected.shape[1] < 3641)
-    #     self.assertEqual(pred_results.shape[0],
-    #                      complete_selected.loc["2005":].shape[0])
+        self.assertTrue(2 < complete_selected.shape[1] < 3641)
+        self.assertEqual(pred_results.shape[0],
+                         complete_selected.loc["2005":].shape[0])
 
 
 if __name__ == '__main__':
