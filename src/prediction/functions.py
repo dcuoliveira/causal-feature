@@ -518,13 +518,14 @@ def forecast(ticker_name,
              n_splits,
              n_jobs,
              seed,
-             is_discrete,
              verbose=1,
              target_name="target_return",
              max_lag=20):
     """
     Function to perform the predition using one ticker,
     one feature selection method, and one prediction model.
+    IT ALWAYS PERFORMS CLASSIFICATION
+
 
     :param ticker_name: ticker name (without extension)
     :type ticker_name: str
@@ -552,7 +553,6 @@ def forecast(ticker_name,
     path_list = ["data", "index"]
     ticker_path = "data/indices/{}.csv".format(ticker_name)
     train, test = merge_market_and_gtrends(ticker_path,
-                                           is_discrete=is_discrete,
                                            test_size=0.5)
     words = train.drop(target_name, 1).columns.to_list()
     complete = pd.concat([train, test])
