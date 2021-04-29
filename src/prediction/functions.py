@@ -195,7 +195,7 @@ def gen_strat_positions_and_ret_from_pred(predictions_df,
                     pivot_benchmark_df = benchmark_df.pivot_table(index=['date'], columns=['variable', 'ticker', 'model', 'fs'], values=['value'])
 
                     # Positions
-                    positions_df = pd.DataFrame(np.where(ticker_strat_pivot_df > 0, 1, -1))
+                    positions_df = ticker_strat_pivot_df
                     positions_df.columns = names
                     positions_df.index = ticker_strat_pivot_df.index
                     melt_positions_df = positions_df.reset_index().melt('date')
@@ -203,6 +203,7 @@ def gen_strat_positions_and_ret_from_pred(predictions_df,
                     melt_positions_df['ticker'] = ticker
                     pred_positions.append(melt_positions_df)
                     
+                    pivot_benchmark_df = pivot_benchmark_df.loc[positions_df.index[0]:positions_df.index[len(positions_df)-1]]
                     # Strategy 
                     pred_ret_df = pd.DataFrame(positions_df.values * pivot_benchmark_df.values)
                     pred_ret_df.columns = names

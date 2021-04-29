@@ -76,9 +76,8 @@ def plot_cum_ret(pred_ret_df,
             pivot_all_ret_df = loop_df.pivot_table(index=['date'], columns=['ticker', 'variable'] + pivot_level_to_add, values=['value'])
             pivot_all_ret_df = pivot_all_ret_df.dropna()
             pivot_all_ret_df.columns = pivot_all_ret_df.columns.droplevel()
-            pivot_all_ret_df = pivot_all_ret_df[pivot_all_ret_df.columns[0]] * pivot_all_ret_df[pivot_all_ret_df.columns[1]]
 
-            cum_all_ret = (1 + pivot_all_ret_df).cumprod()
+            cum_all_ret = (1 + pivot_all_ret_df / 100).cumprod()
             cum_ret.append(cum_all_ret)
             if show:
                 cum_all_ret.plot(figsize=(15, 10), title=level_to_subset + ' = ' + level.upper())
