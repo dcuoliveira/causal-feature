@@ -20,7 +20,10 @@ except ModuleNotFoundError:
 def aggregate_prediction_results(prediction_models,
                                  fs_models,
                                  evaluation_start_date,
+                                 evaluation_end_date,
                                  ticker_names,
+                                 metric_name,
+                                 tag='oos',
                                  benchmark_name='return'):
     """
     aggreagate prediction results of the specified models
@@ -30,31 +33,37 @@ def aggregate_prediction_results(prediction_models,
     :type prediction_models: list of strs
     :param fs_models: list of fs model names (must match with results dir)
     :type fs_models: list of strs
-    :param evaluation_start_date: date to start to start computing oos results
+    :param evaluation_start_date: date to start computing oos results
     :type evaluation_start_date: str (yyyy-mm-dd)
+    :param evaluation_end_date: date to end computing oos results
+    :type evaluation_end_date:  str (yyyy-mm-dd)
     :param ticker_names: list of predcition model names (must match with data dir) 
     :type ticker_names: list of strs
+    :param metric_name: name of the evaluation metric to be used
+    :type metric_name: str
+    :param tag: string tag to add with the metric name 
+    :type tag: str
     :param benchmark_name: name of the benchmark in the files of the data and results directory
     :type benchmark_name: str
     """
     
     predictions = []
-    r2s = []
+    metrics = []
     for fs in fs_models:
         for model in prediction_models:
             for ticker in ticker_names:
                 df = pd.read_csv('results/forecast/' + fs + '/indices/' + model + '/' + ticker + '.csv')
                 df.set_index('date', inplace=True)
-                df = df.loc[evaluation_start_date:]
+                df = df.loc[evaluation_start_date:evaluation_end_date]
                 df = df.reset_index()
 
-                r2_eval_df = df.copy()
-                r2 = new_r2(r2_eval_df['return'].values, r2_eval_df['prediction'].values)
-                r2_df = pd.DataFrame([{'ticker': ticker,
-                                                'model': model,
-                                                'fs': fs,
-                                                'r2': r2}])
-                r2s.append(r2_df)
+                metric_eval_df = df.copy()
+                metric = roc_auc_score(metric_eval_df[benchmark_name].values, metric_eval_df['prediction'].values)
+                metric_df = pd.DataFrame([{'ticker': ticker,
+                                           'model': model,
+                                           'fs': fs,
+                                            tag + metric_name: metric}])
+                metrics.append(metric_df)
 
                 melt_df = df.melt('date')
                 melt_df['model'] = model
@@ -69,9 +78,9 @@ def aggregate_prediction_results(prediction_models,
     benchmark_df['model'] = benchmark_df['ticker']
     benchmark_df['fs'] = 'raw'
     predictions_df = predictions_df.loc[(predictions_df['variable']!=benchmark_name)]
-    r2_df = pd.concat(r2s, axis=0)
+    metric_df = pd.concat(metrics, axis=0)
 
-    return predictions_df, benchmark_df, r2_df
+    return predictions_df, benchmark_df, metric_df
 
 
 def sharpe_ratio_tb(returns_df,
@@ -143,13 +152,16 @@ def max_drawdown_tb(pivot_ret_all_df,
 
 
 def gen_strat_positions_and_ret_from_pred(predictions_df,
-                                          target_asset_returns):
+                                          target_asset_returns,
+                                          class_threshold=None):
     """
     generate strategy positions (simple or ranking) from each of the
     fs x (pred model) predictions.
 
     :param predictions_df: melted dataframe containing the predictions of each fs method and pred. model
     :type predictions_df: dataframe
+    :param class_threshold: threshold such that if "vec_val" > threshold => 1; otherwise => -1
+    :type class_threshold: float
     :param target_asset_returns: melted dataframe containing daily returns of the benchmark indices
     :type target_asset_returns: dataframe
     """
@@ -167,6 +179,15 @@ def gen_strat_positions_and_ret_from_pred(predictions_df,
                 for ticker in strat_df['ticker'].unique():
                     ticker_strat_df = strat_df.loc[strat_df['ticker'] == ticker]
                     ticker_strat_pivot_df = ticker_strat_df.pivot_table(index=['date'], columns=['variable', 'ticker', 'model', 'fs'], values=['value'])
+                    
+                    if class_threshold is not None:
+                        colnames = ticker_strat_pivot_df.columns
+                        rownames = ticker_strat_pivot_df.index
+                        ticker_strat_pivot_df = pd.DataFrame(np.where(ticker_strat_pivot_df > class_threshold,
+                                                                      1,
+                                                                      -1))
+                        ticker_strat_pivot_df.columns = colnames
+                        ticker_strat_pivot_df.index = rownames
                     names = ticker_strat_pivot_df.columns.droplevel().droplevel()
 
                     # Benchmark
