@@ -1,4 +1,9 @@
 # Byte-compiled / optimized / DLL files
+
+
+# R
+.Rproj
+
 __pycache__/
 *.py[cod]
 *$py.class
@@ -137,3 +142,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+.Rproj.user
