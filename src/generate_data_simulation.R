@@ -1,13 +1,19 @@
 rm(list=ls())
 gc()
 library('SparseTSCGM')
+library('tsDyn')
+library('mvtnorm')
 library('data.table')
+library('dplyr')
 library('here')
 
 seed = 221994
-sparse_gaussian_var = sim.data(model=c("ar1"),
+n = 5479
+lag = 1
+
+sparse_gaussian_var = sim.data(model=c(paste0('ar', lag)),
                                time=1,
-                               n.obs=5479,
+                               n.obs=n,
                                n.var=200,
                                seed=seed,
                                prob0=0.1,
@@ -23,5 +29,17 @@ colnames(df1) = names
 df1$date = seq(as.Date("2006-01-01"), as.Date("2020-12-31"), by=1)
 df1 = df1 %>% dplyr::select(date, everything())
 write.csv(df1, here("src/data/simulation/gaussian_sparse_var_df.csv"))
+
+sparse_t_VAR = VAR.sim(B=sparse_gaussian_var$gamma,
+                       n=n,
+                       lag=lag,
+                       include = c("none"),
+                       innov=rmvt(n=n,
+                                  sigma=sparse_gaussian_var$sigma,
+                                  df=1.5),
+                       varcov=sparse_gaussian_var$sigma)
+write.csv(df1, here("src/data/simulation/t_sparse_var_df.csv"))
+
+
 
 
