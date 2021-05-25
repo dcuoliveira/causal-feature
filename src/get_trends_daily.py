@@ -11,7 +11,7 @@ from word_list.basic import base
 # global parameters
 REFWORD = "google"
 TARGET = base
-SLEEPTIME = 40
+SLEEPTIME = 60
 INIT_DATE = "2004-01-01"
 FINAL_DATE = "2021-01-01"
 TIMEZONE_OFFSET = 360
