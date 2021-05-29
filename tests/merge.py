@@ -34,9 +34,9 @@ class Test_merger(unittest.TestCase):
             first_day_test = test.sort_index().index[0]
 
             self.assertTrue(train_shape[0] > 0)
-            self.assertTrue(train_shape[1] == 182)
+            self.assertTrue(train_shape[1] == 181)
             self.assertTrue(test_shape[0] > 0)
-            self.assertTrue(test_shape[1] == 182)
+            self.assertTrue(test_shape[1] == 181)
             self.assertTrue(train.index[0] > pd.Timestamp("2003-12-01"))
             self.assertTrue(last_day_train < first_day_test)
 

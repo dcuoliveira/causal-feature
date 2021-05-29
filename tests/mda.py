@@ -39,9 +39,10 @@ class Test_mda(unittest.TestCase):
                                  n_splits=2,
                                  n_estimators=10,
                                  verbose=False)
-        self.assertEqual(results.iloc[0, 0], 'dow_jones_1')
+
+        self.assertEqual(results.iloc[0, 0], 'act_3')
         self.assertAlmostEqual(
-            results.iloc[0, 1], 0.00609893918389498, places=3)
+            results.iloc[0, 1], 0.02266288951841367, places=3)
 
 
 if __name__ == '__main__':

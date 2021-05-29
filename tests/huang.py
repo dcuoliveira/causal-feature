@@ -212,23 +212,21 @@ words = ['BUY AND HOLD',
 class Test_huang(unittest.TestCase):
     def test_huang_basic1(self):
         path_m = os.path.join(parentdir,
-                                "src", "data",
-                                "toy", "ticker7.csv")
+                              "src", "data",
+                              "toy", "ticker7.csv")
         merged, _ = merge_market_and_gtrends(path_m,
-                                            test_size=0.5,
-                                            is_discrete=True,
-                                            path_gt_list=[parentdir,
-                                                        "src",
-                                                        "data",
-                                                        "gtrends.csv"])
+                                             test_size=0.5,
+                                             is_discrete=True,
+                                             path_gt_list=[parentdir,
+                                                           "src",
+                                                           "data",
+                                                           "gtrends.csv"])
         result = run_huang_methods(merged_df=merged, target_name="target_return",
-                                    words=words, max_lag=20, verbose=False,
-                                    sig_level=0.05, correl_threshold=0.5, constant_threshold=0.9)
+                                   words=words, max_lag=20, verbose=False,
+                                   sig_level=0.05, correl_threshold=0.5, constant_threshold=0.9)
         result = list(result[~result.feature_score.isna()].feature)
-
-        self.assertTrue('banking_1' in result)
-        self.assertTrue('bonds_1' in result)
-        self.assertTrue(len(result) == 2)
+        self.assertTrue('bubble_3' in result)
+        self.assertTrue(len(result) == 1)
 
     def test_huang_reproducibility(self):
         path_m = os.path.join(parentdir,
@@ -244,12 +242,11 @@ class Test_huang(unittest.TestCase):
         result = run_huang_methods(merged_df=merged, target_name="target_return",
                                    words=["dow jones", "act", "arts", "bank", "business"], max_lag=20, verbose=False,
                                    sig_level=0.05, correl_threshold=0.5, constant_threshold=0.9)
-
-        self.assertAlmostEqual(result.loc[result['feature'] == 'business_3']['feature_score'].iloc[0],
-                               0.013063, 
+        self.assertAlmostEqual(result.loc[result['feature'] == 'bank_6']['feature_score'].iloc[0],
+                               0.049436,
                                places=3)
-        self.assertAlmostEqual(result.loc[result['feature'] == 'business_6']['feature_score'].iloc[0],
-                               0.030277,
+        self.assertAlmostEqual(result.loc[result['feature'] == 'bank_15']['feature_score'].iloc[0],
+                               0.004470,
                                places=3)
 
     def test_huang_singular_matrix(self):

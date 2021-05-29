@@ -36,7 +36,7 @@ class Test_MDI(unittest.TestCase):
                                 classification=False)
 
         self.assertAlmostEqual(
-            result.iloc[0, 1], 0.01656738359641016, places=3)
+            result.iloc[0, 1], 0.017442061511909843, places=3)
 
     def test_mdi_classifiction(self):
         path_m = os.path.join(parentdir,

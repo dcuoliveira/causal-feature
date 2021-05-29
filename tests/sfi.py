@@ -97,8 +97,9 @@ class SFI_Tester(unittest.TestCase):
                                 verbose=False,
                                 classification=True,
                                 n_splits=n_splits)
-        self.assertEqual(result.iloc[0, 0], "return_4")
-        self.assertAlmostEqual(result.iloc[0, 1], 0.507112, places=3)
+
+        self.assertEqual(result.iloc[0, 0], "return_1")
+        self.assertAlmostEqual(result.iloc[0, 1], 0.516174035, places=3)
 
 
 if __name__ == '__main__':
