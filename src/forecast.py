@@ -67,14 +67,14 @@ def main():
     Wrapper = model_dict[args.model_name]
 
     init = time()
-    pred_results = forecast(ticker_name=args.ticker_name,
-                            fs_method=args.fs_method,
-                            Wrapper=Wrapper,
-                            n_iter=args.n_iter,
-                            n_splits=args.n_splits,
-                            n_jobs=args.n_jobs,
-                            verbose=args.verbose,
-                            seed=args.seed)
+    pred_results, feature_importance_results = forecast(ticker_name=args.ticker_name,
+                                                        fs_method=args.fs_method,
+                                                        Wrapper=Wrapper,
+                                                        n_iter=args.n_iter,
+                                                        n_splits=args.n_splits,
+                                                        n_jobs=args.n_jobs,
+                                                        verbose=args.verbose,
+                                                        seed=args.seed)
 
     # saving forecast on the results folder
     out_path_list = ["results", "forecast", args.fs_method, "indices",
@@ -84,6 +84,14 @@ def main():
     if not os.path.exists(out_folder):
         os.mkdir(out_folder)
     pred_results.to_csv(out_path, index=False)
+    
+    out_path_list2 = ["results", "feature_importance", args.fs_method, "indices",
+                     args.model_name, "{}.csv".format(args.ticker_name)]
+    out_folder2 = os.path.join(*out_path_list2[:-1])
+    out_path2 = os.path.join(*out_path_list2)
+    if not os.path.exists(out_folder2):
+        os.mkdir(out_folder2)
+    feature_importance_results.to_csv(out_path2, index=False)
 
     tempo = (time() - init) / 60
     print("\nDONE\ntotal run time = ", np.round(tempo, 2), "min")
