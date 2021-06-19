@@ -19,11 +19,11 @@ if __name__ == '__main__':
                                                 seed=2294,
                                                 verbose=1)
     
-     importance_results.to_csv(os.path.join("results",
-                                            "feature_importance",
-                                            "sfi",
-                                            "indices",
-                                            "random_forest",
-                                            "SPX Index.csv"))
+    importance_results.to_csv(os.path.join("results",
+                                           "feature_importance",
+                                           "sfi",
+                                           "indices",
+                                           "random_forest",
+                                           "SPX Index.csv"))
     tempo = (time() - init) / 60
     print("total run time = ", np.round(tempo, 2), "min")  

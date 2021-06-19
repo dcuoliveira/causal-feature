@@ -479,6 +479,7 @@ def annualy_fit_and_predict(df,
      """
 
     all_preds = []
+    all_importances = []
 
     years = df.index.map(lambda x: x.year)
     years = range(np.min(years), np.max(years))
@@ -527,10 +528,17 @@ def annualy_fit_and_predict(df,
                      "prediction": test_pred}
             result = pd.DataFrame(dict_)
             all_preds.append(result)
+            
+            dict_feature_importance = {"test_year": str(y + 1),
+                                       "feature_names": features,
+                                       "importance": model_search.best_estimator_.feature_importances_}
+            result_feature_importance = pd.DataFrame(dict_feature_importance)
+            all_importances.append(result_feature_importance)
         else:
             pass
     pred_results = pd.concat(all_preds).reset_index(drop=True)
-    return pred_results
+    importance_results = pd.concat(all_importances).reset_index(drop=True)
+    return pred_results, importance_results
 
 
 def forecast(ticker_name,
