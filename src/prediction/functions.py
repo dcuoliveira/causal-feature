@@ -17,6 +17,49 @@ except ModuleNotFoundError:
     from src.data_mani.visu import *
 
 
+def aggregate_feature_importance_results(prediction_models,
+                                         fs_models,
+                                         ticker_names):
+    """
+    aggreagate prediction results of the specified models
+    and feature selection methods.
+
+    :param prediction_models: list of predcition model names (must match with results dir)
+    :type prediction_models: list of strs
+    :param fs_models: list of fs model names (must match with results dir)
+    :type fs_models: list of strs
+    :param evaluation_start_date: date to start computing oos results
+    :type evaluation_start_date: str (yyyy-mm-dd)
+    :param evaluation_end_date: date to end computing oos results
+    :type evaluation_end_date:  str (yyyy-mm-dd)
+    :param ticker_names: list of predcition model names (must match with data dir) 
+    :type ticker_names: list of strs
+    :param metric_name: name of the evaluation metric to be used
+    :type metric_name: str
+    :param tag: string tag to add with the metric name 
+    :type tag: str
+    :param benchmark_name: name of the benchmark in the files of the data and results directory
+    :type benchmark_name: str
+    """
+    
+    fis = []
+    for fs in fs_models:
+        for model in prediction_models:
+            for ticker in ticker_names:
+                df = pd.read_csv('results/feature_importance/' + fs + '/indices/' + model + '/' + ticker + '.csv')
+                df.set_index('test_year', inplace=True)
+                df = df.reset_index()
+                df['fs'] = fs
+                df['model'] = model
+                df['ticker'] = ticker
+                
+                fis.append(df)
+
+    fis_df = pd.concat(fis, axis=0)
+    
+    return fis_df
+
+
 def aggregate_prediction_results(prediction_models,
                                  fs_models,
                                  evaluation_start_date,
