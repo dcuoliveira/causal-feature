@@ -5,7 +5,7 @@ import numpy as np
 from tqdm import tqdm
 from sklearn.model_selection import TimeSeriesSplit
 from sklearn.metrics import make_scorer, roc_auc_score
-from sklearn.model_selection import RandomizedSearchCV
+from sklearn.model_selection import RandomizedSearchCV, GridSearchCV
 from sklearn.preprocessing import StandardScaler
 
 try:
