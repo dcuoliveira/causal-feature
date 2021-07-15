@@ -50,7 +50,18 @@ def aggregate_prediction_results(prediction_models,
     predictions = []
     metrics = []
     for fs in fs_models:
+        
+        fs_name = fs.upper()
+        
         for model in prediction_models:
+            
+            if model == 'random_forest':
+                model_name = 'RF'
+            elif model == 'lgb':
+                model_name = 'GB'
+            else:
+                model_name = model.upper()
+            
             for ticker in ticker_names:
                 df = pd.read_csv('results/forecast/' + fs + '/indices/' + model + '/' + ticker + '.csv')
                 df.set_index('date', inplace=True)
@@ -60,21 +71,21 @@ def aggregate_prediction_results(prediction_models,
                 metric_eval_df = df.copy()
                 metric = roc_auc_score(metric_eval_df[benchmark_name].values, metric_eval_df['prediction'].values)
                 metric_df = pd.DataFrame([{'ticker': ticker,
-                                           'model': model,
-                                           'fs': fs,
+                                           'model': model_name,
+                                           'fs': fs_name,
                                             tag + metric_name: metric}])
                 metrics.append(metric_df)
 
                 melt_df = df.melt('date')
-                melt_df['model'] = model
-                melt_df['fs'] = fs
+                melt_df['model'] = model_name
+                melt_df['fs'] = fs_name
                 melt_df['ticker'] = ticker
                 predictions.append(melt_df)
 
     predictions_df = pd.concat(predictions, axis=0)
     benchmark_df = predictions_df.loc[(predictions_df['variable']==benchmark_name)&
-                                    (predictions_df['fs']==fs)&
-                                    (predictions_df['model']==model)]
+                                    (predictions_df['fs']==fs_name)&
+                                    (predictions_df['model']==model_name)]
     benchmark_df['model'] = benchmark_df['ticker']
     benchmark_df['fs'] = 'raw'
     predictions_df = predictions_df.loc[(predictions_df['variable']!=benchmark_name)]
