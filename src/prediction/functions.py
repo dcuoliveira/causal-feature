@@ -693,3 +693,29 @@ def forecast(ticker_name,
                                            verbose=verbose)
 
     return pred_results
+
+
+def forecast_comb(ticker_name,
+                  fs_method,
+                  comb_method,
+                  target_name="target_return"):
+    """
+       Function to perform the predition using one ticker,
+       one feature selection method, and one prediction model.
+       IT ALWAYS PERFORMS CLASSIFICATION
+
+
+       :param ticker_name: ticker name (without extension)
+       :type ticker_name: str
+       :param fs_method: folder with feature selection results
+       :type fs_method: str
+       :param comb_method: folder with the prediction results and differentiates methods which requires estimation (NNcomb, peLASSO, etc) from the others (average, etc)
+       :type comb_method: str
+       :param target_name: name of the target column in 'df'
+       :type target_name: str
+       :return: dataframe with the date, true return
+               and predicted return.
+       :rtype: pd.DataFrame
+       """
+
+    pass
