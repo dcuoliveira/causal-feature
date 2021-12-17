@@ -15,30 +15,24 @@ import random
 # variables
 SIG_LEVEL = 0.01
 MAX_LAG = 20 # maximum number of lags to create
-N_CORES = 9 # number of cores to use
 OUT_FOLDER = "indices" # name of the marked data folder
 DEBUG = False # param to debug the script
 TEST_SIZE = 0.5 # pct of the train/test split
 THRESHOLD = 252 * 2 # treshold to filted merged datframes
                     # 252 = business days in a year
 PAR = True # enable run in paralell
-IS_DISCRETE = False
+IS_DISCRETE = True
 CONSTANT_THRESHOLD = 0.9
 
 # ajuste pra path do windows
 PATHS = sorted(glob("data/{}/*.csv".format(OUT_FOLDER)))
-
-done = ['data/indices/CCMP Index.csv',
-        'data/indices/RTY Index.csv',
-        'data/indices/SPX Index.csv',]
-
-PATHS = [p for p in PATHS if p not in done]
+N_CORES = len(PATHS)  # number of cores to use
 
 
 # debug condition
 if DEBUG:
     words = words[:3]
-    PATHS = PATHS[1:10]
+    PATHS = PATHS[1:2]
 
 def IAMB_fs_vec(paths,
                 test_size=TEST_SIZE,
@@ -70,7 +64,9 @@ def IAMB_fs_vec(paths,
     """
 
     for path in paths:
-        merged, _ = merge_market_and_gtrends(path, test_size=test_size)
+        merged, _ = merge_market_and_gtrends(path,
+                                             test_size=test_size,
+                                             is_discrete=is_discrete)
 
         name = get_ticker_name(path).replace("_", " ")
         result = run_IAMB(merged_df=merged,

@@ -6,7 +6,8 @@ import numpy as np
 from scipy.stats import chi2, norm
 import itertools
 from itertools import combinations, chain
-
+from statsmodels.discrete.discrete_model import Logit
+from statsmodels.regression.linear_model import OLS
 
 def target_ret_to_directional_movements(x, y_name):
     """
@@ -19,7 +20,11 @@ def target_ret_to_directional_movements(x, y_name):
     :return: full dataframe with the y_name variable discretized
     :rtype: dataframe
     """
+    # alternativa
+    # x.loc[:, y_name] = (x[y_name]>0).astype(int).values
+    
     x[y_name] = [1 if r > 0 else 0 for r in x[y_name]]
+
     return x
 
 
@@ -141,6 +146,7 @@ def merge_data(df_list, freq='D'):
 
 def merge_market_and_gtrends(path,
                              test_size,
+                             is_discrete=False,
                              path_gt_list=["data", "gtrends.csv"]):
     """
     Merge market and google trends data.
@@ -174,6 +180,9 @@ def merge_market_and_gtrends(path,
     # merging
     merged = merge_data([market, gtrends])
     merged = merged.dropna()
+    if is_discrete:
+        merged.loc[:, 'target_return'] = target_ret_to_directional_movements(x=merged,
+                                                                             y_name='target_return')
 
     # if the merged data is null or has only one element
     # then both train and test are null
@@ -477,7 +486,6 @@ def g_square_dis(dm,
                 i = dm[row_index, x]
                 j = dm[row_index, y]
                 nijk[i, j] += 1
-                pass
             tx = np.array([nijk.sum(axis = 1)]).T
             ty = np.array([nijk.sum(axis = 0)])
             tdij = tx.dot(ty)
@@ -580,6 +588,32 @@ def g2_test_dis(data_matrix,
     return g_square_dis(data_matrix, x, y, s1, alpha, levels)
 
 
+def logistic_reg(data,
+                 target,
+                 var,
+                 cond_set,
+                 alpha):
+    cond_set = list(cond_set)
+    model_fit = Logit(endog=data.iloc[:, [target]], exog=data.iloc[:, [var] + cond_set]).fit(disp=0)
+    pval = model_fit.pvalues[data.columns[var]]
+    dep = abs(model_fit.params[data.columns[var]])
+    
+    return pval, dep
+
+
+def linear_gaussian_ols_reg(data,
+                            target,
+                            var,
+                            cond_set,
+                            alpha):
+    cond_set = list(cond_set)
+    model_fit = OLS(endog=data.iloc[:, [target]], exog=data.iloc[:, [var] + cond_set]).fit(disp=0)
+    pval = model_fit.pvalues[data.columns[var]]
+    dep = abs(model_fit.params[data.columns[var]])
+
+    return pval, dep
+
+
 def cond_indep_test(data,
                     target,
                     var,
@@ -600,11 +634,23 @@ def cond_indep_test(data,
     :type n_cores: int
     """
     if is_discrete:
-        pval, dep = g2_test_dis(data, target, var, cond_set,alpha)
-        # if selected:
-        #     _, pval, _, dep = chi_square_test(data, target, var, cond_set, alpha)
-        # else:
-        # _, _, dep, pval = chi_square(target, var, cond_set, data, alpha)
+        ## old function for all discrete variables in matrix
+        # pval, dep = g2_test_dis(data, target, var, cond_set, alpha)
+        
+        ## new function to test conditional independence using a logistic model
+        if len(data.iloc[:, target].unique()) == 2:
+            pval, dep = logistic_reg(data=data, 
+                                     target=target, 
+                                     var=var, 
+                                     cond_set=cond_set, 
+                                     alpha=alpha)
+        else:
+            pval, dep = linear_gaussian_ols_reg(data=data, 
+                                                target=target, 
+                                                var=var, 
+                                                cond_set=cond_set, 
+                                                alpha=alpha)
+            
     else:
         CI, dep, pval = cond_indep_fisher_z(data, target, var, cond_set, alpha)
     return pval, dep

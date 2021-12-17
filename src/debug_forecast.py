@@ -4,7 +4,7 @@ import numpy as np
 from time import time
 
 from data_mani.utils import merge_market_and_gtrends
-from prediction.models import RandomForestWrapper, LassoWrapper
+from prediction.models import RandomForestWrapper, LassoWrapper, LogisticRegWrapper
 from prediction.functions import forecast
 
 if __name__ == '__main__':
@@ -12,12 +12,13 @@ if __name__ == '__main__':
     init = time()
     pred_results = forecast(ticker_name="SPX Index",
                             fs_method="sfi",
-                            Wrapper=LassoWrapper,
+                            Wrapper=LogisticRegWrapper,
                             n_iter=10,
                             n_splits=5,
                             n_jobs=-1,
                             seed=2294,
-                            verbose=1)
+                            verbose=1,
+                            is_discrete=True)
     pred_results.to_csv(os.path.join("results",
                                      "forecast",
                                      "sfi",

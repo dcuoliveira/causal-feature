@@ -37,8 +37,12 @@ def MMPC(data,
         # according to pseudocode, <F,assocF> = MaxMinFeuristic(T;CPC)
         for x in M_variables:
             # use a function of getMinDep to chose min dep of x
-            x_dep_min, sepset_temp, ci_num2 = getMinDep(
-                data, target, x, CPC, alpha, is_discrete)
+            x_dep_min, sepset_temp, ci_num2 = getMinDep(data,
+                                                        target,
+                                                        x,
+                                                        CPC,
+                                                        alpha,
+                                                        is_discrete)
             ci_number += ci_num2
             # print(str(x)+" dep min is: " + str(x_dep_min))
 
@@ -122,8 +126,7 @@ def MMMB(data,
                 conditions_Set.append(x)
                 conditions_Set = list(set(conditions_Set))
                 ci_number += 1
-                pval, dep = cond_indep_test(
-                    data, target, y, conditions_Set, is_discrete)
+                pval, dep = cond_indep_test(data, target, y, conditions_Set, is_discrete)
                 if pval <= alpha:
                     MB.append(y)
                     break
@@ -194,7 +197,7 @@ def run_MMMB(merged_df,
 
     if len(MBs) == 0:
         features = list(merged_df.columns)
-        features.remove()
+        features.remove(target_name)
         MBs_df = pd.DataFrame(data={'feature': features,
                                     'feature_score': np.nan})
     else:

@@ -74,9 +74,10 @@ def plot_cum_ret(pred_ret_df,
             loop_df = ret_df.loc[(ret_df['ticker'] == ticker)&((ret_df[level_to_subset] == level)|(ret_df[level_to_subset] == ticker)|(ret_df['variable'] == 'return'))]
             pivot_level_to_add = list(loop_df.columns.drop(['date', 'ticker', 'value', 'variable'] + [level_to_subset]))
             pivot_all_ret_df = loop_df.pivot_table(index=['date'], columns=['ticker', 'variable'] + pivot_level_to_add, values=['value'])
+            pivot_all_ret_df = pivot_all_ret_df.dropna()
             pivot_all_ret_df.columns = pivot_all_ret_df.columns.droplevel()
 
-            cum_all_ret = (1 + pivot_all_ret_df).cumprod()
+            cum_all_ret = (1 + pivot_all_ret_df / 100).cumprod()
             cum_ret.append(cum_all_ret)
             if show:
                 cum_all_ret.plot(figsize=(15, 10), title=level_to_subset + ' = ' + level.upper())

@@ -19,7 +19,7 @@ class Test_merger(unittest.TestCase):
     def test_market_gtrend_merge(self):
         path_m = os.path.join(parentdir,
                               "src", "data",
-                              "toy","ticker4.csv")
+                              "toy", "ticker4.csv")
         for size in [0.1, 0.25, 0.5, 0.75, 0.9]:
             train, test = merge_market_and_gtrends(path_m,
                                                    path_gt_list=[parentdir,
@@ -34,9 +34,9 @@ class Test_merger(unittest.TestCase):
             first_day_test = test.sort_index().index[0]
 
             self.assertTrue(train_shape[0] > 0)
-            self.assertTrue(train_shape[1] == 183)
+            self.assertTrue(train_shape[1] == 181)
             self.assertTrue(test_shape[0] > 0)
-            self.assertTrue(test_shape[1] == 183)
+            self.assertTrue(test_shape[1] == 181)
             self.assertTrue(train.index[0] > pd.Timestamp("2003-12-01"))
             self.assertTrue(last_day_train < first_day_test)
 

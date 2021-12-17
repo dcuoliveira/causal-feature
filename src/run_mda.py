@@ -15,7 +15,6 @@ from data_mani.utils import target_ret_to_directional_movements
 # Variables
 N_SPLITS = 5  # number of CV splits
 N_ESTIMATORS = 100  # number of trees in the random forest model
-N_CORES = 9  # number of cores to use
 MAX_LAG = 20  # maximum number of lags to create
 # google trends features
 OUT_FOLDER = "indices"  # name of the marked data folder
@@ -24,16 +23,11 @@ TEST_SIZE = 0.5  # pct of the train/test split
 THRESHOLD = 252 * 2  # treshold to filted merged datframes
 # 252 = business days in a year
 PATHS = sorted(glob("data/{}/*.csv".format(OUT_FOLDER)))
-
-done = ['data/indices/CCMP Index.csv',
-        'data/indices/RTY Index.csv',
-        'data/indices/SPX Index.csv',]
-
-PATHS = [p for p in PATHS if p not in done]
-
+N_CORES = len(PATHS)  # number of cores to use
 
 # debug condition
 if DEBUG:
+    N_CORES = 2
     words = words[:3]
 
 

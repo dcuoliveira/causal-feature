@@ -136,8 +136,6 @@ def run_huang_methods(merged_df, target_name, words,
     respective pvalues
     :rtype: dataframe
     """
-    merged_df = target_ret_to_directional_movements(x=merged_df, y_name=target_name)
-
 
     univariate_granger_causality_list = []
     words_to_shift = []
@@ -163,7 +161,7 @@ def run_huang_methods(merged_df, target_name, words,
     if len(selected_words_list) != 0:
         logit_var_df = merged_df[[target_name] + selected_words_list].dropna()
         try:
-            logit_model = Logit(endog=logit_var_df[[target_name]], exog=logit_var_df[selected_words_list]).fit()
+            logit_model = Logit(endog=logit_var_df[[target_name]], exog=logit_var_df[selected_words_list]).fit(disp=0)
         except:
             return None
         final_selected_words = list(logit_model.pvalues[logit_model.pvalues <= sig_level].index)

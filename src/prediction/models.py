@@ -1,10 +1,10 @@
 from scipy.stats import randint as sp_randint
 from scipy.stats import uniform as sp_uniform
 import numpy as np
-from sklearn.linear_model import Lasso, Ridge, ElasticNet
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.neural_network import MLPRegressor
-from lightgbm import LGBMRegressor
+from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.neural_network import MLPClassifier
+from lightgbm import LGBMClassifier
 
 
 class RandomForestWrapper():
@@ -16,43 +16,54 @@ class RandomForestWrapper():
                            "n_estimators": sp_randint(2, 301),
                            "max_depth": sp_randint(2, 20)}
         if model_params is None:
-            self.ModelClass = RandomForestRegressor()
+            self.ModelClass = RandomForestClassifier()
         else:
-            self.ModelClass = RandomForestRegressor(**model_params)
+            self.ModelClass = RandomForestClassifier(**model_params)
+
+
+class LogisticRegWrapper():
+    def __init__(self, model_params={'fit_intercept': True, 'penalty': 'none'}):
+        self.model_name = "logit"
+        self.search_type = 'random'
+        self.param_grid = {}
+        if model_params is None:
+            self.ModelClass = LogisticRegression()
+        else:
+            self.ModelClass = LogisticRegression(**model_params)
 
 
 class LassoWrapper():
-    def __init__(self, model_params={'fit_intercept': True}):
+    def __init__(self, model_params={'fit_intercept': True, 'penalty': 'l1', 'solver': 'liblinear'}):
         self.model_name = "lasso"
         self.search_type = 'random'
-        self.param_grid = {'alpha': np.linspace(0, 1, 100)}
+        self.param_grid = {'C': np.linspace(0.001, 50, 200)}
         if model_params is None:
-            self.ModelClass = Lasso()
+            self.ModelClass = LogisticRegression()
         else:
-            self.ModelClass = Lasso(**model_params)
+            self.ModelClass = LogisticRegression(**model_params)
 
 
 class RidgeWrapper():
-    def __init__(self, model_params={'fit_intercept': True}):
+    def __init__(self, model_params={'fit_intercept': True, 'penalty': 'l2', 'solver': 'lbfgs'}):
         self.model_name = "ridge"
         self.search_type = 'random'
-        self.param_grid = {'alpha': np.linspace(0, 50, 100)}
+        self.param_grid = {'C': np.linspace(0.001, 50, 200)}
         if model_params is None:
-            self.ModelClass = Ridge()
+            self.ModelClass = LogisticRegression()
         else:
-            self.ModelClass = Ridge(**model_params)
+            self.ModelClass = LogisticRegression(**model_params)
 
 
 class ElasticNetWrapper():
-    def __init__(self, model_params={'fit_intercept': True}):
+    def __init__(self, model_params={'fit_intercept': True, 'penalty': 'elasticnet', 'solver': 'saga'}):
         self.model_name = "elastic_net"
         self.search_type = 'random'
-        self.param_grid = {'alpha': np.linspace(0, 1, 100),
-                           'l1_ratio': np.linspace(0, 1, 100)}
+        self.param_grid = {'C': np.linspace(0.001, 50, 200),
+                           'l1_ratio': np.linspace(0.001, 0.999, 200)}
         if model_params is None:
-            self.ModelClass = ElasticNet()
+            self.ModelClass = LogisticRegression()
         else:
-            self.ModelClass = ElasticNet(**model_params)
+            self.ModelClass = LogisticRegression(**model_params)
 
 
 class LGBWrapper():
@@ -71,9 +82,9 @@ class LGBWrapper():
                            'reg_lambda': [0, 1e-1, 1, 5, 10, 20, 50, 100],
                            "objective": ["huber"]}
         if model_params is None:
-            self.ModelClass = LGBMRegressor()
+            self.ModelClass = LGBMClassifier()
         else:
-            self.ModelClass = LGBMRegressor(**model_params)
+            self.ModelClass = LGBMClassifier(**model_params)
 
 
 class NN3Wrapper():
@@ -88,6 +99,6 @@ class NN3Wrapper():
                            'activation': ["relu"],
                            "hidden_layer_sizes": [(32, 16, 8)]}
         if model_params is None:
-            self.ModelClass = MLPRegressor()
+            self.ModelClass = MLPClassifier()
         else:
-            self.ModelClass = MLPRegressor(**model_params)
+            self.ModelClass = MLPClassifier(**model_params)

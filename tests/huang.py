@@ -16,7 +16,6 @@ from src.data_mani.utils import merge_market_and_gtrends  # noqa
 from src.feature_selection.huang import run_huang_methods  # noqa
 
 full_words = ['BUY AND HOLD',
-              'DOW JONES',
               'act',
               'arts',
               'bank',
@@ -199,7 +198,7 @@ full_words = ['BUY AND HOLD',
               'york']
 
 words = ['BUY AND HOLD',
-         'DOW JONES',
+         'dow jones',
          'act',
          'arts',
          'bank',
@@ -217,6 +216,7 @@ class Test_huang(unittest.TestCase):
                               "toy", "ticker7.csv")
         merged, _ = merge_market_and_gtrends(path_m,
                                              test_size=0.5,
+                                             is_discrete=True,
                                              path_gt_list=[parentdir,
                                                            "src",
                                                            "data",
@@ -225,10 +225,8 @@ class Test_huang(unittest.TestCase):
                                    words=words, max_lag=20, verbose=False,
                                    sig_level=0.05, correl_threshold=0.5, constant_threshold=0.9)
         result = list(result[~result.feature_score.isna()].feature)
-
-        self.assertTrue('banking_1' in result)
-        self.assertTrue('bonds_1' in result)
-        self.assertTrue(len(result) == 2)
+        self.assertTrue('bubble_3' in result)
+        self.assertTrue(len(result) == 1)
 
     def test_huang_reproducibility(self):
         path_m = os.path.join(parentdir,
@@ -236,18 +234,20 @@ class Test_huang(unittest.TestCase):
                               "toy", "ticker8.csv")
         merged, _ = merge_market_and_gtrends(path_m,
                                              test_size=0.5,
+                                             is_discrete=True,
                                              path_gt_list=[parentdir,
                                                            "src",
                                                            "data",
                                                            "gtrends.csv"])
         result = run_huang_methods(merged_df=merged, target_name="target_return",
-                                   words=["DOW JONES", "act", "arts", "bank", "business"], max_lag=20, verbose=False,
+                                   words=["dow jones", "act", "arts", "bank", "business"], max_lag=20, verbose=False,
                                    sig_level=0.05, correl_threshold=0.5, constant_threshold=0.9)
-
-        self.assertAlmostEqual(result.loc[result['feature'] == 'DOW_JONES_11']['feature_score'].iloc[0],
-                               0.004244, places=3)
-        self.assertAlmostEqual(result.loc[result['feature'] == 'act_20']['feature_score'].iloc[0],
-                               0.023372, places=3)
+        self.assertAlmostEqual(result.loc[result['feature'] == 'bank_6']['feature_score'].iloc[0],
+                               0.049436,
+                               places=3)
+        self.assertAlmostEqual(result.loc[result['feature'] == 'bank_15']['feature_score'].iloc[0],
+                               0.004470,
+                               places=3)
 
     def test_huang_singular_matrix(self):
         path_m = os.path.join(parentdir,
@@ -256,6 +256,7 @@ class Test_huang(unittest.TestCase):
 
         merged, _ = merge_market_and_gtrends(path_m,
                                              test_size=0.5,
+                                             is_discrete=True,
                                              path_gt_list=[parentdir,
                                                            "src",
                                                            "data",

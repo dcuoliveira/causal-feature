@@ -4,23 +4,26 @@ import pandas as pd
 import numpy as np
 from tqdm import tqdm
 from sklearn.model_selection import TimeSeriesSplit
-from sklearn.metrics import make_scorer
+from sklearn.metrics import make_scorer, roc_auc_score
 from sklearn.model_selection import RandomizedSearchCV
 from sklearn.preprocessing import StandardScaler
 
 try:
-    from data_mani.utils import merge_market_and_gtrends
+    from data_mani.utils import merge_market_and_gtrends, target_ret_to_directional_movements
     from data_mani.visu import *
 
 except ModuleNotFoundError:
-    from src.data_mani.utils import merge_market_and_gtrends
+    from src.data_mani.utils import merge_market_and_gtrends, target_ret_to_directional_movements
     from src.data_mani.visu import *
 
 
 def aggregate_prediction_results(prediction_models,
                                  fs_models,
                                  evaluation_start_date,
+                                 evaluation_end_date,
                                  ticker_names,
+                                 metric_name,
+                                 tag='oos',
                                  benchmark_name='return'):
     """
     aggreagate prediction results of the specified models
@@ -30,48 +33,115 @@ def aggregate_prediction_results(prediction_models,
     :type prediction_models: list of strs
     :param fs_models: list of fs model names (must match with results dir)
     :type fs_models: list of strs
-    :param evaluation_start_date: date to start to start computing oos results
+    :param evaluation_start_date: date to start computing oos results
     :type evaluation_start_date: str (yyyy-mm-dd)
+    :param evaluation_end_date: date to end computing oos results
+    :type evaluation_end_date:  str (yyyy-mm-dd)
     :param ticker_names: list of predcition model names (must match with data dir) 
     :type ticker_names: list of strs
+    :param metric_name: name of the evaluation metric to be used
+    :type metric_name: str
+    :param tag: string tag to add with the metric name 
+    :type tag: str
     :param benchmark_name: name of the benchmark in the files of the data and results directory
     :type benchmark_name: str
     """
     
     predictions = []
-    r2s = []
+    metrics = []
     for fs in fs_models:
+        
+        fs_name = fs.upper()
+        
         for model in prediction_models:
+            
+            if model == 'random_forest':
+                model_name = 'RF'
+            elif model == 'lgb':
+                model_name = 'GB'
+            else:
+                model_name = model.upper()
+            
             for ticker in ticker_names:
                 df = pd.read_csv('results/forecast/' + fs + '/indices/' + model + '/' + ticker + '.csv')
                 df.set_index('date', inplace=True)
-                df = df.loc[evaluation_start_date:]
+                df = df.loc[evaluation_start_date:evaluation_end_date]
                 df = df.reset_index()
 
-                r2_eval_df = df.copy()
-                r2 = new_r2(r2_eval_df['return'].values, r2_eval_df['prediction'].values)
-                r2_df = pd.DataFrame([{'ticker': ticker,
-                                                'model': model,
-                                                'fs': fs,
-                                                'r2': r2}])
-                r2s.append(r2_df)
+                metric_eval_df = df.copy()
+                metric = roc_auc_score(metric_eval_df[benchmark_name].values, metric_eval_df['prediction'].values)
+                metric_df = pd.DataFrame([{'ticker': ticker,
+                                           'model': model_name,
+                                           'fs': fs_name,
+                                            tag + metric_name: metric}])
+                metrics.append(metric_df)
 
                 melt_df = df.melt('date')
-                melt_df['model'] = model
-                melt_df['fs'] = fs
+                melt_df['model'] = model_name
+                melt_df['fs'] = fs_name
                 melt_df['ticker'] = ticker
                 predictions.append(melt_df)
 
     predictions_df = pd.concat(predictions, axis=0)
     benchmark_df = predictions_df.loc[(predictions_df['variable']==benchmark_name)&
-                                    (predictions_df['fs']==fs)&
-                                    (predictions_df['model']==model)]
+                                    (predictions_df['fs']==fs_name)&
+                                    (predictions_df['model']==model_name)]
     benchmark_df['model'] = benchmark_df['ticker']
     benchmark_df['fs'] = 'raw'
     predictions_df = predictions_df.loc[(predictions_df['variable']!=benchmark_name)]
-    r2_df = pd.concat(r2s, axis=0)
+    metric_df = pd.concat(metrics, axis=0)
 
-    return predictions_df, benchmark_df, r2_df
+    return predictions_df, benchmark_df, metric_df
+
+
+def ann_avg_returns_tb(returns_df,
+                       level_to_subset,
+                       rf=.0):
+    if level_to_subset == 'fs':
+        other_level = 'model'
+    else:
+        other_level = 'fs'
+    mean = returns_df.pivot_table(index=['date'], columns=['ticker', 'variable'] + [other_level] + [level_to_subset],
+                                  values=['value']).dropna().mean()
+
+    ann_avg_ret_df = pd.DataFrame((mean - .0) * 252)
+    ann_avg_ret_df.index = ann_avg_ret_df.index.droplevel()
+    ann_avg_ret_df.rename(columns={0: 'Ann Avg Return'}, inplace=True)
+    rank_df = ann_avg_ret_df.sort_values('Ann Avg Return', ascending=False)
+
+    pivot_tb = rank_df.reset_index().pivot_table(index=['ticker'] + [level_to_subset], columns=[other_level],
+                                                 values=['Ann Avg Return'])
+
+    agg_pivot_tb = pd.concat([pivot_tb.sum(axis=1), pivot_tb.median(axis=1)], axis=1)
+    agg_pivot_tb = pd.concat([agg_pivot_tb, pivot_tb.median(axis=1) / pivot_tb.std(axis=1)], axis=1)
+    agg_pivot_tb.columns = ['sum', 'median', 'median_std_adj']
+
+    return rank_df, pivot_tb.fillna(0), agg_pivot_tb
+
+
+def ann_vol_tb(returns_df,
+               level_to_subset,
+               rf=.0):
+    if level_to_subset == 'fs':
+        other_level = 'model'
+    else:
+        other_level = 'fs'
+    std = returns_df.pivot_table(index=['date'], columns=['ticker', 'variable'] + [other_level] + [level_to_subset],
+                                 values=['value']).dropna().std()
+
+    vol_df = pd.DataFrame(std * np.sqrt(252))
+    vol_df.index = vol_df.index.droplevel()
+    vol_df.rename(columns={0: 'Ann Volatility'}, inplace=True)
+    rank_df = vol_df.sort_values('Ann Volatility', ascending=False)
+
+    pivot_tb = rank_df.reset_index().pivot_table(index=['ticker'] + [level_to_subset], columns=[other_level],
+                                                 values=['Ann Volatility'])
+
+    agg_pivot_tb = pd.concat([pivot_tb.sum(axis=1), pivot_tb.median(axis=1)], axis=1)
+    agg_pivot_tb = pd.concat([agg_pivot_tb, pivot_tb.median(axis=1) / pivot_tb.std(axis=1)], axis=1)
+    agg_pivot_tb.columns = ['sum', 'median', 'median_std_adj']
+
+    return rank_df, pivot_tb.fillna(0), agg_pivot_tb
 
 
 def sharpe_ratio_tb(returns_df,
@@ -90,8 +160,8 @@ def sharpe_ratio_tb(returns_df,
         other_level = 'model'
     else:
         other_level = 'fs'
-    mean = returns_df.pivot_table(index=['date'], columns=['ticker', 'variable'] + [other_level] +  [level_to_subset], values=['value']).mean()
-    std = returns_df.pivot_table(index=['date'], columns=['ticker', 'variable'] + [other_level]+  [level_to_subset], values=['value']).std()
+    mean = returns_df.pivot_table(index=['date'], columns=['ticker', 'variable'] + [other_level] + [level_to_subset], values=['value']).dropna().mean()
+    std = returns_df.pivot_table(index=['date'], columns=['ticker', 'variable'] + [other_level] + [level_to_subset], values=['value']).dropna().std()
 
     sr_df = pd.DataFrame((mean - .0) / std * np.sqrt(252))
     sr_df.index = sr_df.index.droplevel()
@@ -107,7 +177,7 @@ def sharpe_ratio_tb(returns_df,
     return rank_df, pivot_tb.fillna(0), agg_pivot_tb
 
 
-def max_drawdown_tb(pivot_ret_all_df,
+def max_drawdown_tb(returns_df,
                     level_to_subset):
     """
     generate max drawdown table for each "level to subset"
@@ -122,18 +192,20 @@ def max_drawdown_tb(pivot_ret_all_df,
         other_level = 'model'
     else:
         other_level = 'fs'
-    
-    cum_prod_df = (1 + pivot_ret_all_df).cumprod()
-    previous_peaks_df =  cum_prod_df.cummax()
-    drawdown_df = (cum_prod_df - previous_peaks_df)/previous_peaks_df
+
+    pivot_rets = (returns_df.pivot_table(index=['date'], columns=['ticker', 'variable'] + ['model'] + ['fs'],
+                                         values=['value']).dropna() / 100)
+    cum_prod_df = (1 + pivot_rets).cumprod()
+    previous_peaks_df = cum_prod_df.cummax()
+    drawdown_df = (cum_prod_df - previous_peaks_df) / previous_peaks_df
     rank_df = pd.DataFrame(drawdown_df.min().sort_values(ascending=False))
     rank_df.index = rank_df.index.droplevel()
     rank_df.rename(columns={0: 'max drawdown'}, inplace=True)
-    rank_df = rank_df.sort_values('max drawdown', ascending=False)
-
+    rank_df = rank_df.sort_values('max drawdown', ascending=False) * 100
 
     tb_df = rank_df.reset_index()
-    tb_df = tb_df.pivot_table(index=['ticker'] +  [level_to_subset], columns=[other_level], values=['max drawdown']).fillna(0)
+    tb_df = tb_df.pivot_table(index=['ticker'] + [level_to_subset], columns=[other_level],
+                              values=['max drawdown']).fillna(0)
 
     agg_pivot_tb = pd.concat([tb_df.sum(axis=1), tb_df.median(axis=1)], axis=1)
     agg_pivot_tb = pd.concat([agg_pivot_tb, tb_df.median(axis=1) / tb_df.std(axis=1)], axis=1)
@@ -143,13 +215,16 @@ def max_drawdown_tb(pivot_ret_all_df,
 
 
 def gen_strat_positions_and_ret_from_pred(predictions_df,
-                                          target_asset_returns):
+                                          target_asset_returns,
+                                          class_threshold=None):
     """
     generate strategy positions (simple or ranking) from each of the
     fs x (pred model) predictions.
 
     :param predictions_df: melted dataframe containing the predictions of each fs method and pred. model
     :type predictions_df: dataframe
+    :param class_threshold: threshold such that if "vec_val" > threshold => 1; otherwise => -1
+    :type class_threshold: float
     :param target_asset_returns: melted dataframe containing daily returns of the benchmark indices
     :type target_asset_returns: dataframe
     """
@@ -167,6 +242,15 @@ def gen_strat_positions_and_ret_from_pred(predictions_df,
                 for ticker in strat_df['ticker'].unique():
                     ticker_strat_df = strat_df.loc[strat_df['ticker'] == ticker]
                     ticker_strat_pivot_df = ticker_strat_df.pivot_table(index=['date'], columns=['variable', 'ticker', 'model', 'fs'], values=['value'])
+                    
+                    if class_threshold is not None:
+                        colnames = ticker_strat_pivot_df.columns
+                        rownames = ticker_strat_pivot_df.index
+                        ticker_strat_pivot_df = pd.DataFrame(np.where(ticker_strat_pivot_df > class_threshold,
+                                                                      1,
+                                                                      -1))
+                        ticker_strat_pivot_df.columns = colnames
+                        ticker_strat_pivot_df.index = rownames
                     names = ticker_strat_pivot_df.columns.droplevel().droplevel()
 
                     # Benchmark
@@ -174,7 +258,7 @@ def gen_strat_positions_and_ret_from_pred(predictions_df,
                     pivot_benchmark_df = benchmark_df.pivot_table(index=['date'], columns=['variable', 'ticker', 'model', 'fs'], values=['value'])
 
                     # Positions
-                    positions_df = pd.DataFrame(np.where(ticker_strat_pivot_df > 0, 1, -1))
+                    positions_df = ticker_strat_pivot_df
                     positions_df.columns = names
                     positions_df.index = ticker_strat_pivot_df.index
                     melt_positions_df = positions_df.reset_index().melt('date')
@@ -182,6 +266,7 @@ def gen_strat_positions_and_ret_from_pred(predictions_df,
                     melt_positions_df['ticker'] = ticker
                     pred_positions.append(melt_positions_df)
                     
+                    pivot_benchmark_df = pivot_benchmark_df.loc[positions_df.index[0]:positions_df.index[len(positions_df)-1]]
                     # Strategy 
                     pred_ret_df = pd.DataFrame(positions_df.values * pivot_benchmark_df.values)
                     pred_ret_df.columns = names
@@ -270,7 +355,10 @@ def get_features_granger_huang(ticker_name,
     return scores
 
 
-def get_selected_features(ticker_name, out_folder, fs_method, path_list):
+def get_selected_features(ticker_name,
+                          out_folder,
+                          fs_method,
+                          path_list):
     """
     Select a subset of features using a feature
     selection method. As suggested in AFML,
@@ -308,7 +396,8 @@ def get_selected_features(ticker_name, out_folder, fs_method, path_list):
     return scores
 
 
-def new_r2(y_true, y_pred):
+def new_r2(y_true,
+           y_pred):
     """
     The R2 is calculate using the formula in the paper
 
@@ -329,7 +418,10 @@ def new_r2(y_true, y_pred):
     return r2
 
 
-def add_shift(merged_df, words, max_lag, verbose):
+def add_shift(merged_df,
+              words,
+              max_lag,
+              verbose):
     """
     add shift for all words in 'words' using
     lags from 1 to 'max_lag'
@@ -395,7 +487,7 @@ def hyper_params_search(df,
     y = df[target_name].values
 
     time_split = TimeSeriesSplit(n_splits=n_splits)
-    r2_scorer = make_scorer(new_r2)
+    roc_auc_scorer = make_scorer(roc_auc_score)
 
     if wrapper.search_type == 'random':
         model_search = RandomizedSearchCV(estimator=wrapper.ModelClass,
@@ -404,7 +496,7 @@ def hyper_params_search(df,
                                           cv=time_split,
                                           verbose=verbose,
                                           n_jobs=n_jobs,
-                                          scoring=r2_scorer,
+                                          scoring=roc_auc_scorer,
                                           random_state=seed)
     elif wrapper.search_type == 'grid':
         model_search = GridSearchCV(estimator=wrapper.ModelClass,
@@ -412,7 +504,7 @@ def hyper_params_search(df,
                                     cv=time_split,
                                     verbose=verbose,
                                     n_jobs=n_jobs,
-                                    scoring=r2_scorer)
+                                    scoring=roc_auc_scorer)
     else:
         raise Exception('search type method not registered')
 
@@ -462,23 +554,29 @@ def annualy_fit_and_predict(df,
     years = range(np.min(years), np.max(years))
     features = sorted(df.drop(target_name, 1).columns.to_list())
     df = df[features + [target_name]]
+    df = target_ret_to_directional_movements(df, target_name)
 
     for y in tqdm(years,
                   disable=not verbose,
                   desc="anual training and prediction"):
         train_ys = df.loc[:str(y)]
         test_ys = df.loc[str(y + 1)]
+        store_train_target = train_ys[target_name].values
+        store_test_target = test_ys[target_name].values
 
         scaler = StandardScaler()
         train_ys_v = scaler.fit_transform(train_ys)
         train_ys = pd.DataFrame(train_ys_v,
                                 columns=train_ys.columns,
                                 index=train_ys.index)
-        y_test = test_ys[target_name].values
+        train_ys.loc[:, target_name] = store_train_target
+
         test_ys_v = scaler.transform(test_ys)
         test_ys = pd.DataFrame(test_ys_v,
                                columns=test_ys.columns,
                                index=test_ys.index)
+        test_ys.loc[:, target_name] = store_test_target
+        y_test = test_ys[target_name].values
 
         # we have some roles in the time interval
         # for some tickers, for example,
@@ -493,22 +591,14 @@ def annualy_fit_and_predict(df,
                                                seed=seed,
                                                verbose=verbose)
             X_test = test_ys.drop(target_name, 1).values
-            test_pred = model_search.best_estimator_.predict(X_test)
-            X_to_go = np.hstack([X_test, test_pred.reshape(-1, 1)])
-            X_to_go = scaler.inverse_transform(X_to_go)
-            df_to_go = pd.DataFrame(X_to_go,
-                                    columns=test_ys.columns,
-                                    index=test_ys.index)
-            test_pred = df_to_go[target_name].values
-
+            test_pred = model_search.best_estimator_.predict_proba(X_test)[:, 1]
             dict_ = {"date": test_ys.index,
-                     "return": y_test,
+                     "return_direction": y_test,
                      "prediction": test_pred}
             result = pd.DataFrame(dict_)
             all_preds.append(result)
         else:
             pass
-
     pred_results = pd.concat(all_preds).reset_index(drop=True)
     return pred_results
 
@@ -526,6 +616,8 @@ def forecast(ticker_name,
     """
     Function to perform the predition using one ticker,
     one feature selection method, and one prediction model.
+    IT ALWAYS PERFORMS CLASSIFICATION
+
 
     :param ticker_name: ticker name (without extension)
     :type ticker_name: str
@@ -552,8 +644,8 @@ def forecast(ticker_name,
     """
     path_list = ["data", "index"]
     ticker_path = "data/indices/{}.csv".format(ticker_name)
-    train, test = merge_market_and_gtrends(
-        ticker_path, test_size=0.5)
+    train, test = merge_market_and_gtrends(ticker_path,
+                                           test_size=0.5)
     words = train.drop(target_name, 1).columns.to_list()
     complete = pd.concat([train, test])
     del train, test
@@ -601,3 +693,21 @@ def forecast(ticker_name,
                                            verbose=verbose)
 
     return pred_results
+
+
+def comb_model(ticker_name,
+               fs_method,
+               model,
+               start_date,
+               end_date,
+               metric_name,
+               comb_model,
+               target_name="target_return"):
+
+    melt_predictions_df, melt_benchmark_df, melt_auc_df = aggregate_prediction_results(prediction_models=[model],
+                                                                                       fs_models=[fs_method],
+                                                                                       evaluation_start_date=start_date,
+                                                                                       evaluation_end_date=end_date,
+                                                                                       ticker_names=[ticker_name],
+                                                                                       metric_name=[metric_name],
+                                                                                       benchmark_name=target_name)
