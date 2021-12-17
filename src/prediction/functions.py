@@ -695,27 +695,19 @@ def forecast(ticker_name,
     return pred_results
 
 
-def forecast_comb(ticker_name,
-                  fs_method,
-                  comb_method,
-                  target_name="target_return"):
-    """
-       Function to perform the predition using one ticker,
-       one feature selection method, and one prediction model.
-       IT ALWAYS PERFORMS CLASSIFICATION
+def comb_model(ticker_name,
+               fs_method,
+               model,
+               start_date,
+               end_date,
+               metric_name,
+               comb_model,
+               target_name="target_return"):
 
-
-       :param ticker_name: ticker name (without extension)
-       :type ticker_name: str
-       :param fs_method: folder with feature selection results
-       :type fs_method: str
-       :param comb_method: folder with the prediction results and differentiates methods which requires estimation (NNcomb, peLASSO, etc) from the others (average, etc)
-       :type comb_method: str
-       :param target_name: name of the target column in 'df'
-       :type target_name: str
-       :return: dataframe with the date, true return
-               and predicted return.
-       :rtype: pd.DataFrame
-       """
-
-    pass
+    melt_predictions_df, melt_benchmark_df, melt_auc_df = aggregate_prediction_results(prediction_models=[model],
+                                                                                       fs_models=[fs_method],
+                                                                                       evaluation_start_date=start_date,
+                                                                                       evaluation_end_date=end_date,
+                                                                                       ticker_names=[ticker_name],
+                                                                                       metric_name=[metric_name],
+                                                                                       benchmark_name=target_name)
