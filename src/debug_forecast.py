@@ -17,8 +17,7 @@ if __name__ == '__main__':
                             n_splits=5,
                             n_jobs=-1,
                             seed=2294,
-                            verbose=1,
-                            is_discrete=True)
+                            verbose=1)
     pred_results.to_csv(os.path.join("results",
                                      "forecast",
                                      "sfi",
