@@ -767,7 +767,10 @@ def forecast_comb(ticker_name,
                     inv_cov_e = np.linalg.pinv(cov_e)
 
                 # bates and granger optimal weights
-                w_star = np.linalg.inv(l_m.transpose().dot(inv_cov_e).dot(l_m)) * inv_cov_e.dot(l_m)
+                if np.linalg.det(l_m.transpose().dot(inv_cov_e).dot(l_m)) != 0:
+                    w_star = np.linalg.inv(l_m.transpose().dot(inv_cov_e).dot(l_m)) * inv_cov_e.dot(l_m)
+                else:
+                    w_star = np.linalg.pinv(l_m.transpose().dot(inv_cov_e).dot(l_m)) * inv_cov_e.dot(l_m)
 
                 if i + 1 <= test_ys_plus.reset_index().index[-1]:
                     y_pred_t1 = test_ys_plus.to_numpy()[i + 1]
