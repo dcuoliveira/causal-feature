@@ -704,7 +704,12 @@ def forecast_comb(ticker_name,
                   comb_model,
                   verbose=1,
                   target_name="target_return",
-                  benchmark_name='return_direction'):
+                  benchmark_name='return_direction',
+                  Wrapper=None,
+                  n_iter=None,
+                  n_jobs=None,
+                  n_splits=None,
+                  seed=None):
 
     melted_predictions_df, melted_benchmark_df, _ = aggregate_prediction_results(prediction_models=model,
                                                                                  fs_models=[fs_method],
@@ -731,69 +736,76 @@ def forecast_comb(ticker_name,
     features = sorted(df.drop(target_name, 1).columns.to_list())
     df = df[features + [target_name]]
 
-    comb_predictions_list = []
-    for y in tqdm(years,
-                  disable=not verbose,
-                  desc="anual training and prediction"):
-        train_ys = df.loc[:str(y)]
-        test_ys = df.loc[str(y + 1)]
+    if comb_model == 'nncomb':
+        comb_predictions_out = annualy_fit_and_predict(df=df,
+                                                       Wrapper=Wrapper,
+                                                       n_iter=n_iter,
+                                                       n_jobs=n_jobs,
+                                                       n_splits=n_splits,
+                                                       target_name=target_name,
+                                                       seed=seed,
+                                                       verbose=verbose)
+    else:
+        comb_predictions_list = []
+        for y in tqdm(years,
+                      disable=not verbose,
+                      desc="annual training and prediction"):
+            train_ys = df.loc[:str(y)]
+            test_ys = df.loc[str(y + 1)]
 
-        target_train = train_ys[target_name]
-        train_ys = train_ys.drop(target_name, axis=1)
-        target_test = test_ys[target_name]
-        test_ys = test_ys.drop(target_name, axis=1)
+            target_train = train_ys[target_name]
+            train_ys = train_ys.drop(target_name, axis=1)
+            target_test = test_ys[target_name]
+            test_ys = test_ys.drop(target_name, axis=1)
 
-        if comb_model == 'average':
-            comb_predictions = test_ys.mean(axis=1)
-        elif comb_model == 'median':
-            comb_predictions = test_ys.median(axis=1)
-        elif comb_model == 'bates_granger':
-            test_ys_plus = pd.concat([pd.DataFrame(train_ys.iloc[-1]).T, test_ys])
-            target_test_plus = pd.concat([pd.DataFrame(target_train.iloc[-1], columns=[target_name], index=[target_train.index[-1]]), pd.DataFrame(target_test)])
-            m = train_ys.shape[1]
-            l_m = np.ones((m, 1))
+            if comb_model == 'average':
+                comb_predictions = test_ys.mean(axis=1)
+            elif comb_model == 'median':
+                comb_predictions = test_ys.median(axis=1)
+            elif comb_model == 'bates_granger':
+                test_ys_plus = pd.concat([pd.DataFrame(train_ys.iloc[-1]).T, test_ys])
+                target_test_plus = pd.concat([pd.DataFrame(target_train.iloc[-1], columns=[target_name], index=[target_train.index[-1]]), pd.DataFrame(target_test)])
+                m = train_ys.shape[1]
+                l_m = np.ones((m, 1))
 
-            comb_dict = {}
-            for i in range(test_ys_plus.shape[0]):
-                y_pred = test_ys_plus.to_numpy()[i]
-                y_target = target_test_plus.values[i]
+                comb_dict = {}
+                for i in range(test_ys_plus.shape[0]):
+                    y_pred = test_ys_plus.to_numpy()[i]
+                    y_target = target_test_plus.values[i]
 
-                e = l_m.dot(y_target) - y_pred.reshape(-1, 1)
-                cov_e = e.dot(e.transpose())
+                    e = l_m.dot(y_target) - y_pred.reshape(-1, 1)
+                    cov_e = e.dot(e.transpose())
 
-                if np.linalg.det(cov_e) != 0:
-                    inv_cov_e = np.linalg.inv(cov_e)
-                else:
-                    inv_cov_e = np.linalg.pinv(cov_e)
+                    if np.linalg.det(cov_e) != 0:
+                        inv_cov_e = np.linalg.inv(cov_e)
+                    else:
+                        inv_cov_e = np.linalg.pinv(cov_e)
 
-                # bates and granger optimal weights
-                if np.linalg.det(l_m.transpose().dot(inv_cov_e).dot(l_m)) != 0:
-                    w_star = np.linalg.inv(l_m.transpose().dot(inv_cov_e).dot(l_m)) * inv_cov_e.dot(l_m)
-                else:
-                    w_star = np.linalg.pinv(l_m.transpose().dot(inv_cov_e).dot(l_m)) * inv_cov_e.dot(l_m)
+                    # bates and granger optimal weights
+                    if np.linalg.det(l_m.transpose().dot(inv_cov_e).dot(l_m)) != 0:
+                        w_star = np.linalg.inv(l_m.transpose().dot(inv_cov_e).dot(l_m)) * inv_cov_e.dot(l_m)
+                    else:
+                        w_star = np.linalg.pinv(l_m.transpose().dot(inv_cov_e).dot(l_m)) * inv_cov_e.dot(l_m)
 
-                if i + 1 <= test_ys_plus.reset_index().index[-1]:
-                    y_pred_t1 = test_ys_plus.to_numpy()[i + 1]
-                    comb_pred = y_pred_t1.dot(w_star)
+                    if i + 1 <= test_ys_plus.reset_index().index[-1]:
+                        y_pred_t1 = test_ys_plus.to_numpy()[i + 1]
+                        comb_pred = y_pred_t1.dot(w_star)
 
-                    comb_dict[i + 1] = {'date': test_ys_plus.iloc[i + 1].name,
-                                        'return_direction': target_test_plus.iloc[i + 1].values[0],
-                                        'prediction': comb_pred[0]}
-            comb_predictions = pd.DataFrame(comb_dict).T
-            comb_predictions = comb_predictions['prediction'].values
+                        comb_dict[i + 1] = {'date': test_ys_plus.iloc[i + 1].name,
+                                            'return_direction': target_test_plus.iloc[i + 1].values[0],
+                                            'prediction': comb_pred[0]}
+                comb_predictions = pd.DataFrame(comb_dict).T
+                comb_predictions = comb_predictions['prediction'].values
+            else:
+                raise Exception('Combination method ' + comb_model + ' not registered')
 
-        elif comb_model == 'nncomb':
-            raise Exception('Combination method ' + comb_model + ' not registered')
-        else:
-            raise Exception('Combination method ' + comb_model + ' not registered')
+            comb_predictions_df = pd.DataFrame({'date': target_test.index,
+                                                'return_direction': target_test,
+                                                'prediction': comb_predictions})
+            comb_predictions_df.set_index('date', inplace=True)
+            comb_predictions_list.append(comb_predictions_df)
 
-        comb_predictions_df = pd.DataFrame({'date': target_test.index,
-                                            'return_direction': target_test,
-                                            'prediction': comb_predictions})
-        comb_predictions_df.set_index('date', inplace=True)
-        comb_predictions_list.append(comb_predictions_df)
-
-    comb_predictions_out = pd.concat(comb_predictions_list, axis=0)
+        comb_predictions_out = pd.concat(comb_predictions_list, axis=0)
     return comb_predictions_out
 
 
