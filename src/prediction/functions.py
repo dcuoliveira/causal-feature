@@ -745,6 +745,7 @@ def forecast_comb(ticker_name,
                                                        target_name=target_name,
                                                        seed=seed,
                                                        verbose=verbose)
+        comb_predictions_out.set_index('date', inplace=True)
     else:
         comb_predictions_list = []
         for y in tqdm(years,
