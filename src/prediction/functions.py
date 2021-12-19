@@ -558,7 +558,7 @@ def annualy_fit_and_predict(df,
 
     for y in tqdm(years,
                   disable=not verbose,
-                  desc="anual training and prediction"):
+                  desc="annual training and prediction"):
         train_ys = df.loc[:str(y)]
         test_ys = df.loc[str(y + 1)]
         store_train_target = train_ys[target_name].values
