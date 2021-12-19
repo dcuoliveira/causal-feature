@@ -106,11 +106,11 @@ def ann_avg_returns_tb(returns_df,
 
     ann_avg_ret_df = pd.DataFrame((mean - .0) * 252)
     ann_avg_ret_df.index = ann_avg_ret_df.index.droplevel()
-    ann_avg_ret_df.rename(columns={0: 'Ann Avg Return'}, inplace=True)
-    rank_df = ann_avg_ret_df.sort_values('Ann Avg Return', ascending=False)
+    ann_avg_ret_df.rename(columns={0: 'Ann. Avg. Return'}, inplace=True)
+    rank_df = ann_avg_ret_df.sort_values('Ann. Avg. Return', ascending=False)
 
     pivot_tb = rank_df.reset_index().pivot_table(index=['ticker'] + [level_to_subset], columns=[other_level],
-                                                 values=['Ann Avg Return'])
+                                                 values=['Ann. Avg. Return'])
 
     agg_pivot_tb = pd.concat([pivot_tb.sum(axis=1), pivot_tb.median(axis=1)], axis=1)
     agg_pivot_tb = pd.concat([agg_pivot_tb, pivot_tb.median(axis=1) / pivot_tb.std(axis=1)], axis=1)
@@ -131,11 +131,11 @@ def ann_vol_tb(returns_df,
 
     vol_df = pd.DataFrame(std * np.sqrt(252))
     vol_df.index = vol_df.index.droplevel()
-    vol_df.rename(columns={0: 'Ann Volatility'}, inplace=True)
-    rank_df = vol_df.sort_values('Ann Volatility', ascending=False)
+    vol_df.rename(columns={0: 'Ann. Volatility'}, inplace=True)
+    rank_df = vol_df.sort_values('Ann. Volatility', ascending=False)
 
     pivot_tb = rank_df.reset_index().pivot_table(index=['ticker'] + [level_to_subset], columns=[other_level],
-                                                 values=['Ann Volatility'])
+                                                 values=['Ann. Volatility'])
 
     agg_pivot_tb = pd.concat([pivot_tb.sum(axis=1), pivot_tb.median(axis=1)], axis=1)
     agg_pivot_tb = pd.concat([agg_pivot_tb, pivot_tb.median(axis=1) / pivot_tb.std(axis=1)], axis=1)
@@ -165,10 +165,10 @@ def sharpe_ratio_tb(returns_df,
 
     sr_df = pd.DataFrame((mean - .0) / std * np.sqrt(252))
     sr_df.index = sr_df.index.droplevel()
-    sr_df.rename(columns={0: 'sharpe ratio'}, inplace=True)
-    rank_df = sr_df.sort_values('sharpe ratio', ascending=False)
+    sr_df.rename(columns={0: 'Sharpe ratio'}, inplace=True)
+    rank_df = sr_df.sort_values('Sharpe ratio', ascending=False)
 
-    pivot_tb = rank_df.reset_index().pivot_table(index=['ticker'] +  [level_to_subset], columns=[other_level], values=['sharpe ratio'])
+    pivot_tb = rank_df.reset_index().pivot_table(index=['ticker'] + [level_to_subset], columns=[other_level], values=['Sharpe ratio'])
     
     agg_pivot_tb = pd.concat([pivot_tb.sum(axis=1), pivot_tb.median(axis=1)], axis=1)
     agg_pivot_tb = pd.concat([agg_pivot_tb, pivot_tb.median(axis=1) / pivot_tb.std(axis=1)], axis=1)
@@ -200,12 +200,12 @@ def max_drawdown_tb(returns_df,
     drawdown_df = (cum_prod_df - previous_peaks_df) / previous_peaks_df
     rank_df = pd.DataFrame(drawdown_df.min().sort_values(ascending=False))
     rank_df.index = rank_df.index.droplevel()
-    rank_df.rename(columns={0: 'max drawdown'}, inplace=True)
-    rank_df = rank_df.sort_values('max drawdown', ascending=False) * 100
+    rank_df.rename(columns={0: 'Max. drawdown'}, inplace=True)
+    rank_df = rank_df.sort_values('Max. drawdown', ascending=False) * 100
 
     tb_df = rank_df.reset_index()
     tb_df = tb_df.pivot_table(index=['ticker'] + [level_to_subset], columns=[other_level],
-                              values=['max drawdown']).fillna(0)
+                              values=['Max. drawdown']).fillna(0)
 
     agg_pivot_tb = pd.concat([tb_df.sum(axis=1), tb_df.median(axis=1)], axis=1)
     agg_pivot_tb = pd.concat([agg_pivot_tb, tb_df.median(axis=1) / tb_df.std(axis=1)], axis=1)
