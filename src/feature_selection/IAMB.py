@@ -35,7 +35,7 @@ def IAMB(data,
         y = None
         variables = [i for i in range(kVar) if i != target and i not in CMB]
 
-        for x in variables:                  
+        for x in variables:
             ci_number += 1
             pval, dep = cond_indep_test(data, target, x, CMB, is_discrete)
             # print("target is:",target,",x is: ", x," CMB is: ", CMB," ,pval is: ",pval," ,dep is: ", dep)
@@ -58,7 +58,8 @@ def IAMB(data,
         # exclude variable which need test p-value
         condition_Variables = [i for i in CMB if i != x]
         ci_number += 1
-        pval, dep = cond_indep_test(data, target, x, condition_Variables, is_discrete)
+        pval, dep = cond_indep_test(
+            data, target, x, condition_Variables, is_discrete)
         # print("target is:", target, ",x is: ", x, " condition_Variables is: ", condition_Variables, " ,pval is: ", pval, " ,dep is: ", dep)
         if pval > alpha:
             # print("removed variables is: " + str(x))
@@ -131,7 +132,7 @@ def run_IAMB(merged_df,
 
     if len(MBs) == 0:
         features = list(merged_df.columns)
-        features.remove(target_name)
+        features.remove()
         MBs_df = pd.DataFrame(data={'feature': features,
                                     'feature_score': np.nan})
     else:

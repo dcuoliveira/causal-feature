@@ -2,12 +2,6 @@ import numpy as np
 import pandas as pd
 from tqdm import tqdm
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.ensemble import RandomForestClassifier
-
-try:
-    from data_mani.utils import target_ret_to_directional_movements
-except ModuleNotFoundError:
-    from src.data_mani.utils import target_ret_to_directional_movements
 
 
 def mdi_feature_importance(df,
@@ -70,69 +64,13 @@ def mdi_feature_importance(df,
     return imp
 
 
-def mdi_feature_importance_class(df,
-                                 feature_names,
-                                 target_name,
-                                 random_state,
-                                 n_estimators=100):
-    """
-    Using a random forest classification model
-    we calculate how much of the
-    "impurity" of the sample is eliminated
-    by including the feature in the model.
-
-    :param df: data
-    :type df: pd.DataFrame
-    :param feature_names: names of all feature columns in 'df'
-    :type feature_names: [str]
-    :param target_name: name of the target column in 'df'
-    :type target_name: str
-    :param random_state: controls both the randomness of the
-                         bootstrapping of the samples used
-                         when building trees
-                         and the sampling of the
-                         features to consider when looking
-                         for the best split at each node
-    :type random_state: int or RandomState
-    :param n_estimators: number of decision trees
-                         used in the random forest model
-    :type n_estimators: int
-    :return: dataframe with average mdi scores and std
-             (each decision tree produces one mdi score)
-    :rtype: pd.DataFrame
-    """
-    df_ = df[feature_names + [target_name]].fillna(0.0)
-    df_ = target_ret_to_directional_movements(df_, target_name)
-    X, y = df_[feature_names].values, df_[target_name].values
-    rf = RandomForestClassifier(max_features=1,
-                                n_estimators=n_estimators,
-                                random_state=random_state)
-    rf.fit(X, y)
-    del X, y, df_
-    fi_estimators = {
-        i: dt.feature_importances_ for i,
-        dt in enumerate(
-            rf.estimators_)}
-    fi_estimators = pd.DataFrame.from_dict(
-        fi_estimators, orient="index", columns=feature_names)
-    fi_estimators = fi_estimators.replace(0, np.nan)
-    mean = fi_estimators.mean()
-    std = fi_estimators.std()
-    n = fi_estimators.shape[0]
-    std = std * np.power(n, -0.5)
-    imp = pd.concat({"mean": mean, "std": std}, axis=1)
-    imp /= imp["mean"].sum()
-    return imp
-
-
 def get_mdi_scores(merged_df,
                    target_name,
                    words,
                    max_lag,
                    random_state,
                    n_estimators=100,
-                   verbose=True,
-                   classification=True):
+                   verbose=True):
     """
     Get mdi_score for all words in 'words' using lags from 1 to
     max_lag.
@@ -155,8 +93,6 @@ def get_mdi_scores(merged_df,
     :type random_state: int or RandomState
     :param verbose: param to print iteration status
     :type verbose: bool
-    :param classification: param to use classification function
-    :type classification: bool
     :return: sorted dataframe with mean decrease impurity
             (greater is better)
     :rtype: pd.DataFrame
@@ -174,16 +110,11 @@ def get_mdi_scores(merged_df,
 
     # calculate mdi for all words
 
-    if classification:
-        mdi_function = mdi_feature_importance_class
-    else:
-        mdi_function = mdi_feature_importance
-
-    imp = mdi_function(df=merged_df,
-                       feature_names=feature_names,
-                       target_name=target_name,
-                       random_state=random_state,
-                       n_estimators=n_estimators)
+    imp = mdi_feature_importance(df=merged_df,
+                                 feature_names=feature_names,
+                                 target_name=target_name,
+                                 random_state=random_state,
+                                 n_estimators=n_estimators)
     imp = imp.sort_values("mean", ascending=False)["mean"]
     imp = imp.reset_index()
     # feature_score = mdi (greater is better)
