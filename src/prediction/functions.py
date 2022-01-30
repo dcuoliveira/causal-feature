@@ -163,6 +163,9 @@ def sharpe_ratio_tb(returns_df,
     mean = returns_df.pivot_table(index=['date'], columns=['ticker', 'variable'] + [other_level] + [level_to_subset], values=['value']).dropna().mean()
     std = returns_df.pivot_table(index=['date'], columns=['ticker', 'variable'] + [other_level] + [level_to_subset], values=['value']).dropna().std()
 
+    mean = mean.sort_index()
+    std = std.sort_index()
+
     sr_df = pd.DataFrame((mean - .0) / std * np.sqrt(252))
     sr_df.index = sr_df.index.droplevel()
     sr_df.rename(columns={0: 'Sharpe ratio'}, inplace=True)
@@ -212,6 +215,58 @@ def max_drawdown_tb(returns_df,
     agg_pivot_tb.columns = ['sum', 'median', 'median_std_adj']
 
     return rank_df, tb_df, agg_pivot_tb
+
+
+def calmar_ratio_tb(returns_df,
+                    level_to_subset):
+    """
+    generate sharpe ratio table for each "level to subset"
+
+    :param returns_df: melted dataframe containing the returns of a strategy based on
+    of each fs method and pred. model
+    :type returns_df: dataframe
+    :param level_to_subset: name of the columns to fix so as to generate the table (i.e. fs or model)
+    :type level_to_subset: str
+    """
+    if level_to_subset == 'fs':
+        other_level = 'model'
+    else:
+        other_level = 'fs'
+
+    # pivot returns
+    pivot_rets = (returns_df.pivot_table(index=['date'], columns=['ticker', 'variable'] + ['model'] + ['fs'],
+                                         values=['value']).dropna() / 100)
+
+    # mean returns
+    mean = returns_df.pivot_table(index=['date'], columns=['ticker', 'variable'] + [other_level] + [level_to_subset],
+                                  values=['value']).dropna().mean()
+    mean.index = mean.index.droplevel()
+    mean.columns = ['mean']
+
+    #max drawdown
+    cum_prod_df = (1 + pivot_rets).cumprod()
+    previous_peaks_df = cum_prod_df.cummax()
+    drawdown_df = (cum_prod_df - previous_peaks_df) / previous_peaks_df
+    maxdrawdown_df = drawdown_df.min().sort_values(ascending=False)
+    maxdrawdown_df.index = maxdrawdown_df.index.droplevel()
+    maxdrawdown_df.columns = ['mdd']
+
+    # calmar ratio df
+    mean = mean.sort_index()
+    maxdrawdown_df = maxdrawdown_df.sort_index()
+    cr_df = pd.DataFrame((mean - .0) / maxdrawdown_df * -1)
+    # cr_df.index = cr_df.index.droplevel()
+    cr_df.rename(columns={0: 'Calmar ratio'}, inplace=True)
+    rank_df = cr_df.sort_values('Calmar ratio', ascending=False)
+
+    pivot_tb = rank_df.reset_index().pivot_table(index=['ticker'] + [level_to_subset], columns=[other_level],
+                                                 values=['Calmar ratio'])
+
+    agg_pivot_tb = pd.concat([pivot_tb.sum(axis=1), pivot_tb.median(axis=1)], axis=1)
+    agg_pivot_tb = pd.concat([agg_pivot_tb, pivot_tb.median(axis=1) / pivot_tb.std(axis=1)], axis=1)
+    agg_pivot_tb.columns = ['sum', 'median', 'median_std_adj']
+
+    return rank_df, pivot_tb.fillna(0), agg_pivot_tb
 
 
 def gen_strat_positions_and_ret_from_pred(predictions_df,
@@ -808,7 +863,6 @@ def forecast_comb(ticker_name,
 
         comb_predictions_out = pd.concat(comb_predictions_list, axis=0)
     return comb_predictions_out
-
 
 
 
