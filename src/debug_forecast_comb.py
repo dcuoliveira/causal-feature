@@ -2,7 +2,7 @@ import os
 from prediction.functions import forecast_comb
 from prediction.models import NNCombWrapper
 
-comb_models = ['average', 'median', 'bates_granger', 'nncomb']
+comb_models = ['average', 'median', 'bg', 'nncomb']
 models = ['logit', 'ridge', 'lasso', 'enet', 'random_forest', 'lgb', 'nn3']
 fs_methods = ['all', 'sfi', 'mdi', 'mda', 'granger', 'huang', 'IAMB', 'MMMB']
 tickers = ['SPX Index', 'CCMP Index','RTY Index', 'SPX Basic Materials',
