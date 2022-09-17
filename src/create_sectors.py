@@ -7,7 +7,7 @@ from glob import glob
 
 
 if __name__ == '__main__':
-    path = "data/tickers/spx_group_sector.csv"
+    path = "data/tickers/spx_aux_files/spx_group_sector.csv"
     dicionario_df = pd.read_csv(path)
     dicionario_df = dicionario_df.loc[dicionario_df.field == "INDUSTRY_SECTOR"].reset_index(drop=True)
     dicionario_df.loc[:, "ticker"] = dicionario_df.ticker.map(lambda x: x.replace("/", " "))
