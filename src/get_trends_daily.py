@@ -94,13 +94,17 @@ def get_daily_trend_from_word_list(kw_list):
                     except BaseException:
                         time.sleep(SLEEPTIME)
 
-            daily_agg_df = pd.concat(daily_dfs, axis=1)
-            daily_sample_dfs.append(daily_agg_df)
+            daily_agg_df = pd.concat(daily_dfs, axis=0).groupby("date").mean()
 
-        daily_sample_agg_df = pd.DataFrame(pd.concat(daily_sample_dfs, axis=1).mean(axis=1), columns=[kw])
+            target_path = os.path.join("data", "all_daily_trends", "daily_trends{}".format(sample))
 
-        ts_path = os.path.join("data", "daily_trend", "{}.csv".format(kw))
-        daily_sample_agg_df.to_csv(ts_path)
+            # check if output dir exists
+            if not os.path.isdir(os.path.join(target_path)):
+                os.mkdir(os.path.join(target_path))
+
+            target_path = os.path.join(target_path, "{}.csv".format(kw))
+
+            daily_agg_df.to_csv(target_path)
 
 
 if __name__ == '__main__':
