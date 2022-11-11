@@ -6,17 +6,17 @@ from glob import glob
 from tqdm import tqdm
 from datetime import date
 from pytrends.request import TrendReq
-from word_list.basic import base
+from word_list.sanity_check import preis
 
 # global parameters
-REFWORD = "google"
-TARGET = base
+TARGET = preis
 SLEEPTIME = 60
 INIT_DATE = "2004-01-01"
 FINAL_DATE = "2021-01-01"
 TIMEZONE_OFFSET = 360
 HOST_LANGUAGE = 'en-US'
 COUNTRY_ABBREVIATION = 'US'
+SAMPLES = 5
 
 # To add current time
 # today = date.today()
@@ -54,8 +54,7 @@ def get_time_intervals(init_date, timedelta="180d"):
 INTERVALS = get_time_intervals(INIT_DATE)
 
 
-def get_daily_trend_from_word_list(kw_list,
-                                   reference_word=REFWORD):
+def get_daily_trend_from_word_list(kw_list):
     """
     get a google trends word frequency df
     from a list of key words. All words have frequencies relative
@@ -74,21 +73,34 @@ def get_daily_trend_from_word_list(kw_list,
     :param reference_word: reference_word
     :type reference_word: str
     """
-    dfList = []
-    for kw in tqdm(kw_list, desc='word'):
-        daily_dfs = []
-        for timeframe in tqdm(
-                INTERVALS, desc="'{}': time intervals".format(kw)):
-            time.sleep(SLEEPTIME)
-            trends = TrendReq(hl=HOST_LANGUAGE, tz=TIMEZONE_OFFSET)
-            trends.build_payload(kw_list=[kw, REFWORD],
-                                 geo=COUNTRY_ABBREVIATION,
-                                 timeframe=timeframe)
-            df = trends.interest_over_time()
-            daily_dfs.append(df)
-        daily_ts = pd.concat(daily_dfs).reset_index().groupby("date").mean()
+
+    for kw in kw_list:
+
+        daily_sample_dfs = []
+        for sample in range(SAMPLES):
+
+            daily_dfs = []
+            for timeframe in tqdm(INTERVALS, desc="'{}': time intervals".format(kw + " " + str(sample))):
+                success = 'no'
+                while success == 'no':
+                    try:
+                        trends = TrendReq(hl=HOST_LANGUAGE, tz=TIMEZONE_OFFSET)
+                        trends.build_payload(kw_list=[kw],
+                                             geo=COUNTRY_ABBREVIATION,
+                                             timeframe=timeframe)
+                        df = trends.interest_over_time()
+                        daily_dfs.append(df.drop(['isPartial'], axis=1))
+                        success = 'yes'
+                    except BaseException:
+                        time.sleep(SLEEPTIME)
+
+            daily_agg_df = pd.concat(daily_dfs, axis=1)
+            daily_sample_dfs.append(daily_agg_df)
+
+        daily_sample_agg_df = pd.DataFrame(pd.concat(daily_sample_dfs, axis=1).mean(axis=1), columns=[kw])
+
         ts_path = os.path.join("data", "daily_trend", "{}.csv".format(kw))
-        daily_ts.to_csv(ts_path)
+        daily_sample_agg_df.to_csv(ts_path)
 
 
 if __name__ == '__main__':
