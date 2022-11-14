@@ -76,9 +76,13 @@ def granger_fs_vec(paths,
                                              is_discrete=not IS_DISCRETE,)
 
         name = get_ticker_name(path).replace("_", " ")
-        result = run_granger_causality(merged_df=merged, target_name="target_return",
-                                       words=words, max_lag=max_lag, verbose=False,
-                                       sig_level=sig_level, correl_threshold=correl_threshold,
+        result = run_granger_causality(merged_df=merged,
+                                       target_name="target_return",
+                                       words=words,
+                                       max_lag=max_lag,
+                                       verbose=False,
+                                       sig_level=sig_level,
+                                       correl_threshold=correl_threshold,
                                        constant_threshold=constant_threshold)
         if result is not None:
             out_path = os.path.join("results",
