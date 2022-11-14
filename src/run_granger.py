@@ -9,7 +9,6 @@ from data_mani.utils import path_filter
 from data_mani.utils import merge_market_and_gtrends
 from data_mani.utils import get_ticker_name
 from feature_selection.huang import run_granger_causality
-import random
 
 
 # variables
@@ -81,13 +80,19 @@ def granger_fs_vec(paths,
                                        words=words, max_lag=max_lag, verbose=False,
                                        sig_level=sig_level, correl_threshold=correl_threshold,
                                        constant_threshold=constant_threshold)
+        if result is not None:
+            out_path = os.path.join("results",
+                                    "feature_selection",
+                                    "granger",
+                                    out_folder)
 
-        out_path = os.path.join("results",
-                                "feature_selection",
-                                "granger",
-                                out_folder,
-                                name + ".csv")
-        result.to_csv(out_path, index=False)
+            # check if output dir exists
+            if not os.path.isdir(os.path.join(out_path)):
+                os.mkdir(os.path.join(out_path))
+
+            out_path = os.path.join(out_path,
+                                    name + ".csv")
+            result.to_csv(out_path, index=False)
 
 
 def granger_fs_par(paths, n_cores=N_CORES, par=False):
