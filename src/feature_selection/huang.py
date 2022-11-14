@@ -113,9 +113,13 @@ def run_granger_causality(merged_df, target_name, words,
 
 
 
-def run_huang_methods(merged_df, target_name, words,
-                      max_lag, verbose, sig_level,
-                      correl_threshold, constant_threshold,
+def run_huang_methods(merged_df,
+                      target_name, words,
+                      max_lag,
+                      verbose,
+                      sig_level,
+                      correl_threshold,
+                      constant_threshold,
                       asset_name=None):
     """
     perform huang feature selection procedure, that is, univariate granger
@@ -148,11 +152,15 @@ def run_huang_methods(merged_df, target_name, words,
     for w in tqdm(merged_df.columns, disable=not verbose, desc="run huang feature selection", ):
         if w in words and w != target_name:
             tag = check_constant_series(df=merged_df,
-                                        target = w,
+                                        target=w,
                                         threshold=constant_threshold)
             if not tag:
-                accept_tag, _ = univariate_granger_causality_test(x=merged_df, y_name=target_name, x_name=w,
-                                                                max_lag=max_lag, verbose=verbose, sig_level=sig_level)
+                accept_tag, _ = univariate_granger_causality_test(x=merged_df,
+                                                                  y_name=target_name,
+                                                                  x_name=w,
+                                                                  max_lag=max_lag,
+                                                                  verbose=verbose,
+                                                                  sig_level=sig_level)
                 univariate_granger_causality_list += accept_tag
                 if len(accept_tag) >= 1:
                     words_to_shift.append(w)
@@ -161,8 +169,10 @@ def run_huang_methods(merged_df, target_name, words,
 
     selected_words_list = [w for w in univariate_granger_causality_list if w is not None]
 
-    merged_df, _ = make_shifted_df(df=merged_df, verbose=verbose,
-                                                words=words_to_shift, max_lag=max_lag)
+    merged_df, _ = make_shifted_df(df=merged_df,
+                                   verbose=verbose,
+                                   words=words_to_shift,
+                                   max_lag=max_lag)
 
     if len(selected_words_list) != 0:
         logit_var_df = merged_df[[target_name] + selected_words_list].dropna()
