@@ -17,21 +17,16 @@ Installing [multiprocess on conda](https://anaconda.org/conda-forge/multiprocess
 
 `bash test.sh`
 
-
 3) If needed, run the script to sample the google trends data
 
 `cd src`
 
-`python3 get_trends.py`
+`python3 get_trends_daily.py`
 
-
-4) After we gather multiples samples from gtrends, we combine all of them
+4After we gather multiples samples from gtrends, we combine all of them
 by taking the mean and creating the file `data\gtrends.csv`:
 
-`cd src`
-
-`python3 get_trends.py`
-
+`python3 gen_gtrends_dabase.py`
 
 5) If needed, run the script to create sector time series:
 
@@ -44,24 +39,13 @@ by taking the mean and creating the file `data\gtrends.csv`:
 
 `cd src`
 
-`python3 run_sfi.py`
-
-`python3 run_mdi.py`
-
-`python3 run_mda.py`
-
 `python3 run_granger.py`
 
 `python3 run_huang.py`
-
-`python3 run_IAMB.py`
-
-`python3 run_MMMB.py`
-
 
 7) Run script for forecast based on one feature selection method and one machine learning model. For example:
 
 `cd src`
 
-`python3 forecast.py "SPX Utilities" MMMB random_forest -i 1 -s 2 -j 2
+`python3 forecast.py "SPX Utilities" granger random_forest -i 1 -s 2 -j 2
 `
