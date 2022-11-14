@@ -4,7 +4,7 @@ import numpy as np
 from multiprocessing import Pool
 import os
 
-from word_list.analysis import words
+from word_list.sanity_check import preis
 from data_mani.utils import path_filter
 from data_mani.utils import merge_market_and_gtrends
 from data_mani.utils import get_ticker_name
@@ -31,15 +31,15 @@ PATHS = sorted(glob("data/{}/*.csv".format(OUT_FOLDER)))
 N_CORES = len(PATHS)  # number of cores to use
 
 
-# debug condition
-if DEBUG:
-    words = words[1:50]
-    PATHS = PATHS[1:10]
+# # debug condition
+# if DEBUG:
+#     words = words[1:50]
+#     PATHS = PATHS[1:10]
 
 def granger_fs_vec(paths,
                  test_size=TEST_SIZE,
                  out_folder=OUT_FOLDER,
-                 words=words,
+                 words=preis,
                  max_lag=MAX_LAG,
                  sig_level=SIG_LEVEL,
                  is_discrete=IS_DISCRETE,
@@ -74,7 +74,7 @@ def granger_fs_vec(paths,
     for path in paths:
         merged, _ = merge_market_and_gtrends(path,
                                              test_size=test_size,
-                                             is_discrete=IS_DISCRETE,)
+                                             is_discrete=not IS_DISCRETE,)
 
         name = get_ticker_name(path).replace("_", " ")
         result = run_granger_causality(merged_df=merged, target_name="target_return",
