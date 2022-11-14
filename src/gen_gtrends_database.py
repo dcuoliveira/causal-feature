@@ -8,7 +8,7 @@ OUT_FOLDER = "data"
 INPUT_FOLDER = os.path.join("data", "all_daily_trends")
 N_SAMPLES = 5
 WORDS = preis
-START_DATE = "2006-01-01"
+START_DATE = "2007-01-01"
 
 def build_gtrends_database():
 
