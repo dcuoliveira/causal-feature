@@ -4,12 +4,11 @@ import numpy as np
 from multiprocessing import Pool
 import os
 
-from word_list.analysis import words
+from word_list.sanity_check import preis
 from data_mani.utils import path_filter
 from data_mani.utils import merge_market_and_gtrends
 from data_mani.utils import get_ticker_name
 from feature_selection.huang import run_huang_methods
-import random
 
 
 # variables
@@ -30,17 +29,15 @@ CONSTANT_THRESHOLD = 0.9 # constant threshold to apply filter
 PATHS = sorted(glob("data/{}/*.csv".format(OUT_FOLDER)))
 N_CORES = len(PATHS)  # number of cores to use
 
-
-
-# debug condition
-if DEBUG:
-    words = words[1:50]
-    PATHS = PATHS[1:5]
+# # debug condition
+# if DEBUG:
+#     words = words[1:50]
+#     PATHS = PATHS[1:5]
 
 def huang_fs_vec(paths,
                  test_size=TEST_SIZE,
                  out_folder=OUT_FOLDER,
-                 words=words,
+                 words=preis,
                  max_lag=MAX_LAG,
                  sig_level=SIG_LEVEL,
                  correl_threshold=CORREL_THRESHOLD,
@@ -77,15 +74,26 @@ def huang_fs_vec(paths,
                                              is_discrete=is_discrete)
 
         name = get_ticker_name(path).replace("_", " ")
-        result = run_huang_methods(merged_df=merged, target_name="target_return",
-                                   words=words, max_lag=max_lag, verbose=False,
-                                   sig_level=sig_level, correl_threshold=correl_threshold,
-                                   asset_name=name, constant_threshold=constant_threshold)
+        result = run_huang_methods(merged_df=merged,
+                                   target_name="target_return",
+                                   words=words,
+                                   max_lag=max_lag,
+                                   verbose=False,
+                                   sig_level=sig_level,
+                                   correl_threshold=correl_threshold,
+                                   asset_name=name,
+                                   constant_threshold=constant_threshold)
         if result is not None:
             out_path = os.path.join("results",
                                     "feature_selection",
                                     "huang",
-                                    out_folder,
+                                    out_folder)
+
+            # check if output dir exists
+            if not os.path.isdir(os.path.join(out_path)):
+                os.mkdir(os.path.join(out_path))
+
+            out_path = os.path.join(out_path,
                                     name + ".csv")
             result.to_csv(out_path, index=False)
 
