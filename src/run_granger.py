@@ -73,7 +73,7 @@ def granger_fs_vec(paths,
     for path in paths:
         merged, _ = merge_market_and_gtrends(path,
                                              test_size=test_size,
-                                             is_discrete=not IS_DISCRETE,)
+                                             is_discrete=IS_DISCRETE,)
 
         name = get_ticker_name(path).replace("_", " ")
         result = run_granger_causality(merged_df=merged,
@@ -82,7 +82,6 @@ def granger_fs_vec(paths,
                                        max_lag=max_lag,
                                        verbose=False,
                                        sig_level=sig_level,
-                                       correl_threshold=correl_threshold,
                                        constant_threshold=constant_threshold)
         if result is not None:
             out_path = os.path.join("results",
