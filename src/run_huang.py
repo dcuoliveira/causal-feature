@@ -80,8 +80,6 @@ def huang_fs_vec(paths,
                                    max_lag=max_lag,
                                    verbose=False,
                                    sig_level=sig_level,
-                                   correl_threshold=correl_threshold,
-                                   asset_name=name,
                                    constant_threshold=constant_threshold)
         if result is not None:
             out_path = os.path.join("results",
