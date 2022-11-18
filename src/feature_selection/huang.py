@@ -53,9 +53,13 @@ def univariate_granger_causality_test(x, y_name, x_name,
 
     return accept_tag, pval_tag
 
-def run_granger_causality(merged_df, target_name, words,
-                          max_lag, sig_level, correl_threshold,
-                          constant_threshold, verbose):
+def run_granger_causality(merged_df,
+                          target_name,
+                          words,
+                          max_lag,
+                          sig_level,
+                          constant_threshold,
+                          verbose):
     """
     
     perform a simplified version of the huang feature selection method,
@@ -118,9 +122,7 @@ def run_huang_methods(merged_df,
                       max_lag,
                       verbose,
                       sig_level,
-                      correl_threshold,
-                      constant_threshold,
-                      asset_name=None):
+                      constant_threshold):
     """
     perform huang feature selection procedure, that is, univariate granger
     causality and logistic regression
@@ -168,27 +170,29 @@ def run_huang_methods(merged_df,
                 continue
 
     selected_words_list = [w for w in univariate_granger_causality_list if w is not None]
+    selected_words_list = list(pd.Series([w.split("_")[0] for w in selected_words_list]).unique())
 
-    merged_df, _ = make_shifted_df(df=merged_df,
-                                   verbose=verbose,
-                                   words=words_to_shift,
-                                   max_lag=max_lag)
+    merged_df, features_dict = make_shifted_df(df=merged_df,
+                                               verbose=verbose,
+                                               words=words_to_shift + [target_name],
+                                               max_lag=max_lag)
 
     if len(selected_words_list) != 0:
-        logit_var_df = merged_df[[target_name] + selected_words_list].dropna()
+
+        var_words = []
+        for w in selected_words_list + [target_name]:
+            var_words += features_dict[w]
+
+        logit_var_df = merged_df[[target_name] + var_words].dropna()
         try:
-            logit_model = Logit(endog=logit_var_df[[target_name]], exog=logit_var_df[selected_words_list]).fit()
+            logit_model = Logit(endog=logit_var_df[[target_name]], exog=logit_var_df[var_words]).fit()
         except:
             return None
-        final_selected_words = list(logit_model.pvalues[logit_model.pvalues <= sig_level].index)
-        words_not_selected_to_add = pd.DataFrame(list(set(merged_df.columns) - set(final_selected_words)))
-        words_not_selected_to_add.columns = ['feature']
-        words_not_selected_to_add['feature_score'] = np.nan
         logit_granger_result = pd.DataFrame(logit_model.pvalues[logit_model.pvalues <= sig_level])
         logit_granger_result = logit_granger_result.reset_index()
         logit_granger_result.columns = ['feature', 'feature_score']
 
-        logit_granger_result = pd.concat([logit_granger_result, words_not_selected_to_add], axis=0)
+        logit_granger_result = logit_granger_result.copy()
     else:
         words_not_selected_to_add = pd.DataFrame(list(set(merged_df) - set(selected_words_list)))
         words_not_selected_to_add.columns = ['feature']
