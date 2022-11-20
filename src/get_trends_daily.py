@@ -6,10 +6,10 @@ from glob import glob
 from tqdm import tqdm
 from datetime import date
 from pytrends.request import TrendReq
-from word_list.sanity_check import preis
+from word_list.analysis import words
 
 # global parameters
-TARGET = preis
+TARGET = words
 SLEEPTIME = 60
 INIT_DATE = "2004-01-01"
 FINAL_DATE = "2022-08-31"
