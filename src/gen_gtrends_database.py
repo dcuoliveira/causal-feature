@@ -2,12 +2,12 @@ import pandas as pd
 import os
 import numpy as np
 from tqdm import tqdm
-from word_list.sanity_check import preis
+from word_list.analysis import words
 
 OUT_FOLDER = "data"
 INPUT_FOLDER = os.path.join("data", "all_daily_trends")
 N_SAMPLES = 5
-WORDS = preis
+WORDS = words
 START_DATE = "2007-01-01"
 
 def build_gtrends_database():
@@ -17,7 +17,10 @@ def build_gtrends_database():
 
         agg = []
         for sample in range(N_SAMPLES):
-            df = pd.read_csv(os.path.join(INPUT_FOLDER, "daily_trends" + str(sample), w + ".csv"))
+            try:
+                df = pd.read_csv(os.path.join(INPUT_FOLDER, "daily_trends" + str(sample), w + ".csv"))
+            except:
+                continue
 
             # fix date format
             df["date"] = pd.to_datetime(df["date"])
@@ -27,14 +30,17 @@ def build_gtrends_database():
             df = df.resample("B").last()
 
             # compute log diff 1y diff 1w
-            df[w] = np.log(df[w]).diff(periods=252).diff(periods=5)
+            df[w] = np.log(df[w]).replace(np.inf, 0).replace(-np.inf, 0).diff(periods=252).diff(periods=5)
 
             # fix start date and dropna
             df = df.loc[START_DATE:].ffill().dropna()
 
             agg.append(df)
         # compute average across samples
-        agg_df = pd.DataFrame(pd.concat(agg, axis=1).mean(axis=1), columns=[w])
+        if len(agg) != 0:
+            agg_df = pd.DataFrame(pd.concat(agg, axis=1).mean(axis=1), columns=[w])
+        else:
+            continue
 
         gtrends.append(agg_df)
     gtrends_df = pd.concat(gtrends, axis=1)
