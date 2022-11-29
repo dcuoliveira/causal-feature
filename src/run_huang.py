@@ -4,7 +4,7 @@ import numpy as np
 from multiprocessing import Pool
 import os
 
-from word_list.sanity_check import preis
+from word_list.analysis import words
 from data_mani.utils import path_filter
 from data_mani.utils import merge_market_and_gtrends
 from data_mani.utils import get_ticker_name
@@ -37,7 +37,7 @@ N_CORES = len(PATHS)  # number of cores to use
 def huang_fs_vec(paths,
                  test_size=TEST_SIZE,
                  out_folder=OUT_FOLDER,
-                 words=preis,
+                 words=words,
                  max_lag=MAX_LAG,
                  sig_level=SIG_LEVEL,
                  correl_threshold=CORREL_THRESHOLD,
