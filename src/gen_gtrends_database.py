@@ -2,7 +2,7 @@ import pandas as pd
 import os
 import numpy as np
 from tqdm import tqdm
-from word_list.analysis import words
+from word_list.sanity_check import words
 
 OUT_FOLDER = "data"
 INPUT_FOLDER = os.path.join("data", "all_daily_trends")

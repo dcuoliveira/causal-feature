@@ -6,7 +6,7 @@ from glob import glob
 from tqdm import tqdm
 from datetime import date
 from pytrends.request import TrendReq
-from word_list.analysis import words
+from word_list.sanity_check import words
 
 # global parameters
 TARGET = words
