@@ -76,8 +76,12 @@ def get_daily_trend_from_word_list(kw_list):
 
     for kw in kw_list:
 
-        daily_sample_dfs = []
         for sample in range(SAMPLES):
+
+            # target_path = os.path.join("data", "all_daily_trends", "daily_trends{}".format(sample))
+            # target_path_check = os.path.exists(os.path.join(target_path, "{}.csv".format(kw)))
+            # if target_path_check:
+            #     continue
 
             daily_dfs = []
             for timeframe in tqdm(INTERVALS, desc="'{}': time intervals".format(kw + " " + str(sample))):
@@ -97,13 +101,11 @@ def get_daily_trend_from_word_list(kw_list):
             daily_agg_df = pd.concat(daily_dfs, axis=0).groupby("date").mean()
 
             target_path = os.path.join("data", "all_daily_trends", "daily_trends{}".format(sample))
-
             # check if output dir exists
             if not os.path.isdir(os.path.join(target_path)):
                 os.mkdir(os.path.join(target_path))
 
             target_path = os.path.join(target_path, "{}.csv".format(kw))
-
             daily_agg_df.to_csv(target_path)
 
 

@@ -94,7 +94,7 @@ if __name__ == '__main__':
 
     # final df with all features
     final_trends = trends.diff(1).dropna()
-    path = os.path.join("data", "gtrends.csv")
+    path = os.path.join("../data", "gtrends.csv")
     final_trends.to_csv(path)
     print("\nfile saved")
     print("path = {}".format(path))
