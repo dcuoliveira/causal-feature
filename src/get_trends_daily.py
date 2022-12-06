@@ -4,9 +4,8 @@ import pandas as pd
 from copy import copy
 from glob import glob
 from tqdm import tqdm
-from datetime import date
 from pytrends.request import TrendReq
-from word_list.sanity_check import words
+from word_list.analysis import words
 
 # global parameters
 TARGET = words
@@ -78,10 +77,10 @@ def get_daily_trend_from_word_list(kw_list):
 
         for sample in range(SAMPLES):
 
-            # target_path = os.path.join("data", "all_daily_trends", "daily_trends{}".format(sample))
-            # target_path_check = os.path.exists(os.path.join(target_path, "{}.csv".format(kw)))
-            # if target_path_check:
-            #     continue
+            target_path = os.path.join("data", "all_daily_trends", "daily_trends{}".format(sample))
+            target_path_check = os.path.exists(os.path.join(target_path, "{}.csv".format(kw)))
+            if target_path_check:
+                continue
 
             daily_dfs = []
             for timeframe in tqdm(INTERVALS, desc="'{}': time intervals".format(kw + " " + str(sample))):
