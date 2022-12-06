@@ -170,7 +170,7 @@ def run_huang_methods(merged_df,
                 continue
 
     selected_words_list = [w for w in univariate_granger_causality_list if w is not None]
-    selected_words_list = list(pd.Series([w.split("_")[0] for w in selected_words_list]).unique())
+    selected_words_list = list(pd.Series([w.split("_")[0] if (len(w.split("_")) <= 2) else w.split("_")[0] + " " + w.split("_")[1]  for w in selected_words_list]).unique())
 
     merged_df, features_dict = make_shifted_df(df=merged_df,
                                                verbose=verbose,
@@ -191,6 +191,10 @@ def run_huang_methods(merged_df,
         logit_granger_result = pd.DataFrame(logit_model.pvalues[logit_model.pvalues <= sig_level])
         logit_granger_result = logit_granger_result.reset_index()
         logit_granger_result.columns = ['feature', 'feature_score']
+
+        for idx, row in logit_granger_result.iterrows():
+            if "target_return" in row["feature"]:
+                logit_granger_result = logit_granger_result.drop(idx)
 
         logit_granger_result = logit_granger_result.copy()
     else:
