@@ -564,6 +564,8 @@ def hyper_params_search(df,
 
 
 def annualy_fit_and_predict(df,
+                            init_steps,
+                            predict_steps,
                             Wrapper,
                             n_iter,
                             n_splits,
@@ -600,17 +602,16 @@ def annualy_fit_and_predict(df,
 
     all_preds = []
 
-    years = df.index.map(lambda x: x.year)
-    years = range(np.min(years), np.max(years))
     features = sorted(df.drop(target_name, 1).columns.to_list())
     df = df[features + [target_name]]
     df = target_ret_to_directional_movements(df, target_name)
 
-    for y in tqdm(years,
+    for t in tqdm(range(init_steps, df.shape[0] - init_steps, predict_steps),
                   disable=not verbose,
-                  desc="annual training and prediction"):
-        train_ys = df.loc[:str(y)]
-        test_ys = df.loc[str(y + 1)]
+                  desc="Running TSCV"):
+
+        train_ys = df[:t]
+        test_ys = df[t:(t + predict_steps)]
         store_train_target = train_ys[target_name].values
         store_test_target = test_ys[target_name].values
 
@@ -655,6 +656,8 @@ def annualy_fit_and_predict(df,
 
 def forecast(ticker_name,
              fs_method,
+             init_steps,
+             predict_steps,
              Wrapper,
              n_iter,
              n_splits,
@@ -693,7 +696,7 @@ def forecast(ticker_name,
     :rtype: pd.DataFrame
     """
     path_list = ["data", "index"]
-    ticker_path = "data/indices/{}.csv".format(ticker_name)
+    ticker_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data/indices/{}.csv".format(ticker_name))
     train, test = merge_market_and_gtrends(ticker_path,
                                            test_size=0.5)
     words = train.drop(target_name, 1).columns.to_list()
@@ -734,6 +737,8 @@ def forecast(ticker_name,
     complete_selected = complete[[target_name] + select]
 
     pred_results = annualy_fit_and_predict(df=complete_selected,
+                                           init_steps=init_steps,
+                                           predict_steps=predict_steps,
                                            Wrapper=Wrapper,
                                            n_iter=n_iter,
                                            n_jobs=n_jobs,
