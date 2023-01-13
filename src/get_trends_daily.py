@@ -77,7 +77,7 @@ def get_daily_trend_from_word_list(kw_list):
 
         for sample in range(SAMPLES):
 
-            target_path = os.path.join("data", "all_daily_trends", "daily_trends{}".format(sample))
+            target_path = os.path.join(os.path.dirname(__file__), "data", "all_daily_trends", "daily_trends{}".format(sample))
             target_path_check = os.path.exists(os.path.join(target_path, "{}.csv".format(kw)))
             if target_path_check:
                 continue
@@ -104,20 +104,11 @@ def get_daily_trend_from_word_list(kw_list):
             if not os.path.isdir(os.path.join(target_path)):
                 os.mkdir(os.path.join(target_path))
 
-            target_path = os.path.join(target_path, "{}.csv".format(kw))
+            target_path = os.path.join(os.path.dirname(__file__), target_path, "{}.csv".format(kw))
             daily_agg_df.to_csv(target_path)
 
 
 if __name__ == '__main__':
-    # main problem of this script
-    # https://stackoverflow.com/questions/50571317/pytrends-the-request-failed-google-returned-a-response-with-code-429
-
-    # possible solution
-    # pip3 install --upgrade --user
-    # git+https://github.com/GeneralMills/pytrends
-
-    # Run code in different computers in different times to get all words
-
     already_collected = glob(os.path.join("data", "daily_trend", "*.csv"))
     already_collected = [i.split("/")[2] for i in already_collected]
     already_collected = [i.split(".")[0] for i in already_collected]

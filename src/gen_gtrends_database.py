@@ -5,7 +5,7 @@ from tqdm import tqdm
 from word_list.analysis import words
 
 OUT_FOLDER = "data"
-INPUT_FOLDER = os.path.join("data", "all_daily_trends")
+INPUT_FOLDER = os.path.join(os.path.dirname(__file__), "data", "all_daily_trends")
 N_SAMPLES = 5
 WORDS = words
 START_DATE = "2007-01-01"
@@ -44,7 +44,7 @@ def build_gtrends_database():
 
         gtrends.append(agg_df)
     gtrends_df = pd.concat(gtrends, axis=1)
-    gtrends_df.to_csv(os.path.join(OUT_FOLDER, "gtrends.csv"))
+    gtrends_df.to_csv(os.path.join(os.path.dirname(__file__), OUT_FOLDER, "gtrends.csv"))
 
 
 if __name__ == '__main__':
