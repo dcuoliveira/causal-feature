@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-from data_mani.utils import get_market_df
+from src.data_mani.utils import get_market_df
 from tqdm import tqdm
 from glob import glob
 
