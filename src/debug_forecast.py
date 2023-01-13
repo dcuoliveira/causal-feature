@@ -15,18 +15,22 @@ from prediction.functions import forecast
 
 ticker_name = "SPX Index"
 fs_method = "all"
+init_steps=252
+predict_steps=5
 Wrapper = LogisticRegWrapper
 model_name = Wrapper().model_name
 n_iter = 50
 n_splits = 5
 n_jobs = 1
-verbose = True
+verbose = False
 seed = 2294
 
 if __name__ == '__main__':
     init = time()
     pred_results = forecast(ticker_name=ticker_name,
                             fs_method=fs_method,
+                            init_steps=init_steps,
+                            predict_steps=predict_steps,
                             Wrapper=Wrapper,
                             n_iter=n_iter,
                             n_splits=n_splits,
@@ -35,7 +39,8 @@ if __name__ == '__main__':
                             seed=seed)
 
     # saving forecast on the results folder
-    out_path_list = ["results",
+    out_path_list = [os.path.dirname(__file__),
+                     "results",
                      "forecast",
                      fs_method,
                      "indices",
