@@ -7,14 +7,8 @@ from sklearn.model_selection import TimeSeriesSplit
 from sklearn.metrics import make_scorer, roc_auc_score
 from sklearn.model_selection import RandomizedSearchCV
 from sklearn.preprocessing import StandardScaler
-
-try:
-    from data_mani.utils import merge_market_and_gtrends, target_ret_to_directional_movements
-    from data_mani.visu import *
-
-except ModuleNotFoundError:
-    from src.data_mani.utils import merge_market_and_gtrends, target_ret_to_directional_movements
-    from src.data_mani.visu import *
+from src.data_mani.utils import merge_market_and_gtrends, target_ret_to_directional_movements
+from src.data_mani.visu import *
 
 
 def aggregate_prediction_results(prediction_models,
