@@ -147,7 +147,7 @@ def merge_data(df_list, freq='D'):
 def merge_market_and_gtrends(path,
                              test_size,
                              is_discrete=False,
-                             path_gt_list=["data", "gtrends.csv"]):
+                             path_gt_list=[os.path.dirname(os.path.dirname(__file__)), "data", "gtrends.csv"]):
     """
     Merge market and google trends data.
     Market data is sliced using the
