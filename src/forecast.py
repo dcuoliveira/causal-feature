@@ -26,6 +26,15 @@ def main():
                         type=str, help='name of the feature selection method')
     parser.add_argument('model_name',
                         type=str, help='name of the ML model')
+                        
+    parser.add_argument('init_steps',
+                        type=int,
+                        help='name of the ML model',
+                        default=252)
+    parser.add_argument('predict_steps',
+                        type=int,
+                        help='name of the ML model',
+                        default=5)
 
     parser.add_argument('-i',
                         '--n_iter',
@@ -68,6 +77,8 @@ def main():
 
     init = time()
     pred_results = forecast(ticker_name=args.ticker_name,
+                            init_steps=args.init_steps,
+                            predict_steps=args.predict_steps,
                             fs_method=args.fs_method,
                             Wrapper=Wrapper,
                             n_iter=args.n_iter,
