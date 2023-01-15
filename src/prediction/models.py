@@ -56,7 +56,7 @@ class RidgeWrapper():
 
 
 class ElasticNetWrapper():
-    def __init__(self, model_params={'fit_intercept': True, 'penalty': 'elasticnet', 'solver': 'saga'}):
+    def __init__(self, model_params={'fit_intercept': True, 'penalty': 'elasticnet', 'solver': 'saga', "max_iter": 10000}):
         self.model_name = "elastic_net"
         self.search_type = 'random'
         self.param_grid = {'C': np.linspace(0.001, 50, 200),
