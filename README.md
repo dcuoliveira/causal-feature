@@ -1,4 +1,4 @@
-# causal_feature
+# causal-feature
 
 ## Installing
 
