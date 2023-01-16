@@ -163,7 +163,7 @@ def merge_market_and_gtrends(path,
     :return: merged dataframe train and tes
     :rtype: (pd.DataFrame,pd.DataFrame)
     """
-
+    
     # loading google trends data
     path_gt = os.path.join(*path_gt_list)
     gtrends = pd.read_csv(path_gt)
@@ -201,7 +201,7 @@ def merge_market_and_gtrends(path,
 def path_filter(paths,
                 threshold,
                 verbose=True,
-                path_gt_list=["data", "gtrends.csv"]):
+                path_gt_list=[os.path.dirname(os.path.dirname(__file__)), "data", "gtrends.csv"]):
     """
     filter each market data path by
     assessing the size of the associated
