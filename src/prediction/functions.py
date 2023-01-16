@@ -393,13 +393,12 @@ def get_features_granger_huang(ticker_name,
     """
     assert fs_method in ["huang", "granger"]
     ticker_name = "{}.csv".format(ticker_name)
-    if len(path_list) > 2:
-        path = os.path.join(*[path_list[0],
-                              "src", "results", "feature_selection",
-                              fs_method, out_folder, ticker_name])
-    else:
-        path = os.path.join(*["results", "feature_selection",
-                              fs_method, out_folder, ticker_name])
+    path = os.path.join(*[os.path.dirname(os.path.dirname(__file__)),
+                          "results",
+                          "feature_selection",
+                          fs_method,
+                          out_folder,
+                          ticker_name])
     scores = pd.read_csv(path).dropna()
     scores = scores.feature.to_list()
     return scores
@@ -654,7 +653,6 @@ def annualy_fit_and_predict(df,
 
 
 def forecast(ticker_name,
-             db_name,
              fs_method,
              init_steps,
              predict_steps,
@@ -698,8 +696,7 @@ def forecast(ticker_name,
     path_list = ["data", "index"]
     ticker_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data/indices/{}.csv".format(ticker_name))
     train, test = merge_market_and_gtrends(ticker_path,
-                                           test_size=0.5,
-                                           db_name=db_name)
+                                           test_size=0.5)
     words = train.drop(labels=target_name, axis=1).columns.to_list()
     complete = pd.concat([train, test])
     del train, test
