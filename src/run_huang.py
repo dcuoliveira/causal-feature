@@ -26,7 +26,7 @@ IS_DISCRETE = True
 CONSTANT_THRESHOLD = 0.9 # constant threshold to apply filter
 
 # ajuste pra path do windows
-PATHS = sorted(glob("data/{}/*.csv".format(OUT_FOLDER)))
+PATHS = sorted(glob(os.path.join(os.path.dirname(__file__), "data/{}/*.csv".format(OUT_FOLDER))))
 N_CORES = len(PATHS)  # number of cores to use
 
 # # debug condition
@@ -82,7 +82,8 @@ def huang_fs_vec(paths,
                                    sig_level=sig_level,
                                    constant_threshold=constant_threshold)
         if result is not None:
-            out_path = os.path.join("results",
+            out_path = os.path.join(os.path.dirname(__file__),
+                                    "results",
                                     "feature_selection",
                                     "huang",
                                     out_folder)
@@ -139,7 +140,8 @@ if __name__ == '__main__':
     if DEBUG:
         for p in paths:
             name = get_ticker_name(p).replace("_", " ")
-            out_path = os.path.join("results",
+            out_path = os.path.join(os.path.dirname(__file__),
+                                    "results",
                                     "feature_selection",
                                     "huang",
                                     OUT_FOLDER,
