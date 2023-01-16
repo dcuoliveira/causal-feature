@@ -287,7 +287,7 @@ def gen_strat_positions_and_ret_from_pred(predictions_df,
         pred_positions = []
         pred_returns = []
         for strat in predictions_df['strat_type'].unique():
-            strat_df = predictions_df.loc[predictions_df['strat_type'] == strat].drop('strat_type', axis=1)
+            strat_df = predictions_df.loc[predictions_df['strat_type'] == strat].drop(labels='strat_type', axis=1)
             if strat == 'simple':
                 for ticker in strat_df['ticker'].unique():
                     ticker_strat_df = strat_df.loc[strat_df['ticker'] == ticker]
@@ -533,7 +533,7 @@ def hyper_params_search(df,
     :rtype: float
     """
 
-    X = df.drop(target_name, 1).values
+    X = df.drop(labels=target_name, axis=1).values
     y = df[target_name].values
 
     time_split = TimeSeriesSplit(n_splits=n_splits)
@@ -602,12 +602,11 @@ def annualy_fit_and_predict(df,
 
     all_preds = []
 
-    features = sorted(df.drop(target_name, 1).columns.to_list())
+    features = sorted(df.drop(labels=target_name, axis=1).columns.to_list())
     df = df[features + [target_name]]
     df = target_ret_to_directional_movements(df, target_name)
 
     for t in tqdm(range(init_steps, df.shape[0] - init_steps, predict_steps),
-                  disable=not verbose,
                   desc="Running TSCV"):
 
         train_ys = df[:t]
@@ -641,7 +640,7 @@ def annualy_fit_and_predict(df,
                                                n_iter=n_iter,
                                                seed=seed,
                                                verbose=verbose)
-            X_test = test_ys.drop(target_name, 1).values
+            X_test = test_ys.drop(labels=target_name, axis=1).values
             test_pred = model_search.best_estimator_.predict_proba(X_test)[:, 1]
             dict_ = {"date": test_ys.index,
                      "return_direction": y_test,
@@ -655,6 +654,7 @@ def annualy_fit_and_predict(df,
 
 
 def forecast(ticker_name,
+             db_name,
              fs_method,
              init_steps,
              predict_steps,
@@ -698,8 +698,9 @@ def forecast(ticker_name,
     path_list = ["data", "index"]
     ticker_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data/indices/{}.csv".format(ticker_name))
     train, test = merge_market_and_gtrends(ticker_path,
-                                           test_size=0.5)
-    words = train.drop(target_name, 1).columns.to_list()
+                                           test_size=0.5,
+                                           db_name=db_name)
+    words = train.drop(labels=target_name, axis=1).columns.to_list()
     complete = pd.concat([train, test])
     del train, test
 
@@ -732,7 +733,7 @@ def forecast(ticker_name,
 
     else:
         assert fs_method == "all"
-        select = complete.drop(words + [target_name], 1).columns.to_list()
+        select = complete.drop(labels=words + [target_name], axis=1).columns.to_list()
 
     complete_selected = complete[[target_name] + select]
 
@@ -788,7 +789,7 @@ def forecast_comb(ticker_name,
 
     years = df.index.map(lambda x: x.year)
     years = range(np.min(years), np.max(years))
-    features = sorted(df.drop(target_name, 1).columns.to_list())
+    features = sorted(df.drop(lebels=target_name, axis=1).columns.to_list())
     df = df[features + [target_name]]
 
     if comb_model == 'nncomb':
@@ -810,9 +811,9 @@ def forecast_comb(ticker_name,
             test_ys = df.loc[str(y + 1)]
 
             target_train = train_ys[target_name]
-            train_ys = train_ys.drop(target_name, axis=1)
+            train_ys = train_ys.drop(labels=target_name, axis=1)
             target_test = test_ys[target_name]
-            test_ys = test_ys.drop(target_name, axis=1)
+            test_ys = test_ys.drop(labels=target_name, axis=1)
 
             if comb_model == 'average':
                 comb_predictions = test_ys.mean(axis=1)
