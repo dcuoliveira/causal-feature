@@ -13,9 +13,9 @@ class RandomForestWrapper():
         self.model_name = "random_forest"
         self.search_type = 'random'
         self.param_grid = {"max_features": ['auto', 'sqrt', 'log2'],
-                           "min_samples_split": sp_randint(2, 31),
-                           "n_estimators": sp_randint(2, 301),
-                           "max_depth": sp_randint(2, 20)}
+                           "min_samples_split": sp_randint(2, 30 + 1),
+                           "n_estimators": sp_randint(2, 300 + 1),
+                           "max_depth": sp_randint(2, 20 + 1)}
         if model_params is None:
             self.ModelClass = RandomForestClassifier()
         else:
@@ -34,7 +34,7 @@ class LogisticRegWrapper():
 
 
 class LassoWrapper():
-    def __init__(self, model_params={'fit_intercept': True, 'penalty': 'l1', 'solver': 'liblinear'}):
+    def __init__(self, model_params={'fit_intercept': True, 'penalty': 'l1', 'solver': 'liblinear', "max_iter": 10000}):
         self.model_name = "lasso"
         self.search_type = 'random'
         self.param_grid = {'C': np.linspace(0.001, 50, 200)}
@@ -45,7 +45,7 @@ class LassoWrapper():
 
 
 class RidgeWrapper():
-    def __init__(self, model_params={'fit_intercept': True, 'penalty': 'l2', 'solver': 'lbfgs'}):
+    def __init__(self, model_params={'fit_intercept': True, 'penalty': 'l2', 'solver': 'lbfgs', "max_iter": 10000}):
         self.model_name = "ridge"
         self.search_type = 'random'
         self.param_grid = {'C': np.linspace(0.001, 50, 200)}
