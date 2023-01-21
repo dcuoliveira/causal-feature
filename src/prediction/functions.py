@@ -605,7 +605,7 @@ def annualy_fit_and_predict(df,
     df = df[features + [target_name]]
     df = target_ret_to_directional_movements(df, target_name)
 
-    for t in tqdm(range(init_steps, df.shape[0] - init_steps, predict_steps),
+    for t in tqdm(range(init_steps, df.shape[0] - predict_steps, predict_steps),
                   desc="Running TSCV"):
 
         train_ys = df[:t]
