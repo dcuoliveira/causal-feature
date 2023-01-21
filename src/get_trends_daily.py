@@ -22,7 +22,7 @@ SAMPLES = 5
 # FINAL_DATE = today.strftime("%Y-%m-%d")
 
 
-def get_time_intervals(init_date, timedelta="180d"):
+def get_time_intervals(init_date, timedelta="360d"):
     """
     get time intevals starting from the date "init_date"
     until today. Each date interval has "timedelta" days.
@@ -99,7 +99,7 @@ def get_daily_trend_from_word_list(kw_list):
 
             daily_agg_df = pd.concat(daily_dfs, axis=0).groupby("date").mean()
 
-            target_path = os.path.join("data", "all_daily_trends", "daily_trends{}".format(sample))
+            target_path = os.path.join(os.path.dirname(__file__), "data", "all_daily_trends", "daily_trends{}".format(sample))
             # check if output dir exists
             if not os.path.isdir(os.path.join(target_path)):
                 os.mkdir(os.path.join(target_path))
