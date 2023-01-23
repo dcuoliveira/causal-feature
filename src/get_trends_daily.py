@@ -92,11 +92,17 @@ def get_daily_trend_from_word_list(kw_list):
                                              geo=COUNTRY_ABBREVIATION,
                                              timeframe=timeframe)
                         df = trends.interest_over_time()
+
+                        if df.shape[0] == 0:
+                            success = 'yes'
+                            continue
+
                         daily_dfs.append(df.drop(['isPartial'], axis=1))
                         success = 'yes'
                     except BaseException:
                         time.sleep(SLEEPTIME)
-
+            if len(daily_dfs) == 0:
+                continue
             daily_agg_df = pd.concat(daily_dfs, axis=0).groupby("date").mean()
 
             target_path = os.path.join(os.path.dirname(__file__), "data", "all_daily_trends", "daily_trends{}".format(sample))
