@@ -170,17 +170,23 @@ def run_huang_methods(merged_df,
                 continue
 
     selected_words_list = [w for w in univariate_granger_causality_list if w is not None]
-    selected_words_list = list(pd.Series([w.split("_")[0] if (len(w.split("_")) <= 2) else w.split("_")[0] + " " + w.split("_")[1]  for w in selected_words_list]).unique())
+
+    unique_selected_words_list = []
+    for w in selected_words_list:
+        w_list = w.split("_")
+        del w_list[-1]
+        unique_selected_words_list.append(" ".join(w_list))
+    unique_selected_words_list = list(pd.Series(unique_selected_words_list).unique())
 
     merged_df, features_dict = make_shifted_df(df=merged_df,
                                                verbose=verbose,
                                                words=words_to_shift + [target_name],
                                                max_lag=max_lag)
 
-    if len(selected_words_list) != 0:
+    if len(unique_selected_words_list) != 0:
 
         var_words = []
-        for w in selected_words_list + [target_name]:
+        for w in unique_selected_words_list + [target_name]:
             var_words += features_dict[w]
 
         logit_var_df = merged_df[[target_name] + var_words].dropna()
@@ -198,7 +204,7 @@ def run_huang_methods(merged_df,
 
         logit_granger_result = logit_granger_result.copy()
     else:
-        words_not_selected_to_add = pd.DataFrame(list(set(merged_df) - set(selected_words_list)))
+        words_not_selected_to_add = pd.DataFrame(list(set(merged_df) - set(unique_selected_words_list)))
         words_not_selected_to_add.columns = ['feature']
         words_not_selected_to_add['feature_score'] = np.nan
         logit_granger_result = words_not_selected_to_add
