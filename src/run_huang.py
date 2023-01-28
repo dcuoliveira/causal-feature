@@ -12,7 +12,7 @@ from feature_selection.huang import run_huang_methods
 
 
 # variables
-SIG_LEVEL = 0.01
+SIG_LEVEL = 0.05
 MAX_LAG = 4 # maximum number of lags to create
 N_CORES = 9 # number of cores to use
 OUT_FOLDER = "indices" # name of the marked data folder
