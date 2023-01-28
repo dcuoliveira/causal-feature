@@ -116,6 +116,9 @@ def get_market_df(path):
     market.columns = ["date", target_name]
     market.loc[:, "date"] = pd.to_datetime(market.date)
     market.loc[:, target_name] = market[target_name].astype("float") / 100
+
+    market = market.groupby([pd.Grouper(key="date", freq="W-MON")])[[target_name]].sum().reset_index()
+
     return market.reset_index(drop=True)
 
 
