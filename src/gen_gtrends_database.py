@@ -9,7 +9,7 @@ OUT_FOLDER = "data"
 INPUT_FOLDER = os.path.join(os.path.dirname(__file__), "data", "all_daily_trends")
 N_SAMPLES = 5
 WORDS = words
-START_DATE = "2010-01-01"
+START_DATE = "2004-01-01"
 
 warnings.filterwarnings('ignore')
 
