@@ -12,7 +12,7 @@ from feature_selection.huang import run_huang_methods
 
 
 # variables
-SIG_LEVEL = 0.05
+SIG_LEVEL = 0.01
 MAX_LAG = 20 # maximum number of lags to create
 N_CORES = 9 # number of cores to use
 OUT_FOLDER = "indices" # name of the marked data folder
@@ -20,7 +20,7 @@ DEBUG = False # param to debug the script
 TEST_SIZE = 0.5 # pct of the train/test split
 THRESHOLD = 252 * 2 # treshold to filted merged datframes
                     # 252 = business days in a year
-PAR = True # enable run in paralell
+PAR = False # enable run in paralell
 CORREL_THRESHOLD = 0.5 # correlation threshold to apply filter
 IS_DISCRETE = True
 CONSTANT_THRESHOLD = 0.9 # constant threshold to apply filter
