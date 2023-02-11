@@ -10,7 +10,7 @@ from sklearn.preprocessing import StandardScaler
 
 from data_mani.utils import merge_market_and_gtrends, target_ret_to_directional_movements
 from data_mani.visu import *
-
+from feature_selection.huang import run_granger_causality
 
 def aggregate_prediction_results(prediction_models,
                                  fs_models,
@@ -571,6 +571,9 @@ def annualy_fit_and_predict(df,
                             n_jobs,
                             verbose,
                             seed,
+                            dynamic_fs,
+                            fs_method,
+                            max_lag,
                             target_name="target_return"):
     """
      We recursively increase the training sample, periodically refitting
@@ -600,6 +603,7 @@ def annualy_fit_and_predict(df,
      """
 
     all_preds = []
+    all_fs = []
 
     features = sorted(df.drop(labels=target_name, axis=1).columns.to_list())
     df = df[features + [target_name]]
@@ -607,9 +611,41 @@ def annualy_fit_and_predict(df,
 
     for t in tqdm(range(init_steps, df.shape[0] - predict_steps, predict_steps),
                   desc="Running TSCV"):
-
+        
         train_ys = df[:t]
         test_ys = df[t:(t + predict_steps)]
+        
+        if dynamic_fs:
+            if fs_method == "granger":
+                result = run_granger_causality(merged_df=train_ys,
+                                               target_name="target_return",
+                                               words=list(df.drop([target_name], axis=1).columns),
+                                               max_lag=4,
+                                               verbose=False,
+                                               sig_level=0.05,
+                                               constant_threshold=0.9)
+                
+            add_shift(merged_df=train_ys,
+                      words=features,
+                      max_lag=max_lag,
+                      verbose=verbose)
+            train_ys = train_ys.fillna(0.0)
+            train_ys = train_ys[["target_return"] + list(result["feature"])]
+
+            add_shift(merged_df=test_ys,
+                      words=features,
+                      max_lag=max_lag,
+                      verbose=verbose)
+            test_ys = test_ys.fillna(0.0)
+            test_ys = test_ys[["target_return"] + list(result["feature"])]
+
+            tmp_features = pd.DataFrame(list(result["feature"]))
+            tmp_features[train_ys.index[-1]] = 1
+            tmp_features = tmp_features.T
+            tmp_features.columns = list(tmp_features.iloc[0,:])
+            tmp_features = tmp_features.drop(0, axis=0)
+            all_fs.append(tmp_features)
+
         store_train_target = train_ys[target_name].values
         store_test_target = test_ys[target_name].values
 
@@ -649,7 +685,9 @@ def annualy_fit_and_predict(df,
         else:
             pass
     pred_results = pd.concat(all_preds).reset_index(drop=True)
-    return pred_results
+    all_fs_df = pd.concat(all_fs)
+
+    return pred_results, all_fs_df
 
 
 def forecast(ticker_name,
@@ -663,7 +701,8 @@ def forecast(ticker_name,
              seed,
              verbose=1,
              target_name="target_return",
-             max_lag=20):
+             max_lag=20,
+             dynamic_fs=False):
     """
     Function to perform the predition using one ticker,
     one feature selection method, and one prediction model.
@@ -701,27 +740,28 @@ def forecast(ticker_name,
     complete = pd.concat([train, test])
     del train, test
 
-    add_shift(merged_df=complete,
-              words=words,
-              max_lag=max_lag,
-              verbose=verbose)
+    if not dynamic_fs:
+        add_shift(merged_df=complete,
+                  words=words,
+                  max_lag=max_lag,
+                  verbose=verbose)
     complete = complete.fillna(0.0)
 
-    if fs_method in ["sfi", "mdi", "mda"]:
+    if (fs_method in ["sfi", "mdi", "mda"]) and (not dynamic_fs):
 
         select = get_selected_features(ticker_name=ticker_name,
                                        out_folder="indices",
                                        fs_method=fs_method,
                                        path_list=path_list)
 
-    elif fs_method in ["granger", "huang"]:
+    elif (fs_method in ["granger", "huang"]) and (not dynamic_fs):
 
         select = get_features_granger_huang(ticker_name=ticker_name,
                                             out_folder="indices",
                                             fs_method=fs_method,
                                             path_list=path_list)
 
-    elif fs_method in ["IAMB", "MMMB"]:
+    elif (fs_method in ["IAMB", "MMMB"]) and (not dynamic_fs):
 
         select = get_features_IAMB_MMMB(ticker_name=ticker_name,
                                         out_folder="indices",
@@ -729,23 +769,25 @@ def forecast(ticker_name,
                                         path_list=path_list)
 
     else:
-        assert fs_method == "all"
-        select = complete.drop(labels=words + [target_name], axis=1).columns.to_list()
+        select = words
 
     complete_selected = complete[[target_name] + select]
 
-    pred_results = annualy_fit_and_predict(df=complete_selected,
-                                           init_steps=init_steps,
-                                           predict_steps=predict_steps,
-                                           Wrapper=Wrapper,
-                                           n_iter=n_iter,
-                                           n_jobs=n_jobs,
-                                           n_splits=n_splits,
-                                           target_name=target_name,
-                                           seed=seed,
-                                           verbose=verbose)
+    pred_results, fs_results = annualy_fit_and_predict(df=complete_selected,
+                                                       init_steps=init_steps,
+                                                       predict_steps=predict_steps,
+                                                       Wrapper=Wrapper,
+                                                       n_iter=n_iter,
+                                                       n_jobs=n_jobs,
+                                                       n_splits=n_splits,
+                                                       target_name=target_name,
+                                                       seed=seed,
+                                                       verbose=verbose,
+                                                       dynamic_fs=dynamic_fs,
+                                                       max_lag=max_lag,
+                                                       fs_method=fs_method)
 
-    return pred_results
+    return pred_results, fs_results
 
 
 def forecast_comb(ticker_name,

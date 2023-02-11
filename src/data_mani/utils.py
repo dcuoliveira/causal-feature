@@ -23,7 +23,7 @@ def target_ret_to_directional_movements(x, y_name):
     # alternativa
     # x.loc[:, y_name] = (x[y_name]>0).astype(int).values
     
-    x[y_name] = [1 if r > 0 else 0 for r in x[y_name]]
+    x.loc[:, y_name] = (x[y_name]>0).astype(int).values
 
     return x
 
