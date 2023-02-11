@@ -29,12 +29,12 @@ def main():
                         
     parser.add_argument('init_steps',
                         type=int,
-                        help='name of the ML model',
-                        default=252)
+                        help='number of periods to initialize the tscv',
+                        default=52)
     parser.add_argument('predict_steps',
                         type=int,
                         help='name of the ML model',
-                        default=5)
+                        default=1)
 
     parser.add_argument('-i',
                         '--n_iter',
