@@ -719,7 +719,7 @@ def forecast(ticker_name,
              seed,
              verbose=1,
              target_name="target_return",
-             max_lag=20,
+             max_lag=5,
              dynamic_fs=False):
     """
     Function to perform the predition using one ticker,
