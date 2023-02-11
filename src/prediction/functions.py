@@ -10,7 +10,8 @@ from sklearn.preprocessing import StandardScaler
 
 from data_mani.utils import merge_market_and_gtrends, target_ret_to_directional_movements
 from data_mani.visu import *
-from feature_selection.huang import run_granger_causality
+from feature_selection.huang import run_granger_causality, run_huang_methods
+
 
 def aggregate_prediction_results(prediction_models,
                                  fs_models,
@@ -620,26 +621,43 @@ def annualy_fit_and_predict(df,
                 result = run_granger_causality(merged_df=train_ys,
                                                target_name="target_return",
                                                words=list(df.drop([target_name], axis=1).columns),
-                                               max_lag=4,
+                                               max_lag=max_lag,
                                                verbose=False,
                                                sig_level=0.05,
                                                constant_threshold=0.9)
+            elif fs_method == "huang":
+                result = run_huang_methods(merged_df=train_ys,
+                                           target_name="target_return",
+                                           words=list(df.drop([target_name], axis=1).columns),
+                                           max_lag=max_lag,
+                                           verbose=False,
+                                           sig_level=0.05,
+                                           constant_threshold=0.9)
+                
+            if result is None:
+                target_features = []
+                for w in features:
+                    for l in range(1, max_lag + 1):
+                        target_features.append("{}_{}".format("_".join(w.split(" ")), l))
+            else:
+                target_features = list(result["feature"])
                 
             add_shift(merged_df=train_ys,
                       words=features,
                       max_lag=max_lag,
                       verbose=verbose)
             train_ys = train_ys.fillna(0.0)
-            train_ys = train_ys[["target_return"] + list(result["feature"])]
+
+            train_ys = train_ys[["target_return"] + target_features]
 
             add_shift(merged_df=test_ys,
                       words=features,
                       max_lag=max_lag,
                       verbose=verbose)
             test_ys = test_ys.fillna(0.0)
-            test_ys = test_ys[["target_return"] + list(result["feature"])]
+            test_ys = test_ys[["target_return"] + target_features]
 
-            tmp_features = pd.DataFrame(list(result["feature"]))
+            tmp_features = pd.DataFrame(target_features)
             tmp_features[train_ys.index[-1]] = 1
             tmp_features = tmp_features.T
             tmp_features.columns = list(tmp_features.iloc[0,:])
