@@ -61,6 +61,11 @@ def main():
                         action="store_true",
                         default=True,
                         help="print training results stages (default=True)")  # noqa
+    parser.add_argument("-d",
+                        "--dynamic_fs",
+                        type=bool,
+                        default=True,
+                        help="to use dynamic fs procedure")  # noqa
     args = parser.parse_args()
 
     # selecting the ML model
@@ -85,6 +90,7 @@ def main():
                             n_splits=args.n_splits,
                             n_jobs=args.n_jobs,
                             verbose=args.verbose,
+                            dynamic_fs=args.dynamic_fs,
                             seed=args.seed)
 
     # saving forecast on the results folder
