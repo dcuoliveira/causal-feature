@@ -14,9 +14,9 @@ from prediction.models import LogisticRegWrapper
 from prediction.functions import forecast
 
 ticker_name = "SPX Index"
-fs_method = "granger"
-init_steps=252
-predict_steps=5
+fs_method = "huang"
+init_steps = 104
+predict_steps = 1
 Wrapper = LogisticRegWrapper
 model_name = Wrapper().model_name
 n_iter = 1
@@ -28,17 +28,17 @@ dynamic_fs = True
 
 if __name__ == '__main__':
     init = time()
-    pred_results, fs_results= forecast(ticker_name=ticker_name,
-                                       fs_method=fs_method,
-                                       init_steps=init_steps,
-                                       predict_steps=predict_steps,
-                                       Wrapper=Wrapper,
-                                       n_iter=n_iter,
-                                       n_splits=n_splits,
-                                       n_jobs=n_jobs,
-                                       dynamic_fs=dynamic_fs,
-                                       verbose=verbose,
-                                       seed=seed)
+    pred_results, fs_results = forecast(ticker_name=ticker_name,
+                                        fs_method=fs_method,
+                                        init_steps=init_steps,
+                                        predict_steps=predict_steps,
+                                        Wrapper=Wrapper,
+                                        n_iter=n_iter,
+                                        n_splits=n_splits,
+                                        n_jobs=n_jobs,
+                                        dynamic_fs=dynamic_fs,
+                                        verbose=verbose,
+                                        seed=seed)
 
     # saving forecast on the results folder
     out_path_list = [os.path.dirname(__file__),

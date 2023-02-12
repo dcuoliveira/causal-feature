@@ -81,17 +81,17 @@ def main():
     Wrapper = model_dict[args.model_name]
 
     init = time()
-    pred_results = forecast(ticker_name=args.ticker_name,
-                            init_steps=args.init_steps,
-                            predict_steps=args.predict_steps,
-                            fs_method=args.fs_method,
-                            Wrapper=Wrapper,
-                            n_iter=args.n_iter,
-                            n_splits=args.n_splits,
-                            n_jobs=args.n_jobs,
-                            verbose=args.verbose,
-                            dynamic_fs=args.dynamic_fs,
-                            seed=args.seed)
+    pred_results, fs_results = forecast(ticker_name=args.ticker_name,
+                                        init_steps=args.init_steps,
+                                        predict_steps=args.predict_steps,
+                                        fs_method=args.fs_method,
+                                        Wrapper=Wrapper,
+                                        n_iter=args.n_iter,
+                                        n_splits=args.n_splits,
+                                        n_jobs=args.n_jobs,
+                                        verbose=args.verbose,
+                                        dynamic_fs=args.dynamic_fs,
+                                        seed=args.seed)
 
     # saving forecast on the results folder
     out_path_list = ["results", "forecast", args.fs_method, "indices",
@@ -101,6 +101,20 @@ def main():
     if not os.path.exists(out_folder):
         os.mkdir(out_folder)
     pred_results.to_csv(out_path, index=False)
+
+    # saving features on the results folder
+    out_path_list = [os.path.dirname(__file__),
+                     "results",
+                     "features",
+                     args.fs_method,
+                     "indices",
+                     args.model_name,
+                     "{}.csv".format(args.ticker_name)]
+    out_folder = os.path.join(*out_path_list[:-1])
+    out_path = os.path.join(*out_path_list)
+    if not os.path.exists(out_folder):
+        os.mkdir(out_folder)
+    fs_results.to_csv(out_path, index=False)
 
     tempo = (time() - init) / 60
     print("\nDONE\ntotal run time = ", np.round(tempo, 2), "min")
