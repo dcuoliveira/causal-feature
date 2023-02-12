@@ -681,6 +681,13 @@ def annualy_fit_and_predict(df,
             test_ys = test_ys.fillna(0.0)
             test_ys = test_ys[["target_return"] + target_features]
 
+            tmp_features = pd.DataFrame(train_ys.drop([target_name], axis=1).columns)
+            tmp_features[train_ys.index[-1]] = 1
+            tmp_features = tmp_features.T
+            tmp_features.columns = list(tmp_features.iloc[0,:])
+            tmp_features = tmp_features.drop(0, axis=0)
+            all_fs.append(tmp_features)
+
         store_train_target = train_ys[target_name].values
         store_test_target = test_ys[target_name].values
 
