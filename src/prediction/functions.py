@@ -727,7 +727,9 @@ def annualy_fit_and_predict(df,
         else:
             pass
     pred_results = pd.concat(all_preds).reset_index(drop=True)
-    all_fs_df = pd.concat(all_fs)
+
+    if len(all_fs) == 0:
+        all_fs_df = None
 
     return pred_results, all_fs_df
 

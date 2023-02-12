@@ -54,19 +54,20 @@ if __name__ == '__main__':
         os.mkdir(out_folder)
     pred_results.to_csv(out_path, index=False)
 
-    # saving features on the results folder
-    out_path_list = [os.path.dirname(__file__),
-                     "results",
-                     "features",
-                     fs_method,
-                     "indices",
-                     model_name,
-                     "{}.csv".format(ticker_name)]
-    out_folder = os.path.join(*out_path_list[:-1])
-    out_path = os.path.join(*out_path_list)
-    if not os.path.exists(out_folder):
-        os.mkdir(out_folder)
-    fs_results.to_csv(out_path, index=False)
+    if fs_results is not None:
+        # saving features on the results folder
+        out_path_list = [os.path.dirname(__file__),
+                        "results",
+                        "features",
+                        fs_method,
+                        "indices",
+                        model_name,
+                        "{}.csv".format(ticker_name)]
+        out_folder = os.path.join(*out_path_list[:-1])
+        out_path = os.path.join(*out_path_list)
+        if not os.path.exists(out_folder):
+            os.mkdir(out_folder)
+        fs_results.to_csv(out_path, index=False)
 
     tempo = (time() - init) / 60
     print("\nDONE\ntotal run time = ", np.round(tempo, 2), "min")
