@@ -616,7 +616,7 @@ def annualy_fit_and_predict(df,
         train_ys = df[:t]
         test_ys = df[t:(t + predict_steps)]
         
-        if dynamic_fs:
+        if (dynamic_fs) and (fs_method != "all"):
             if fs_method == "granger":
                 result = run_granger_causality(merged_df=train_ys,
                                                target_name="target_return",
@@ -632,8 +632,7 @@ def annualy_fit_and_predict(df,
                                            max_lag=max_lag,
                                            verbose=False,
                                            sig_level=0.05,
-                                           constant_threshold=0.9)
-                
+                                           constant_threshold=0.9)                
             if result is None:
                 target_features = []
                 for w in features:
@@ -647,7 +646,6 @@ def annualy_fit_and_predict(df,
                       max_lag=max_lag,
                       verbose=verbose)
             train_ys = train_ys.fillna(0.0)
-
             train_ys = train_ys[["target_return"] + target_features]
 
             add_shift(merged_df=test_ys,
@@ -663,6 +661,25 @@ def annualy_fit_and_predict(df,
             tmp_features.columns = list(tmp_features.iloc[0,:])
             tmp_features = tmp_features.drop(0, axis=0)
             all_fs.append(tmp_features)
+        elif (dynamic_fs) and (fs_method == "all"):
+            target_features = []
+            for w in features:
+                for l in range(1, max_lag + 1):
+                    target_features.append("{}_{}".format("_".join(w.split(" ")), l))
+
+            add_shift(merged_df=train_ys,
+                      words=features,
+                      max_lag=max_lag,
+                      verbose=verbose)
+            train_ys = train_ys.fillna(0.0)
+            train_ys = train_ys[["target_return"] + target_features]
+            
+            add_shift(merged_df=test_ys,
+                      words=features,
+                      max_lag=max_lag,
+                      verbose=verbose)
+            test_ys = test_ys.fillna(0.0)
+            test_ys = test_ys[["target_return"] + target_features]
 
         store_train_target = train_ys[target_name].values
         store_test_target = test_ys[target_name].values

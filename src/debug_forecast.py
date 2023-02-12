@@ -14,7 +14,7 @@ from prediction.models import LogisticRegWrapper
 from prediction.functions import forecast
 
 ticker_name = "SPX Index"
-fs_method = "huang"
+fs_method = "all"
 init_steps = 104
 predict_steps = 1
 Wrapper = LogisticRegWrapper
