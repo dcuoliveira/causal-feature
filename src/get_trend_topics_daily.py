@@ -88,7 +88,7 @@ def get_daily_trend_from_word_list(kw_list):
         for sample in range(SAMPLES):
 
             target_path = os.path.join(os.path.dirname(__file__), "data", "all_daily_trends", "daily_trends{}".format(sample))
-            target_path_check = os.path.exists(os.path.join(target_path, "{}.csv".format(kw)))
+            target_path_check = os.path.exists(os.path.join(target_path, "{}.csv".format(final_kw)))
             if target_path_check:
                 continue
 
