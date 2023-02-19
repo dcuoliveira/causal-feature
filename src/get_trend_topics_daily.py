@@ -112,6 +112,7 @@ def get_daily_trend_from_word_list(kw_list):
                     except BaseException:
                         time.sleep(SLEEPTIME)
             if len(daily_dfs) == 0:
+                print("No GT data for {}".format(final_kw))
                 continue
             daily_agg_df = pd.concat(daily_dfs, axis=0).groupby("date").mean()
 
